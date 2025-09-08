@@ -1,0 +1,58 @@
+=== Umleitungen
+
+Eine weitere gängige Problemstellung bei der Suchmaschinenoptimierung
+ist das Umleiten von ehemaligen URLs, damit diese weder für Nutzer noch
+für Suchmaschinen ins Leere laufen. Glücklicherweise gibt uns Joomla!
+auch hier das passende Werkzeuge an die Hand, denn es gibt die
+Core-eigene Komponente _Umleitungen_, die man unter dem Punkt
+Komponenten ++>++ Umleitungen findet.
+
+Beim ersten Aufruf der Komponente weißt diese uns darauf hin, dass
+zuerst das zugehörige Plugin _System – Umleitungen_ aktiviert werden
+muss, damit die Erweiterung funktionieren kann. Öffnen wir die
+Einstellungen dieses Plugins (siehe Bild 13.9) finden wir dort neben den
+„üblichen“ Einstellungen für Plugins und der gesuchten Möglichkeit den
+_Status_ zu verändern auch den standardmäßig aktivierten Parameter _URLs
+sammeln_.
+
+image:media/image15.png[media/image15,width=548,height=235]
+
+Bild 13.9 Parameter des Plugins _System – Umleitung_
+
+Ist der Parameter aktiviert, wird jeder „falsche“ Aufruf auf einer
+Joomla-Seite, der einen 404-Fehler erzeugt, in einer Datenbanktabelle
+gespeichert und kann so anschließend geprüft und falls gewünscht auf die
+korrekte URL weitergeleitet werden (siehe Bild 13.10).
+
+image:media/image16.png[media/image16,width=548,height=128]
+
+Bild 13.1 Umleitungs-Erweiterung mit zwei aufgezeichneten 404 Aufrufen
+
+Der entsprechende Eintrag kann nun angeklickt werden, um im zugehörigen
+Formular die gewünschte _Neue Adresse_ setzen kann. Eine alternative zum
+Aufzeichnen von 404-Aufrufen ist das manuelle Anlegen von Umleitungen
+über die entsprechende Schaltfläche _Neu_ in der Toolbar.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Die Option „URLs sammeln“ sollte auf Live-Seiten nicht
+dauerhaft aktiv sein, da es in der Erweiterung keine Begrenzung für eine
+Maximalanzahl an URLs gibt. Man kann sich somit unbeabsichtigt die
+Datenbank vollmüllen.
+|===
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+Bei einer größeren Anzahl von Umleitungen ist die manuelle Weiterleitung
+natürlich etwas unpraktisch, daher verfügt die Erweiterung über den
+Toolbar-Button _Massenimport_ über den eine ganze Liste von Einträgen
+importiert werden kann, die dabei im Format +
+alte-url1{vbar}neue-url1 +
+alte-url2{vbar}neue-url2
+
+vorliegen müssen.
+
+|===

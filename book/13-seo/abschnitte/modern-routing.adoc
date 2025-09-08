@@ -1,0 +1,37 @@
+=== „Modernes“ Routing
+
+Die im letzten beschriebenen Defizite in der URL-Generierung (jede Seite
+hat eine Vielzahl von gültigen URLs) haben dazu gefördert, dass bereits
+seit einiger Zeit an einem neuen System zur Generierung und Zuordnung
+von URLs (im Fachjargon „_Routing_“ genannt) gearbeitet wird. Dieses
+neue System soll zugleich auch die „hässlichen“ IDs entfernen, die
+Joomla im aktuellen Routing-System an einigen Stellen in der URL
+integriert (z.B.: index.php/obstsorten/aepfel/6-garant).
+
+Dabei liegt auf der Hand, dass das neue _Routing_-System (bei Joomla!
+als _modernes Routing_ bezeichnet) nur als optionales System eingebunden
+werden kann und das bisherige System (genannt _Legacy Routing_) noch
+erhalten bleiben muss, da ja sonst bestehende Seiten bei der Umstellung
+auf die aktuelle Joomla-Version plötzlich ihre URLs verändern würden
+womit zahlreiche Links ins Leere laufen.
+
+Die Auswahl zwischen _Legacy_ und _Modern_ Routing erfolgt dabei für
+jede Erweiterung separat, eine globalen Schalter für die gesamte Seite
+gibt es nicht. Der entsprechende Parameter befindet sich dabei in der
+Regel im Reiter _Integration_ und heißt _URL Routing_, siehe Bild 13.8.
+
+image:media/image14.png[media/image14,width=548,height=161]
+
+Bild 13.8 Parameter zur Anpassung des _URL Routing_ der
+Beitragskomponente
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Das neue Routing ist zwar ein sehr heiß ersehntes Feature,
+aufgrund der hohen Komplexität des Themas und der schier
+unüberschaubaren Anzahl an möglichen Szenarien ist jedoch davon
+auszugehen, dass das System noch an einigen Kinderkrankheiten leiden
+wird. Daher würde ich bei sehr umfangreichen oder geschäftskritischen
+zum jetzigen Zeitpunkt noch zur Vorsicht beim Einsatz raten.
+|===

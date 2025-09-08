@@ -1,0 +1,48 @@
+=== Meta-Daten
+
+Bei Suchmaschinenoptimierung denkt man im ersten Schritt oft an die
+bekannten Meta-Keywords und die Meta-Description, die eine für
+Suchmaschinen optimierte Kurzfassung der Inhalte der jeweiligen Seite
+bieten sollen. Inzwischen ist es jedoch so, dass nahezu alle größeren
+Suchmaschinen die Meta-Keywords und die -Description nicht mehr in das
+Suchmaschinenranking einbeziehen, sondern nur die Meta-Description zur
+Darstellung in Suchergebnissen nutzen (siehe Bild 13.1). Weiterhin
+verfügt Joomla! über einen Meta-Eintrag, der den Autor des jeweiligen
+Inhalts sowie seine Lizenz ausgibt.
+
+Die Meta-Daten einer Joomla!-Seite können wir nun an drei verschiedenen
+Stellen anpassen, wobei sich die einzelnen Einträge in bekannter Art und
+Weise überschreiben:
+
+* Festlegung allgemeiner Meta-Daten in der Joomla!-Konfiguration unter
+System ++>++ Konfiguration. Diese Daten fungieren als Vorgabe, falls
+keine individuellen Meta-Daten auf _Eintrags_- oder _Menüebene_
+festgelegt sind (Bild 13.2).
+* Eingabe der Meta-Daten für einen bestimmten Eintrag (_Beitrag,
+Kategorie, Kontakt_ etc.) im Bearbeitungsformular des jeweiligen
+Eintrags. Diese Daten überschreiben die allgemeinen Meta-Daten (Bild
+13.3).
+* Eingabe der Meta-Daten für einen bestimmen _Menüeintrag_ im
+Editierungsformular des Eintrags. Diese Daten überschreiben die
+allgemeinen und die eintragsspezifischen Daten (Bild 13.4).
+
+image:/book/13-seo/media/2.png[/book/13-seo/media/2,width=548,height=377]
+
+BILD 13.1 Meta-Description von joomla.de, die in den Suchergebnissen
+dargestellt wird
+
+image:/book/13-seo/media/4.png[/book/13-seo/media/4,width=548,height=335]
+
+BILD 13.2 Meta-Daten der globalen Konfiguration unter Site ++>++
+Konfiguration
+
+image:/book/13-seo/media/6.png[/book/13-seo/media/6,width=548,height=320]
+
+BILD 13.3 Meta-Daten im Formular zur Editierung eines Beitrags
+
+image:/book/13-seo/media/8.png[/book/13-seo/media/8,width=548,height=229]
+
+BILD 13.4 Meta-Daten im Formular zur Editierung eines Menüeintrags
+
+Über dieses System der sich überschreibenden Meta-Daten ist es möglich,
+allgemeine Daten zu setzen, die nur falls nötig überschrieben werden.
