@@ -15,7 +15,7 @@ Einstellungen dieses Plugins (siehe Bild 13.9) finden wir dort neben den
 _Status_ zu verändern auch den standardmäßig aktivierten Parameter _URLs
 sammeln_.
 
-image:media/image15.png[media/image15,width=548,height=235]
+image:book/13-seo/media/15.png[book/13-seo/media/15,width=548,height=235]
 
 Bild 13.9 Parameter des Plugins _System – Umleitung_
 
@@ -24,7 +24,7 @@ Joomla-Seite, der einen 404-Fehler erzeugt, in einer Datenbanktabelle
 gespeichert und kann so anschließend geprüft und falls gewünscht auf die
 korrekte URL weitergeleitet werden (siehe Bild 13.10).
 
-image:media/image16.png[media/image16,width=548,height=128]
+image:book/13-seo/media/16.png[book/13-seo/media/16,width=548,height=128]
 
 Bild 13.1 Umleitungs-Erweiterung mit zwei aufgezeichneten 404 Aufrufen
 

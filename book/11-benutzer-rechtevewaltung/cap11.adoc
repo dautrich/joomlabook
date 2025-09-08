@@ -30,7 +30,7 @@ freigegeben wurde
 * _Letzter Besuch:_ Datum des letzten Login des Benutzers
 * _Registrierungsdatum:_ Datum der Registrierung
 
-image:media/image2.png[media/image2,width=548,height=153]
+image:book/11-benutzer-rechtevewaltung/media/2.png[book/11-benutzer-rechtevewaltung/media/2,width=548,height=153]
 
 BILD 11.1 Benutzerverwaltung – Übersicht der Nutzer
 
@@ -71,7 +71,7 @@ bedenken Sie aber, dass Sie so beispielsweise die Möglichkeit erhalten,
 weniger erfahrenen Nutzern einen Editor zur Verfügung zu stellen, der
 seinen Fähigkeiten entspricht.
 
-image:media/image4.png[media/image4,width=548,height=333]
+image:book/11-benutzer-rechtevewaltung/media/4.png[book/11-benutzer-rechtevewaltung/media/4,width=548,height=333]
 
 BILD 11.2 Anlegen eines neuen Benutzers
 
@@ -135,7 +135,7 @@ macht das Rechtesystem sehr flexibel und zugleich leichter zu
 administrieren, da es weniger „Stellschrauben“ gibt, die verändert
 werden müssen.
 
-image:media/image5.png[media/image5,width=548,height=411]
+image:book/11-benutzer-rechtevewaltung/media/5.png[book/11-benutzer-rechtevewaltung/media/5,width=548,height=411]
 
 Bild 11.3 Rechtestruktur der hypothetischen Schulwebsite
 
@@ -158,7 +158,7 @@ unterstützt. Diese finden wir in der _Benutzergruppen_-Übersicht, die
 wir durch einen Klick auf den Submenü-Eintrag Benutzergruppen in der
 Benutzerübersicht erreichen.
 
-image:media/image6.png[media/image6,width=548,height=222]
+image:book/11-benutzer-rechtevewaltung/media/6.png[book/11-benutzer-rechtevewaltung/media/6,width=548,height=222]
 
 BILD 11.4 Benutzergruppen-Übersicht
 
@@ -244,7 +244,7 @@ Formular ist dabei sehr rudimentär und fragt im Wesentlichen nur ab, wie
 die neue _Gruppe_ heißen und von welcher _Gruppe_ sie die bestehenden
 Rechte erben soll.
 
-image:media/image9.png[media/image9,width=548,height=129]
+image:book/11-benutzer-rechtevewaltung/media/9.png[book/11-benutzer-rechtevewaltung/media/9,width=548,height=129]
 
 BILD 11.5 Anlegen einer neuen Benutzergruppe
 
@@ -288,7 +288,7 @@ Administrator“ betrachtet werden.
 Die entsprechende Verwaltung der Zugriffsebenen erfolgt im gleichnamigen
 Submenü-Bereich der Benutzerverwaltung.
 
-image:media/image11.png[media/image11,width=548,height=163]
+image:book/11-benutzer-rechtevewaltung/media/11.png[book/11-benutzer-rechtevewaltung/media/11,width=548,height=163]
 
 BILD 11.6 Übersicht der angelegten Zugriffsebenen
 
@@ -300,7 +300,7 @@ _Zugriffsebene_ also der Gruppe „Autor“ zugeordnet, so können auch
 „Editoren“ und „Publisher“ Inhalte mit der entsprechenden
 _Zugriffsebene_ betrachten.
 
-image:media/image13.png[media/image13,width=548,height=304]
+image:book/11-benutzer-rechtevewaltung/media/13.png[book/11-benutzer-rechtevewaltung/media/13,width=548,height=304]
 
 BILD 11.7 Anlegen einer neuen Zugriffsebene
 
@@ -343,7 +343,7 @@ Eintragsfootnote:[Ein Eintrag kann dabei jedwede Art von Inhalt sein,
 also z.B. ein Beitrag, ein Modul, ein Menüeintrag, ein Weblink oder ein
 Benutzer.]-Ebene.
 
-image:media/image14.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++11++\++Bild661.PNG,width=331,height=293]
+image:book/11-benutzer-rechtevewaltung/media/14.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++11++\++Bild661.PNG,width=331,height=293]
 
 BILD 11.8 Vererbung der Berechtigungen
 
@@ -357,7 +357,7 @@ Ebene konfiguriert werden können. Die System-Berechtigungen finden wir
 im Tab _Berechtigungen_ der Konfiguration (_System_ _++>++
 Konfiguration_) im Backend unserer Installation.
 
-image:media/image16.png[media/image16,width=548,height=354]
+image:book/11-benutzer-rechtevewaltung/media/16.png[book/11-benutzer-rechtevewaltung/media/16,width=548,height=354]
 
 BILD 11.9 __Berechtigungs__übersicht in der Systemkonfiguration
 
@@ -370,7 +370,7 @@ In der Spalte _Errechnete Einstellungen_ findet sich der Status der
 jeweiligen Aktion wobei etwaige Änderungen sofort als Vorschau sichtbar
 aber noch nicht sofort gespeichert werden.
 
-image:media/image18.png[media/image18,width=548,height=273]
+image:book/11-benutzer-rechtevewaltung/media/18.png[book/11-benutzer-rechtevewaltung/media/18,width=548,height=273]
 
 BILD 11.10 _Berechtigungen_ der _Benutzergruppe_ Manager
 
@@ -432,7 +432,7 @@ Optionen der Komponente ohne Berechtigungen zu bearbeiten),
 _Administrationszugriff_ (erlaubt die Verwendung der Komponente),
 _Erstellen_, _Löschen_, _Bearbeiten_ und _Status bearbeiten_ beschränkt.
 
-image:media/image19.png[media/image19,width=548,height=250]
+image:book/11-benutzer-rechtevewaltung/media/19.png[book/11-benutzer-rechtevewaltung/media/19,width=548,height=250]
 
 BILD 11.11 Komponenten-Berechtigungen, hier am Beispiel der
 Menüverwaltung
@@ -467,7 +467,7 @@ möglichen Aktionen hier logischerweise auf den konkreten Fall angepasst
 ist und dadurch nur die Aktionen _Löschen_, _Bearbeiten_ und _Status
 bearbeiten_ zur Verfügung stehen.
 
-image:media/image22.png[media/image22,width=548,height=182]
+image:book/11-benutzer-rechtevewaltung/media/22.png[book/11-benutzer-rechtevewaltung/media/22,width=548,height=182]
 
 BILD 11.12 Eintragsberechtigungen, hier am Beispiel eines Beitrags
 
@@ -494,7 +494,7 @@ Zum Abschluss dieses Kapitels möchte ich noch auf die Parameter der
 Benutzerverwaltung eingehen, die wir, wie üblich, durch einen Klick auf
 den Toolbar-Button _Optionen_ in der Benutzerübersicht öffnen.
 
-image:media/image25.png[media/image25,width=548,height=324]
+image:book/11-benutzer-rechtevewaltung/media/25.png[book/11-benutzer-rechtevewaltung/media/25,width=548,height=324]
 
 BILD 11.13Parameter der _Benutzer_-Komponente
 

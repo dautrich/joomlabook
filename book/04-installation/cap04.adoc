@@ -22,7 +22,7 @@ verschiebe den fertigen Ordner in den sog. „Docroot“ meines lokalen
 Webservers (Windows: _C:/xampp/htdocs/_, OSX: _Programme/MAMP/htdocs_,
 Linux: _/var/www_).
 
-image:media/image2.png[media/image2,width=548,height=391]
+image:book/04-installation/media/2.png[book/04-installation/media/2,width=548,height=391]
 
 BILD 4.1 Verschieben des Ordners _JoomlaBuch_ in das
 _htdocs_-Verzeichnis des Webservers unter OS X
@@ -36,7 +36,7 @@ Login als Root, den Reiter _Datenbanken_ öffnen. Hier legen wir im
 unteren Bereich der Seite den Namen für die neue Datenbank an und
 speichern diese durch den Klick auf Anlegen.
 
-image:media/image3.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild463.PNG,width=547,height=317]
+image:book/04-installation/media/3.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild463.PNG,width=547,height=317]
 
 BILD 4.2 Erstellung einer lokalen MySQL-Datenbank mittels phpMyAdmin
 
@@ -56,7 +56,7 @@ Mindestvoraussetzungen für die Installation von Joomla! nicht, in diesem
 Fall erhalten Sie, wie in Abbildung 4.3 sichtbar, eine Auflistung der zu
 erfüllenden Parameter mit einer entsprechenden farblichen Hervorhebung.
 
-image:media/image4.png[media/image4,width=548,height=388]
+image:book/04-installation/media/4.png[book/04-installation/media/4,width=548,height=388]
 
 BILD 4.3 Prüfung der Serverumgebung während der Installation
 
@@ -180,7 +180,7 @@ und legen diese ins Hauptverzeichnis unserer Joomla!-Installation.
 Anschließend rufen wir die Datei über den Browser auf und können aus der
 phpinfo()-Ausgabe die Pfadangabe zu _php.ini_ ablesen.
 
-image:media/image8.png[media/image8,width=472,height=271]
+image:book/04-installation/media/8.png[book/04-installation/media/8,width=472,height=271]
 
 BILD 4.4 Ausgabe der phpinfo() mit Pfadangabe zur _php.ini_
 
@@ -209,7 +209,7 @@ nach der Lektüre der Lizenzbedingungen, mit der Installation fort.
 Im nächsten Schritt, fordert uns Joomla dabei auf, diverse Grunddaten
 anzugeben, die für die Installation benötigt werden.
 
-image:media/image9.png[media/image9,width=548,height=569]
+image:book/04-installation/media/9.png[book/04-installation/media/9,width=548,height=569]
 
 BILD 4.5 Erfassung der Grunddaten der Installation
 
@@ -317,7 +317,7 @@ eigentlich immer bei falsch eingetragenen Verbindungsdaten
 (Buchstabendreher, Leerzeichen oder Umlaut im Passwort oder
 Benutzernamen, falscher Servername) zu suchen.
 
-image:media/image11.png[media/image11,width=548,height=521]
+image:book/04-installation/media/11.png[book/04-installation/media/11,width=548,height=521]
 
 BILD 4.6 Konfiguration der Datenbankverbindung während der Installation
 
@@ -331,13 +331,13 @@ stehen hierbei:
 
 * Keine
 * Englische (GB) Beispieldaten:
-Bloginhalteimage:media/image13.png[media/image13,width=21,height=21]
+Bloginhalteimage:book/04-installation/media/13.png[book/04-installation/media/13,width=21,height=21]
 * Englische (GB) Beispieldaten:
-Prospektinhalteimage:media/image13.png[media/image13,width=21,height=21]
+Prospektinhalteimage:book/04-installation/media/13.png[book/04-installation/media/13,width=21,height=21]
 * Englische (GB) Beispieldaten: Standardinhalte
-* image:media/image13.png[media/image13,width=21,height=21]Englische
+* image:book/04-installation/media/13.png[book/04-installation/media/13,width=21,height=21]Englische
 (GB) Beispieldaten: Joomla!
-erlernenimage:media/image13.png[media/image13,width=21,height=21]
+erlernenimage:book/04-installation/media/13.png[book/04-installation/media/13,width=21,height=21]
 * Englische (GB) Beispieldaten: Testinhalte
 
 Im Regelfall sollten Sie hier die Option _Keine_ wählen, da die in
@@ -346,7 +346,7 @@ uninteressant sind und dann händisch wieder entfernt werden müssten. Ein
 weiterer Vorteil ist, dass die Installation ohne Beispieldaten uns
 erlaubt, Joomla direkt für mehrsprachige Websites einzurichten.
 
-image:media/image14.png[media/image14,width=548,height=320]
+image:book/04-installation/media/14.png[book/04-installation/media/14,width=548,height=320]
 
 Bild 4.7 Auswahl des zu installierenden Beispieldatensatzes
 
@@ -365,7 +365,7 @@ prominent platzierten Button (siehe Abb. 4.8) durchführen.
 Nun können wir unsere neue Seite über den Klick auf den Button _Website_
 aufrufen.
 
-image:media/image15.png[media/image15,width=548,height=501]
+image:book/04-installation/media/15.png[book/04-installation/media/15,width=548,height=501]
 
 Bild 4.8 Erfolgreicher Abschluss der Installation
 
@@ -401,7 +401,7 @@ man die entsprechenden FTP-Serverdaten ein und aktiviert die
 FTP-Funktion durch die Betätigung des Buttons _Ja_ im entsprechenden
 Dialog (siehe Abb. 4.9).
 
-image:media/image16.png[media/image16,width=548,height=375]
+image:book/04-installation/media/16.png[book/04-installation/media/16,width=548,height=375]
 
 Bild 4.9 Eingabe der FTP-Zugangsdaten während der Joomla-Installation
 
@@ -414,7 +414,7 @@ feststellen, indem man mit einem FTP-Client wie _Filezilla_ zur
 entsprechenden Joomla!-Installation navigiert und dann den dort
 angegebenen Pfad auf dem Server überträgt.
 
-image:media/image18.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild834.PNG,width=547,height=389]
+image:book/04-installation/media/18.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild834.PNG,width=547,height=389]
 
 |===
 
@@ -454,11 +454,11 @@ Dafür wählen Sie die gewünschten Zusatzsprachen aus (siehe Abb. 4.10)
 und aktivieren im folgenden Schritt die Mehrsprachigkeitsfunktion (siehe
 Abb. 4.11) und wählen die gewünschte Standardsprache aus.
 
-image:media/image19.png[media/image19,width=548,height=376]
+image:book/04-installation/media/19.png[book/04-installation/media/19,width=548,height=376]
 
 Bild 4.10 Auswahl der zu installierenden, zusätzlichen Sprachpakete
 
-image:media/image20.png[media/image20,width=548,height=473]
+image:book/04-installation/media/20.png[book/04-installation/media/20,width=548,height=473]
 
 Bild 4.11 Konfiguration der Mehrsprachigkeitsfunktion während des
 Installationsprozesses
@@ -517,7 +517,7 @@ Würden wir also Joomla! in einen Unterordner ablegen, so müssten wir
 später erst eine umständliche Weiterleitung einrichten, damit beim
 Aufruf von domain.tld auch tatsächlich unsere Installation erscheint.
 
-image:media/image23.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild896.PNG,width=547,height=389]
+image:book/04-installation/media/23.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild896.PNG,width=547,height=389]
 
 BILD 4.11 Transfer der Joomla!-Installation auf den Server mittels
 FileZilla
@@ -602,7 +602,7 @@ Bild-Manager des Editors) immer wieder auftauchen und Verwirrung
 stiften. Lediglich die dort ebenfalls vorhandene _index.html_ sollte aus
 Sicherheitsgründen erhalten bleiben.
 
-image:media/image24.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild1025.PNG,width=547,height=344]
+image:book/04-installation/media/24.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild1025.PNG,width=547,height=344]
 
 BILD 4.12 _/images_-Verzeichnis nach dem Entfernen der Beispieldaten
 

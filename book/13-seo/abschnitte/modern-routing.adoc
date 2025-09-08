@@ -20,7 +20,7 @@ jede Erweiterung separat, eine globalen Schalter für die gesamte Seite
 gibt es nicht. Der entsprechende Parameter befindet sich dabei in der
 Regel im Reiter _Integration_ und heißt _URL Routing_, siehe Bild 13.8.
 
-image:media/image14.png[media/image14,width=548,height=161]
+image:book/13-seo/media/14.png[book/13-seo/media/14,width=548,height=161]
 
 Bild 13.8 Parameter zur Anpassung des _URL Routing_ der
 Beitragskomponente

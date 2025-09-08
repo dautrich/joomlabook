@@ -53,7 +53,7 @@ der den Betrieb in der alten und neuen Version erlaubt.
 Nachdem diese theoretischen Überlegungen verinnerlicht sind, gilt es
 nun, diese in die Praxis umzusetzen.
 
-=== Schritt 1: Kopie erstellen 
+=== Schritt 1: Kopie erstellen
 
 Für unser Praxisbeispiel verwenden wir eine relativ simple Joomla 2.5
 Installation, die auf 3.x migriert werden soll. Im ersten Schritt
@@ -103,7 +103,7 @@ Liste absteigend nach der _ID_ der jeweiligen Erweiterung sortiert
 werden, da nachinstallierte Dritterweiterungen naturgemäß höhere IDs
 bekommen, als vorinstallierte _Core-Erweiterungen_ (Siehe Bild 22.1).
 
-image:media/image1.png[media/image1,width=548,height=328]
+image:book/22-updates-migration/media/1.png[book/22-updates-migration/media/1,width=548,height=328]
 
 Bild 22.1 Erweiterungsliste einer Joomla! 2.5 Installation, absteigend
 sortiert nach ID
@@ -193,14 +193,14 @@ Parameter finden wir nach einem Klick auf den Button Optionen in der
 Werkzeugleiste der Erweiterung. Der korrekte Server für ein Update auf
 3.x ist _Kurzzeit-Support_, siehe Bild 22.2.
 
-image:media/image2.png[media/image2,width=548,height=304]
+image:book/22-updates-migration/media/2.png[book/22-updates-migration/media/2,width=548,height=304]
 
 Bild 22.2 Auswahl des Aktualisierungsservers in Joomla! 2.5
 
 Nachdem wir den neuen Server durch einen Klick auf Speichern&Schließen
 bestätigt haben, wird uns das Update auf 3.x angeboten, siehe Bild 22.3.
 
-image:media/image3.png[media/image3,width=548,height=236]
+image:book/22-updates-migration/media/3.png[book/22-updates-migration/media/3,width=548,height=236]
 
 Bild 22.3 Aktualisierung einer 2.5 Installation auf 3.x
 
@@ -272,13 +272,13 @@ wechseln.
 | |
 |===
 
-=== 
+===
 
 * {blank}
 * {blank}
 * {blank}
 
-=== 
+===
 
 === Migration eigener Erweiterungen
 

@@ -50,7 +50,7 @@ bezeichnet, in einschlägigen Portalen gemeldet. Dort wird in einer Art
 Liga-System gezählt, welcher Teilnehmer wie viele Seiten unter seine
 Kontrolle bringen konnte.
 
-image:media/image1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild460.PNG,width=430,height=305]
+image:book/21-security/media/1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild460.PNG,width=430,height=305]
 
 BILD 21.1 Typische „verunstaltete“ Seite nach einem Angriff durch ein
 Script Kiddie
@@ -143,7 +143,7 @@ _title_ und _alias_ aus der Tabelle _#++__++content_ abzurufen, wenn die
 ID des jeweiligen Artikels dem Parameter contentid entspricht, der
 mittels URL (GET) oder POST-Request übergeben werden kann.
 
-image:media/image2.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild467.PNG,width=547,height=215]
+image:book/21-security/media/2.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild467.PNG,width=547,height=215]
 
 BILD 21.2 Ausgabe der com++_++sqlinject
 
@@ -164,7 +164,7 @@ Wodurch uns, neben dem _title_ und _alias_ des gewählten Inhalts, auch
 noch der Benutzername sowie der Passwort-Hash aller Benutzer ausgegeben
 werden.
 
-image:media/image3.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild476.PNG,width=547,height=222]
+image:book/21-security/media/3.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild476.PNG,width=547,height=222]
 
 BILD 21.3 Ausgabe des Skripts bei Ausnutzung der SQL-Injection-Lücke
 
@@ -237,13 +237,13 @@ die Datei nicht finden und wird uns bei aktiviertem
 _error++_++reporting_ eine Fehlermeldung ausgeben, die den Pfad unseres
 Skripts auf dem Server preisgibt.
 
-image:media/image4.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild484.PNG,width=547,height=147]
+image:book/21-security/media/4.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild484.PNG,width=547,height=147]
 
 Mit diesen Angaben wissen wir nun, wie wir uns in das Wurzelverzeichnis
 des Servers hangeln können, um dort an die Datei _/etc/passwd_ zu
 gelangen, die alle Benutzerinforma­tionen des Systems enthält.
 
-image:media/image5.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild491.PNG,width=547,height=379]
+image:book/21-security/media/5.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild491.PNG,width=547,height=379]
 
 BILD 21.4 Ausgabe des Skripts nach der Pfadmanipulation
 
@@ -330,7 +330,7 @@ Beim Aufruf mit einem entsprechenden Suchbegriff würde dabei eine Liste
 der Inhalte generiert werden, die den entsprechenden Begriff in der URL
 haben.
 
-image:media/image6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild781.PNG,width=547,height=239]
+image:book/21-security/media/6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild781.PNG,width=547,height=239]
 
 BILD 21.5 Ausgabe der Suchergebnisse
 
@@ -349,7 +349,7 @@ Nahezu alle Angriffe dieser Art lassen sich in Joomla! bereits durch
 Anwendung der korrekten Filter für JFilter vereiteln, wodurch bei
 konsequenter Nutzung der API XSS-Probleme die Ausnahme sein sollten.
 
-image:media/image7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild790.PNG,width=547,height=270]
+image:book/21-security/media/7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild790.PNG,width=547,height=270]
 
 BILD 21.6 Erfolgreiche XSS-Attacke über einen URL-Parameter
 
@@ -403,7 +403,7 @@ zufallsgenerierte Zeichenkette, das sog. Token, als verstecktes Feld im
 Formular hinterlegt und gleichzeitig in der Session des jeweiligen
 Benutzers gespeichert.
 
-image:media/image9.png[media/image9,width=548,height=374]
+image:book/21-security/media/9.png[book/21-security/media/9,width=548,height=374]
 
 BILD 21.7 Im Benutzerformular hinterlegtes Token
 
@@ -521,14 +521,14 @@ mit dem Gerät vorgenommen werden. Dabei werden gleichzeitig auch
 Notfall-Passwörter generiert, die sicher verwahrt werden sollten und zum
 Login verwendet werden können, wenn das Gerät gestohlen oder defekt ist.
 +
-image:media/image10.png[media/image10,width=548,height=297]
+image:book/21-security/media/10.png[book/21-security/media/10,width=548,height=297]
 
 Bild 21.8 Dialog zur Aktivierung der 2-Faktor-Authentifizierung
 
 Nach der Aktivierung fragt Joomla beim Login im Feld Sicherheitscode das
 jeweilige Authentifizierungs-Token ab, das vom Gerät generiert wird.
 
-image:media/image11.png[media/image11,width=548,height=196]
+image:book/21-security/media/11.png[book/21-security/media/11,width=548,height=196]
 
 Bild 21.9 Joomla-Login mit Dialog zur Abfrage des 2FA-Passworts
 

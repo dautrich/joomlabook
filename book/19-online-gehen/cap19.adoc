@@ -132,7 +132,7 @@ im Webserver gestartet werden. Der FTP-Server, den wir nutzen, um unsere
 Dateien hochzuladen, ordnet im Unterschied dazu jedem Kunden einen
 individuellen Benutzernamen zu, wodurch das folgende Konstrukt entsteht.
 
-image:media/image1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild607.PNG,width=318,height=252]
+image:book/19-online-gehen/media/1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild607.PNG,width=318,height=252]
 
 BILD 19.1 Abbildung der Rechtestruktur bei Verwendung von PHP als
 mod++_++php
@@ -175,7 +175,7 @@ Problem betroffen ist, verrät uns der folgende Eintrag in den
 PHP-Informationen, die im Joomla! Backend unter _Site ++>++
 Systeminformationen_ angezeigt werden können.
 
-image:media/image3.png[media/image3,width=548,height=226]
+image:book/19-online-gehen/media/3.png[book/19-online-gehen/media/3,width=548,height=226]
 
 BILD 19.2 Einbindung von PHP über den Apache 2.0 Handler von mod++_++php
 
@@ -188,7 +188,7 @@ für jeden Kunden eine individuelle FastCGI-Version von PHP erstellen, um
 diese dem jeweiligen FTP-Benutzer zuordnen zu können, was auf
 Mehrbenutzersystemen erforderlich ist.
 
-image:media/image4.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild623.PNG,width=314,height=252]
+image:book/19-online-gehen/media/4.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild623.PNG,width=314,height=252]
 
 BILD 19.3 Rechtestruktur bei der Einbindung von PHP als FastCGI
 
@@ -208,7 +208,7 @@ werden.
 Woran erkennt man nun also die korrekte Einbindung bei der Hoster-Suche?
 Auch hier hilft wieder ein Blick in die Ausgabe der PHP-Informationen.
 
-image:media/image5.png[media/image5,width=548,height=219]
+image:book/19-online-gehen/media/5.png[book/19-online-gehen/media/5,width=548,height=219]
 
 BILD 19.4 PHP-Informationen bei der Nutzung des FPM-Standards
 
@@ -261,7 +261,7 @@ Joomla!-Installation in das neue System hoch. Zu beachten ist dabei,
 dass man die Dateien in das Wurzelverzeichnis der jeweiligen Domain
 hochlädt, das in der Regel als _htdocs_ bzw. _httpdocs_ benannt ist.
 
-image:media/image7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild698.PNG,width=547,height=558]
+image:book/19-online-gehen/media/7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild698.PNG,width=547,height=558]
 
 BILD 19.5 Transfer der Dateien mittels FileZilla
 
@@ -272,7 +272,7 @@ verändern. Dafür erstellen wir zuerst eine passende Datenbank im
 Control-Panel unseres Hosters und öffnen dann die _configuration.php_
 auf dem Server zur Bearbeitung.
 
-image:media/image9.png[media/image9,width=548,height=547]
+image:book/19-online-gehen/media/9.png[book/19-online-gehen/media/9,width=548,height=547]
 
 BILD 19.6 Datenbank- und Verzeichniskonfiguration in der
 configuration.php
@@ -292,7 +292,7 @@ Anschließend laden wir diese Datei ebenfalls in das Wurzelverzeichnis
 unserer Domain hoch und rufen die Datei im Browser auf, was zu einer
 ähnlichen Ausgabe wie in Bild 19.7 führen sollte.
 
-image:media/image11.png[media/image11,width=548,height=329]
+image:book/19-online-gehen/media/11.png[book/19-online-gehen/media/11,width=548,height=329]
 
 BILD 19.7 Ausgabe des absoluten Pfads im pfadfinder-Skript
 
@@ -330,7 +330,7 @@ zur Administration der MySQL-Datenbank dient, und wählen in der linken
 Spalte die Datenbank unserer Joomla!-Installation aus. Anschließend
 gelangen wir durch einen Klick auf Exportieren zum Konfigurationsdialog.
 
-image:media/image13.png[media/image13,width=548,height=283]
+image:book/19-online-gehen/media/13.png[book/19-online-gehen/media/13,width=548,height=283]
 
 BILD 19.8 Tabellenübersicht der gewählten Datenbank im phpMyAdmin
 
@@ -341,7 +341,7 @@ gewähltem Ausgabeformat erhalten wir nun entweder eine _.sql_-Datei, die
 uns zum Download angeboten wird, oder die entsprechenden SQL-Befehle
 werden in einem Textfenster dargestellt.
 
-image:media/image14.png[media/image14,width=548,height=285]
+image:book/19-online-gehen/media/14.png[book/19-online-gehen/media/14,width=548,height=285]
 
 BILD 19.9 Ausgabe als Text
 
@@ -357,7 +357,7 @@ wir nun, falls uns eine .sql-Datei zum Download angeboten wurde, diese
 mittels einem Klick auf Importieren wieder hochladen und einspielen
 lassen.
 
-image:media/image16.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild738.PNG,width=547,height=405]
+image:book/19-online-gehen/media/16.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild738.PNG,width=547,height=405]
 
 BILD 19.10 Import im phpMyAdmin mittels Dateiimport
 
@@ -365,7 +365,7 @@ Sollten wir die Ausgabe der Datenbank in einem Textfenster erhalten
 haben, so können wir diese in den „SQL“-Dialog einfügen und einspielen
 lassen.
 
-image:media/image17.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild745.PNG,width=547,height=231]
+image:book/19-online-gehen/media/17.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++19++\++Bild745.PNG,width=547,height=231]
 
 BILD 19.11 Datenbankimport über „SQL“-Dialog
 
@@ -398,7 +398,7 @@ herunter, entpacken das entsprechende Archiv und laden die enthaltenen
 Dateien (konkret benötigen wir die de-DE.kickstart.ini und die
 kickstart.php) zum _.jpa_-Archiv in das Wurzelverzeichnis der Domain.
 
-image:media/image18.png[media/image18,width=548,height=372]
+image:book/19-online-gehen/media/18.png[book/19-online-gehen/media/18,width=548,height=372]
 
 BILD 19.12 Übersicht der hochgeladenen Dateien vor der Verwendung von
 Akeeba Kickstart
@@ -413,7 +413,7 @@ _domain.tld/kickstart.php_ (wobei _domain.tld_ natürlich durch unsere
 gewünschte Domain zu ersetzen ist), woraufhin das Kickstart-Skript uns
 anbietet, die Dateien nach dem Klick auf Start zu entpacken.
 
-image:media/image20.png[media/image20,width=548,height=541]
+image:book/19-online-gehen/media/20.png[book/19-online-gehen/media/20,width=548,height=541]
 
 BILD 19.13 Akeeba Kickstart extrahiert .jpa-Archive direkt auf dem
 Server und spart dadurch viel Transferzeit.
@@ -421,11 +421,11 @@ Server und spart dadurch viel Transferzeit.
 Anschließend entpackt Kickstart das Archiv und bietet uns nach Abschluss
 des Prozesses an, die Installationsroutine zu starten.
 
-image:media/image23.png[media/image23,width=548,height=228]
+image:book/19-online-gehen/media/23.png[book/19-online-gehen/media/23,width=548,height=228]
 
 BILD 19.14 Akeeba Kickstart während des Extrahierprozesses
 
-image:media/image25.png[media/image25,width=548,height=215]
+image:book/19-online-gehen/media/25.png[book/19-online-gehen/media/25,width=548,height=215]
 
 BILD 19.15 Aufforderung zum Start der Installationsroutine nach dem
 erfolgreichen Entpacken
@@ -438,7 +438,7 @@ anschließend die korrigierte _configuration.php_ abspeichert.
 Abschließend bietet uns der Installer noch an, das durch ihn verwendete
 Verzeichnis automatisch zu löschen.
 
-image:media/image27.png[media/image27,width=548,height=449]
+image:book/19-online-gehen/media/27.png[book/19-online-gehen/media/27,width=548,height=449]
 
 BILD 19.16 Akeeba Backup Installer fragt alle relevanten Parameter zur
 Wiederherstellung ab.
@@ -448,7 +448,7 @@ separaten Tab bzw. Fenster weiterhin geöffnet ist, wird uns auch hier
 ein Button zur Entfernung des Skripts angeboten, sodass anschließend
 keine Dateien mehr zurückbleiben.
 
-image:media/image29.png[media/image29,width=548,height=202]
+image:book/19-online-gehen/media/29.png[book/19-online-gehen/media/29,width=548,height=202]
 
 BILD 19.17 Akeeba Kickstart bietet die Entfernung des nun nicht mehr
 notwendigen Skripts an.

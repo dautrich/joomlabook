@@ -61,7 +61,7 @@ Menüeinträge und Beiträge und das anschließende Generieren der passenden
 Datei ab. Dazu öffnen wir nach der Installation von OSMap die
 Konfiguration der Komponente über den Klick auf Komponenten ++>++ OSMap.
 
-image:media/image2.png[media/image2,width=548,height=196]
+image:book/18-best-practices/media/2.png[book/18-best-practices/media/2,width=548,height=196]
 
 BILD 18.1 Die Erweiterung OSMap nach der Installation
 
@@ -75,7 +75,7 @@ andere Joomla-Komponenten anpassen.
 Daher verfügt OSMap über ein Plug-in-System, das über den entsprechenden
 Submenüeintrag erreicht werden kann.
 
-image:media/image3.png[media/image3,width=548,height=135]
+image:book/18-best-practices/media/3.png[book/18-best-practices/media/3,width=548,height=135]
 
 BILD 18.2 Die Erweiterungsübersicht von OSMap Free
 
@@ -83,7 +83,7 @@ Nun wechseln wir zurück in den Administrationsbereich der Komponente und
 wählen mit dem Klick auf den Titel Default die bereits existierende
 Standard-Sitemap aus.
 
-image:media/image6.png[media/image6,width=548,height=347]
+image:book/18-best-practices/media/6.png[book/18-best-practices/media/6,width=548,height=347]
 
 BILD 18.3 Konfiguration der gewünschten Sitemap
 
@@ -185,7 +185,7 @@ durch die Qualität und Vollständigkeit der Übersetzung positiv abhebt.
 Dieses Übersetzungspaket können wir nach dem Herunterladen über die
 Joomla-Erweiterungsverwaltung.
 
-image:media/image8.png[media/image8,width=548,height=222]
+image:book/18-best-practices/media/8.png[book/18-best-practices/media/8,width=548,height=222]
 
 BILD 18.4 Installation der deutschen Sprachdateien für den JCE
 
@@ -274,7 +274,7 @@ Eine Eigenheit des JCE im Vergleich zum integrierten Editor ist die
 Möglichkeit, verschiedene Profile zu erstellen, die sich unter dem
 gleichnamigen Menüpunkt verwalten lassen.
 
-image:media/image10.png[media/image10,width=548,height=238]
+image:book/18-best-practices/media/10.png[book/18-best-practices/media/10,width=548,height=238]
 
 BILD 18.5 Übersicht der Standardprofile des JCE
 
@@ -285,7 +285,7 @@ zuordnen zu können. Standardmäßig wird nur das _Default_-Profil genutzt,
 das sich nach einem Klick auf den gleichnamigen Eintrag bearbeiten
 lässt.
 
-image:media/image12.png[media/image12,width=548,height=388]
+image:book/18-best-practices/media/12.png[book/18-best-practices/media/12,width=548,height=388]
 
 BILD 18.6 Allgemeine Parameter des Default-Profils
 
@@ -310,7 +310,7 @@ Die Einstellungen können im Regelfall unangetastet bleiben, extrem
 interessant sind jedoch die Anpassungsmöglichkeiten, die uns im
 _Funktionen_-Tab zur Verfügung stehen.
 
-image:media/image14.png[media/image14,width=548,height=380]
+image:book/18-best-practices/media/14.png[book/18-best-practices/media/14,width=548,height=380]
 
 BILD 18.7 Festlegung des Editorlayouts mittels Drag & Drop
 
@@ -334,7 +334,7 @@ dafür eigentlich gedachten Funktion _Format_ zwingen.
 Im Kundeneinsatz hat sich das folgende Editorlayout als Grundlage
 vielfach bewährt.
 
-image:media/image16.png[media/image16,width=548,height=79]
+image:book/18-best-practices/media/16.png[book/18-best-practices/media/16,width=548,height=79]
 
 [width="49%",cols="29%,44%,27%",]
 |===
@@ -452,7 +452,7 @@ Durch diese zahlreichen Parameter lässt sich der JCE genau auf die
 Bedürfnisse der Seite anpassen, was ihn wesentlich komfortabler in der
 Bedienung macht.
 
-image:media/image18.png[media/image18,width=548,height=319]
+image:book/18-best-practices/media/18.png[book/18-best-practices/media/18,width=548,height=319]
 
 BILD 18.8 Konfiguration des JCE – hier: Konfiguration der
 Format-Elemente
@@ -461,7 +461,7 @@ Zuletzt müssen wir den neu installierten und fertig konfigurierten
 Editor in der Konfiguration unter System ++>++ Konfiguration noch
 aktivieren.
 
-image:media/image19.png[media/image19,width=548,height=233]
+image:book/18-best-practices/media/19.png[book/18-best-practices/media/19,width=548,height=233]
 
 BILD 18.9 Aktivierung des Editors in der Konfiguration
 
@@ -535,7 +535,7 @@ beispielsweise möglich, über die Nutzung der rechten Maustaste ein
 angepasstes Kontextmenü zu laden, das den Nutzungsgewohnheiten vieler
 Redakteure in ihren gewohnten Programmen (MS Word) entspricht.
 
-image:media/image22.png[media/image22,width=548,height=357]
+image:book/18-best-practices/media/22.png[book/18-best-practices/media/22,width=548,height=357]
 
 BILD 18.10 Kontextmenü des JCE
 
@@ -546,7 +546,7 @@ und Inhalte enthält, die über einen Klick ausgewählt werden können. Dies
 erleichtert Verweise zu anderen Seiteninhalten, da kein manuelles
 Copy&Paste der URL mehr notwendig ist.
 
-image:media/image24.png[media/image24,width=548,height=374]
+image:book/18-best-practices/media/24.png[book/18-best-practices/media/24,width=548,height=374]
 
 BILD 18.11 JCE-Link-Manager mit Übersicht über Beiträge der Kategorie
 „Uncategorized“
@@ -554,7 +554,7 @@ BILD 18.11 JCE-Link-Manager mit Übersicht über Beiträge der Kategorie
 Die Verwaltung von Bildern, Dateien und Medien erfolgt über den
 jeweiligen Manager, der im Aufbau stets ähnlich ist.
 
-image:media/image26.png[media/image26,width=548,height=478]
+image:book/18-best-practices/media/26.png[book/18-best-practices/media/26,width=548,height=478]
 
 BILD 18.12 JCE-Bildmanager, aufgeteilt in die zwei Bereiche
 Datei-Browser (1) und Eigenschaften (2)
@@ -571,7 +571,7 @@ diese Funktion unterstützt (aktuell: Chrome, Firefox, Safari), per Drag
 & Drop aus dem jeweiligen Ordner direkt in das dafür vorgesehene Feld
 geschoben werden.
 
-image:media/image28.png[media/image28,width=548,height=479]
+image:book/18-best-practices/media/28.png[book/18-best-practices/media/28,width=548,height=479]
 
 BILD 18.13 Drag & Drop-Bildauswahl beim Upload
 
@@ -597,7 +597,7 @@ zum jeweiligen Manager stehen, können nun noch modifiziert werden; und
 abschließend wird das Objekt über einen Klick auf Einfügen dem
 Editorfenster hinzugefügt.
 
-image:media/image30.png[media/image30,width=548,height=421]
+image:book/18-best-practices/media/30.png[book/18-best-practices/media/30,width=548,height=421]
 
 BILD 18.14 Bildmanager mit gesetzten Parametern
 
@@ -626,7 +626,7 @@ Joomla!-Erweiterungsinstaller. Anschließend wird die Erweiterung über
 den gleichnamigen Eintrag im Komponenten-Menü gestartet und fordert uns
 auf, die Gruppe auszuwählen, deren Rechte wir verändern wollen.
 
-image:media/image32.png[media/image32,width=548,height=337]
+image:book/18-best-practices/media/32.png[book/18-best-practices/media/32,width=548,height=337]
 
 BILD 18.15 Der ACL Manager nach dem Aufruf im Komponentenmenü
 
@@ -637,7 +637,7 @@ ermöglicht hier, jeweils verschiedene Berechtigungen zu sehen und zu
 setzen. Die Legende auf der rechten Seite gibt dabei Aufschluss über den
 jeweiligen Status.
 
-image:media/image34.png[media/image34,width=548,height=304]
+image:book/18-best-practices/media/34.png[book/18-best-practices/media/34,width=548,height=304]
 
 BILD 18.16 Übersicht der Komponenten, Kategorien und Beiträge und deren
 Zugriffsrechte für die ­ausgewählte Gruppe im ACL Manager
@@ -664,7 +664,7 @@ Probleme bei der Berechtigungsverwaltung auf.
 
 Der ACL-Manager kann diese Probleme finden und per Mausklick beheben.
 
-image:media/image35.png[media/image35,width=548,height=272]
+image:book/18-best-practices/media/35.png[book/18-best-practices/media/35,width=548,height=272]
 
 BILD 18.17 Diagnosebereich des ACL Managers
 
@@ -686,7 +686,7 @@ sich leicht durch die Erstellung eines neuen Moduls des Typs „Neuste
 Beiträge“ und die Zuordnung zum entsprechenden Menüpunkt realisieren
 lässt.
 
-image:media/image38.png[media/image38,width=548,height=347]
+image:book/18-best-practices/media/38.png[book/18-best-practices/media/38,width=548,height=347]
 
 BILD 18.18 Zuordnung eines Moduls zu einem Menüpunkt
 
@@ -718,7 +718,7 @@ Nach der Auswahl des entsprechenden Moduls erreichen wir den Dialog zum
 Bearbeiten des jeweiligen Moduls, wobei der bereits bekannte Tab
 _Zuweisungen_ nun massiv erweitert wurde.
 
-image:media/image40.png[media/image40,width=548,height=359]
+image:book/18-best-practices/media/40.png[book/18-best-practices/media/40,width=548,height=359]
 
 BILD 18.19 Modulzuordnung im Advanced Module Manager
 
@@ -826,7 +826,7 @@ Die Installation von Akeeba Backup erfolgt in beiden Versionen, wie
 üblich, über den Joomla!-Erweitungsmanager. Dabei verankert sich Akeeba
 mit einem Menüeintrag im Komponenten-Menü des Backends.
 
-image:media/image43.png[media/image43,width=548,height=202]
+image:book/18-best-practices/media/43.png[book/18-best-practices/media/43,width=548,height=202]
 
 BILD 18.20 Nachinstallationskonfiguration von Akeeba Backup
 
@@ -843,7 +843,7 @@ auf Backup Now.
 
 Nun können wir den Fortschritt des Backup-Vorgangs beobachten.
 
-image:media/image45.png[media/image45,width=548,height=198]
+image:book/18-best-practices/media/45.png[book/18-best-practices/media/45,width=548,height=198]
 
 BILD 18.21 Fortschrittsanzeige beim Backup-Vorgang
 
@@ -859,7 +859,7 @@ kann der Download der Dateien im Browser, der über einen Klick auf den
 jeweiligen Button ausgeführt wird, aufgrund von Serverprobleme
 scheitern, wodurch das Backup unbrauchbar werden könnte.
 
-image:media/image47.png[media/image47,width=548,height=187]
+image:book/18-best-practices/media/47.png[book/18-best-practices/media/47,width=548,height=187]
 
 BILD 18.22 Backup-Übersicht mit Download-Möglichkeit
 
@@ -907,7 +907,7 @@ gespeicherten Backups mindestens 30 Tage gespeichert werden
 Kickstart den Import von Amazon S3 Servern, womit das nervige manuelle
 Herunterladen von Backups für den Restore entfällt
 
-==== 
+====
 
 * {blank}
 * {blank}
@@ -918,7 +918,7 @@ Herunterladen von Backups für den Restore entfällt
 | |
 |===
 
-==== 
+====
 
 === Einstellungen
 
@@ -940,7 +940,7 @@ Durch einen Vortrag des bekannten Bloggers Brian Teeman bin ich
 schließlich auf eine Möglichkeit gestoßen, solchen Fragen vorzubeugen,
 indem ich nicht genutzte Core-Komponenten verstecke.
 
-image:media/image49.png[media/image49,width=548,height=330]
+image:book/18-best-practices/media/49.png[book/18-best-practices/media/49,width=548,height=330]
 
 BILD 18.23 Erweiterungsmanager – Deaktivierung ungenutzter Komponenten
 
@@ -948,7 +948,7 @@ Durch die Deaktivierung der jeweiligen Komponente im Erweiterungsmanager
 können auch Core-Erweiterungen ausgeblendet werden, was Benutzerfragen
 vorbeugt, bei Aktualisierungen jedoch keine Probleme hervorruft.
 
-==== Administrations-Gestaltung 
+==== Administrations-Gestaltung
 
 Insbesondere wenn man eine Vielzahl an Projekten betreut und dann auch
 zu allem Überfluss an mehreren Seiten parallel arbeitet, passiert es hin
@@ -962,7 +962,7 @@ Backend-Templates Isis (siehe Bild 18.24). Im Tab _Erweitert_ kann dort
 z.B. eine Farbe für die Kopfzeile und ein Logo für die Administration
 selbst und den Administrationslogin gesetzt werden.
 
-image:media/image51.png[media/image51,width=548,height=314]
+image:book/18-best-practices/media/51.png[book/18-best-practices/media/51,width=548,height=314]
 
 Bild 18.24 Parameter des Isis Templates und deren Auswirkung in der
 Kopfzeile
@@ -989,7 +989,7 @@ befüllen. Den entsprechenden Dialog rufen wir über Menüs ++>++ Verwalten
 In diesem Dialog vergeben wir einen Titel und Menütyp für das neue Menü
 und wählen als Seitenbereich die Administration aus (siehe Bild 18.25).
 
-image:media/image52.png[media/image52,width=548,height=151]
+image:book/18-best-practices/media/52.png[book/18-best-practices/media/52,width=548,height=151]
 
 Bild 18.25 Erstellen eines neuen Menüs für die Administration
 
@@ -1017,7 +1017,7 @@ Dafür wechseln wir über Erweiterungen ++>++ Module in die
 Modulverwaltung und lassen uns durch Anpassung des entsprechenden
 Filters die Administrationsmodule anzeigen (siehe Bild 18.26).
 +
-image:media/image53.png[media/image53,width=548,height=319]
+image:book/18-best-practices/media/53.png[book/18-best-practices/media/53,width=548,height=319]
 
 Bild 18.26 Übersicht der Backend-Module
 
@@ -1032,7 +1032,7 @@ Menüeinträge (konkret: Menü-Verwaltung, Modul-Verwaltung und
 Komponenten-Submenü) sichtbar sind und bietet, falls diese fehlen, einen
 Notfall-Modus an.
 
-image:media/image54.png[media/image54,width=548,height=258]
+image:book/18-best-practices/media/54.png[book/18-best-practices/media/54,width=548,height=258]
 
 Bild 18.27 Backend mit eigenem Administrationsmenü
 

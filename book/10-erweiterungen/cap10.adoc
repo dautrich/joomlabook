@@ -49,7 +49,7 @@ bereits zu einem in Joomla! registrierten Benutzer zugeordnet ist. Über
 diese Verknüpfungsfunktion ist es möglich, die Autorenangabe eines
 Inhalts mit dem Kontaktformular des jeweiligen Nutzers zu verlinken.
 
-image:media/image2.png[media/image2,width=548,height=130]
+image:book/10-erweiterungen/media/2.png[book/10-erweiterungen/media/2,width=548,height=130]
 
 BILD 10.1 Übersichtsliste der _Kontakt_-Komponente
 
@@ -95,7 +95,7 @@ Mouseover erläutert werden.
 Zum Schluss speichern wir den neuen Kontakt ab, woraufhin wir zurück zur
 Übersicht gelangen.
 
-image:media/image4.png[media/image4,width=548,height=283]
+image:book/10-erweiterungen/media/4.png[book/10-erweiterungen/media/4,width=548,height=283]
 
 BILD 10.2 Dialog zum Anlegen/Editieren eines _Kontakts_
 
@@ -114,7 +114,7 @@ Komponente _Kontakte_ und wollen einen einzelnen Kontakt inklusive
 Kontaktformular anzeigen – da scheint der _Menütyp_ _Kontakte ++>++
 Einzelner Kontakt_ doch wie gemacht für uns zu sein!
 
-image:media/image6.png[media/image6,width=548,height=218]
+image:book/10-erweiterungen/media/6.png[book/10-erweiterungen/media/6,width=548,height=218]
 
 BILD 10.3 Auswahl des korrekten Menütyps zur Darstellung eines einzelnen
 Kontakts
@@ -130,7 +130,7 @@ Abschließend verlassen wir den Vorgang mittels Klick auf Speichern &
 Schliessen, wechseln ins Frontend und betrachten zufrieden unser neues
 Kontaktformular.
 
-image:media/image8.png[media/image8,width=548,height=423]
+image:book/10-erweiterungen/media/8.png[book/10-erweiterungen/media/8,width=548,height=423]
 
 BILD 10.4 Kontaktformular im Frontend
 
@@ -166,7 +166,7 @@ vorhandenen Inhalte durch den Klick auf den Toolbar-Button _Indexieren_
 der Erweiterung eingelesen werden – danach ist die Anwendung fertig zur
 Verwendung.
 
-image:media/image10.png[media/image10,width=548,height=156]
+image:book/10-erweiterungen/media/10.png[book/10-erweiterungen/media/10,width=548,height=156]
 
 BILD 10.5 _Suchindex_
 
@@ -217,7 +217,7 @@ _Modul_ ausgegeben wird
 * _Seiten:_ gibt an, ob das entsprechende _Modul_ auf allen oder nur auf
 ausgewählten Seiten des _Frontends_ ausgegeben werden soll
 
-image:media/image12.png[media/image12,width=548,height=207]
+image:book/10-erweiterungen/media/12.png[book/10-erweiterungen/media/12,width=548,height=207]
 
 BILD 10.6 Auflistung der standardmäßig vorhandenen Module
 
@@ -233,7 +233,7 @@ uns hier vorläufig mit dem Wissen, dass der _Modultyp_ _Feed – Externen
 Feed anzeigen_ der richtige Typ ist, um, wie gewünscht, einen RSS-Feed
 auf der Seite anzuzeigen.
 
-image:media/image13.png[media/image13,width=548,height=284]
+image:book/10-erweiterungen/media/13.png[book/10-erweiterungen/media/13,width=548,height=284]
 
 BILD 10.7 Seite zur Auswahl des Modultyps
 
@@ -246,7 +246,7 @@ rechten Seite ausgeblendet werden kann. Direkt unterhalb findet sich das
 Eingabefeld für die Modul__position__, auf der das Modul im Frontend
 angezeigt werden soll.
 
-image:media/image15.png[media/image15,width=548,height=288]
+image:book/10-erweiterungen/media/15.png[book/10-erweiterungen/media/15,width=548,height=288]
 
 BILD 10.8 Wahlmöglichkeit für die zu verwendende Modulposition
 
@@ -266,7 +266,7 @@ Positionen dieses Templates nicht mehr in der Auswahlliste erscheinen,
 wodurch diese übersichtlicher wird.
 |===
 
-image:media/image18.png[media/image18,width=548,height=310]
+image:book/10-erweiterungen/media/18.png[book/10-erweiterungen/media/18,width=548,height=310]
 
 BILD 10.9 Auswahlliste der Modulpositionen
 
@@ -302,7 +302,7 @@ Parameter _Vorschau von_ _Modulpositionen_, den wir aktivieren.
 Anschließend übernehmen wir die Änderung durch einen Klick auf Speichern
 & Schliessen.
 
-image:media/image20.png[media/image20,width=472,height=128]
+image:book/10-erweiterungen/media/20.png[book/10-erweiterungen/media/20,width=472,height=128]
 
 BILD 10.10 Parameter zur Aktivierung der Modulpositionen-Vorschau
 
@@ -311,7 +311,7 @@ Frontend alle Template-Positionen ausgeben lassen, die durch
 halbtransparente Kästen mit einer Namensangabe der jeweiligen Position
 dargestellt werden.
 
-image:media/image22.png[media/image22,width=472,height=390]
+image:book/10-erweiterungen/media/22.png[book/10-erweiterungen/media/22,width=472,height=390]
 
 BILD 10.11 Frontend-Ausgabe mit Vorschau der Modulpositionen
 
@@ -352,7 +352,7 @@ Wir wollen den Feed nur auf der Startseite von Bauer Birnennase
 ausgeben, weshalb wir als Modus „Nur auf den gewählten Seiten“ und
 anschließend nur den Eintrag _Willkommen_ selektieren.
 
-image:media/image24.png[media/image24,width=548,height=237]
+image:book/10-erweiterungen/media/24.png[book/10-erweiterungen/media/24,width=548,height=237]
 
 BILD 10.12 Bereich _Menüzuweisung_ in der Modulverwaltung
 
@@ -404,7 +404,7 @@ erklärt sind. Geben Sie in unserem Beispiel einfach eine entsprechende
 URL ins Feld _Feed-URL_ ein, damit wir im _Frontend_ später auch die
 Früchte unserer Arbeit betrachten können.
 
-image:media/image26.png[media/image26,width=548,height=399]
+image:book/10-erweiterungen/media/26.png[book/10-erweiterungen/media/26,width=548,height=399]
 
 BILD 10.13 Parameter des _Feed-Anzeige_-Moduls
 
@@ -419,7 +419,7 @@ der Modulübersicht befinden. Im Frontend der Seite finden wir nun, beim
 Aufruf der Startseite, unser gerade angelegtes Modul, wobei der Titel
 des Moduls oberhalb der eigentlichen Ausgabe erscheint.
 
-image:media/image28.png[media/image28,width=548,height=348]
+image:book/10-erweiterungen/media/28.png[book/10-erweiterungen/media/28,width=548,height=348]
 
 BILD 10.14 Ausgabe des Moduls im Frontend
 
@@ -446,7 +446,7 @@ Kunden anzupassen. Wenn Sie den Filter auf „Administrator“ umstellen,
 erhalten Sie eine Übersicht der integrierten Module und können, falls
 gewünscht, Änderungen daran vornehmen.
 
-image:media/image30.png[media/image30,width=548,height=301]
+image:book/10-erweiterungen/media/30.png[book/10-erweiterungen/media/30,width=548,height=301]
 
 BILD 10.15 Modulübersicht nach Umstellung der _Site_-Filteroption
 
@@ -510,7 +510,7 @@ Listenansicht finden wir unter _Erweiterungen ++>++ Plugins_ und können
 dort, nach einem Klick auf den jeweiligen Plug-in-Namen, Änderungen an
 den Parametern vornehmen.
 
-image:media/image32.png[media/image32,width=548,height=384]
+image:book/10-erweiterungen/media/32.png[book/10-erweiterungen/media/32,width=548,height=384]
 
 BILD 10.16 Liste der installierten Plug-ins
 
@@ -531,9 +531,9 @@ daher bequem ergänzt werden. Die Übersicht der installierten
 _Sprachdateien_ finden wir unter _Erweiterungen ++>++ Sprachen_ _++>++
 Installiert_.
 
-image:media/image34.png[media/image34,width=548,height=167]
+image:book/10-erweiterungen/media/34.png[book/10-erweiterungen/media/34,width=548,height=167]
 
-===== 
+=====
 
 [arabic]
 . {blank}
@@ -980,7 +980,7 @@ nach Anwendungsbereich gegliederte Bereiche (siehe Boxen im unteren
 Bereich) teilt. Zudem gibt es eine Suchfunktion, die das Finden der
 benötigten Funktion erleichtern soll.
 
-image:media/image38.png[media/image38,width=548,height=372]
+image:book/10-erweiterungen/media/38.png[book/10-erweiterungen/media/38,width=548,height=372]
 
 BILD 10.18 Offizielles Joomla! Extensions Directory
 
@@ -1020,7 +1020,7 @@ vertrieben wird (5)
 Die Nummerierungen hinter den Beschreibungen können Sie den Markierungen
 in Bild 10.19 zuordnen.
 
-image:media/image40.png[media/image40,width=548,height=260]
+image:book/10-erweiterungen/media/40.png[book/10-erweiterungen/media/40,width=548,height=260]
 
 BILD 10.19 Beispieleintrag in [.underline]#extensions.joomla.org#
 
@@ -1033,7 +1033,7 @@ wir hier, unterhalb der Beschreibung, mehr oder weniger ausführliche
 Kommentare (Reviews) anderer Nutzer, die ein Gefühl für die Qualität der
 Erweiterung vermitteln.
 
-image:media/image42.png[media/image42,width=548,height=490]
+image:book/10-erweiterungen/media/42.png[book/10-erweiterungen/media/42,width=548,height=490]
 
 BILD 10.20 Detailseite von [.underline]#extensions.joomla.org#
 
@@ -1163,7 +1163,7 @@ heruntergeladene ­Installationsdatei auf unserem lokalen Rechner zu
 wählen, und starten anschließend den Vorgang mittels Hochladen &
 Installieren.
 
-image:media/image44.png[media/image44,width=548,height=263]
+image:book/10-erweiterungen/media/44.png[book/10-erweiterungen/media/44,width=548,height=263]
 
 BILD 10.21 Hochladen eines lokal gespeicherten Erweiterungspakets
 
@@ -1173,7 +1173,7 @@ Zweifelsfalle gilt immer: Lesen Sie die dort ausgegebenen Meldungen auf
 jeden Fall durch, denn häufig finden Sie hier noch weitergehende
 Anweisungen.
 
-image:media/image46.png[media/image46,width=548,height=381]
+image:book/10-erweiterungen/media/46.png[book/10-erweiterungen/media/46,width=548,height=381]
 
 BILD 10.22 Installationsbestätigung von _Phoca Guestbook_
 
@@ -1190,7 +1190,7 @@ den Typ _Guestbook_ der gerade installierten Erweiterung auswählen, den
 _Titel_ des Eintrags vergeben und in den Parametern in der rechten
 Spalte unser gerade angelegtes Gästebuch auswählen.
 
-image:media/image48.png[media/image48,width=548,height=374]
+image:book/10-erweiterungen/media/48.png[book/10-erweiterungen/media/48,width=548,height=374]
 
 BILD 10.23 Menütyp der neu installierten Erweiterung
 
@@ -1209,7 +1209,7 @@ einzelner Erweiterungen eingehe, da dies bei der schieren Anzahl der
 angebotenen Erweiterungen wohl ganze Buchbände füllen würde – hier gilt
 leider: probieren geht über studieren.
 
-image:media/image50.png[media/image50,width=548,height=485]
+image:book/10-erweiterungen/media/50.png[book/10-erweiterungen/media/50,width=548,height=485]
 
 BILD 10.24 Frontend der Beispielseite nach Installation der Erweiterung
 
@@ -1233,7 +1233,7 @@ Im oberen Bereich kann der entsprechende Tab nun per Klick auf „Aus
 Webkatalog installieren“-Tab hinzufügen aktiviert werden, siehe Bild
 10.25.
 
-image:media/image51.png[media/image51,width=548,height=237]
+image:book/10-erweiterungen/media/51.png[book/10-erweiterungen/media/51,width=548,height=237]
 
 Bild 10.25 Dialog zur Aktivierung der Webkatalog-Funktion
 
@@ -1241,7 +1241,7 @@ Anschließend können die entsprechenden Erweiterungen über den neuen Tab
 durchsucht und installiert werden – eine echte Komfortfunktion,
 insbesondere wenn man bereits weiß, welche Erweiterung man sucht.
 
-image:media/image52.png[media/image52,width=548,height=322]
+image:book/10-erweiterungen/media/52.png[book/10-erweiterungen/media/52,width=548,height=322]
 
 Bild 10.26 Webkatalog-Funktion im Backend
 
@@ -1271,7 +1271,7 @@ direkt aus dem Backend heraus
 Aktualisierungsserver der Erweiterungen, erlaubt es bestimmte Server zu
 aktivieren oder zu deaktivieren.
 
-image:media/image54.png[media/image54,width=548,height=172]
+image:book/10-erweiterungen/media/54.png[book/10-erweiterungen/media/54,width=548,height=172]
 
 BILD 10.27 Submenü des Erweiterungsmanagers
 
@@ -1288,7 +1288,7 @@ Alle anderen Erweiterungen können durch die Selektierung des
 entsprechenden Eintrags mittels Checkbox markiert und anschließend über
 die Nutzung des Toolbar-Buttons deaktiviert bzw. deinstalliert werden.
 
-image:media/image56.png[media/image56,width=548,height=351]
+image:book/10-erweiterungen/media/56.png[book/10-erweiterungen/media/56,width=548,height=351]
 
 BILD 10.28 Erweiterungsverwaltung
 
@@ -1315,7 +1315,7 @@ entsprechende Erweiterungen geben, so können diese anschließend über die
 Selektion des Eintrags und die Nutzung des _Installieren_-Buttons
 nachinstalliert werden.
 
-image:media/image58.png[media/image58,width=548,height=188]
+image:book/10-erweiterungen/media/58.png[book/10-erweiterungen/media/58,width=548,height=188]
 
 BILD 10.29 Ausgabe der _Überprüfen_-Funktion
 
@@ -1335,7 +1335,7 @@ der jeweiligen Erweiterung vorliegt.
 
 .
 
-image:media/image60.png[media/image60,width=548,height=188]
+image:book/10-erweiterungen/media/60.png[book/10-erweiterungen/media/60,width=548,height=188]
 
 BILD 10.30 Dialog zum Aktualisieren von Erweiterungen
 
@@ -1347,7 +1347,7 @@ notwendig werden. Diese Funktion ist dann nötig, wenn wir aufgrund von
 Problemen mit den Verzeichnisrechten die integrierte
 Aktualisierungsfunktion nicht nutzen können.
 
-image:media/image62.png[media/image62,width=548,height=189]
+image:book/10-erweiterungen/media/62.png[book/10-erweiterungen/media/62,width=548,height=189]
 
 BILD 10.31 Funktion _Datenbank_ zur Aktualisierung der Datenbankstruktur
 
@@ -1385,7 +1385,7 @@ _upload++_++max++_++filesize_)?
 Ist dabei eine oder sind mehrere der genannten Voraussetzungen nicht
 erfüllt, so gibt Joomla! eine entsprechende Fehlermeldung aus.
 
-image:media/image64.png[media/image64,width=548,height=187]
+image:book/10-erweiterungen/media/64.png[book/10-erweiterungen/media/64,width=548,height=187]
 
 BILD 10.32 Ausgabe verschiedener Warnmeldungen im Erweiterungsmanager
 
@@ -1397,7 +1397,7 @@ jeweils angezeigte Versionsnummer gibt uns dabei Aufschluss darüber, wie
 aktuell die jeweilige Sprachversion im Verhältnis zur aktuellen
 Joomla-Version ist.
 
-image:media/image65.png[media/image65,width=548,height=309]
+image:book/10-erweiterungen/media/65.png[book/10-erweiterungen/media/65,width=548,height=309]
 
 Bild 10.33 Übersicht der verfügbaren _Sprachpakete_
 
@@ -1424,7 +1424,7 @@ sogenannten Manifest-Files (gewissermaßen eine Beschreibungs-Datei) der
 jeweiligen Erweiterungen neu eingelesen. Dadurch werden z.B.
 Aktualisierungsquellen für nicht mehr genutzte Erweiterungen entfernt.
 
-image:media/image66.png[media/image66,width=548,height=246]
+image:book/10-erweiterungen/media/66.png[book/10-erweiterungen/media/66,width=548,height=246]
 
 Bild 10.34 Liste der _Aktualisierungsquellen_
 

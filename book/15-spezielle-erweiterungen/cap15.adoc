@@ -65,7 +65,7 @@ scheint jedoch zu stagnieren und die Nutzer- und Popularitätswerte gehen
 konstant zurück, weshalb neue Projekte nur nach reiflicher Überlegung
 auf _VirtueMart_-Basis erstellt werden sollten.
 
-image:media/image1.png[media/image1,width=548,height=245]
+image:book/15-spezielle-erweiterungen/media/1.png[book/15-spezielle-erweiterungen/media/1,width=548,height=245]
 
 BILD 15.1 Backend der VirtueMart-Erweiterung
 
@@ -143,7 +143,7 @@ modernen, systemnahen Umsetzung entfernt sind. Daher sollten Sie
 insbesondere in diesem Erweiterungssegment einen genauen Blick in den
 Code der jeweiligen Erweiterung werfen.
 
-==== RSForm Pro 
+==== RSForm Pro
 
 Die Formularerweiterung _RSForm_ überzeugt durch ihre Funktionsvielfalt
 und gute Anpassbarkeit an die eigenen Bedürfnisse, wodurch auch
@@ -152,7 +152,7 @@ Erweiterung gut bedienbar und ist, nach einer Einführung, selbst für
 Endkunden zu beherrschen, die sich somit selbst neue Formular erstellen
 können.
 
-image:media/image3.png[media/image3,width=548,height=335]
+image:book/15-spezielle-erweiterungen/media/3.png[book/15-spezielle-erweiterungen/media/3,width=548,height=335]
 
 BILD 15.2 _RSForm_ Pro zum Anlegen neuer Formulare mittels Drag & Drop
 
@@ -176,7 +176,7 @@ arbeitet mit den bereits aus den Vorkapiteln bekannten XMl-basierten
 Formular-Dateien von Joomla. Pro Formular ist dabei die Nutzung eines
 eigenen, selbst gestalteten Templates möglich.
 
-image:media/image5.png[media/image5,width=548,height=368]
+image:book/15-spezielle-erweiterungen/media/5.png[book/15-spezielle-erweiterungen/media/5,width=548,height=368]
 
 BILD 15.3 FlexForms Seite bei Github
 
@@ -239,7 +239,7 @@ _meinefotos_ in einem frei konfigurierbaren Verzeichnis existieren muss.
 Beim Aufruf des Artikels erzeugt das Plug-in dann eine auf Lightbox
 basierende Galerie.
 
-image:media/image7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++15++\++Bild541.PNG,width=547,height=469]
+image:book/15-spezielle-erweiterungen/media/7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++15++\++Bild541.PNG,width=547,height=469]
 
 BILD 15.4 Simple Image Gallery beim Aufruf
 
@@ -271,7 +271,7 @@ verfügbaren Community-Lösungen wird. Einzig die relativ happigen Preise
 überragenden Gesamteindruck. Ich kann jedoch guten Gewissens sagen, dass
 die Erweiterung jeden Euro wert ist.
 
-image:media/image8.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++15++\++Bild548.PNG,width=547,height=415]
+image:book/15-spezielle-erweiterungen/media/8.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++15++\++Bild548.PNG,width=547,height=415]
 
 BILD 15.5 Beispiel-Community mit JomSocial
 
@@ -289,7 +289,7 @@ umfangreiche, gut bedienbare und leicht erweiterbare Erweiterung, die
 zudem kostenlos erhältlich ist, dabei jedoch gut supportet wird, was den
 _Builder_ zur Empfehlung für kleinere Projekte ohne Budget macht.
 
-image:media/image10.png[media/image10,width=548,height=320]
+image:book/15-spezielle-erweiterungen/media/10.png[book/15-spezielle-erweiterungen/media/10,width=548,height=320]
 
 BILD 15.6 _Joomlapolis.com_ ist gleichzeitig Entwickler und
 Referenzprojekt mit mehreren 10 000 Nutzern

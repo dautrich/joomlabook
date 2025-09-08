@@ -83,7 +83,7 @@ nicht vollständig umgesetzt worden.
 Die Grundstruktur des Projekts entspricht auf den ersten Blick der eines
 klassischen Unternehmens (siehe Abb 2.1).
 
-image:media/image1.png[media/image1,width=548,height=389]
+image:book/02-ueber-joomla/media/1.png[book/02-ueber-joomla/media/1,width=548,height=389]
 
 * {blank}
 * {blank}
@@ -91,9 +91,9 @@ image:media/image1.png[media/image1,width=548,height=389]
 * {blank}
 * {blank}
 
-==== 
+====
 
-==== 
+====
 
 Bild 2.1 Neue Organisationstruktur des Joomla!-Projekts
 

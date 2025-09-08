@@ -43,7 +43,7 @@ das aus Kapitel 5, „Grundlegende Begriffe und Architektur“, bekannte
 Kategorienschema (vgl. Bild 5.3) noch ein wenig erweitern, um die neu
 hinzugekommenen Inhalte einordnen zu können.
 
-image:media/image1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild506.PNG,width=376,height=281]
+image:book/07-inhalte-verwalten/media/1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild506.PNG,width=376,height=281]
 
 BILD 7.1 Ergänzte Inhaltsstruktur zur Abbildung der gewünschten
 Seitenstruktur aus Tabelle 7.1
@@ -77,7 +77,7 @@ Standardkategorie „Uncategorized“, beinhaltet. Die Listenübersicht teilt
 sich in verschiedene Bereiche, die in Bild 7.2 markiert und anschließend
 erklärt sind.
 
-image:media/image2.png[media/image2,width=548,height=171]
+image:book/07-inhalte-verwalten/media/2.png[book/07-inhalte-verwalten/media/2,width=548,height=171]
 
 BILD 7.2 Aufbau der Kategorienübersicht im Backend
 
@@ -134,7 +134,7 @@ können, die sich in der _Toolbar_ finden. Die Auswahl aller sichtbaren
 Kategorien auf einmal erfolgt über die Checkbox am Beginn der Kopfzeile
 der Listenansicht.
 
-image:media/image3.png[media/image3,width=548,height=77]
+image:book/07-inhalte-verwalten/media/3.png[book/07-inhalte-verwalten/media/3,width=548,height=77]
 
 BILD 7.3 Ausgegebene Informationen für jeden Listeneintrag
 
@@ -171,7 +171,7 @@ zwei Spalten aufgeteilt sind. Die wichtigsten Parameter finden sich in
 der Regel im ersten Tab, speziellere Parameter werden auf die weiteren
 Tabs verteilt.
 
-image:media/image6.png[media/image6,width=548,height=450]
+image:book/07-inhalte-verwalten/media/6.png[book/07-inhalte-verwalten/media/6,width=548,height=450]
 
 BILD 7.5 Formular zum Anlegen einer neuen Kategorie
 
@@ -246,7 +246,7 @@ Eine intensive Beschreibung der Möglichkeiten des Editors erfolgt im
 nächsten Unterkapitel, weshalb wir uns vorerst mit der Eingabe eines
 einfachen, unformatierten Beschreibungstextes begnügen.
 
-image:media/image6.png[media/image6,width=548,height=450]
+image:book/07-inhalte-verwalten/media/6.png[book/07-inhalte-verwalten/media/6,width=548,height=450]
 
 BILD 7.6 Fertig ausgefüllte linke Spalte zur Erstellung der Kategorie
 „Obst“
@@ -257,7 +257,7 @@ Veröffentlichung, Berechtigungen_) gegliedert. Durch einen Klick auf den
 jeweiligen Reiter erhalten wir weitere Einstellungsmöglichkeiten, die in
 der Parameterliste in Tabelle 7.3 zusammengefasst sind.
 
-image:media/image9.png[media/image9,width=548,height=154]
+image:book/07-inhalte-verwalten/media/9.png[book/07-inhalte-verwalten/media/9,width=548,height=154]
 
 BILD 7.7 Ansicht des Tabs _Optionen_ in der Kategorieverwaltung
 
@@ -342,7 +342,7 @@ Kategorienübersicht
 Wir nutzen in diesem Falle die Funktion Speichern & Neu, da wir die
 Gunst der Stunde dazu nutzen wollen, eine weitere Kategorie anzulegen.
 
-image:media/image10.png[media/image10,width=548,height=98]
+image:book/07-inhalte-verwalten/media/10.png[book/07-inhalte-verwalten/media/10,width=548,height=98]
 
 BILD 7.8 Toolbar-Buttons zum Speichern bzw. Verwerfen der Änderungen
 
@@ -357,7 +357,7 @@ Kategorienbaum eine Unterkategorie des gerade hinzugefügten Eintrags
 wählen wir in der Auswahlliste des _Übergeordnet_-Parameters den
 entsprechenden Eintrag aus.
 
-image:media/image13.png[media/image13,width=548,height=263]
+image:book/07-inhalte-verwalten/media/13.png[book/07-inhalte-verwalten/media/13,width=548,height=263]
 
 BILD 7.9 Auswahl der übergeordneten Kategorie
 
@@ -367,7 +367,7 @@ in der wir nun unsere beiden angelegten Kategorien finden. Die Relation
 der beiden Kategorien untereinander wird über die Einrückung des
 Eintrags „Birnen“ dargestellt.
 
-image:media/image15.png[media/image15,width=548,height=112]
+image:book/07-inhalte-verwalten/media/15.png[book/07-inhalte-verwalten/media/15,width=548,height=112]
 
 BILD 7.10 Kategorienübersicht mit den beiden neuen, korrekt zugeordneten
 Kategorien
@@ -376,7 +376,7 @@ Dieses Verfahren wenden wir nun analog für die anderen Kategorien
 unserer Baumstruktur (siehe Bild 7.1) an und erhalten schließlich unsere
 gewünschte Kategorienstruktur (siehe Bild 7.11).
 
-image:media/image17.png[media/image17,width=548,height=183]
+image:book/07-inhalte-verwalten/media/17.png[book/07-inhalte-verwalten/media/17,width=548,height=183]
 
 BILD 7.11 Fertige, der Vorgabe entsprechende Kategorienstruktur
 
@@ -393,7 +393,7 @@ Die erste, sehr intuitive Methode ist das Öffnen der
 Bearbeitungsfunktion über einen simplen Klick auf den jeweiligen _Titel_
 der Kategorie in der Listenansicht (siehe Bild 7.12).
 
-image:media/image19.png[media/image19,width=548,height=211]
+image:book/07-inhalte-verwalten/media/19.png[book/07-inhalte-verwalten/media/19,width=548,height=211]
 
 BILD 7.12 Bearbeiten einer Kategorie durch Klick auf den Titel
 
@@ -401,7 +401,7 @@ Alternativ dazu kann der entsprechende Eintrag auch einfach über die
 Checkbox am Beginn der Zeile selektiert werden, woraufhin der Button
 _Bearbeiten_ in der Toolbar genutzt werden kann (siehe Bild 7.13).
 
-image:media/image21.png[media/image21,width=548,height=253]
+image:book/07-inhalte-verwalten/media/21.png[book/07-inhalte-verwalten/media/21,width=548,height=253]
 
 BILD 7.13 Editieren eines Beitrags durch Nutzung des Toolbar-Buttons
 
@@ -416,7 +416,7 @@ die ursprünglich geöffnete Kategorie unverändert bleibt. Der zweite
 Button ist Bestandteil der Versionierungsfunktion, der wir uns in
 Kapitel 7.4 widmen werden.
 
-image:media/image23.png[media/image23,width=548,height=82]
+image:book/07-inhalte-verwalten/media/23.png[book/07-inhalte-verwalten/media/23,width=548,height=82]
 
 BILD 7.14 Toolbar-Button _Als Kopie speichern_
 
@@ -427,7 +427,7 @@ Kategorie „Uncategorized“, indem wir den Eintrag mit der zugehörigen
 Checkbox markieren und anschließend durch einen Klick auf den
 Toolbar-Button Papierkorb aus der Liste entfernen.
 
-image:media/image25.png[media/image25,width=548,height=166]
+image:book/07-inhalte-verwalten/media/25.png[book/07-inhalte-verwalten/media/25,width=548,height=166]
 
 BILD 7.15 Entfernen der Standardkategorie „Uncategorized“
 
@@ -445,7 +445,7 @@ _Papierkorb leeren_ ist hier leider etwas unglücklich gewählt, da der
 Button nicht automatisch den gesamten Papierkorb leert, sondern auch
 hier wieder eine Selektion des jeweiligen Eintrags erforderlich ist.
 
-image:media/image27.png[media/image27,width=548,height=108]
+image:book/07-inhalte-verwalten/media/27.png[book/07-inhalte-verwalten/media/27,width=548,height=108]
 
 BILD 7.16 Dauerhaftes Löschen einer Kategorie mittels _Papierkorb
 leeren_
@@ -457,7 +457,7 @@ funktioniert hier leider nicht, da dieser eine andere Funktion
 wahrnimmt, in der deutschen Version aber leider doppeldeutig beschriftet
 worden ist.
 
-image:media/image29.png[media/image29,width=548,height=82]
+image:book/07-inhalte-verwalten/media/29.png[book/07-inhalte-verwalten/media/29,width=548,height=82]
 
 BILD 7.17 Wiederherstellen eines Eintrags aus dem Papierkorb
 
@@ -484,7 +484,7 @@ Klickwege genutzt werden kann. Der erste Weg arbeitet über einen Klick
 auf das jeweilige Status-Icon der Kategorie in der Übersichtsliste.
 Daraufhin nimmt die Kategorie den jeweils entgegengesetzten Status an.
 
-image:media/image31.png[media/image31,width=548,height=164]
+image:book/07-inhalte-verwalten/media/31.png[book/07-inhalte-verwalten/media/31,width=548,height=164]
 
 BILD 7.18 Wechseln des Kategorienstatus per Klick auf das jeweilige Icon
 
@@ -507,7 +507,7 @@ die Nutzung der Funktion ist, dass wir die Einträge der Liste im Backend
 aufsteigend nach der Reihenfolge sortieren lassen, was durch das
 zugehörige Icon angezeigt wird (siehe Bild 7.19).
 
-image:media/image33.png[media/image33,width=548,height=182]
+image:book/07-inhalte-verwalten/media/33.png[book/07-inhalte-verwalten/media/33,width=548,height=182]
 
 BILD 7.19 Sortierung der Liste nach der Spalte _Reihenfolge_, um die
 Funktion zur Änderung der Reihenfolge im Frontend zu aktivieren
@@ -524,11 +524,11 @@ die linke Maustaste wird gedrückt und gehalten und der entsprechende
 Eintrage kann nun in der Liste verschoben werden (siehe Bild 7.21) ist
 die gewünschte Reihenfolge erreicht, wird die Maustaste losgelassen.
 
-image:media/image36.png[media/image36,width=548,height=162]
+image:book/07-inhalte-verwalten/media/36.png[book/07-inhalte-verwalten/media/36,width=548,height=162]
 
 Bild 7.20 Bedienelement für die Drag & Drop Sortierung von Einträgen
 
-image:media/image37.png[media/image37,width=548,height=152]
+image:book/07-inhalte-verwalten/media/37.png[book/07-inhalte-verwalten/media/37,width=548,height=152]
 
 Bild 7.21 Aktive Drag & Drop Sortierung
 
@@ -551,7 +551,7 @@ entsprechende Symbol, wird außerdem ein kleiner Tooltipp eingeblendet,
 der angibt, wann und durch welchen Benutzer die Bearbeitung gestartet
 wurde.
 
-image:media/image39.png[media/image39,width=548,height=157]
+image:book/07-inhalte-verwalten/media/39.png[book/07-inhalte-verwalten/media/39,width=548,height=157]
 
 BILD 7.22 Schlosssymbol und Tooltipp bei _ausgecheckter_ Kategorie
 
@@ -566,7 +566,7 @@ Bearbeitung einer Kategorie ausgegraut ist, denn hier würde sonst der
 gleiche Effekt auftreten. Joomla! bietet jedoch die Möglichkeit, diese
 Sperre gezielt per Klick auf das jeweilige wieder aufzuheben.
 
-image:media/image40.png[media/image40,width=548,height=155]
+image:book/07-inhalte-verwalten/media/40.png[book/07-inhalte-verwalten/media/40,width=548,height=155]
 
 BILD 7.23 Erfolgreiche Freigabe
 
@@ -599,7 +599,7 @@ zugeordnet werden als ursprünglich gewünscht) durch die Nutzung des
 Toolbar-Buttons _Wiederherstellen_ repariert werden kann. Joomla!
 bestätigt den Vorgang anschließend mit einer entsprechenden Meldung.
 
-image:media/image42.png[media/image42,width=548,height=138]
+image:book/07-inhalte-verwalten/media/42.png[book/07-inhalte-verwalten/media/42,width=548,height=138]
 
 BILD 7.24 Wiederherstellen der Kategorienstruktur im Fehlerfall
 
@@ -624,13 +624,13 @@ _Kategorien_, sondern auf den Bereich _Beiträge_ bezogen sind, weshalb
 wir diese Parameter in Kapitel 7.2, „Inhalte erstellen“, betrachten
 wollen.
 
-==== Anwenden von Änderungen auf mehrere Kategorien 
+==== Anwenden von Änderungen auf mehrere Kategorien
 
 Joomla! bietet einige nützliche Features zum Anwenden von Änderungen auf
 mehr als eine Kategorie, die sich hinter dem Button _Stapelverarbeitung_
 verstecken.
 
-image:media/image45.png[media/image45,width=548,height=124]
+image:book/07-inhalte-verwalten/media/45.png[book/07-inhalte-verwalten/media/45,width=548,height=124]
 
 BILD 7.25 Der Button für die Stapelverarbeitung der Kategorieliste
 
@@ -649,7 +649,7 @@ Listeneinträgen, die in Joomla! 1.0 und 1.5 noch einen eigenen
 Toolbar-Button innehatte.
 |===
 
-image:media/image46.png[media/image46,width=548,height=129]
+image:book/07-inhalte-verwalten/media/46.png[book/07-inhalte-verwalten/media/46,width=548,height=129]
 
 BILD 7.26 Dialog zur Stapelverarbeitung von Kategorien
 
@@ -676,7 +676,7 @@ _Kategorie_ bzw. _Autor_ zu filtern.
 * in der Kopfzeile der Liste, wo die Spalten nun den Anforderungen der
 Beitragsliste entsprechen.
 
-image:media/image49.png[media/image49,width=548,height=156]
+image:book/07-inhalte-verwalten/media/49.png[book/07-inhalte-verwalten/media/49,width=548,height=156]
 
 BILD 7.27 Neue Schaltflächen und Funktionen der Beitragsliste im
 Vergleich zur Kategorienliste
@@ -691,7 +691,7 @@ Wir wollen nun damit fortfahren, unseren ersten Beitrag anzulegen. Dafür
 öffnen wir das entsprechende Formular durch einen Klick auf das Icon Neu
 in der Toolbar der Beitragsübersicht.
 
-image:media/image51.png[media/image51,width=548,height=406]
+image:book/07-inhalte-verwalten/media/51.png[book/07-inhalte-verwalten/media/51,width=548,height=406]
 
 BILD 7.28 Leeres Formular zum Anlegen eines neuen _Beitrags_
 
@@ -728,7 +728,7 @@ generiert wird, und wählen unsere zuvor angelegte Kategorie
 _Informationen_ aus, da dies ja, gemäß unserer Seitenstruktur, die
 übergeordnete Kategorie unserer Startseite sein soll.
 
-image:media/image53.png[media/image53,width=548,height=217]
+image:book/07-inhalte-verwalten/media/53.png[book/07-inhalte-verwalten/media/53,width=548,height=217]
 
 BILD 7.29 Vergabe von Titel und Kategorie unseres ersten Beitrags
 „Willkommen“
@@ -768,7 +768,7 @@ Inhalte zeigt, sowie die _Fußzeile_, in der uns unsere Position im
 Markup (_Pfad_) sowie die Anzahl der eingegebenen Wörter angezeigt
 werden.
 
-image:media/image55.png[media/image55,width=548,height=315]
+image:book/07-inhalte-verwalten/media/55.png[book/07-inhalte-verwalten/media/55,width=548,height=315]
 
 BILD 7.30 Werkzeugleiste des WYSIWYG-Editors
 
@@ -784,36 +784,36 @@ TABELLE 7.4 Verfügbare Editor-Funktionen
 |===
 |Icon |Beschreibung |Anmerkung
 
-|image:media/image56.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1278.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/56.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1278.PNG,width=42,height=42]
 |fettgedruckt |–
 
-|image:media/image57.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1296.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/57.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1296.PNG,width=42,height=42]
 |kursiv |–
 
-|image:media/image58.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1314.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/58.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1314.PNG,width=42,height=42]
 |unterstrichen |–
 
-|image:media/image59.png[media/image59,width=42,height=38]
+|image:book/07-inhalte-verwalten/media/59.png[book/07-inhalte-verwalten/media/59,width=42,height=38]
 |durchgestrichen |–
 
-|image:media/image61.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1341.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/61.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1341.PNG,width=42,height=42]
 |linksbündig |–
 
-|image:media/image62.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1353.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/62.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1353.PNG,width=42,height=42]
 |zentriert |–
 
-|image:media/image63.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1368.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/63.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1368.PNG,width=42,height=42]
 |rechtsbündig |–
 
-|image:media/image64.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1381.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/64.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1381.PNG,width=42,height=42]
 |Blocksatz |–
 
-|image:media/image65.png[media/image65,width=97,height=33] |Auswahl der
+|image:book/07-inhalte-verwalten/media/65.png[book/07-inhalte-verwalten/media/65,width=97,height=33] |Auswahl der
 anzuwendenden Formatierungen |Der Editor lädt die entsprechenden
 CSS-Klassen aus der Datei _editor.css_ im _/css_-Verzeichnis des
 jeweiligen Templates.
 
-|image:media/image68.png[media/image68,width=126,height=38] |Auswahl des
+|image:book/07-inhalte-verwalten/media/68.png[book/07-inhalte-verwalten/media/68,width=126,height=38] |Auswahl des
 HTML-Elements a|
 Zur Verfügung stehen:
 
@@ -822,55 +822,55 @@ Zur Verfügung stehen:
 * Adresse ++<++address++>++
 * Rohdaten ++<++pre++>++
 
-|image:media/image70.png[media/image70,width=126,height=38] |Auswahl der
+|image:book/07-inhalte-verwalten/media/70.png[book/07-inhalte-verwalten/media/70,width=126,height=38] |Auswahl der
 Schriftart |Der Button ist mit der jeweils aktuell verwendeten
 Schriftart beschriftet
 
-|image:media/image72.png[media/image72,width=126,height=38] |Auswahl der
+|image:book/07-inhalte-verwalten/media/72.png[book/07-inhalte-verwalten/media/72,width=126,height=38] |Auswahl der
 Schriftgröße |Der Button ist mit der jeweils aktuell verwendeten
 Schriftgröße beschriftet
 
-|image:media/image74.png[media/image74,width=42,height=38] |Suchen im
+|image:book/07-inhalte-verwalten/media/74.png[book/07-inhalte-verwalten/media/74,width=42,height=38] |Suchen im
 Text |–
 
 | | |
 
-|image:media/image76.png[media/image76,width=62,height=36] |Nicht
+|image:book/07-inhalte-verwalten/media/76.png[book/07-inhalte-verwalten/media/76,width=62,height=36] |Nicht
 nummerierte Aufzählung |–
 
-|image:media/image78.png[media/image78,width=62,height=36] |Nummerierte
+|image:book/07-inhalte-verwalten/media/78.png[book/07-inhalte-verwalten/media/78,width=62,height=36] |Nummerierte
 Aufzählung |–
 
-|image:media/image81.png[media/image81,width=41,height=36]
+|image:book/07-inhalte-verwalten/media/81.png[book/07-inhalte-verwalten/media/81,width=41,height=36]
 |Texteinrückung wiederrufen |Nur bei bereits eingerückten Texten
 anwendbar
 
-|image:media/image83.png[media/image83,width=41,height=36] |Text
+|image:book/07-inhalte-verwalten/media/83.png[book/07-inhalte-verwalten/media/83,width=41,height=36] |Text
 einrücken |–
 
-|image:media/image84.png[media/image84,width=41,height=36] |Schritt
+|image:book/07-inhalte-verwalten/media/84.png[book/07-inhalte-verwalten/media/84,width=41,height=36] |Schritt
 rückgängig machen |–
 
-|image:media/image86.png[media/image86,width=41,height=36] |Schritt
+|image:book/07-inhalte-verwalten/media/86.png[book/07-inhalte-verwalten/media/86,width=41,height=36] |Schritt
 wiederholen |–
 
-|image:media/image89.png[media/image89,width=41,height=36] |Verlinkung
+|image:book/07-inhalte-verwalten/media/89.png[book/07-inhalte-verwalten/media/89,width=41,height=36] |Verlinkung
 setzen/editieren |Das zu verlinkende Wort muss vorher im Text markiert
 werden.
 
-|image:media/image91.png[media/image91,width=41,height=36] |Verlinkung
+|image:book/07-inhalte-verwalten/media/91.png[book/07-inhalte-verwalten/media/91,width=41,height=36] |Verlinkung
 aufheben |Ist nur anwendbar, wenn eine bestehende Verlinkung im Text
 markiert ist
 
-|image:media/image92.png[media/image92,width=41,height=36]
+|image:book/07-inhalte-verwalten/media/92.png[book/07-inhalte-verwalten/media/92,width=41,height=36]
 |Anker/Sprungmarke setzen |Setzt um den aktuell gewählten Text einen
 ++<++a++>++-Tag mit der eingegeben ID
 
-|image:media/image94.png[media/image94,width=41,height=36] |Bild
+|image:book/07-inhalte-verwalten/media/94.png[book/07-inhalte-verwalten/media/94,width=41,height=36] |Bild
 einfügen |Erfordert die direkte Eingabe der Bild-URL und greift nicht
 auf die Joomla!-eigene Medienverwaltung zu
 
-|image:media/image95.png[media/image95,width=41,height=36] |Quellcode
+|image:book/07-inhalte-verwalten/media/95.png[book/07-inhalte-verwalten/media/95,width=41,height=36] |Quellcode
 anzeigen |Zeigt den Quellcode des aktuellen Beitrags
 
 | | |
@@ -879,96 +879,96 @@ anzeigen |Zeigt den Quellcode des aktuellen Beitrags
 
 | | |
 
-|image:media/image100.png[media/image100,width=50,height=34] |Fügt das
+|image:book/07-inhalte-verwalten/media/100.png[book/07-inhalte-verwalten/media/100,width=50,height=34] |Fügt das
 aktuelle Datum/Zeit ein |–
 
 | | |
 
-|image:media/image104.png[media/image104,width=60,height=36]
+|image:book/07-inhalte-verwalten/media/104.png[book/07-inhalte-verwalten/media/104,width=60,height=36]
 |Schriftfarbe |–
 
-|image:media/image106.png[media/image106,width=60,height=36]
+|image:book/07-inhalte-verwalten/media/106.png[book/07-inhalte-verwalten/media/106,width=60,height=36]
 |Text-Hintergrundfarbe |–
 
-|image:media/image108.png[media/image108,width=37,height=32] |Vollbild
+|image:book/07-inhalte-verwalten/media/108.png[book/07-inhalte-verwalten/media/108,width=37,height=32] |Vollbild
 |Vergrößert den Editor auf die volle Größe des Browserfensters, kein
 Vollbildmodus im eigentlichen Sinne.
 
-|image:media/image109.png[media/image109,width=46,height=34] |Tabelle
+|image:book/07-inhalte-verwalten/media/109.png[book/07-inhalte-verwalten/media/109,width=46,height=34] |Tabelle
 einfügen |–
 
-|image:media/image112.png[media/image112,width=38,height=34]
+|image:book/07-inhalte-verwalten/media/112.png[book/07-inhalte-verwalten/media/112,width=38,height=34]
 |Eigenschaften der Tabelle |Wird als separate Werkzeugleiste
 eingeblendet sobald eine Tabelle bearbeitet wird
 
 | | |
 
-|image:media/image115.png[media/image115,width=38,height=34] |Zeile
+|image:book/07-inhalte-verwalten/media/115.png[book/07-inhalte-verwalten/media/115,width=38,height=34] |Zeile
 oberhalb einfügen |s. o.
 
-|image:media/image117.png[media/image117,width=38,height=34] |Zeile
+|image:book/07-inhalte-verwalten/media/117.png[book/07-inhalte-verwalten/media/117,width=38,height=34] |Zeile
 unterhalb einfügen |s. o.
 
-|image:media/image119.png[media/image119,width=38,height=34] |Zeile
+|image:book/07-inhalte-verwalten/media/119.png[book/07-inhalte-verwalten/media/119,width=38,height=34] |Zeile
 entfernen |s. o.
 
-|image:media/image121.png[media/image121,width=38,height=34] |Spalte
+|image:book/07-inhalte-verwalten/media/121.png[book/07-inhalte-verwalten/media/121,width=38,height=34] |Spalte
 davor einfügen |s. o.
 
-|image:media/image123.png[media/image123,width=38,height=34] |Spalte
+|image:book/07-inhalte-verwalten/media/123.png[book/07-inhalte-verwalten/media/123,width=38,height=34] |Spalte
 dahinter einfügen |s. o.
 
-|image:media/image125.png[media/image125,width=38,height=34] |Spalte
+|image:book/07-inhalte-verwalten/media/125.png[book/07-inhalte-verwalten/media/125,width=38,height=34] |Spalte
 entfernen |s. o.
 
 | | |
 
 | | |
 
-|image:media/image128.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1879.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/128.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1879.PNG,width=42,height=42]
 |Horizontale Linie |Entspricht dem ++<++hr++>++-Tag
 
-|image:media/image130.png[media/image130,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/130.png[book/07-inhalte-verwalten/media/130,width=38,height=33]
 |Formatierungen zurücksetzen |Entfernt alle Formatierungen des
 selektierten Texts
 
 | | |
 
-|image:media/image133.png[media/image133,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/133.png[book/07-inhalte-verwalten/media/133,width=38,height=33]
 |tiefgestellt |–
 
-|image:media/image135.png[media/image135,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/135.png[book/07-inhalte-verwalten/media/135,width=38,height=33]
 |hochgestellt |–
 
-|image:media/image137.png[media/image137,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/137.png[book/07-inhalte-verwalten/media/137,width=38,height=33]
 |Sonderzeichen |Erlaubt das Einfügen von Zeichen, die über die Tastatur
 nicht direkt erreichbar sind
 
-|image:media/image139.png[media/image139,width=38,height=33] |Emoticons
+|image:book/07-inhalte-verwalten/media/139.png[book/07-inhalte-verwalten/media/139,width=38,height=33] |Emoticons
 |–
 
-|image:media/image141.png[media/image141,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/141.png[book/07-inhalte-verwalten/media/141,width=38,height=33]
 |Multimedia-Inhalte einfügen |Erfordert die manuelle Eingabe der
 Video-URL und bietet keine Vernetzung mit dem Medien-Manager
 
 | | |
 
-|image:media/image144.png[media/image144,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/144.png[book/07-inhalte-verwalten/media/144,width=38,height=33]
 |Textrichtung von links nach rechts |–
 
-|image:media/image146.png[media/image146,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/146.png[book/07-inhalte-verwalten/media/146,width=38,height=33]
 |Textrichtung von rechts nach links |–
 
-|image:media/image148.png[media/image148,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/148.png[book/07-inhalte-verwalten/media/148,width=38,height=33]
 |Ausschneiden |–
 
-|image:media/image150.png[media/image150,width=38,height=33] |Kopieren
+|image:book/07-inhalte-verwalten/media/150.png[book/07-inhalte-verwalten/media/150,width=38,height=33] |Kopieren
 |–
 
-|image:media/image151.png[media/image151,width=38,height=33] |Einfügen
+|image:book/07-inhalte-verwalten/media/151.png[book/07-inhalte-verwalten/media/151,width=38,height=33] |Einfügen
 und Formatierungen übernehmen |–
 
-|image:media/image154.png[media/image154,width=38,height=33] |Einfügen
+|image:book/07-inhalte-verwalten/media/154.png[book/07-inhalte-verwalten/media/154,width=38,height=33] |Einfügen
 und Formatierungen entfernen |–
 
 | | |
@@ -997,50 +997,50 @@ und Formatierungen entfernen |–
 
 | | |
 
-|image:media/image168.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2267.PNG,width=42,height=42]
+|image:book/07-inhalte-verwalten/media/168.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2267.PNG,width=42,height=42]
 |Steuerzeichen einblenden |–
 
-|image:media/image170.png[media/image170,width=38,height=33]
+|image:book/07-inhalte-verwalten/media/170.png[book/07-inhalte-verwalten/media/170,width=38,height=33]
 |Leerzeichen einfügen |Generiert einen Non-Breaking-Space: &nbsp;
 
-|image:media/image172.png[media/image172,width=38,height=33] |Zitat
+|image:book/07-inhalte-verwalten/media/172.png[book/07-inhalte-verwalten/media/172,width=38,height=33] |Zitat
 einfügen |Generiert einen ++<++blockquote++>++-Tag
 
-|image:media/image174.png[media/image174,width=38,height=33] |Vorlage
+|image:book/07-inhalte-verwalten/media/174.png[book/07-inhalte-verwalten/media/174,width=38,height=33] |Vorlage
 einfügen |Fügt einen vorgefertigten HTML-Block ein. Eigene Templates
 können im Verzeichnis _/media/editors/tinymce/templates_ hinterlegt
 werden.
 
-|image:media/image175.png[media/image175,width=38,height=33] |Drucken
+|image:book/07-inhalte-verwalten/media/175.png[book/07-inhalte-verwalten/media/175,width=38,height=33] |Drucken
 |Zum Druck wird der entsprechende Dialog des Browsers verwendet, bei dem
 es naturgemäß Abweichungen von der realen Darstellung gibt
 
-|image:media/image176.png[media/image176,width=38,height=33] |Vorschau
+|image:book/07-inhalte-verwalten/media/176.png[book/07-inhalte-verwalten/media/176,width=38,height=33] |Vorschau
 |Keine vollwertige Vorschau-Funktion, da nur der reine Editorinhalt ohne
 CSS des Templates dargestellt wrid
 
-|image:media/image177.png[media/image177,width=38,height=33] |Code
+|image:book/07-inhalte-verwalten/media/177.png[book/07-inhalte-verwalten/media/177,width=38,height=33] |Code
 einfügen |Unterstützt Syntax-Highlighting
 
-|image:media/image178.png[media/image178,width=90,height=34] |Modul
+|image:book/07-inhalte-verwalten/media/178.png[book/07-inhalte-verwalten/media/178,width=90,height=34] |Modul
 einfügen |Siehe 7.2.2.6
 
-|image:media/image179.png[media/image179,width=90,height=34] |Link zu
+|image:book/07-inhalte-verwalten/media/179.png[book/07-inhalte-verwalten/media/179,width=90,height=34] |Link zu
 Menüeintrag einfügen |Siehe 7.2.2.3
 
-|image:media/image180.png[media/image180,width=90,height=34] |Link zu
+|image:book/07-inhalte-verwalten/media/180.png[book/07-inhalte-verwalten/media/180,width=90,height=34] |Link zu
 Kontakt aus der Kontakt-Komponente einfügen |Siehe 7.2.2.3
 
-|image:media/image181.png[media/image181,width=90,height=34] |Link zu
+|image:book/07-inhalte-verwalten/media/181.png[book/07-inhalte-verwalten/media/181,width=90,height=34] |Link zu
 anderem Beitrag eingefügen |Siehe 7.2.2.3
 
-|image:media/image182.png[media/image182,width=69,height=33] |Bild mit
+|image:book/07-inhalte-verwalten/media/182.png[book/07-inhalte-verwalten/media/182,width=69,height=33] |Bild mit
 dem Joomla-Mediamanager einfügen |Siehe 7.2.2.2
 
-|image:media/image183.png[media/image183,width=150,height=34]
+|image:book/07-inhalte-verwalten/media/183.png[book/07-inhalte-verwalten/media/183,width=150,height=34]
 |Seitenumbruch einfügen |Siehe 7.2.2.4
 
-|image:media/image184.png[media/image184,width=124,height=34]
+|image:book/07-inhalte-verwalten/media/184.png[book/07-inhalte-verwalten/media/184,width=124,height=34]
 |Weiterlesen-Umbruch einfügen |Siehe 7.2.2.5
 |===
 
@@ -1071,7 +1071,7 @@ der korrekten Formatierung von Überschriften. Werfen Sie einen Blick auf
 das Bild 7.31 – die beiden Überschriften, die Sie dort sehen, scheinen
 auf den ersten Blick völlig identisch zu sein.
 
-image:media/image186.png[media/image186,width=548,height=156]
+image:book/07-inhalte-verwalten/media/186.png[book/07-inhalte-verwalten/media/186,width=548,height=156]
 
 BILD 7.31 Zwei scheinbar identische Überschriften
 
@@ -1111,7 +1111,7 @@ einen Klick auf Erweiterungen ++>++ Plugins in die Plugin-Übersicht und
 öffnen dort das Editierungsformular durch einen Klick auf das Plug-in
 _Editor – TinyMCE_.
 
-image:media/image188.png[media/image188,width=472,height=340]
+image:book/07-inhalte-verwalten/media/188.png[book/07-inhalte-verwalten/media/188,width=472,height=340]
 
 BILD 7.32 Öffnen des Editor-Plug-ins in der Übersichtsliste
 
@@ -1121,7 +1121,7 @@ mehrerer Benutzergruppen (Markierung 2) zugeordnet sind. Jedem Set
 können per Drag & Drop die entsprechenden Editor-Werkzeuge zugewiesen
 bzw. aus dem Set entfernt werden (Markierung 3).
 
-image:media/image190.png[media/image190,width=472,height=291]
+image:book/07-inhalte-verwalten/media/190.png[book/07-inhalte-verwalten/media/190,width=472,height=291]
 
 BILD 7.33 Parametrisierungsmöglichkeiten des TinyMCE
 
@@ -1131,7 +1131,7 @@ Nachdem wir nun also die „dunklen Künste“ der WYSIWYG-Editor-Nutzung
 beherrschen, tragen wir einen kleinen Beispieltext für unsere
 Willkommensseite ein.
 
-image:media/image192.png[media/image192,width=548,height=318]
+image:book/07-inhalte-verwalten/media/192.png[book/07-inhalte-verwalten/media/192,width=548,height=318]
 
 BILD 7.34 Beitragsformular mit Beispieltext
 
@@ -1148,7 +1148,7 @@ Standard-Werkzeugleiste des Editors – diese Buttons, die nicht zum
 Ihrer Funktionalität mit Joomla verknüpft sind, werden im Übrigen in der
 Joomla!-Terminologie als _Editor-Schaltflächen_ bezeichnet.
 
-image:media/image193.png[media/image193,width=548,height=320]
+image:book/07-inhalte-verwalten/media/193.png[book/07-inhalte-verwalten/media/193,width=548,height=320]
 
 BILD 7.35 Öffnen des Medien-Managers über den markierten Button _Bild_
 
@@ -1169,7 +1169,7 @@ gesetzt werden, der unterhalb des Bilds platziert wird, für diese
 Bildunterschrift kann über das Feld _Caption-Klasse_ eine CSS-Klasse für
 das Styling gesetzt werden.
 
-image:media/image196.png[media/image196,width=548,height=403]
+image:book/07-inhalte-verwalten/media/196.png[book/07-inhalte-verwalten/media/196,width=548,height=403]
 
 BILD 7.36 Medien-Manger beim Einfügen eines Bildes in den Beitrag
 
@@ -1185,7 +1185,7 @@ beachten, dass die so verkleinerten Bilder immer noch ihre originale
 Dateigröße behalten, weshalb es empfehlenswert ist, die verwendeten
 Bilder bereits vor dem Upload zu verkleinern.
 
-image:media/image198.png[media/image198,width=548,height=322]
+image:book/07-inhalte-verwalten/media/198.png[book/07-inhalte-verwalten/media/198,width=548,height=322]
 
 BILD 7.37 Beitrag mit eingefügtem Bild
 
@@ -1218,14 +1218,14 @@ legitime Weg wäre das manuelle Kopieren der URL aus der Browserleiste
 und das anschließende Einfügen der Verlinkung durch den entsprechenden
 Button des WYSIWYG-Editors.
 
-image:media/image200.png[media/image200,width=548,height=316]
+image:book/07-inhalte-verwalten/media/200.png[book/07-inhalte-verwalten/media/200,width=548,height=316]
 
 BILD 7.38 Manuelle Verlinkung eines Beitrags mittels Copy & Paste
 
 Ein anderer, zeitsparenderer Weg ist die Nutzung des _Beitrag_-Buttons
 in der Werkzeugleiste des Editors.
 
-image:media/image201.png[media/image201,width=548,height=127]
+image:book/07-inhalte-verwalten/media/201.png[book/07-inhalte-verwalten/media/201,width=548,height=127]
 
 BILD 7.39 _Beitrag_-Button in der Werkzeugleiste
 
@@ -1234,7 +1234,7 @@ können, mittels Klick auf den jeweiligen Titel, eine Verlinkung zum
 Beitrag in unseren Text einfügen, ohne die entsprechende URL mühsam
 heraussuchen zu müssen.
 
-image:media/image204.png[media/image204,width=548,height=402]
+image:book/07-inhalte-verwalten/media/204.png[book/07-inhalte-verwalten/media/204,width=548,height=402]
 
 BILD 7.40 Popup der _Beiträge_-Funktion zum Einfügen von seiteninternen
 Verlinkungen
@@ -1264,7 +1264,7 @@ Editors, die auch den entsprechenden Titel trägt. Vor dem Klick auf den
 Button muss jedoch der Cursor an die entsprechende Stelle innerhalb des
 Texts gesetzt werden, an der der erste Seitenumbruch erfolgen soll.
 
-image:media/image206.png[media/image206,width=548,height=223]
+image:book/07-inhalte-verwalten/media/206.png[book/07-inhalte-verwalten/media/206,width=548,height=223]
 
 BILD 7.41 Setzen des Seitenumbruchs durch die Nutzung des entsprechenden
 Editor-Buttons
@@ -1274,7 +1274,7 @@ den ++<++title++>++-Tag eingesetzt) und eines Titels für das
 _Inhaltsverzeichnis_, also zur seiteninternen Navigation – die beiden
 Titel müssen dabei nicht identisch sein.
 
-image:media/image207.png[media/image207,width=548,height=282]
+image:book/07-inhalte-verwalten/media/207.png[book/07-inhalte-verwalten/media/207,width=548,height=282]
 
 BILD 7.42 Dialog zum Einfügen eines _Seitenumbruchs_
 
@@ -1287,7 +1287,7 @@ Nun können wir dieses Verfahren wiederholen, um einen weiteren Umbruch
 zu erzeugen und einen dreiseitigen Artikel zu erhalten, der dann ähnlich
 wie in Bild 7.43 aussehen sollte.
 
-image:media/image210.png[media/image210,width=548,height=215]
+image:book/07-inhalte-verwalten/media/210.png[book/07-inhalte-verwalten/media/210,width=548,height=215]
 
 BILD 7.43 Artikel mit zwei eingefügten Seitenumbrüchen
 
@@ -1295,7 +1295,7 @@ Joomla! erzeugt beim Aufruf des entsprechenden Artikels im Frontend eine
 beitragsinterne Navigation, die an der Seite des Artikels angezeigt wird
 und uns erlaubt, durch die einzelnen Seiten des _Beitrags_ zu wechseln.
 
-image:media/image212.png[media/image212,width=548,height=267]
+image:book/07-inhalte-verwalten/media/212.png[book/07-inhalte-verwalten/media/212,width=548,height=267]
 
 BILD 7.44 Darstellung der _Seitenumbrüche_ im _Frontend_ der Seite
 
@@ -1327,14 +1327,14 @@ ein, an welcher der Text geteilt werden soll. Anschließend generiert
 Joomla! eine gestrichelte Linie, die beim Aufruf im Frontend ersetzt
 wird.
 
-image:media/image214.png[media/image214,width=548,height=287]
+image:book/07-inhalte-verwalten/media/214.png[book/07-inhalte-verwalten/media/214,width=548,height=287]
 
 BILD 7.45 Beitrag nach der Nutzung der _Weiterlesen_-Funktion
 
 Beim Aufruf im Frontend wird der entsprechende ++<++hr++>++-Tag durch
 den _Weiterlesen_-Link ersetzt.
 
-image:media/image216.png[media/image216,width=548,height=246]
+image:book/07-inhalte-verwalten/media/216.png[book/07-inhalte-verwalten/media/216,width=548,height=246]
 
 BILD 7.46 _Weiterlesen_-Button im Frontend der Seite
 
@@ -1347,7 +1347,7 @@ mehrerer Artikel einer Kategorie) anzeigt – beim direkten Aufruf eines
 Beitrags wird er komplett ohne Verlinkung dargestellt.
 |===
 
-===== Module einfügen 
+===== Module einfügen
 
 Über das Editor-Werkzeug _Modul_ kann ein einzelnes Modul bzw. eine
 ganze Modulposition eingefügt werden. Nach einem Klick auf den
@@ -1361,7 +1361,7 @@ diesem Werkzeug deutlich mehr anfangen können als jetzt. Vorläufig
 reicht uns das wissen, dass der Editor uns hierfür eine sehr bequeme
 Möglichkeit zur Verfügung stellt.
 
-image:media/image217.png[media/image217,width=548,height=400]
+image:book/07-inhalte-verwalten/media/217.png[book/07-inhalte-verwalten/media/217,width=548,height=400]
 
 Bild 7.47 Dialog zum Einfügen von Modulplatzhaltern in einen Beitrag
 
@@ -1375,7 +1375,7 @@ einzugeben, die vom Editor nicht unterstützt werden. Um den Editor ein-
 bzw. auszuschalten, reicht dann ein simpler Klick auf die Schaltfläche
 Editor ein/aus.
 
-image:media/image219.png[media/image219,width=548,height=365]
+image:book/07-inhalte-verwalten/media/219.png[book/07-inhalte-verwalten/media/219,width=548,height=365]
 
 BILD 7.48 Willkommenstext nach der Deaktivierung des Editors durch die
 entsprechende Schaltfläche
@@ -1603,7 +1603,7 @@ notwendig überschrieben werden, indem man eine von „Globale Einstellung“
 abweichende Option in den Beitragsparametern wählt. Der aktuell gültige
 globale Wert wird dabei jeweils in Klammern angegeben.
 
-image:media/image220.png[media/image220,width=548,height=319]
+image:book/07-inhalte-verwalten/media/220.png[book/07-inhalte-verwalten/media/220,width=548,height=319]
 
 BILD 7.49 Beitragsparameter mit der Vorgabe „Globale Einstellung“
 
@@ -1621,7 +1621,7 @@ Diese erreichen wir über einen Klick auf den bereits bekannten
 Toolbar-Button _Optionen_, woraufhin sich eine Seite mit allen für diese
 Komponente verfügbaren Parametern öffnet.
 
-image:media/image222.png[media/image222,width=548,height=272]
+image:book/07-inhalte-verwalten/media/222.png[book/07-inhalte-verwalten/media/222,width=548,height=272]
 
 BILD 7.50 Optionen der Beitragskomponente
 
@@ -1716,11 +1716,11 @@ Beiträge
 Sortierung der Beiträge in den Spalten. Kann entweder abwärts oder
 seitlich erfolgen:
 
-image:media/image224.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2897.PNG,width=76,height=76]
+image:book/07-inhalte-verwalten/media/224.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2897.PNG,width=76,height=76]
 
 BILD 7.51 Abwärtssortierung
 
-image:media/image225.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2904.PNG,width=75,height=75]
+image:book/07-inhalte-verwalten/media/225.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2904.PNG,width=75,height=75]
 
 BILD 7.52 Seitliche Sortierung
 
@@ -1815,7 +1815,7 @@ Daher blenden wir über die Optionen die Angaben für _Kategorie_,
 _Autor_, _Veröffentlichungsdatum_, _Seitenaufrufe_ im Tab _Beiträge_ aus
 und verlassen den Dialog mit einem Klick auf Speichern & Schliessen.
 
-image:media/image227.png[media/image227,width=548,height=436]
+image:book/07-inhalte-verwalten/media/227.png[book/07-inhalte-verwalten/media/227,width=548,height=436]
 
 BILD 7.52 Anpassung der standardmäßigen Beitragsoptionen
 
@@ -1830,7 +1830,7 @@ einzige Unterschied besteht in dem zusätzlichen Toolbar-Button _Kein
 Haupteintrag_, der die Markierung eines Beitrags als _Haupteintrag_
 wieder aufhebt.
 
-image:media/image228.png[media/image228,width=548,height=157]
+image:book/07-inhalte-verwalten/media/228.png[book/07-inhalte-verwalten/media/228,width=548,height=157]
 
 BILD 7.54 Listenansicht der Hauptbeiträge
 
@@ -1848,7 +1848,7 @@ Um diese älteren Versionen aufzurufen, wechseln wir in die
 _Bearbeitungansicht_ des Beitrags und rufen die Versionsliste über den
 entsprechenden Button Versionen.
 
-image:media/image230.png[media/image230,width=548,height=194]
+image:book/07-inhalte-verwalten/media/230.png[book/07-inhalte-verwalten/media/230,width=548,height=194]
 
 Bild 7.55 Button _Versionen_ in der Toolbar des Bearbeitungslayouts
 
@@ -1862,7 +1862,7 @@ Betätigung des entsprechenden Buttons Wiederherstellen kann eine
 bestimmte Version wiederhergestellt werden, die dabei den aktuellen
 Stand überschreibt.
 
-image:media/image231.png[media/image231,width=548,height=229]
+image:book/07-inhalte-verwalten/media/231.png[book/07-inhalte-verwalten/media/231,width=548,height=229]
 
 Bild 7.56 Versionsverlauf eines Beitrags
 
@@ -1883,7 +1883,7 @@ der entsprechende Button in der Spalte _Immer speichern_ betätigt
 werden. Die Seite lädt dann neu und symbolisiert die dauerhafte
 Speicherung dieses Versionsstands durch ein Schloss-Symbol.
 
-image:media/image232.png[media/image232,width=548,height=228]
+image:book/07-inhalte-verwalten/media/232.png[book/07-inhalte-verwalten/media/232,width=548,height=228]
 
 Bild 7.57 Versionshistorie mit dauerhaft gespeicherten Versionsstand
 
@@ -1898,7 +1898,7 @@ _Bearbeitungslayout_ der globalen Beitragsoptionen (siehe 7.2.3) durch
 die Anpassung des Parameters _Versionen speichern_ vorgenommen werden.
 |===
 
-=== Verschlagwortung 
+=== Verschlagwortung
 
 In Kapitel 7.1 haben wir bereits die Funktion von Joomla kennengelernt,
 die maßgeblich für die Strukturierung und Gruppierung von Beiträgen
@@ -1938,7 +1938,7 @@ Erwähnenswert ist hierbei, dass sich Schlagworte, analog wie Kategorie,
 miteinander verschachteln lassen, um somit komplexe Systeme aus Unter-
 und Oberbegriffen zu erzeugen.
 
-image:media/image233.png[media/image233,width=548,height=165]
+image:book/07-inhalte-verwalten/media/233.png[book/07-inhalte-verwalten/media/233,width=548,height=165]
 
 Bild 7.58 Liste der Schlagwörter mit 3 Beispiel-Tags
 
@@ -1947,7 +1947,7 @@ _Bearbeitungsformular_ des jeweiligen Inhalts heraus. Das dortige
 Eingabefeld für Schlagwörter arbeitet mit einer Autovervollständigung,
 das bereits existierende Schlagwörter vorschlägt (siehe Bild 7.59).
 
-image:media/image234.png[media/image234,width=548,height=318]
+image:book/07-inhalte-verwalten/media/234.png[book/07-inhalte-verwalten/media/234,width=548,height=318]
 
 Bild 7.59 Autovervollständigung von bereits existierenden Tags
 
@@ -1956,7 +1956,7 @@ kann dieses nach der Eingabe durch eine Betätigung der Enter-Taste zur
 _Schlagwortliste_ hinzugefügt werden. Mehrere Schlagworte werden dabei
 voneinander abgegrenzt dargestellt (siehe Bild 7.60).
 
-image:media/image235.png[media/image235,width=548,height=351]
+image:book/07-inhalte-verwalten/media/235.png[book/07-inhalte-verwalten/media/235,width=548,height=351]
 
 Bild 7.60 Ein Beitrag mit mehreren Tags
 
@@ -1972,7 +1972,7 @@ sehen, die mit diesem Tag verknüpft ist. In Bild 7.61 ist dies neben
 einigen Beiträgen z.B. das Kontaktformular der Seite, dass wir ebenfalls
 mit dem Tag *Bio* versehen haben.
 
-image:media/image236.png[media/image236,width=548,height=191]
+image:book/07-inhalte-verwalten/media/236.png[book/07-inhalte-verwalten/media/236,width=548,height=191]
 
 Bild 7.61 Liste der Inhalte mit dem Tag Bio inklusive Kontaktformular
 (markiert)

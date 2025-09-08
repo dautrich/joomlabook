@@ -60,7 +60,7 @@ Unter Windows starten wir mit der Installation des Webserver-Pakets
 _XAMPP_, indem wir das Installationspaket von der Homepage der
 Entwickler ([.underline]#www.apachefriends.org#) herunterladen.
 
-image:media/image2.png[media/image2,width=548,height=336]
+image:book/02-ueber-joomla/media/2.png[book/03-einrichten/media/2,width=548,height=336]
 
 BILD 3.1 Download des _XAMPP_-Pakets von der Entwickler-Homepage
 
@@ -69,7 +69,7 @@ Doppelklick auf den Installer. Folgen Sie den Anweisungen des
 Installationsprogramms und belassen Sie dabei den Pfad zum
 Zielverzeichnis bei der Standardvorgabe _c:++\++xampp_.
 
-image:media/image4.png[media/image4,width=548,height=360]
+image:book/03-einrichten/media/4.png[book/03-einrichten/media/4,width=548,height=360]
 
 BILD 3.2 Installationsprozess von _XAMPP_
 
@@ -79,7 +79,7 @@ dieser Stelle Warnmeldungen von UAC oder installierten Firewall-Tools
 auftreten, so müssen Sie den beiden Diensten den Netzwerkzugriff
 erlauben.
 
-image:media/image6.png[media/image6,width=548,height=363]
+image:book/03-einrichten/media/6.png[book/03-einrichten/media/6,width=548,height=363]
 
 BILD 3.3 _XAMPP Control Panel_
 
@@ -89,7 +89,7 @@ installierten Webservers aufrufen. Nun können wir mit der
 Joomla!-Installation fortfahren, da keine weiteren Anpassungen am
 Webserver nötig sind, um Joomla! zu betreiben.
 
-image:media/image8.png[media/image8,width=548,height=335]
+image:book/03-einrichten/media/8.png[book/03-einrichten/media/8,width=548,height=335]
 
 BILD 3.4 Startseite des _XAMPP_-Pakets unter Windows
 
@@ -126,7 +126,7 @@ mod-php7.0 apache2 phpmyadmin
 ausführen. Daraufhin beginnt _Ubuntu_ mit dem Herunterladen der
 benötigten Software und installiert diese.
 
-image:media/image10.png[media/image10,width=548,height=326]
+image:book/03-einrichten/media/10.png[book/03-einrichten/media/10,width=548,height=326]
 
 BILD 3.5 Installation des LAMP-Pakets unter Ubuntu
 
@@ -135,7 +135,7 @@ _MySQL_-Root-Passworts gebeten, das als administratives Passwort für den
 _MySQL_-Server dient. Vergeben Sie hier ein Wunschpasswort und merken
 Sie sich dieses dauerhaft.
 
-image:media/image12.png[media/image12,width=548,height=335]
+image:book/03-einrichten/media/12.png[book/03-einrichten/media/12,width=548,height=335]
 
 BILD 3.6 Eingabe des gewünschten MySQL-Root-Passworts
 
@@ -143,7 +143,7 @@ Nun ist Ihr neu installierter Webserver bereits unter
 _http://localhost/_ erreichbar, benötigt jedoch noch einige Anpassungen,
 um mit unserer gewünschten Joomla!-Umgebung zu harmonieren.
 
-image:media/image14.png[media/image14,width=548,height=334]
+image:book/03-einrichten/media/14.png[book/03-einrichten/media/14,width=548,height=334]
 
 BILD 3.7 Webserver nach der Installation
 
@@ -227,7 +227,7 @@ Die Installation von MAMP beginnt mit dem Download des
 Installationspakets von der Homepage des Projekts unter
 [.underline]#http://www.mamp.info#.
 
-image:media/image16.png[media/image16,width=548,height=319]
+image:book/03-einrichten/media/16.png[book/03-einrichten/media/16,width=548,height=319]
 
 BILD 3.8 Homepage des MAMP-Projekts mit Download-Möglichkeit
 
@@ -236,7 +236,7 @@ durch einen Doppelklick auf die gerade entpackte Datei
 _MAMP++_++MAMP++_++PRO++_++X.pkg_. Daraufhin werden wir vom Installer
 durch die Installation des Webservers geführt.
 
-image:media/image19.png[media/image19,width=548,height=387]
+image:book/03-einrichten/media/19.png[book/03-einrichten/media/19,width=548,height=387]
 
 BILD 3.9 Installation des _MAMP_-Pakets
 
@@ -246,7 +246,7 @@ selbstverständlich nur nach dem Kauf der entsprechenden Lizenz nutzen
 lässt. Daher starten wir die Standardversion durch einen Doppelklick auf
 das entsprechende Icon im _Programme_-Ordner.
 
-image:media/image20.png[media/image20,width=548,height=338]
+image:book/03-einrichten/media/20.png[book/03-einrichten/media/20,width=548,height=338]
 
 BILD 3.10 Start von MAMP mittels Verknüpfung im Programmordner
 
@@ -257,7 +257,7 @@ und _MySQL_-Server-Ports sowie das sog. _Document Root_, also das
 Hauptverzeichnis des _Webservers_, wählen. Weitere Anpassungen an _MAMP_
 sind zum Betrieb von Joomla! nicht nötig.
 
-image:media/image23.png[media/image23,width=548,height=414]
+image:book/03-einrichten/media/23.png[book/03-einrichten/media/23,width=548,height=414]
 
 BILD 3.11 MAMP-Kontrolltool
 
@@ -286,7 +286,7 @@ nurnoch bedingt zutreffen würden. Ich empfehle Ihnen daher die
 Installation erstmal manuell vornehmen und sich mit dem Thema Vagrant
 dann zu einem späteren Verlauf erneut zu beschäftigen.
 
-image:media/image24.png[media/image24,width=548,height=347]
+image:book/03-einrichten/media/24.png[book/03-einrichten/media/24,width=548,height=347]
 
 Bild 3.12 Screenshot der Joomlatools Vagrant Umgebung
 
@@ -319,7 +319,7 @@ schnellen Codes und seines überschaubaren Funktionsumfangs binnen
 Sekunden und bietet eine sehr gute UTF-8-Unterstützung, was ihn zu
 meiner ersten Wahl für die Durchführung kleinerer Änderungen auf
 Windows-Systemen macht.
-image:media/image25.jpeg[media/image25,width=478,height=371]
+image:book/03-einrichten/media/25.jpeg[book/03-einrichten/media/25,width=478,height=371]
 
 Bild 3.23 Notepad{plus}{plus} unter Windows
 
@@ -332,10 +332,10 @@ durch interessante Bedienkonzepte (wie zum Beispiel Mehrfachcursor) und
 durch sein flexibles Plugin-System, womit Sublime sich an den eigenen
 Geschmack anpassen lässt.
 
-Bildimage:media/image26.png[media/image26,width=548,height=385] 3.14
+Bildimage:book/03-einrichten/media/26.png[book/03-einrichten/media/26,width=548,height=385] 3.14
 Mehrfachauswahl in Sublime Text
 
-===== 
+=====
 
 ==== Entwicklungsumgebung
 
@@ -377,7 +377,7 @@ kurzen Bedienungseinführung:
 [.underline]#https://docs.joomla.org/Configuring++_++Eclipse++_++for++_++joomla++_++development#
 |===
 
-image:media/image29.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild927.PNG,width=502,height=290]
+image:book/03-einrichten/media/29.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild927.PNG,width=502,height=290]
 
 BILD 3.15 Eclipse
 
@@ -401,7 +401,7 @@ Quasi-Standard in der Szene gemausert hat. Ein besonderes Highlight für
 Joomla-Entwickler ist dabei die integrierte Unterstützung für die
 Joomla-API, die in dieser Form einzigartig im IDE-Bereich ist.
 
-image:media/image31.png[media/image31,width=548,height=312]
+image:book/03-einrichten/media/31.png[book/03-einrichten/media/31,width=548,height=312]
 
 BILD 3.16 PhpStorm
 
@@ -530,7 +530,7 @@ Cookies, Cache und Server Workers
 anschließend einen ausführlichen Optimierungsbericht zurück
 * {blank}
 
-image:media/image33.png[media/image33,width=548,height=344]
+image:book/03-einrichten/media/33.png[book/03-einrichten/media/33,width=548,height=344]
 
 BILD 3.17 Chrome-Entwicklertools mit den verschiedenen, hier
 hervorgehobenen Funktionen
@@ -548,7 +548,7 @@ Auswählen eines bestimmten, im Fenster sichtbaren Objekts, die über das
 Cursor-Symbol in der oberen linken Ecke der Entwicklertools aufgerufen
 wird.
 
-image:media/image34.png[media/image34,width=548,height=289]
+image:book/03-einrichten/media/34.png[book/03-einrichten/media/34,width=548,height=289]
 
 BILD 3.18 Auswahl eines Seitenelements mit der _Select an
 Element_-Funktion
@@ -570,7 +570,7 @@ erst aufwendig per FTP verändert werden müsste. Die entsprechenden
 Änderungen sind dabei im Browser sofort sichtbar, werden aber beim
 Reload der Seite wieder zurückgesetzt.
 
-image:media/image36.png[media/image36,width=548,height=391]
+image:book/03-einrichten/media/36.png[book/03-einrichten/media/36,width=548,height=391]
 
 BILD 3.19 Editierung des HTML-Codes mit den _Entwicklertools_
 
@@ -584,7 +584,7 @@ HTML-Codes, mittels Doppelklick temporär editieren oder über die
 Checkbox am rechten Rand der Zeile ganz deaktivieren, wobei auch hier
 jede Änderung sofort im Browser angezeigt wird.
 
-image:media/image39.png[media/image39,width=548,height=313]
+image:book/03-einrichten/media/39.png[book/03-einrichten/media/39,width=548,height=313]
 
 BILD 3.20 Auflistung und Änderung des CSS-Markups
 
@@ -601,7 +601,7 @@ sogenannter FTP-Client benötigt. Für die drei bekanntesten
 Betriebssysteme Windows, Linux und OS X ist dafür der freie FTP-Client
 _Filezilla_ verfügbar, der diese Aufgabe mit Bravour meistert.
 
-image:media/image40.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild1079.PNG,width=502,height=394]
+image:book/03-einrichten/media/40.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild1079.PNG,width=502,height=394]
 
 BILD 3.21 Filezilla
 

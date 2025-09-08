@@ -77,7 +77,7 @@ gleichzeitig auszugeben und andere Modulpositionen komplett ungenutzt zu
 lassen. Im konkreten Beispiel werden z. B. das Menü sowie das
 Login-Formular in einer Modulposition ausgegeben.
 
-image:media/image1.png[media/image1,width=548,height=337]
+image:book/09-templatesystem/media/1.png[book/09-templatesystem/media/1,width=548,height=337]
 
 BILD 9.1 _Hauptausgabe-Bereich_ (mittig) sowie _Modulpositionen_ (grau
 hinterlegt) des Protostar ­Templates
@@ -96,7 +96,7 @@ Dafür öffnen wir die Template-Stil-Übersicht mittels Klick auf
 Erweiterungen ++>++ Templates ++>++ Stile im Menü des Backends. Dort
 finden wir alle derzeit verfügbaren _Template-Stile_ aufgelistet.
 
-image:media/image4.png[media/image4,width=548,height=158]
+image:book/09-templatesystem/media/4.png[book/09-templatesystem/media/4,width=548,height=158]
 
 BILD 9.2 Auflistung der Template-Stile einer frischen
 Joomla!-Installation
@@ -141,7 +141,7 @@ Wir wechseln nun mittels Klick auf den Sub-Menüeintrag _Templates_ zur
 Template-Übersicht und finden dort eine Liste der installierten
 Templates vor.
 
-image:media/image5.png[media/image5,width=548,height=216]
+image:book/09-templatesystem/media/5.png[book/09-templatesystem/media/5,width=548,height=216]
 
 BILD 9.3 Liste der standardmäßig installierten Templates
 
@@ -188,7 +188,7 @@ integrierten _Template-Editor_, der uns per Mausklick erlaubt, die HTML-
 und PHP- (linke Spalte) sowie CSS-Dateien (rechte Spalte) des jeweiligen
 Templates ohne FTP-Zugang, direkt aus dem Backend heraus zu bearbeiten.
 
-image:media/image8.png[media/image8,width=548,height=243]
+image:book/09-templatesystem/media/8.png[book/09-templatesystem/media/8,width=548,height=243]
 
 BILD 9.4 Bearbeitungsmöglichkeit der Template-Bestandteile aus dem
 Backend heraus
@@ -197,7 +197,7 @@ Der Editor ist dank Syntax-Highlighting relativ komfortabel, bei
 größeren Anpassungen empfiehlt sich dennoch die Nutzung eines
 „richtigen“ Editors.
 
-image:media/image10.png[media/image10,width=548,height=356]
+image:book/09-templatesystem/media/10.png[book/09-templatesystem/media/10,width=548,height=356]
 
 BILD 9.5 Integrierter Template-Editor mit Syntax-Highlighting
 
@@ -209,7 +209,7 @@ Frontend-Template _Beez3_ mit der Checkbox am Beginn der Zeile aus und
 machen es durch einen Klick auf den Toolbar-Button _Standard_ zum neuen
 Standardtemplate der Seite.
 
-image:media/image12.png[media/image12,width=548,height=113]
+image:book/09-templatesystem/media/12.png[book/09-templatesystem/media/12,width=548,height=113]
 
 BILD 9.6 Wechseln des Standard-Template-Stils der Seite
 
@@ -238,7 +238,7 @@ wir gerade bearbeiten, einem oder mehreren Menüpunkten zuzuweisen,
 sodass wir z. B. die eben angedachte Funktion der „ressortspezifischen
 Farbgebung“ realisieren können.
 
-image:media/image14.png[media/image14,width=548,height=490]
+image:book/09-templatesystem/media/14.png[book/09-templatesystem/media/14,width=548,height=490]
 
 BILD 9.7 Menüzuweisungsoptionen in den _Template-Stil_-Parametern
 
@@ -261,7 +261,7 @@ _Template-Farbe_ auf _Eigene_ setzen. Wir schließen unsere Änderungen an
 diesem Template-Stil mit einem Klick auf Speichern & Schliessen in der
 Toolbar ab.
 
-image:media/image16.png[media/image16,width=548,height=366]
+image:book/09-templatesystem/media/16.png[book/09-templatesystem/media/16,width=548,height=366]
 
 BILD 9.8 Template-Parameter des Beez3 nach der Anpassung
 
@@ -287,7 +287,7 @@ Joomla! speichert alle Dateien eines Templates im Ordner
 _/templates/TEMPLATENAME/_ – im konkreten Fall finden wir die Dateien
 des _Beez3_-Templates also unter _/templates/beez3_.
 
-image:media/image17.png[media/image17,width=548,height=526]
+image:book/09-templatesystem/media/17.png[book/09-templatesystem/media/17,width=548,height=526]
 
 BILD 9.9 Dateien des Beez3-Templates
 
@@ -302,7 +302,7 @@ Ein Klick mit dem Element-Inspektor auf den entsprechenden Schriftug im
 Header verrät uns, dass wir dessen CSS in der position.css in der Zeile
 290 finden (siehe Bild 9.10).
 
-image:media/image20.png[media/image20,width=548,height=354]
+image:book/09-templatesystem/media/20.png[book/09-templatesystem/media/20,width=548,height=354]
 
 BILD 9.10 Pfadangabe des Header-Bilds
 
@@ -328,7 +328,7 @@ color: white;
 
 }
 
-image:media/image23.png[media/image23,width=548,height=551]
+image:book/09-templatesystem/media/23.png[book/09-templatesystem/media/23,width=548,height=551]
 
 BILD 9.11 Ansicht der Seite nach den Template-Anpassungen
 
@@ -368,7 +368,7 @@ die oftmals den direkten Download der Templates ermöglichen.
 Kategorien und bietet zusätzlich eine leicht zu nutzende
 Template-Galerie.
 
-image:media/image25.png[media/image25,width=548,height=425]
+image:book/09-templatesystem/media/25.png[book/09-templatesystem/media/25,width=548,height=425]
 
 BILD 9.12 [.underline]#Joomlaos.de#
 
@@ -408,7 +408,7 @@ können. Die _Templates_ werden häufig zusammen mit speziell darauf
 abgestimmten _Erweiterungen_ angeboten, die sich nahtlos ins Design
 einfügen und daher einen sehr runden Gesamteindruck abliefern.
 
-image:media/image26.png[media/image26,width=548,height=388]
+image:book/09-templatesystem/media/26.png[book/09-templatesystem/media/26,width=548,height=388]
 
 BILD 9.13 [.underline]#www.yootheme.com#
 

@@ -31,16 +31,16 @@ image:book/13-seo/media/2.png[13-seo/media/2,width=548,height=377]
 BILD 13.1 Meta-Description von joomla.de, die in den Suchergebnissen
 dargestellt wird
 
-image:../media/4.png[book/13-seo/media/4,width=548,height=335]
+image:book/13-seo/media/4.png[book/13-seo/media/4,width=548,height=335]
 
 BILD 13.2 Meta-Daten der globalen Konfiguration unter Site ++>++
 Konfiguration
 
-image:../media/6.png[book/13-seo/media/6,width=548,height=320]
+image:book/13-seo/media/6.png[book/13-seo/media/6,width=548,height=320]
 
 BILD 13.3 Meta-Daten im Formular zur Editierung eines Beitrags
 
-image:../media/8.png[book/13-seo/media/8,width=548,height=229]
+image:book/13-seo//media/8.png[book/13-seo/media/8,width=548,height=229]
 
 BILD 13.4 Meta-Daten im Formular zur Editierung eines Menüeintrags
 

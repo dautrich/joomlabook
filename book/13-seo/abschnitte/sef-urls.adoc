@@ -17,7 +17,7 @@ _7_ der Inhaltskomponente (_com++_++content_), die im Menüeintrag
 Wirklich lesbar im Sinne von „Ich kann lesen, was mich erwartet“ sind
 diese URLs nicht.
 
-image:media/image10.png[media/image10,width=548,height=232]
+image:book/13-seo/media/10.png[book/13-seo/media/10,width=548,height=232]
 
 BILD 13.5 Beispiel-URL einer Joomla!-Installation
 
@@ -37,7 +37,7 @@ Konfiguration im Backend erreichen. Dort finden wir in der rechten
 Spalte des Reiters _Site_ die Parameter für die
 _Suchmaschinenoptimierung_.
 
-image:media/image11.png[media/image11,width=548,height=304]
+image:book/13-seo/media/11.png[book/13-seo/media/11,width=548,height=304]
 
 BILD 13.6 Suchmaschinenoptimierungs-Parameter
 
@@ -159,7 +159,7 @@ wird. Für den _IIS_ muss hier natürlich die Datei _webconfig.txt_ in
 _web.config_ umbenannt werden, da dieser mit _.htaccess_-Dateien nichts
 anfangen kann.
 
-image:media/image13.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++13++\++Bild639.PNG,width=548,height=246]
+image:book/13-seo/media/13.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++13++\++Bild639.PNG,width=548,height=246]
 
 BILD 13.7 _mod++_++rewrite_ in der Auflistung der Loaded Modules des
 Apache

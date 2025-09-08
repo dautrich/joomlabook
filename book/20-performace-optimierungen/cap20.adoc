@@ -40,7 +40,7 @@ Insbesondere für die Analyse der Seitengenerierung liefert Joomla!
 jedoch bereits ein wunderbares Tool mit: den integrierten Debug-Modus,
 der in der Joomla!-Konfiguration aktiviert wird.
 
-image:media/image2.png[media/image2,width=548,height=260]
+image:book/20-performace-optimierungen/media/2.png[book/20-performace-optimierungen/media/2,width=548,height=260]
 
 BILD 20.1 Aktivierung des System-Debug-Modus von Joomla!
 
@@ -74,7 +74,7 @@ insgesamt vergangen ist.. Analog wird mit dem Arbeitsspeicherverbrauch
 umgegangen, der in MB angegeben wird, und am Ende der Zeile findet sich
 der Titel des jeweiligen Schritts.
 
-image:media/image4.png[media/image4,width=548,height=403]
+image:book/20-performace-optimierungen/media/4.png[book/20-performace-optimierungen/media/4,width=548,height=403]
 
 BILD 20.2 Ausgabe bei aktiviertem Debug-Modus
 
@@ -89,7 +89,7 @@ dass Generierungszeiten, die länger als eine Sekunde andauern, von
 Besuchern als störend empfunden werden. Werte, die unter 0,3 Sekunden
 liegen, erlauben flüssiges Arbeiten.
 
-image:media/image6.png[media/image6,width=548,height=51]
+image:book/20-performace-optimierungen/media/6.png[book/20-performace-optimierungen/media/6,width=548,height=51]
 
 BILD 20.3 Beispiel eines extrem langsamen Moduls mit mehr als zwei
 Sekunden Generierungszeit
@@ -182,7 +182,7 @@ reduzieren und zugleich den Seitenaufbau beschleunigen, weshalb sich der
 Einsatz sowohl auf kleineren als auch auf größeren Seiten lohnt. Die
 Installation kann leider nur durch den Hoster vorgenommen werden.
 
-image:media/image7.png[media/image7,width=548,height=345]
+image:book/20-performace-optimierungen/media/7.png[book/20-performace-optimierungen/media/7,width=548,height=345]
 
 BILD 20.4 Halbierung von Speicherverbrauch und Generierungszeit durch
 Einsatz von Opcache im Vergleich zu Bild 20.2
@@ -223,7 +223,7 @@ Die Auswahl des infrage kommenden Cachespeichers erfolgt in der globalen
 Konfiguration der jeweiligen Joomla!-Seite, die im Backend, wie gewohnt,
 über den Klick auf SYSTEM ++>++ Konfiguration geöffnet werden kann.
 
-image:media/image10.png[media/image10,width=548,height=330]
+image:book/20-performace-optimierungen/media/10.png[book/20-performace-optimierungen/media/10,width=548,height=330]
 
 BILD 20.5 Auswahl des Cachespeichers aus den auf diesem Server
 verfügbaren Methoden
@@ -262,7 +262,7 @@ Die Aktivierung des Page Cachings erfolgt im Administratorbereich unter
 Erweiterungen ++>++ Plugins durch die Aktivierung des Plug-ins _System –
 Seitencache_.
 
-image:media/image12.png[media/image12,width=548,height=336]
+image:book/20-performace-optimierungen/media/12.png[book/20-performace-optimierungen/media/12,width=548,height=336]
 
 BILD 20.6 Aktivierung des Page Cache-Plug-ins in der
 Erweiterungsverwaltung
@@ -277,7 +277,7 @@ dies bereits von Haus aus, die Unterstützung bei Drittentwicklern ist
 leider eher selten. Die Aktivierung erfolgt in der globalen
 Konfiguration des Administrationsbereichs.
 
-image:media/image14.png[media/image14,width=548,height=198]
+image:book/20-performace-optimierungen/media/14.png[book/20-performace-optimierungen/media/14,width=548,height=198]
 
 BILD 20.7 Aktivierung des normalen Modul- und Komponenten-Cachings
 
@@ -324,7 +324,7 @@ Caches, wodurch die Änderungen sofort sichtbar werden:
 mehr benötigten Cachedateien. Ist notwendig, da Joomla! einige der
 Dateien nicht korrekt von sich aus entfernt.
 
-image:media/image16.png[media/image16,width=548,height=298]
+image:book/20-performace-optimierungen/media/16.png[book/20-performace-optimierungen/media/16,width=548,height=298]
 
 BILD 20.8 Leeren des Caches im Administratorbereich
 
@@ -366,12 +366,12 @@ welche die CSS- und JavaScript-Dateien einer Joomla!-Installation zu
 jeweils einer komprimierten Datei zusammenfassen, was den Ladevorgang
 beim Nutzer erheblich beschleunigen kann.
 
-image:media/image18.png[media/image18,width=548,height=177]
+image:book/20-performace-optimierungen/media/18.png[book/20-performace-optimierungen/media/18,width=548,height=177]
 
 BILD 20.9 Typischer HTML-Head einer Joomla!-Installation mit zahlreichen
 CSS- und JS-Dateien
 
-image:media/image20.png[media/image20,width=548,height=161]
+image:book/20-performace-optimierungen/media/20.png[book/20-performace-optimierungen/media/20,width=548,height=161]
 
 BILD 20.10 Der HTML-Head aus Bild 20.9 nach der Optimierung mittels
 jFinalizer
@@ -391,7 +391,7 @@ Aktivierung wird der durch Joomla! ausgegebene HTML-Code mittels GZIP
 komprimiert und dadurch vor der Übertragung zum Browser in seiner Größe
 reduziert, was einer schnelleren Ladezeit zugutekommt.
 
-image:media/image22.png[media/image22,width=548,height=216]
+image:book/20-performace-optimierungen/media/22.png[book/20-performace-optimierungen/media/22,width=548,height=216]
 
 BILD 20.11 Aktivierung der GZIP-Komprimierung
 

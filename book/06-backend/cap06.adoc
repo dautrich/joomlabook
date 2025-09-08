@@ -18,7 +18,7 @@ insbesondere dann spannend wird, wenn Administratoren mit verschiedenen
 Nationalitäten eine gemeinsame Seite pflegen und damit das _Backend_ in
 ihrer jeweiligen Muttersprache nutzen wollen.
 
-image:media/image1.png[media/image1,width=548,height=336]
+image:book/06-backend/media/1.png[book/06-backend/media/1,width=548,height=336]
 
 BILD 6.1 Login-Bereich des Joomla!-Backends
 
@@ -30,7 +30,7 @@ ausgeführte Aufgaben mit nur einem Klick zu erreichen. Gleichzeitig
 eignet sich das Kontrollzentrum zur Erklärung des relativ einfach
 gehaltenen Grundaufbaus des _Backends_.
 
-image:media/image3.png[media/image3,width=548,height=404]
+image:book/06-backend/media/3.png[book/06-backend/media/3,width=548,height=404]
 
 BILD 6.2 Aufbau des Joomla!-Control-Panels
 
@@ -137,7 +137,7 @@ zentral gesteuert werden sollten. Sein Aufbau entspricht dem nahezu
 aller Joomla!-Erweiterungen im Backend. Er gliedert sich in die in Bild
 6.3 markierten Bereiche.
 
-image:media/image5.png[media/image5,width=548,height=359]
+image:book/06-backend/media/5.png[book/06-backend/media/5,width=548,height=359]
 
 BILD 6.3 _Allgemeine Konfiguration_ der Joomla-Seite, Reiter _Site_
 
@@ -349,7 +349,7 @@ zu Situationen, in denen ein Administrator unbeabsichtigt abgemeldet
 wird und dabei seine Änderungen verliert. Daher tragen wir hier einen
 passenden Wert, z.B.„90“ ein.
 
-image:media/image7.png[media/image7,width=548,height=336]
+image:book/06-backend/media/7.png[book/06-backend/media/7,width=548,height=336]
 
 BILD 6.4 Allgemeine Konfiguration, Reiter _System_
 
@@ -494,7 +494,7 @@ Adresse wie _info@domain.tld_ zu setzen, da dort standardmäßig die bei
 der Installation verwendete, eventuell private E-Mail-Adresse des
 Administrators verwendet wird.
 
-image:media/image9.png[media/image9,width=548,height=440]
+image:book/06-backend/media/9.png[book/06-backend/media/9,width=548,height=440]
 
 BILD 6.5 Allgemeine Konfiguration, Reiter _Server_
 
@@ -510,7 +510,7 @@ ist es auch möglich, _eigene Black_- bzw. _Whitelisten_ festzulegen,
 wofür die beiden Eingabefelder _Elemente filtern_ und _Attribute
 filtern_ genutzt werden.
 
-image:media/image10.png[media/image10,width=548,height=284]
+image:book/06-backend/media/10.png[book/06-backend/media/10,width=548,height=284]
 
 BILD 6.6 Konfiguration der Textfilter
 
@@ -553,7 +553,7 @@ bestimmte _Benutzergruppen_ zu versenden, um beispielsweise über
 anstehende Wartungsarbeiten und damit verbundene Offline-Zeiten zu
 informieren.
 
-image:media/image13.png[media/image13,width=548,height=256]
+image:book/06-backend/media/13.png[book/06-backend/media/13,width=548,height=256]
 
 BILD 6.7 Massenmail-Funktion des Administrationsbereichs
 
@@ -612,7 +612,7 @@ Wir wollen uns nun dem Menüpunkt _Medien_ widmen, den wir per Klick
 
 === Medienverwaltung
 
-image:media/image15.png[media/image15,width=548,height=187]
+image:book/06-backend/media/15.png[book/06-backend/media/15,width=548,height=187]
 
 BILD 6.8 Standardansicht der Medienverwaltung in einer leeren
 Joomla!-Installation
@@ -638,7 +638,7 @@ Ordner sowohl in der linken Spalte des Medien-Managers, der als
 Ordner-Browser fungiert, als auch in der rechten Spalte des Browsers, wo
 er mit einem entsprechend großen Icon versehen wurde (siehe Bild 6.9).
 
-image:media/image17.png[media/image17,width=548,height=211]
+image:book/06-backend/media/17.png[book/06-backend/media/17,width=548,height=211]
 
 BILD 6.9 Anlegen eines neuen Ordners im Medienverzeichnis
 
@@ -652,7 +652,7 @@ _.png_-Datei auf unserer lokalen Festplatte wählen und diese Datei
 anschließend durch einen Klick auf _Hochladen starten_ zum zuvor
 erstellten und selektieren Verzeichnis hinzufügen.
 
-image:media/image19.png[media/image19,width=548,height=176]
+image:book/06-backend/media/19.png[book/06-backend/media/19,width=548,height=176]
 
 BILD 6.10 Upload einer Datei in den Medien-Manager
 
@@ -670,12 +670,12 @@ _Löschen_-Buttons in der Toolbar. Wir behalten das gerade hochgeladene
 Bild aber erst einmal, da wir es im späteren Verlauf nochmals verwenden
 wollen.
 
-image:media/image21.png[media/image21,width=548,height=169]
+image:book/06-backend/media/21.png[book/06-backend/media/21,width=548,height=169]
 
 BILD 6.11 Bild nach dem erfolgreichen Hochladen; Löschen des Bildes über
 das markierte Icon
 
-image:media/image22.png[media/image22,width=548,height=179]
+image:book/06-backend/media/22.png[book/06-backend/media/22,width=548,height=179]
 
 BILD 6.12 Löschen eines oder mehrerer Bilder über Selektion der
 entsprechenden Checkbox und ­anschließenden Klick auf _Löschen_ in der
@@ -768,7 +768,7 @@ einen FTP-Upload oder entsprechende Editor-Erweiterungen (Stichwort JCE,
 siehe Kapitel 15) zu nutzen.
 |===
 
-image:media/image25.png[media/image25,width=548,height=315]
+image:book/06-backend/media/25.png[book/06-backend/media/25,width=548,height=315]
 
 BILD 6.13 Konfigurationsdialog der Medienverwaltung
 

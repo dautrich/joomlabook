@@ -38,7 +38,7 @@ die _Freigegeben_, _Gesperrt_ oder _Gelöscht_ sind
 _Menü_ auf der Seite darstellen. Dabei ist es möglich, dass ein _Menü_
 an verschiedenen Stellen der Seite in mehreren Modulen ausgegeben wird.
 
-image:media/image1.png[media/image1,width=548,height=199]
+image:book/08-navigationsstruktur/media/1.png[book/08-navigationsstruktur/media/1,width=548,height=199]
 
 BILD 8.1 Übersicht der angelegten Menüs
 
@@ -49,7 +49,7 @@ nicht, wie erwartet, das Editierungsformular für das jeweilige Menü –
 stattdessen gelangen wir zur Übersichtsliste der bereits angelegten
 _Menüeinträge_ dieses Menüs.
 
-image:media/image2.png[media/image2,width=548,height=175]
+image:book/08-navigationsstruktur/media/2.png[book/08-navigationsstruktur/media/2,width=548,height=175]
 
 BILD 8.2 _Menüeinträge_ des standardmäßig angelegten _Main Menus_
 
@@ -72,7 +72,7 @@ Wir wollen nun damit beginnen, unsere Menüeinträge für die Internetseite
 des Obsthofs von Bauer Birnennase anzulegen. Dafür öffnen wir das
 entsprechende Formular durch einen Klick auf Neu in der Toolbar.
 
-image:media/image4.png[media/image4,width=548,height=429]
+image:book/08-navigationsstruktur/media/4.png[book/08-navigationsstruktur/media/4,width=548,height=429]
 
 BILD 8.3 Leeres Formular zum Anlegen eines neuen Menüeintrags
 
@@ -91,7 +91,7 @@ Klicken wir auf den Button Auswählen, den wir rechts neben dem
 Eingabefeld für den _Menütyp_ finden, so öffnet sich ein Popup, das uns
 alle verfügbaren Menütypen auflistet.
 
-image:media/image6.png[media/image6,width=548,height=464]
+image:book/08-navigationsstruktur/media/6.png[book/08-navigationsstruktur/media/6,width=548,height=464]
 
 BILD 8.4 Popup der verfügbaren Menütypen
 
@@ -301,7 +301,7 @@ tragen wir dies als _Menütitel_ ein – und weil dieser Eintrag auf der
 finalen Seite als Startseite fungieren soll, setzen wir den Parameter
 _Standardseite_ auf „Ja“.
 
-image:media/image8.png[media/image8,width=548,height=383]
+image:book/08-navigationsstruktur/media/8.png[book/08-navigationsstruktur/media/8,width=548,height=383]
 
 BILD 8.5 Formular zum Erstellen eines neuen Menüeintrags mit den
 ausgefüllten Feldern für den ersten Eintrag _Willkommen_
@@ -331,7 +331,7 @@ bearbeiten, die entsprechende Schaltfläche befindet sich neben dem
 Button _Auswählen_
 |===
 
-image:media/image10.png[media/image10,width=548,height=409]
+image:book/08-navigationsstruktur/media/10.png[book/08-navigationsstruktur/media/10,width=548,height=409]
 
 BILD 8.6 Popup zur Auswahl des zuzuordnenden Beitrags
 
@@ -349,7 +349,7 @@ _Beitrags_ und in den Parametern des zugehörigen _Menüeintrags_. Dabei
 überschreiben die Parameter eines _Menüeintrags_ die Parameter eines
 _Beitrags_, die wiederum die Parameter der _Komponente_ überschreiben.
 
-image:media/image11.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild623.PNG,width=325,height=241]
+image:book/08-navigationsstruktur/media/11.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild623.PNG,width=325,height=241]
 
 BILD 8.7 Vererbung bzw. Überschreibung der Parameter für Beiträge
 
@@ -429,7 +429,7 @@ Parameter dabei, weshalb wir den Vorgang mit einem Klick auf Speichern &
 Schliessen abschließen. Dadurch gelangen wir zurück zur Übersichtsseite
 und bewundern unser neu geschaffenes Werk.
 
-image:media/image13.png[media/image13,width=548,height=194]
+image:book/08-navigationsstruktur/media/13.png[book/08-navigationsstruktur/media/13,width=548,height=194]
 
 BILD 8.8 Übersicht der _Menüeinträge_ im _Main Menu_ nach dem Hinzufügen
 des neuen Eintrags ­__Willkommen__
@@ -458,7 +458,7 @@ Alle Kategorien auflisten_. Anschließend setzen wir in der linken Spalte
 die Kategorie _Obst_ als oberste Kategorienebene, wodurch nur die
 Unterkategorien von _Obst_ angezeigt werden.
 
-image:media/image15.png[media/image15,width=548,height=330]
+image:book/08-navigationsstruktur/media/15.png[book/08-navigationsstruktur/media/15,width=548,height=330]
 
 BILD 8.9 Auswahl der Kategorie _Obst_ als oberste Kategorienebene
 
@@ -467,7 +467,7 @@ Schliessen und rufen wir im Frontend den gerade angelegten Menüeintrag
 auf, so finden wir eine Darstellung vor, die der in Bild 8.10
 entsprechen sollte.
 
-image:media/image17.png[media/image17,width=548,height=365]
+image:book/08-navigationsstruktur/media/17.png[book/08-navigationsstruktur/media/17,width=548,height=365]
 
 BILD 8.10 Ausgabe des Menüpunkts _Obstsorten_ ohne Anpassung der
 Ausgabeparameter
@@ -506,11 +506,11 @@ Reiter _Kategorien_ sitzt. Außerdem nutzen wir die Gelegenheit, die
 ebenfalls störende _Unterkategoriebeschreibung_ zu entfernen (siehe Bild
 8.12).
 
-image:media/image18.png[media/image18,width=548,height=202]
+image:book/08-navigationsstruktur/media/18.png[book/08-navigationsstruktur/media/18,width=548,height=202]
 
 BILD 8.11 Parameter des Menütyps „Alle Kategorien auflisten“
 
-image:media/image21.png[media/image21,width=548,height=251]
+image:book/08-navigationsstruktur/media/21.png[book/08-navigationsstruktur/media/21,width=548,height=251]
 
 BILD 8.12 Veränderte _Kategorieoptionen_ zum Verbergen störender
 Ausgaben
@@ -538,7 +538,7 @@ beiden Texte sind dabei durch einen _Weiterlesen_-Trenner (siehe Kapitel
 7.2.2.5, „Weiterlesen-Funktion“) voneinander separiert (siehe Bild
 8.13).
 
-image:media/image22.png[media/image22,width=548,height=321]
+image:book/08-navigationsstruktur/media/22.png[book/08-navigationsstruktur/media/22,width=548,height=321]
 
 BILD 8.13 Beispieltext mit _Weiterlesen_-Trenner
 
@@ -556,7 +556,7 @@ Nun wählen wir in den Parametern (linke Spalte) noch die Kategorie
 _Äpfel_ unter _Kategorie auswählen_, um festzulegen, welche Beiträge
 hier denn überhaupt angezeigt werden sollen (siehe Bild 8.14).
 
-image:media/image25.png[media/image25,width=548,height=307]
+image:book/08-navigationsstruktur/media/25.png[book/08-navigationsstruktur/media/25,width=548,height=307]
 
 BILD 8.14 Formular zum Anlegen des neuen Menüeintrags Äpfel
 
@@ -566,7 +566,7 @@ _Frontend_ öffnen, so stellen wir fest, dass wir unserem Ziel schon
 relativ nah sind (siehe Bild 8.15), aber die zweispaltige Darstellung
 der Beiträge noch nicht unseren Vorstellungen entspricht.
 
-image:media/image27.png[media/image27,width=548,height=424]
+image:book/08-navigationsstruktur/media/27.png[book/08-navigationsstruktur/media/27,width=548,height=424]
 
 BILD 8.15 Darstellung des _Kategorieblogs_ im Frontend
 
@@ -574,7 +574,7 @@ Dieses Verhalten können wir nun im Parameter-Reiter _Blog-Layout_ des
 Menüeintrags anpassen, indem wir durch die Eingabe des entsprechenden
 Werts die Nutzung von nur einer Spalte erzwingen (siehe Bild 8.16).
 
-image:media/image29.png[media/image29,width=548,height=249]
+image:book/08-navigationsstruktur/media/29.png[book/08-navigationsstruktur/media/29,width=548,height=249]
 
 BILD 8.16 Anpassung der Spaltenanzahl durch Veränderung der
 _Blog-Layout-Optionen_
@@ -615,7 +615,7 @@ _Optionen_ des Menüeintrags _Äpfel_ auf „anzeigen“, beenden das
 Bearbeiten des Eintrags mittels Speichern & Schliessen und rufen das
 Frontend auf.
 
-image:media/image30.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild787.PNG,width=335,height=295]
+image:book/08-navigationsstruktur/media/30.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild787.PNG,width=335,height=295]
 
 BILD 8.17 Ergänztes Vererbungssystem für Beitragsparameter
 
@@ -623,7 +623,7 @@ Dort sehen wir nun, dass sich bei den Beiträgen wie _Willkommen_ oder
 der _Hofladen_ nichts verändert hat – nur der Menüeintrag _Äpfel_
 verfügt nun über die Möglichkeit, die Sorten zu bewerten.
 
-image:media/image32.png[media/image32,width=548,height=394]
+image:book/08-navigationsstruktur/media/32.png[book/08-navigationsstruktur/media/32,width=548,height=394]
 
 BILD 8.18 Menüeintrag _Äpfel_ mit Bewertungsmöglichkeit nach Anpassung
 der Parameter
@@ -644,7 +644,7 @@ die der in Bild 8.19 dargestellten entspricht. Sollte z. B. die
 Reihenfolge der Einträge nicht stimmen, so können wir diese über die
 Drag&Drop Symbole in der Spalte _Reihenfolge_ anpassen.
 
-image:media/image34.png[media/image34,width=548,height=220]
+image:book/08-navigationsstruktur/media/34.png[book/08-navigationsstruktur/media/34,width=548,height=220]
 
 BILD 8.19 Menüstruktur der Beispielseite nach Anwendung aller Änderungen
 und Anpassungen dieses Kapitels
@@ -663,11 +663,11 @@ zugehörigen Untermenüpunkte werden dann in einer vertikalen Leiste in
 der linken oder rechten Spalte der Seite angezeigt (siehe Bild 8.20 und
 Bild 8.21).
 
-image:media/image35.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild811.PNG,width=476,height=248]
+image:book/08-navigationsstruktur/media/35.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild811.PNG,width=476,height=248]
 
 BILD 8.20 Split-Navigation „Schulleben“
 
-image:media/image36.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild822.PNG,width=502,height=219]
+image:book/08-navigationsstruktur/media/36.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild822.PNG,width=502,height=219]
 
 BILD 8.21 Split-Navigiation „Unsere Schule“
 
@@ -682,7 +682,7 @@ werden sollen (siehe Bild 8.22). Durch die Wahl des Werts „1“ beim
 Parameter _Letzte Ebene_ stellen wir sicher, dass nur _Menüeinträge_ der
 ersten Ebene in diesem Modul angezeigt werden.
 
-image:media/image38.png[media/image38,width=548,height=251]
+image:book/08-navigationsstruktur/media/38.png[book/08-navigationsstruktur/media/38,width=548,height=251]
 
 BILD 8.22 Parameter zur Beeinflussung der dargestellten Menüebene
 
@@ -691,6 +691,6 @@ die linke Navigation auf „2“, damit dort nur Menüeinträge ab der zweiten
 Ebene dargestellt werden. Dadurch ist es möglich, sehr flexible
 Menüsysteme aufzubauen.
 
-image:media/image40.png[media/image40,width=548,height=253]
+image:book/08-navigationsstruktur/media/40.png[book/08-navigationsstruktur/media/40,width=548,height=253]
 
 BILD 8.23 Parameter des Moduls zur Darstellung der zweiten Menüebene

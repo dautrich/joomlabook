@@ -19,7 +19,7 @@ wesentliche Bereiche, die sich _Frontend_ und _Backend_ nennen. Das
 _Frontend_, also die „Vorderseite“ unseres Systems, ist dabei die
 eigentliche Website, die der Besucher der Seite mittels Browser aufruft.
 
-image:media/image2.png[media/image2,width=548,height=323]
+image:book/05-grundlegendes-architektur/media/2.png[book/05-grundlegendes-architektur/media/2,width=548,height=323]
 
 BILD 5.1 Frontend der in Kapitel 4.1 installierten Joomla!-Seite
 
@@ -32,7 +32,7 @@ Aufgaben wie die Erstellung und Editierung von _Beiträgen_ aus dem
 Frontend zu erledigen, wichtige Optionen wie die Verwaltung von
 _Menüeinträgen_ bleiben jedoch dem Backend vorbehalten.
 
-image:media/image3.png[media/image3,width=548,height=387]
+image:book/05-grundlegendes-architektur/media/3.png[book/05-grundlegendes-architektur/media/3,width=548,height=387]
 
 BILD 5.2 Backend einer leeren Joomla!-Installation
 
@@ -87,7 +87,7 @@ erklären, wie sich der Begriff „Obst“ definiert. In einem solchen Falle
 bietet es sich an, eine Kategorienstruktur zu schaffen, wie sie in Bild
 5.3 zu sehen ist.
 
-image:media/image5.jpeg[media/image5,width=344,height=258]
+image:book/05-grundlegendes-architektur/media/5.jpeg[book/05-grundlegendes-architektur/media/5,width=344,height=258]
 
 BILD 5.3 Kategorien- und Beitragsstruktur
 
@@ -127,7 +127,7 @@ aufgehoben werden soll.
 Der zweite wichtige Schritt für ein rudimentäres Verständnis ist die
 Betrachtung der Joomla!-Architektur, welche Sie in Bild 5.4 sehen.
 
-image:media/image6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++5++\++Bild481.PNG,width=331,height=248]
+image:book/05-grundlegendes-architektur/media/6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++5++\++Bild481.PNG,width=331,height=248]
 
 BILD 5.4 Schematische Darstellung des Systems
 
@@ -149,7 +149,7 @@ lauffähigen _Web-Application-Framework_ entwickeln.
 Die Plattform wird im gleichnamigen Github-Projekt unter
 [.underline]#https://github.com/joomla-framework# entwickelt.
 
-image:media/image8.png[media/image8,width=548,height=341]
+image:book/05-grundlegendes-architektur/media/8.png[book/05-grundlegendes-architektur/media/8,width=548,height=341]
 
 BILD 5.5 Github-Projekt der Joomla!-Plattform
 
@@ -171,4 +171,4 @@ von Menüeinträgen, Artikeln, Formularen etc.) zur Verfügung. Sie greifen
 dabei auf die unterschiedlichen Klassen des _Frameworks_ zurück und
 werden vom _CMS_ aufgerufen.
 
-== 
+==

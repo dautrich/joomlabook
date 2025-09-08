@@ -70,7 +70,7 @@ Die Relation der drei Bestandteile untereinander verdeutlicht Bild 17.1.
 Verinnerlichen Sie dieses Pattern, denn es ist die Basis für alle auf
 der Joomla!-_API_ basierenden Erweiterungen.
 
-image:media/image1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++17++\++Bild460.PNG,width=301,height=225]
+image:book/17-erweiterungen-erstellen/media/1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++17++\++Bild460.PNG,width=301,height=225]
 
 BILD 17.1 Schematische Abbildung der sog. _MVC_-Triade
 
@@ -99,7 +99,7 @@ Methode – die optionalen Parameter entnehmen Sie bitte der vollständigen
 API-Beschreibung unter [.underline]#api.joomla.org#.
 |===
 
-==== 
+====
 
 ==== JFactory
 
@@ -2455,7 +2455,7 @@ einem gemeinsamen ++<++fields++>++-Tag abgelegt, der dazu führt, dass
 sich die einzelnen Felder später gesammelt über ein Array abrufen lassen
 (siehe Bild 17.2).
 
-image:media/image3.png[media/image3,width=548,height=155]
+image:book/17-erweiterungen-erstellen/media/3.png[book/17-erweiterungen-erstellen/media/3,width=548,height=155]
 
 BILD 17.2 Beide Parameter sind in einem Params-Array enthalten und
 lassen sich daher im PHP-Skript über $params++[++'show++_++title'++]++
@@ -3793,14 +3793,14 @@ Nun fehlt uns nur noch ein schickes Icon zur Verwendung in der Toolbar ,
 das wir bereits in Form eines CSS-Statements in der View.html.php
 unserer Erweiterung angegeben haben. Suchen Sie sich dazu einfach zwei
 passende Icons, die Sie in der Größe 16 x 16 Pixel unter dem Namen
-_jobs-16x16.png_ im Ordner _/media/images/_ unserer Komponente ablegen.
+_jobs-16x16.png_ im Ordner _/book/17-erweiterungen-erstellen/media/s/_ unserer Komponente ablegen.
 Et voilà! Fertig ist das Backend!
 
-image:media/image5.png[media/image5,width=548,height=189]
+image:book/17-erweiterungen-erstellen/media/5.png[book/17-erweiterungen-erstellen/media/5,width=548,height=189]
 
 BILD 17.3 Eintragsübersicht im Backend
 
-image:media/image7.png[media/image7,width=548,height=353]
+image:book/17-erweiterungen-erstellen/media/7.png[book/17-erweiterungen-erstellen/media/7,width=548,height=353]
 
 BILD 17.4 Formular zur Bearbeitung eines Jobangebots
 
@@ -4393,7 +4393,7 @@ des Dispatchers auf. Der _Dispatcher_ wiederum führt dann die
 gleichnamige Methode in unserem _Plug-in_ aus und gibt das Ergebnis (den
 Text mit Weiterlesen-Link) an das _Subjekt_ zurück (siehe Bild 17.5).
 
-image:media/image8.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++17++\++Bild3106.PNG,width=389,height=291]
+image:book/17-erweiterungen-erstellen/media/8.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++17++\++Bild3106.PNG,width=389,height=291]
 
 BILD 17.5 Beispielimplementierung des _Observer_-Patterns
 
@@ -5043,7 +5043,7 @@ unserer Installation speichern, können wir sie im Terminal bzw. in der
 Eingabeaufforderung mittels php setpassword.php starten (siehe Bild
 17.6).
 
-image:media/image9.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++17++\++Bild6141.PNG,width=547,height=72]
+image:book/17-erweiterungen-erstellen/media/9.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++17++\++Bild6141.PNG,width=547,height=72]
 
 BILD 17.6 Ausgabe der CLI-App aus Listing 17.40
 
