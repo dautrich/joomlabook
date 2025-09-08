@@ -1,3 +1,10 @@
 [[05-grundlegendes-architektur]]
 
-include::book/05-grundlegendes-architektur/cap05.adoc[]
+== Grundlegende Begriffe und Architektur
+
+Bevor wir nun mit dem Aufbau unserer Seite beginnen, möchte ich Ihnen
+zunächst einen kleinen Einblick in den Grundaufbau von Joomla! geben.
+
+include::abschnitte/01-grundlegendes.adoc[]
+
+include::abschnitte/02-architektur.adoc[]

@@ -1,0 +1,82 @@
+=== Verschlagwortung
+
+In Kapitel 7.1 haben wir bereits die Funktion von Joomla kennengelernt,
+die maßgeblich für die Strukturierung und Gruppierung von Beiträgen
+zuständig ist: die _Kategoriefunktion_. Diese Funktion erlaubt es uns,
+eine verschachtelte Kategoriestruktur zu erstellen und einen Beitrag
+dann zu jeweils einer Kategorie zuzuweisen – aber was ist, wenn wir mal
+in der Situation sind, einen Beitrag zu mehreren Kategorien hinzufügen
+zu müssen?
+
+Ein konkretes Beispiel: die Seiten unseres freundlichen Obstbauern zählt
+sowohl in der Kategorie Birnen als auch in der Kategorie Äpfel diverse
+Sorten auf, die jeweils einen eigenen Beitrag haben. Nun nehmen wir
+einmal an, dass es in jeder Kategorie (Äpfel, Birnen) jeweils eine Hand
+voll Sorten gibt, die in Bio-Qualität produziert werden – wie können wir
+auf der Website eine Übersicht dieser Bio-Sorten erzeugen, wenn wir die
+Beiträge nicht zu einer zusätzlichen Kategorie _Bio_ hinzufügen können?
+
+Hier kommt die _Verschlagwortungsfunktion_ von Joomla ins Spiel, die es
+erlaubt einem Beitrag mehrere Schlagwörter (engl. Tags) zuzuweisen.
+Diese Schlagwörter werden zusätzlich zur Kategorie vergeben und können
+dabei sowohl auf Beiträge als auch auf andere Inhaltstypen
+(Kontaktformulare, Linklisten, Downloads etc.) angewendet werden, womit
+sich durch Tags eine thematische Gruppierung von verschiedenen
+Inhaltstypen erreichen lässt.
+
+==== Schlagworte anlegen
+
+Vor der Verwendung der Schlagworte müssen diese angelegt werden, wofür
+es in Joomla zwei unterschiedliche Methoden gibt. Die erste Methode ist
+das Anlegen der Schlagworte über die Schlagwortliste, die sich in der
+Administration unter Komponenten ++>++ SChlagwörter (Tags) befindet. Die
+Liste der Tags (siehe Bild 7.58) entspricht hierbei der Systematik der
+Kategorie- und Beitragsliste und erlaubt ebenfalls die Filterung,
+Sortierung und Verwaltung von Einträgen. In der Liste kann über den
+Toolbarbutton Neu ein neues Schlagwort angelegt und gespeichert werden.
+Erwähnenswert ist hierbei, dass sich Schlagworte, analog wie Kategorie,
+miteinander verschachteln lassen, um somit komplexe Systeme aus Unter-
+und Oberbegriffen zu erzeugen.
+
+image:book/07-inhalte-verwalten/media/233.png[book/07-inhalte-verwalten/media/233,width=548,height=165]
+
+Bild 7.58 Liste der Schlagwörter mit 3 Beispiel-Tags
+
+Die zweite Methode zum Anlegen von Tags erzeugt diese direkt aus dem
+_Bearbeitungsformular_ des jeweiligen Inhalts heraus. Das dortige
+Eingabefeld für Schlagwörter arbeitet mit einer Autovervollständigung,
+das bereits existierende Schlagwörter vorschlägt (siehe Bild 7.59).
+
+image:book/07-inhalte-verwalten/media/234.png[book/07-inhalte-verwalten/media/234,width=548,height=318]
+
+Bild 7.59 Autovervollständigung von bereits existierenden Tags
+
+Wird ein neues Schlagwort eingegeben, das bisher noch nicht existiert,
+kann dieses nach der Eingabe durch eine Betätigung der Enter-Taste zur
+_Schlagwortliste_ hinzugefügt werden. Mehrere Schlagworte werden dabei
+voneinander abgegrenzt dargestellt (siehe Bild 7.60).
+
+image:book/07-inhalte-verwalten/media/235.png[book/07-inhalte-verwalten/media/235,width=548,height=351]
+
+Bild 7.60 Ein Beitrag mit mehreren Tags
+
+==== Schlagworte im Frontend
+
+Bei Beiträgen, bei denen die entsprechenden Tags gesetzt wurden, werden
+diese (je nach Einstellung) z.B. im Beitrag angezeigt. Standardmäßig
+sind diese Tags dabei verlinkt, sodass man per Klick zu einer Liste von
+allen Inhalten gelangt, die mit dem entsprechenden Schlagwort versehen
+wurden. Erwähnenswert ist dabei, dass diese Liste dabei
+Inhaltstyp-übergreifend ist, wir also standardmäßig jede Art von Inhalt
+sehen, die mit diesem Tag verknüpft ist. In Bild 7.61 ist dies neben
+einigen Beiträgen z.B. das Kontaktformular der Seite, dass wir ebenfalls
+mit dem Tag *Bio* versehen haben.
+
+image:book/07-inhalte-verwalten/media/236.png[book/07-inhalte-verwalten/media/236,width=548,height=191]
+
+Bild 7.61 Liste der Inhalte mit dem Tag Bio inklusive Kontaktformular
+(markiert)
+
+Das Verschlagwortungssystem ist somit eine sehr mächtige Funktion von
+Joomla und erlaubt die Erstellung von komplexen Strukturen, wie sie bei
+umfangreichen Webprojekten notwendig werden.

@@ -1,0 +1,25 @@
+=== Template-Zuweisung
+
+Im nächsten Schritt klicken wir auf den Namen des jeweiligen
+Template-Stils (_Beez3 – Default_), woraufhin sich das
+Editierungsformular des Template-Stils öffnet, das sich, wie üblich, in
+mehrere Tabs teilt. Oberhalb des Tabs gibt es darüber hinaus noch ein
+Eingabefeld für den Namen des Stils, den man dadurch an die eigenen
+Bedürfnisse anpassen kann.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Im ersten Tab _Details_ finden wir den Template-Namen sowie einen kurzen
+Beschreibungstext. Interessanter wird es bei den Tabs _Erweitert_, denn
+dort finden wir allgemeine Parameter des Templates, und im Tab
+_Menüzugehörigkeit_. In diesem ist es möglich, den Template-Stil, den
+wir gerade bearbeiten, einem oder mehreren Menüpunkten zuzuweisen,
+sodass wir z. B. die eben angedachte Funktion der „ressortspezifischen
+Farbgebung“ realisieren können.
+
+image:book/09-templatesystem/media/14.png[book/09-templatesystem/media/14,width=548,height=490]
+
+BILD 9.7 Menüzuweisungsoptionen in den _Template-Stil_-Parametern

@@ -1,0 +1,1180 @@
+=== Inhalte erstellen
+
+Nachdem wir den Aufbau der Kategorienstruktur fertiggestellt haben,
+wollen wir uns nun mit dem Einpflegen der Beiträge beschäftigen.
+
+==== Beitragsübersicht
+
+Zu Beginn wechseln wir über den Aufruf des Menüpunkts Inhalt ++>++
+Beiträge zur Übersichtsliste der bereits angelegten Beiträge. Diese ist
+freundlicherweise identisch aufgebaut wie die Kategorienliste, weshalb
+wir sehr viel erlerntes Wissen aus Kapitel 7.1, „Kategoriensystem
+anlegen“, hier wieder anwenden können.
+
+Unterschiede gibt es nur
+
+* in der Toolbar, wo zwei Buttons _Haupteintrag_ bzw. _Kein
+Haupteintrag_ hinzugekommen sind, die im späteren Kapitelverlauf noch
+eine Rolle spielen.
+* in den Filteroptionen, die uns nun auch erlauben, die Beiträge nach
+_Kategorie_ bzw. _Autor_ zu filtern.
+* in der Kopfzeile der Liste, wo die Spalten nun den Anforderungen der
+Beitragsliste entsprechen.
+
+image:book/07-inhalte-verwalten/media/49.png[book/07-inhalte-verwalten/media/49,width=548,height=156]
+
+BILD 7.27 Neue Schaltflächen und Funktionen der Beitragsliste im
+Vergleich zur Kategorienliste
+
+Der sonstige Aufbau ist völlig identisch, was sich auch durch die
+weitere Administration ziehen wird. Wir müssen uns also nur einen
+grundlegenden Aufbau für alle Listenansichten merken.
+
+==== Neuen Beitrag anlegen
+
+Wir wollen nun damit fortfahren, unseren ersten Beitrag anzulegen. Dafür
+öffnen wir das entsprechende Formular durch einen Klick auf das Icon Neu
+in der Toolbar der Beitragsübersicht.
+
+image:book/07-inhalte-verwalten/media/51.png[book/07-inhalte-verwalten/media/51,width=548,height=406]
+
+BILD 7.28 Leeres Formular zum Anlegen eines neuen _Beitrags_
+
+Auch dieses Formular folgt dem bereits bekannten zweispaltigen Aufbau,
+der uns in der linken Spalte erlaubt, die grundsätzlichen Eingabefelder
+auszufüllen, und in der rechten Spalte die wichtigsten Parameter eines
+Beitrags auflistet. Weitere Parameter finden sich dann in den Tabs im
+oberen Bereich des Formulars.
+
+Die Eingabefelder und Optionen m ersten Tab sind dabei weitgehend
+identisch mit dem Dialog zum Anlegen einer neuen Kategorie (siehe
+Kapitel 7.1.2, „Kategorie anlegen“) – neu hinzugekommen sind nur die
+Felder für _Haupteintrag_ und _Kategorie_.
+
+Der Parameter _Haupteintrag_ ermöglicht uns, eine Funktion zu
+realisieren, die insbesondere auf größeren Portalen mit verschiedenen
+Unterrubriken benötigt wird: die Generierung einer Seite, die „wichtige“
+Artikel aus allen Bereichen der Seite auflistet. Denken Sie an ein
+Portal wie [.underline]#Tagesschau.de#, wo Ihnen auf der Startseite die
+wichtigsten Nachrichten aus verschiedenen Ressorts angeboten werden – um
+eine äquivalente Seite mit Joomla! zu erstellen, würden wir die aktuell
+wichtigen Artikel über den Parameter _Haupteintrag_ hervorheben und dann
+auf unserer Startseite alle Beiträge anzeigen, die entsprechend markiert
+sind. In anderen CMS-Systemen wird hierfür gerne eine spezielle
+Kategorie wie „Gerade aktuell“ angelegt, der die entsprechenden Beiträge
+dann, neben ihrem eigentlichen Ressort, zugewiesen werden. Da Joomla!
+jedoch keine Mehrfachzuweisung zu Kategorien unterstützt, müssen wir
+hier einen Umweg über die _Haupteinträge_ nehmen.
+
+Da wir das _Haupteintrag_-Feature für Bauer Birnennase zunächst nicht
+benötigen, begnügen wir uns mit der Eingabe eines _Titels_
+(„Willkommen“), lassen den _Alias_ leer, da dieser ja automatisch
+generiert wird, und wählen unsere zuvor angelegte Kategorie
+_Informationen_ aus, da dies ja, gemäß unserer Seitenstruktur, die
+übergeordnete Kategorie unserer Startseite sein soll.
+
+image:book/07-inhalte-verwalten/media/53.png[book/07-inhalte-verwalten/media/53,width=548,height=217]
+
+BILD 7.29 Vergabe von Titel und Kategorie unseres ersten Beitrags
+„Willkommen“
+
+===== Der WYSIWYG-Editor TinyMCE
+
+Nun widmen wir uns dem Herzstück der Beitragseditierung, nämlich dem
+integrierten What-You-See-Is-What-You-Get- bzw. kurz WYSIWYG-Editor
+_TinyMCE_. Dieser wandelt die Eingaben und Formatierungen des Nutzers in
+HTML-Code um, der anschließend von Joomla! gespeichert bzw. ausgegeben
+werden kann. Dabei werden entsprechende Eingaben direkt in ihrer finalen
+Form dargestellt, wodurch der Nutzer (daher kommt auch der Name) direkt
+sehen kann, was er ausgegeben bekommt. Der dabei entstehende HTML-Code
+ist zwar im Großen und Ganzen valide, gewinnt jedoch naturgemäß keinen
+Preis für schönen Markup – trotz dieses kleinen Nachteils ist der Editor
+aber im Normalfall unabdingbar, da Sie, ins­besondere beim Geschäft mit
+Endkunden, nur sehr wenig Administratoren finden werden, die genügend
+HTML beherrschen, um den entsprechenden Code selber zu schreiben.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Der _TinyMCE_ ist nicht fest integriert, sondern
+als Plug-in eingebunden und lässt sich daher durch die Installation
+eines alternativen Editors (_FCKEditor_, _JCE_) ersetzen.
+|===
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Der vorinstallierte Editor ist mächtig und bietet eine Vielzahl von
+Funktionen, die über mehrere Zeilen in der _Werkzeugleiste_ verteilt
+sind. Darunter liegen der _Eingabebereich_, der uns die eingegebenen
+Inhalte zeigt, sowie die _Fußzeile_, in der uns unsere Position im
+Markup (_Pfad_) sowie die Anzahl der eingegebenen Wörter angezeigt
+werden.
+
+image:book/07-inhalte-verwalten/media/55.png[book/07-inhalte-verwalten/media/55,width=548,height=315]
+
+BILD 7.30 Werkzeugleiste des WYSIWYG-Editors
+
+Einen Teil der in der Werkzeugleiste vorhandenen Buttons werden Sie
+vermutlich bereits kennen. Trotzdem möchte ich, bevor wir fortfahren,
+einmal einen kleinen Überblick über die Funktionen der einzelnen Buttons
+geben, die Sie in der Tabelle 7.4 finden. Bitte beachten Sie, dass hier
+auch die Buttons aufgelistet sind, die *standardmäßig deaktiviert* sind.
+
+TABELLE 7.4 Verfügbare Editor-Funktionen
+
+[width="100%",cols="32%,29%,39%",]
+|===
+|Icon |Beschreibung |Anmerkung
+
+|image:book/07-inhalte-verwalten/media/56.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1278.PNG,width=42,height=42]
+|fettgedruckt |–
+
+|image:book/07-inhalte-verwalten/media/57.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1296.PNG,width=42,height=42]
+|kursiv |–
+
+|image:book/07-inhalte-verwalten/media/58.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1314.PNG,width=42,height=42]
+|unterstrichen |–
+
+|image:book/07-inhalte-verwalten/media/59.png[book/07-inhalte-verwalten/media/59,width=42,height=38]
+|durchgestrichen |–
+
+|image:book/07-inhalte-verwalten/media/61.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1341.PNG,width=42,height=42]
+|linksbündig |–
+
+|image:book/07-inhalte-verwalten/media/62.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1353.PNG,width=42,height=42]
+|zentriert |–
+
+|image:book/07-inhalte-verwalten/media/63.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1368.PNG,width=42,height=42]
+|rechtsbündig |–
+
+|image:book/07-inhalte-verwalten/media/64.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1381.PNG,width=42,height=42]
+|Blocksatz |–
+
+|image:book/07-inhalte-verwalten/media/65.png[book/07-inhalte-verwalten/media/65,width=97,height=33] |Auswahl der
+anzuwendenden Formatierungen |Der Editor lädt die entsprechenden
+CSS-Klassen aus der Datei _editor.css_ im _/css_-Verzeichnis des
+jeweiligen Templates.
+
+|image:book/07-inhalte-verwalten/media/68.png[book/07-inhalte-verwalten/media/68,width=126,height=38] |Auswahl des
+HTML-Elements a|
+Zur Verfügung stehen:
+
+* Absatz ++<++p++>++
+* Überschrift ++<++h1++>++–++<++h6++>++
+* Adresse ++<++address++>++
+* Rohdaten ++<++pre++>++
+
+|image:book/07-inhalte-verwalten/media/70.png[book/07-inhalte-verwalten/media/70,width=126,height=38] |Auswahl der
+Schriftart |Der Button ist mit der jeweils aktuell verwendeten
+Schriftart beschriftet
+
+|image:book/07-inhalte-verwalten/media/72.png[book/07-inhalte-verwalten/media/72,width=126,height=38] |Auswahl der
+Schriftgröße |Der Button ist mit der jeweils aktuell verwendeten
+Schriftgröße beschriftet
+
+|image:book/07-inhalte-verwalten/media/74.png[book/07-inhalte-verwalten/media/74,width=42,height=38] |Suchen im
+Text |–
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/76.png[book/07-inhalte-verwalten/media/76,width=62,height=36] |Nicht
+nummerierte Aufzählung |–
+
+|image:book/07-inhalte-verwalten/media/78.png[book/07-inhalte-verwalten/media/78,width=62,height=36] |Nummerierte
+Aufzählung |–
+
+|image:book/07-inhalte-verwalten/media/81.png[book/07-inhalte-verwalten/media/81,width=41,height=36]
+|Texteinrückung wiederrufen |Nur bei bereits eingerückten Texten
+anwendbar
+
+|image:book/07-inhalte-verwalten/media/83.png[book/07-inhalte-verwalten/media/83,width=41,height=36] |Text
+einrücken |–
+
+|image:book/07-inhalte-verwalten/media/84.png[book/07-inhalte-verwalten/media/84,width=41,height=36] |Schritt
+rückgängig machen |–
+
+|image:book/07-inhalte-verwalten/media/86.png[book/07-inhalte-verwalten/media/86,width=41,height=36] |Schritt
+wiederholen |–
+
+|image:book/07-inhalte-verwalten/media/89.png[book/07-inhalte-verwalten/media/89,width=41,height=36] |Verlinkung
+setzen/editieren |Das zu verlinkende Wort muss vorher im Text markiert
+werden.
+
+|image:book/07-inhalte-verwalten/media/91.png[book/07-inhalte-verwalten/media/91,width=41,height=36] |Verlinkung
+aufheben |Ist nur anwendbar, wenn eine bestehende Verlinkung im Text
+markiert ist
+
+|image:book/07-inhalte-verwalten/media/92.png[book/07-inhalte-verwalten/media/92,width=41,height=36]
+|Anker/Sprungmarke setzen |Setzt um den aktuell gewählten Text einen
+++<++a++>++-Tag mit der eingegeben ID
+
+|image:book/07-inhalte-verwalten/media/94.png[book/07-inhalte-verwalten/media/94,width=41,height=36] |Bild
+einfügen |Erfordert die direkte Eingabe der Bild-URL und greift nicht
+auf die Joomla!-eigene Medienverwaltung zu
+
+|image:book/07-inhalte-verwalten/media/95.png[book/07-inhalte-verwalten/media/95,width=41,height=36] |Quellcode
+anzeigen |Zeigt den Quellcode des aktuellen Beitrags
+
+| | |
+
+| | |
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/100.png[book/07-inhalte-verwalten/media/100,width=50,height=34] |Fügt das
+aktuelle Datum/Zeit ein |–
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/104.png[book/07-inhalte-verwalten/media/104,width=60,height=36]
+|Schriftfarbe |–
+
+|image:book/07-inhalte-verwalten/media/106.png[book/07-inhalte-verwalten/media/106,width=60,height=36]
+|Text-Hintergrundfarbe |–
+
+|image:book/07-inhalte-verwalten/media/108.png[book/07-inhalte-verwalten/media/108,width=37,height=32] |Vollbild
+|Vergrößert den Editor auf die volle Größe des Browserfensters, kein
+Vollbildmodus im eigentlichen Sinne.
+
+|image:book/07-inhalte-verwalten/media/109.png[book/07-inhalte-verwalten/media/109,width=46,height=34] |Tabelle
+einfügen |–
+
+|image:book/07-inhalte-verwalten/media/112.png[book/07-inhalte-verwalten/media/112,width=38,height=34]
+|Eigenschaften der Tabelle |Wird als separate Werkzeugleiste
+eingeblendet sobald eine Tabelle bearbeitet wird
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/115.png[book/07-inhalte-verwalten/media/115,width=38,height=34] |Zeile
+oberhalb einfügen |s. o.
+
+|image:book/07-inhalte-verwalten/media/117.png[book/07-inhalte-verwalten/media/117,width=38,height=34] |Zeile
+unterhalb einfügen |s. o.
+
+|image:book/07-inhalte-verwalten/media/119.png[book/07-inhalte-verwalten/media/119,width=38,height=34] |Zeile
+entfernen |s. o.
+
+|image:book/07-inhalte-verwalten/media/121.png[book/07-inhalte-verwalten/media/121,width=38,height=34] |Spalte
+davor einfügen |s. o.
+
+|image:book/07-inhalte-verwalten/media/123.png[book/07-inhalte-verwalten/media/123,width=38,height=34] |Spalte
+dahinter einfügen |s. o.
+
+|image:book/07-inhalte-verwalten/media/125.png[book/07-inhalte-verwalten/media/125,width=38,height=34] |Spalte
+entfernen |s. o.
+
+| | |
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/128.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1879.PNG,width=42,height=42]
+|Horizontale Linie |Entspricht dem ++<++hr++>++-Tag
+
+|image:book/07-inhalte-verwalten/media/130.png[book/07-inhalte-verwalten/media/130,width=38,height=33]
+|Formatierungen zurücksetzen |Entfernt alle Formatierungen des
+selektierten Texts
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/133.png[book/07-inhalte-verwalten/media/133,width=38,height=33]
+|tiefgestellt |–
+
+|image:book/07-inhalte-verwalten/media/135.png[book/07-inhalte-verwalten/media/135,width=38,height=33]
+|hochgestellt |–
+
+|image:book/07-inhalte-verwalten/media/137.png[book/07-inhalte-verwalten/media/137,width=38,height=33]
+|Sonderzeichen |Erlaubt das Einfügen von Zeichen, die über die Tastatur
+nicht direkt erreichbar sind
+
+|image:book/07-inhalte-verwalten/media/139.png[book/07-inhalte-verwalten/media/139,width=38,height=33] |Emoticons
+|–
+
+|image:book/07-inhalte-verwalten/media/141.png[book/07-inhalte-verwalten/media/141,width=38,height=33]
+|Multimedia-Inhalte einfügen |Erfordert die manuelle Eingabe der
+Video-URL und bietet keine Vernetzung mit dem Medien-Manager
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/144.png[book/07-inhalte-verwalten/media/144,width=38,height=33]
+|Textrichtung von links nach rechts |–
+
+|image:book/07-inhalte-verwalten/media/146.png[book/07-inhalte-verwalten/media/146,width=38,height=33]
+|Textrichtung von rechts nach links |–
+
+|image:book/07-inhalte-verwalten/media/148.png[book/07-inhalte-verwalten/media/148,width=38,height=33]
+|Ausschneiden |–
+
+|image:book/07-inhalte-verwalten/media/150.png[book/07-inhalte-verwalten/media/150,width=38,height=33] |Kopieren
+|–
+
+|image:book/07-inhalte-verwalten/media/151.png[book/07-inhalte-verwalten/media/151,width=38,height=33] |Einfügen
+und Formatierungen übernehmen |–
+
+|image:book/07-inhalte-verwalten/media/154.png[book/07-inhalte-verwalten/media/154,width=38,height=33] |Einfügen
+und Formatierungen entfernen |–
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+|image:book/07-inhalte-verwalten/media/168.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2267.PNG,width=42,height=42]
+|Steuerzeichen einblenden |–
+
+|image:book/07-inhalte-verwalten/media/170.png[book/07-inhalte-verwalten/media/170,width=38,height=33]
+|Leerzeichen einfügen |Generiert einen Non-Breaking-Space: &nbsp;
+
+|image:book/07-inhalte-verwalten/media/172.png[book/07-inhalte-verwalten/media/172,width=38,height=33] |Zitat
+einfügen |Generiert einen ++<++blockquote++>++-Tag
+
+|image:book/07-inhalte-verwalten/media/174.png[book/07-inhalte-verwalten/media/174,width=38,height=33] |Vorlage
+einfügen |Fügt einen vorgefertigten HTML-Block ein. Eigene Templates
+können im Verzeichnis _/media/editors/tinymce/templates_ hinterlegt
+werden.
+
+|image:book/07-inhalte-verwalten/media/175.png[book/07-inhalte-verwalten/media/175,width=38,height=33] |Drucken
+|Zum Druck wird der entsprechende Dialog des Browsers verwendet, bei dem
+es naturgemäß Abweichungen von der realen Darstellung gibt
+
+|image:book/07-inhalte-verwalten/media/176.png[book/07-inhalte-verwalten/media/176,width=38,height=33] |Vorschau
+|Keine vollwertige Vorschau-Funktion, da nur der reine Editorinhalt ohne
+CSS des Templates dargestellt wrid
+
+|image:book/07-inhalte-verwalten/media/177.png[book/07-inhalte-verwalten/media/177,width=38,height=33] |Code
+einfügen |Unterstützt Syntax-Highlighting
+
+|image:book/07-inhalte-verwalten/media/178.png[book/07-inhalte-verwalten/media/178,width=90,height=34] |Modul
+einfügen |Siehe 7.2.2.6
+
+|image:book/07-inhalte-verwalten/media/179.png[book/07-inhalte-verwalten/media/179,width=90,height=34] |Link zu
+Menüeintrag einfügen |Siehe 7.2.2.3
+
+|image:book/07-inhalte-verwalten/media/180.png[book/07-inhalte-verwalten/media/180,width=90,height=34] |Link zu
+Kontakt aus der Kontakt-Komponente einfügen |Siehe 7.2.2.3
+
+|image:book/07-inhalte-verwalten/media/181.png[book/07-inhalte-verwalten/media/181,width=90,height=34] |Link zu
+anderem Beitrag eingefügen |Siehe 7.2.2.3
+
+|image:book/07-inhalte-verwalten/media/182.png[book/07-inhalte-verwalten/media/182,width=69,height=33] |Bild mit
+dem Joomla-Mediamanager einfügen |Siehe 7.2.2.2
+
+|image:book/07-inhalte-verwalten/media/183.png[book/07-inhalte-verwalten/media/183,width=150,height=34]
+|Seitenumbruch einfügen |Siehe 7.2.2.4
+
+|image:book/07-inhalte-verwalten/media/184.png[book/07-inhalte-verwalten/media/184,width=124,height=34]
+|Weiterlesen-Umbruch einfügen |Siehe 7.2.2.5
+|===
+
+Der Editor bietet also eine ganze Menge an verschiedenen Optionen, von
+denen wir im Normalfall wohl nur einen relativ kleinen Teil nutzen
+werden. Besonders spannend, weil für den „normalen“ Einsatz besonders
+wichtig, sind dabei die Werkzeuge zur Schriftformatierung (_fett,
+kursiv, unterstrichen, rechtsbündig, linksbündig, zentriert_), zur Wahl
+des entsprechenden Formats (_Formate, Absatz, Liste_) sowie die
+Werkzeuge zur Erstellung von _Tabellen_ und die Werkzeuge zum
+_Einfügen_. Die Einfüge-Werkzeuge? Der Pragmatiker in Ihnen wird nun
+vermutlich so etwas sagen wie: „Das funktioniert mit der
+Tastenkombination _Strg{plus}V_ doch dreimal schneller!“ Wahrscheinlich
+hätten Sie recht damit. Trotzdem werden Sie sich im Umgang mit dem
+WYSIWYG-Editor an die Nutzung der Buttons gewöhnen müssen. Tun Sie es
+nicht und fügen beispielsweise diesen Absatz aus _Word_, dem
+Quasi-Marktführer der Textverarbeitungsprogramme, mittels
+Tastenkombination in den Editor ein, so übernimmt der Browser in der
+Regel, für uns unsichtbar, zahlreiche unnötige Formatierungen, die uns
+im weiteren Verlauf das Leben schwermachen würden. Beherzigen Sie daher
+die goldene Regel der WYSIWYG-Editor-Nutzung und geben Sie diese
+unbedingt auch an alle anderen Mitarbeiter und Kunden weiter: Nutzen Sie
+beim _Einfügen_ in den Editor *immer* die entsprechenden Buttons
+_Einfügen_ bzw. _Einfügen als Text_.
+
+Der zweite wichtige Merksatz dieses Unterkapitels beschäftigt sich mit
+der korrekten Formatierung von Überschriften. Werfen Sie einen Blick auf
+das Bild 7.31 – die beiden Überschriften, die Sie dort sehen, scheinen
+auf den ersten Blick völlig identisch zu sein.
+
+image:book/07-inhalte-verwalten/media/186.png[book/07-inhalte-verwalten/media/186,width=548,height=156]
+
+BILD 7.31 Zwei scheinbar identische Überschriften
+
+Wenn wir jedoch in den Quellcode schauen, so stellen wir fest, dass nur
+eine der beiden Überschriften tatsächlich auch den korrekten HTML-Tag
+(++<++h1++>++) aufweist.
+
+++<++h1++>++Überschrift++<++/h1++>++
+
+++<++p style="font-family: Helvetica ,Arial,sans-serif; font-size: 16px;
+font-
+
+weight: bold; color: #666;"++>++Überschrift++<++/p++>++
+
+Die untere Überschrift steckt in einem normalen ++<++p++>++-Tag, der
+über CSS so gestylt wurde, dass er optisch der „echten“ Überschrift
+entspricht – problematisch ist jedoch, dass bei der manuellen
+Formatierungen mittels CSS die semantische Bedeutung des Elements
+(insbesondere für Suchmaschinen und Screenreader) verloren geht. Warum
+weise ich darauf explizit hin? Insbesondere im professionellen Umfeld
+werden Sie auf Kunden treffen, die nur wenig IT-Erfahrung haben und
+daher, getreu dem Motto „Wenn es richtig aussieht, kann es nicht falsch
+sein“, mit den Werkzeugen für Schriftgröße, -farbe und -art die
+Gestaltung der Überschriften „nachbauen“ werden. Daraus folgt Merksatz
+Nummer 2: Nutzen Sie *immer* das _Formate_-Werkzeug im Editor zum
+Einfügen von Überschriften.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Es empfiehlt sich, gemäß dem Sprichwort „aus den Augen,
+aus dem Sinn“, alle nicht zwingend notwendigen Buttons und Funktionen
+des TinyMCE zu entfernen. Dafür ist es nötig, die entsprechenden
+Parameter des Editor-Plug-ins zu verändern. Dazu wechseln wir durch
+einen Klick auf Erweiterungen ++>++ Plugins in die Plugin-Übersicht und
+öffnen dort das Editierungsformular durch einen Klick auf das Plug-in
+_Editor – TinyMCE_.
+
+image:book/07-inhalte-verwalten/media/188.png[book/07-inhalte-verwalten/media/188,width=472,height=340]
+
+BILD 7.32 Öffnen des Editor-Plug-ins in der Übersichtsliste
+
+Dort finden wir in der linken Spalte Einstellungen zur den drei
+Editor-_Sets_ (Markierung 1 in Bild 7.33) die jeweils einer oder
+mehrerer Benutzergruppen (Markierung 2) zugeordnet sind. Jedem Set
+können per Drag & Drop die entsprechenden Editor-Werkzeuge zugewiesen
+bzw. aus dem Set entfernt werden (Markierung 3).
+
+image:book/07-inhalte-verwalten/media/190.png[book/07-inhalte-verwalten/media/190,width=472,height=291]
+
+BILD 7.33 Parametrisierungsmöglichkeiten des TinyMCE
+
+|===
+
+Nachdem wir nun also die „dunklen Künste“ der WYSIWYG-Editor-Nutzung
+beherrschen, tragen wir einen kleinen Beispieltext für unsere
+Willkommensseite ein.
+
+image:book/07-inhalte-verwalten/media/192.png[book/07-inhalte-verwalten/media/192,width=548,height=318]
+
+BILD 7.34 Beitragsformular mit Beispieltext
+
+===== Bilder einfügen
+
+Damit unsere Seite nicht zu textlastig wird, wollen wir natürlich auch
+einige Bilder im Text platzieren. Konkret möchten wir, gewissermaßen als
+vertrauensbildende Maßnahme, ein Porträtfoto von Bauer Birnennase
+einfügen. Dafür platzieren wir zuerst unseren Cursor an der Stelle des
+Textes, an der wir unser Bild einfügen wollen. Anschließend öffnen wir
+den Medien-Manager durch einen Klick auf den Button _Bild_ am Ende der
+Standard-Werkzeugleiste des Editors – diese Buttons, die nicht zum
+„normalen“ Funktionsumfang eines WYSIWYG-Editors gehören sondern in
+Ihrer Funktionalität mit Joomla verknüpft sind, werden im Übrigen in der
+Joomla!-Terminologie als _Editor-Schaltflächen_ bezeichnet.
+
+image:book/07-inhalte-verwalten/media/193.png[book/07-inhalte-verwalten/media/193,width=548,height=320]
+
+BILD 7.35 Öffnen des Medien-Managers über den markierten Button _Bild_
+
+Dort finden wir die aus dem Medien-Manager (siehe Kapitel 6.6,
+„Medienverwaltung“) bekannte Auflistung der bereits angelegten Ordner
+und Bilder. Im unteren Bereich des Popups finden wir zudem die ebenfalls
+bekannte Upload-Möglichkeit, um direkt beim Bearbeiten eines Beitrags
+neue Bilder hochladen zu können.
+
+Klicken wir nun auf das für uns infrage kommende Bild, so setzt der
+Medien-Manager automatisch den relativen Pfad des jeweiligen Bilds in
+das Eingabefeld _Bild Webadresse_. Die beiden weiteren Felder für
+_Beschreibung_ und _Bildtitel_ bestimmen das _alt-_ bzw.
+_title_-Attribut unseres Bild-Tags und sollten daher unbedingt
+ausgefüllt werden. Der Parameter für _Ausrichtung_ bestimmt die Position
+des Bilds im Text. Über das Eingabefeld _Bildbeschriftung_ kann ein Text
+gesetzt werden, der unterhalb des Bilds platziert wird, für diese
+Bildunterschrift kann über das Feld _Caption-Klasse_ eine CSS-Klasse für
+das Styling gesetzt werden.
+
+image:book/07-inhalte-verwalten/media/196.png[book/07-inhalte-verwalten/media/196,width=548,height=403]
+
+BILD 7.36 Medien-Manger beim Einfügen eines Bildes in den Beitrag
+
+Wenn wir mit den entsprechenden Texten zufrieden sind, können wir das
+Bild über den Button _Einfügen_, in der oberen rechten Ecke, im Text
+platzieren.
+
+Über den im WYSIWYG-Editor vorhandenen Button zum Bearbeiten der Bilder
+ist es nun möglich, die Maße des eingefügten Bilds nachträglich
+anzupassen, einen Abstand zum sonstigen Text hinzuzufügen oder das Bild
+mittels float vom Text umfließen zu lassen. Dabei sollten wir jedoch
+beachten, dass die so verkleinerten Bilder immer noch ihre originale
+Dateigröße behalten, weshalb es empfehlenswert ist, die verwendeten
+Bilder bereits vor dem Upload zu verkleinern.
+
+image:book/07-inhalte-verwalten/media/198.png[book/07-inhalte-verwalten/media/198,width=548,height=322]
+
+BILD 7.37 Beitrag mit eingefügtem Bild
+
+Neben dieser althergebrachten Methode zum Einfügen gibt es auch noch
+eine etwas intuitivere Möglichkeit des Bilduploads: Drag & Drop!
+Unterstützt der Browser die dafür notwendigen Techniken, was in allen
+modernen Browsern der Fall ist, so kann ein Bild ganz einfach per Drag &
+Drop in das Editor-Fenster gezogen und losgelassen werden. Der Editor
+kümmert sich dann im Hintergrund um den Upload und die Platzierung des
+Bilds im Beitrag.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Beim Drag & Drop Upload werden Bilder standardmäßig im Ordner
+/images der Installation platziert. In den Einstellungen des
+Editor-Plugins lässt sich über das Feld _Bilderverzeichnis_ ein
+separates-Uploadverzeichnis definieren, was die Übersicht verbessert.
+|===
+
+===== Verlinkungen zu anderen Beiträgen einfügen
+
+Kommen wir nun zu einem anderen, typischen Anwendungsfall bei der
+Editierung von Beiträgen: dem Einfügen von Verlinkungen zu anderen
+Beiträgen, beispielsweise um bestimmte Begriffe innerhalb des Texts mit
+einem Querverweis zu versehen.
+
+Joomla! bietet uns hier mehrere mögliche Wege: Der erste, durchaus
+legitime Weg wäre das manuelle Kopieren der URL aus der Browserleiste
+und das anschließende Einfügen der Verlinkung durch den entsprechenden
+Button des WYSIWYG-Editors.
+
+image:book/07-inhalte-verwalten/media/200.png[book/07-inhalte-verwalten/media/200,width=548,height=316]
+
+BILD 7.38 Manuelle Verlinkung eines Beitrags mittels Copy & Paste
+
+Ein anderer, zeitsparenderer Weg ist die Nutzung des _Beitrag_-Buttons
+in der Werkzeugleiste des Editors.
+
+image:book/07-inhalte-verwalten/media/201.png[book/07-inhalte-verwalten/media/201,width=548,height=127]
+
+BILD 7.39 _Beitrag_-Button in der Werkzeugleiste
+
+Dort finden wir eine Übersicht der bereits vorhandenen Beiträge und
+können, mittels Klick auf den jeweiligen Titel, eine Verlinkung zum
+Beitrag in unseren Text einfügen, ohne die entsprechende URL mühsam
+heraussuchen zu müssen.
+
+image:book/07-inhalte-verwalten/media/204.png[book/07-inhalte-verwalten/media/204,width=548,height=402]
+
+BILD 7.40 Popup der _Beiträge_-Funktion zum Einfügen von seiteninternen
+Verlinkungen
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |**Hinweis: **Joomla! ersetzt ohne vorherige Warnung den
+selektierten Text durch den Titel des zur Verlinkung gewählten Beitrags.
+|===
+
+Eine weitere Möglichkeit ist die Verlinkung eines bestimmten
+_Menüeintrags_ über den Button _Menü_. Das Verfahren ist hierbei analog
+zur Verlinkung von Beiträgen, die im vorherigen Absatz beschrieben
+wurde. Gleiches gilt auch für die Verlinkung von Kontakten bzw. deren
+Kontaktformularen über den Button _Kontakt_ in der Werkzeugleiste.
+
+===== Seitenumbruch
+
+Eine weitere, in Joomla! integrierte Funktion dient zur Generierung von
+artikelinternen Navigationen, also gewissermaßen zur Erstellung einer
+„Umblättern“-Funktion innerhalb eines Artikels.
+
+Um diese in der Joomla!-Terminologie _Seitenumbruch_ genannte Funktion
+zu nutzen, gibt es eine weitere _Editor-Schaltfläche_ in der Toolbar des
+Editors, die auch den entsprechenden Titel trägt. Vor dem Klick auf den
+Button muss jedoch der Cursor an die entsprechende Stelle innerhalb des
+Texts gesetzt werden, an der der erste Seitenumbruch erfolgen soll.
+
+image:book/07-inhalte-verwalten/media/206.png[book/07-inhalte-verwalten/media/206,width=548,height=223]
+
+BILD 7.41 Setzen des Seitenumbruchs durch die Nutzung des entsprechenden
+Editor-Buttons
+
+Daraufhin bittet uns Joomla! um die Eingabe des _Seitentitels_ (wird in
+den ++<++title++>++-Tag eingesetzt) und eines Titels für das
+_Inhaltsverzeichnis_, also zur seiteninternen Navigation – die beiden
+Titel müssen dabei nicht identisch sein.
+
+image:book/07-inhalte-verwalten/media/207.png[book/07-inhalte-verwalten/media/207,width=548,height=282]
+
+BILD 7.42 Dialog zum Einfügen eines _Seitenumbruchs_
+
+Nach Eingabe der beiden Parameter wird der _Seitenumbruch_ mittels Klick
+auf _Seitenumbruch einfügen_ in den Text eingesetzt und ist dort als
+gestrichelte Linie angedeutet. Sämt­licher Text oberhalb dieser Linie ist
+jetzt auf der ersten Seite des Artikels zu sehen, der restliche Teil
+unterhalb der Linie wird auf der zweiten Seite des Artikels dargestellt.
+Nun können wir dieses Verfahren wiederholen, um einen weiteren Umbruch
+zu erzeugen und einen dreiseitigen Artikel zu erhalten, der dann ähnlich
+wie in Bild 7.43 aussehen sollte.
+
+image:book/07-inhalte-verwalten/media/210.png[book/07-inhalte-verwalten/media/210,width=548,height=215]
+
+BILD 7.43 Artikel mit zwei eingefügten Seitenumbrüchen
+
+Joomla! erzeugt beim Aufruf des entsprechenden Artikels im Frontend eine
+beitragsinterne Navigation, die an der Seite des Artikels angezeigt wird
+und uns erlaubt, durch die einzelnen Seiten des _Beitrags_ zu wechseln.
+
+image:book/07-inhalte-verwalten/media/212.png[book/07-inhalte-verwalten/media/212,width=548,height=267]
+
+BILD 7.44 Darstellung der _Seitenumbrüche_ im _Frontend_ der Seite
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Da Joomla! den durch die Betätigung der
+Schaltfläche gesetzten ++<++hr++>++-Tag ohne Rücksicht auf das sonstige
+Markup durch einen _Seitenumbruch_ ersetzt, sollte ein solcher Umbruch
+nicht innerhalb eines noch zu schließenden HTML-Elements (Tabellen,
+DIVs, Absätze) gesetzt werden, da dabei der Quellcode „abgeschnitten“
+würde, was die Validität des Dokuments zerstört.
+|===
+
+===== Weiterlesen-Funktion
+
+Eine von der Funktionsweise sehr ähnliche Funktion versteckt sich hinter
+dem Button zur Generierung der _Weiterlesen_-Funktion. Dieser generiert
+die z. B. für Blogs und Newsportale typische Funktion zum „Anteasern“
+eines Artikels – es wird also nur ein erster Teil des Textes in der
+Übersicht ausgegeben, zum kompletten Inhalt gelangt man erst durch einen
+Klick auf die entsprechende Verlinkung unterhalb des Beitrags.
+
+Um die entsprechende Verlinkung zu generieren, setzen wir, ähnlich wie
+im vorherigen Kapitel, den Cursor an die Stelle des Texts, an der wir
+unseren _Weiterlesen_-Link einfügen wollen. Dort fügen wir durch einen
+Klick auf die Schaltfläche Weiterlesen in der Editorleiste die Stelle
+ein, an welcher der Text geteilt werden soll. Anschließend generiert
+Joomla! eine gestrichelte Linie, die beim Aufruf im Frontend ersetzt
+wird.
+
+image:book/07-inhalte-verwalten/media/214.png[book/07-inhalte-verwalten/media/214,width=548,height=287]
+
+BILD 7.45 Beitrag nach der Nutzung der _Weiterlesen_-Funktion
+
+Beim Aufruf im Frontend wird der entsprechende ++<++hr++>++-Tag durch
+den _Weiterlesen_-Link ersetzt.
+
+image:book/07-inhalte-verwalten/media/216.png[book/07-inhalte-verwalten/media/216,width=548,height=246]
+
+BILD 7.46 _Weiterlesen_-Button im Frontend der Seite
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Joomla! ist standardmäßig so eingerichtet, dass es
+den _Weiter­lesen_-Link nur in der Kategorienansicht (also der Auflistung
+mehrerer Artikel einer Kategorie) anzeigt – beim direkten Aufruf eines
+Beitrags wird er komplett ohne Verlinkung dargestellt.
+|===
+
+===== Module einfügen
+
+Über das Editor-Werkzeug _Modul_ kann ein einzelnes Modul bzw. eine
+ganze Modulposition eingefügt werden. Nach einem Klick auf den
+jeweiligen Modulnamen bzw. den Namen der Position generiert der Editor
+unseinen entsprechenden Platzhalter-Code, der dann bei der Darstellung
+des Beitrags auf der Seite durch das jeweilige Modul ersetzt wird.
+
+Sie verstehen gerade nur Bahnhof? Keine Sorge, nachdem wir uns Kapitel
+10.1.3 nochmals näher mit den Modulen beschäftigt haben, werden Sie mit
+diesem Werkzeug deutlich mehr anfangen können als jetzt. Vorläufig
+reicht uns das wissen, dass der Editor uns hierfür eine sehr bequeme
+Möglichkeit zur Verfügung stellt.
+
+image:book/07-inhalte-verwalten/media/217.png[book/07-inhalte-verwalten/media/217,width=548,height=400]
+
+Bild 7.47 Dialog zum Einfügen von Modulplatzhaltern in einen Beitrag
+
+===== WYSIWYG-Editor deaktivieren
+
+Die letzte nun noch verbleibende _Editor-Schaltfläche_ dient zum
+bequemen Deaktivieren des gewählten WYSIWYG-Editors. Dies kann von Zeit
+zu Zeit notwendig sein, um beispielsweise bestehenden HTML-Code direkt
+in das Eingabefeld einzufügen oder bestimmte, manuelle Formatierungen
+einzugeben, die vom Editor nicht unterstützt werden. Um den Editor ein-
+bzw. auszuschalten, reicht dann ein simpler Klick auf die Schaltfläche
+Editor ein/aus.
+
+image:book/07-inhalte-verwalten/media/219.png[book/07-inhalte-verwalten/media/219,width=548,height=365]
+
+BILD 7.48 Willkommenstext nach der Deaktivierung des Editors durch die
+entsprechende Schaltfläche
+
+Damit hätten wir alle Parameter, Schaltflächen und Funktionen der linken
+Formularspalte erklärt und ausprobiert und widmen uns nun den
+vielfältigen Konfigurationsoptionen in den Beitragsparametern.
+
+===== Beitragsparameter
+
+Die _Beitragsparameter_ in den weiteren Tabs lassen sich in die
+Untergruppen _Bilder und Links_, _Optionen_, _Veröffentlichung_,
+_Konfigurieren des Editorfensters_ und _Berechtigungen_ aufteilen, wobei
+wir einige der Parameter bereits aus dem Formular zum Anlegen einer
+neuen Kategorie kennen. Deshalb werde ich diese in der folgenden Tabelle
+nicht nochmals gesondert erläutern – alle weiteren Parameter finden Sie
+dort jedoch aufgelistet.
+
+TABELLE 7.5 Beitragsparameter
+
+[width="100%",cols="37%,63%",]
+|===
+|Parameter |Erläuterung
+
+|Bilder und Links |
+
+|Einleitungsbild |Ermöglicht die Auswahl eines Bilds, das im
+Einleitungstext des ­Beitrags angezeigt wird
+
+|Textumfließung des Bildes |Ermöglicht die Steuerung der Ausrichtung des
+Bilds für den Einleitungstext
+
+|Alternativer Text |Angabe des Alternativtexts für das Einleitungsbild
+
+|Bildunterschrift |Angabe der Bildunterschrift für das Bild
+
+|Komplettes Beitragsbild (und Parameter) |Ermöglicht die Auswahl eines
+Bilds, das im Haupttext des Beitrags angezeigt wird, die weiteren Bilder
+sind analog zu den Parametern des Einleitungsbilds.
+
+|Link A-C |Ermöglicht die Hinterlegung von Verlinkungen, die unter dem
+Beitrag angezeigt werden
+
+|Linktext A-C |Angabe des zu verlinkenden Texts
+
+|URL-Zielfenster |Angaben für das target-Attribut des jeweiligen Links
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+|Optionen |
+
+|Titel |Anzeigen des Beitragstitels im _Frontend_
+
+|Titel verlinken |Verlinken des Beitragstitels mit der Detailansicht des
+Inhalts
+
+|Tags anzeigen |Anzeigen der zugeordneten _Schlagwörter_ im Frontend
+
+|Einleitungstext |Falls „Verbergen“ gewählt wird, so wird nur der
+Haupttext, also der Teil des Inhalts nach dem _Weiterlesen_-Umbruch,
+angezeigt. Andernfalls wird der gesamte Text inklusive dem
+Einleitungstext angezeigt.
+
+|Position der Beitragsinfo |Die Beitragsinfo (Kategorie, Autor, Klicks
+etc.) kann oberhalb, unterhalb oder an beiden Positionen (_Aufteilen_)
+eines Beitrags angezeigt werden
+
+|Beitragsinfotitel |Steuert, ob der Beitragsinfo-Bereich mit einem Titel
+überschrieben sein soll
+
+|Kategorie |Zeigt den Titel der _Kategorie_, der der Beitrag zugeordnet
+ist
+
+|Kategorie verlinken |Verlinkt den Titel der _Kategorie_ mit einer Liste
+aller dort zugeordneten Beiträge
+
+|Übergeordnete ­Kategorie |Zeigt den Titel der _übergeordneten Kategorie_
+des Beitrags
+
+|Übergeordnet verlinken |Verlinkt den Titel der übergeordneten Kategorie
+mit einer Übersicht der dort zugewiesenen Beiträge
+
+|Zeige Verknüpfungen |Zeigt die Beitragsversionen, die mit dem aktuellen
+Beitrag in anderen Sprachen verknüpft sind
+
+|Autor |Zeigt den Namen des Autors
+
+|Autor verlinken |Verlinkt den Namen des Autors mit der Website, die im
+Kontaktbereich des jeweiligen Autors hinterlegt ist
+
+|Erstellungsdatum |Zeigt das Erstellungsdatum des Beitrags
+
+|Bearbeitungsdatum |Zeigt das Bearbeitungsdatum des Beitrags
+
+|Veröffentlichungsdatum |Zeigt das Veröffentlichungsdatum des Beitrags
+
+|Seitennavigation |Zeigt unter dem jeweiligen Inhalt Verlinkungen, um
+zum nächsten bzw. vorherigen Beitrag zu wechseln, welcher derselben
+Kategorie zugewiesen ist
+
+|Symbole/Text |„Verbergen“ nutzt für die Darstellung der _Drucken-_ und
+_Per- E-Mail-versenden_-Schaltfläche einen einfachen Textlink,
+„Anzeigen“ nutzt grafische Symbole.
+
+|Drucken |Zeigt die Funktion zum Öffnen der Druckansicht eines Beitrags
+
+|E-Mail |Zeigt die Funktion zum Versenden des Beitrags per E-Mail.
+Besser bekannt als „Tell a Friend“-Funktion. *Achtung*: diese Funktion
+ist nach der aktuellen deutschen Rechtslage nicht erlaubt.
+
+|Beitragsbewertung |Zeigt die Funktion zum Bewerten eines Beitrags
+
+|Seitenaufrufe |Zeigt die Anzahl der bereits getätigten Abrufe des
+jeweiligen Inhalts
+
+|Nicht zugängliche Links |Falls ja, werden Links, die der entsprechende
+Benutzer aufgrund seiner Benutzerrechte eigentlich nicht aufrufen kann,
+trotzdem angezeigt.
+
+|Anderer „Weiterlesen“-Text |Erlaubt die Vergabe eines eigenen Texts für
+die _Weiterlesen_-Verlinkung. Interessant für Suchmaschinenoptimierung
+und Barrierefreiheit.
+
+|Browser Seitentitel |Der entsprechende Titel wird als ++<++title++>++
+Tag hinterlegt, wenn der Beitrag nicht über einen Menüeintrag aufgerufen
+wird.
+
+|Alternatives Layout |Erlaubt die Verwendung eines eigenen Templates für
+den jeweiligen Inhalt. Siehe Kapitel 12.2, „Template-Overrides“.
+
+|Veröffentlichung |
+
+|Veröffentlichung starten |Veröffentlicht den Beitrag erst zum
+angegebenen Zeitpunkt im Front­end der Seite – sinnvoll, um zeitgesteuert
+Inhalte einzublenden
+
+|Veröffentlichung beenden |Macht die Veröffentlichung eines Beitrags zum
+angegebenen Zeitpunkt rückgängig
+
+|Erstellungsdatum |Erstellungsdatum des Beitrags
+
+|Autor |Erlaubt die Auswahl eines in Joomla! angelegten Benutzers,
+dessen Benutzername dann als Autorenname verwendet wird
+
+|Autoralias |Überschreibt den Nutzernamen des jeweiligen Autors durch
+einen frei konfigurierbaren Text
+
+|Konfigurieren des Editorfensters |
+
+|Veröffentlichungsparameter anzeigen |Ermöglicht das Ausblenden des Tabs
+_Veröffentlichung_ bei der Bearbeitung dieses Beitrags
+
+|Beitragseinstellungen anzeigen |Ermöglicht das Ausblenden des Tabs
+_Optionen_ bei der Bearbeitung dieses Beitrags
+
+|Bilder und Links im Backend |Ermöglicht das Ausblenden des Tabs _Bilder
+und Links_ im Backend
+
+|Bilder und Links im Frontend |Ermöglicht das Ausblenden des Tabs
+_Bilder und Links_ im Frontend
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+|===
+
+Die Veröffentlichungs- und Beitragsoptionen dienen also maßgeblich zur
+Beeinflussung der Darstellung des späteren Beitrags im Frontend. Die
+Parameter für die _Konfiguration des Editorfensters_ hingegen erlauben
+uns, das Eingabeformular für einen neuen Beitrag im Backend zu gestalten
+und dabei Parameter zu entfernen, die unser Endnutzer nicht benötigt.
+Dadurch wird die Benutzeroberfläche leichter bedienbar, weshalb ich an
+dieser Stelle sehr nachhaltig dazu raten möchte, von dieser Möglichkeit
+auch Gebrauch zu machen.
+
+Die Parameter im Bereich _Bilder und Links_ ermöglichen uns als
+Administrator, für ein vorgegebenes Layout der Beiträge zu sorgen, indem
+wir die beiden Bilder bzw. die drei Verlinkungen über Templates fest
+positionieren und anschließend die Bild-Werkzeuge aus dem Editor
+entfernen. Dadurch wird ein rudimentäres CCK abgebildet, aufgrund der
+nur sehr eingeschränkten Möglichkeiten möchte ich Ihnen aber eher zur
+Nutzung eines vollwertigen Content Construction Kits (siehe Kapitel 16,
+„CCK-Systeme“) bzw. der integrierten Felder-Verwaltung von Joomla raten.
+
+Aber was hat es mit der mysteriösen Vorgabe „Globale Einstellung“ auf
+sich, die wir bei all diesen Parametern finden? Stellen Sie sich vor,
+Sie möchten festlegen, dass bei allen Beiträgen Ihrer Joomla!-Seite kein
+Autor eingeblendet werden soll – bei fünf Seiten wäre es kein Problem,
+es per Hand vorzunehmen, spätestens bei 50 manuell umzustellenden
+Inhalten wird dies aber zur Sisyphos-Arbeit. Daher bietet uns Joomla!
+die Möglichkeit, in den _globalen Optionen_ der Beitragskomponente
+(siehe Kapitel 7.2.3, „Allgemeine Optionen der Beitragskomponente“)
+seitenweit gültige Voreinstellungen anzulegen. Sie können dann falls
+notwendig überschrieben werden, indem man eine von „Globale Einstellung“
+abweichende Option in den Beitragsparametern wählt. Der aktuell gültige
+globale Wert wird dabei jeweils in Klammern angegeben.
+
+image:book/07-inhalte-verwalten/media/220.png[book/07-inhalte-verwalten/media/220,width=548,height=319]
+
+BILD 7.49 Beitragsparameter mit der Vorgabe „Globale Einstellung“
+
+Wir belassen es an dieser Stelle aber erst einmal bei den
+Voreinstellungen und schließen unsere Änderungen an der Willkommensseite
+durch einen Klick auf Speichern & Schliessen in der Toolbar ab. Dieses
+Verfahren können Sie nun auch analog für die weiteren, in Bild 7.1
+angegebenen Inhalte anwenden, sodass wir anschließend alle benötigten
+Texte beisammen haben.
+
+==== Allgemeine Optionen der Beitragskomponente
+
+Kommen wir nun zu den vorhin bereits angesprochenen _globalen Optionen_.
+Diese erreichen wir über einen Klick auf den bereits bekannten
+Toolbar-Button _Optionen_, woraufhin sich eine Seite mit allen für diese
+Komponente verfügbaren Parametern öffnet.
+
+image:book/07-inhalte-verwalten/media/222.png[book/07-inhalte-verwalten/media/222,width=548,height=272]
+
+BILD 7.50 Optionen der Beitragskomponente
+
+Die Parameter sind in verschiedene Tabs gegliedert, die in der Tabelle
+7.6 aufgelistet und erklärt sind.
+
+TABELLE 7.6 Übersicht der Parameter der Beitragskomponente
+
+[width="100%",cols="41%,59%",]
+|===
+|Parameter |Erklärung
+
+|Beiträge |
+
+|Setzt die standardmäßig gültigen Beitragsparameter, die im einzelnen
+Beitrag überschrieben werden können (Erklärung siehe Kapitel 7.2.2.7,
+„Beitragsparameter“) |
+
+|Bearbeitungslayout |
+
+|Ermöglicht die allgemeine Festlegung der Parameter aus den Bereichen
+_Bilder und Links_ bzw. _Konfigurieren des Editorfensters_ der
+Beitragsparameter, deren Erklärung Sie ebenfalls in Kapitel 7.2.2.7
+finden |
+
+|Kategorie |Beeinflusst die Darstellung einer einzelnen
+Beitragskategorie
+
+|Layout auswählen |Darstellung der Beiträge der Kategorie im gewählten
+Layout
+
+|Unterkategorietext |Zeigt die Titel der Unterkategorien als
+Unterüberschriften an
+
+|Kategorientitel |Zeigt den Kategorientitel
+
+|Kategorienbeschreibung |Zeigt die Kategorienbeschreibung
+
+|Kategorienbild |Zeigt das Kategorienbild
+
+|Unterkategorienebenen |Möglichkeit, die Anzahl der
+Unterkategorienebenen zu wählen, die bei der Darstellung einer Kategorie
+ebenfalls angezeigt werden sollen. Kann durch die Auswahl von „keine“
+abgeschaltet werden.
+
+|Leere Kategorien |Zeigt auch (Unter-)Kategorien ohne zugeordnete
+Beiträge
+
+|Meldung „Keine Beiträge“ |Zeigt die Meldung „keine Beiträge“ bei der
+Anzeige von leeren Kategorien
+
+|Unterkategorienbeschreibungen |Zeigt die Beschreibungstexte der
+dargestellten Unterkategorien
+
+|# Beiträge in Kategorie |Zeigt hinter dem jeweiligen Kategorienamen die
+Anzahl der zugeordneten Beiträge
+
+|Tags anzeigen |Zeigt die Schlagwörter der jeweiligen Kategorie
+
+|Kategorien |Beeinflusst die Kategorienübersicht, also die Auflistung
+mehrerer Kategorien, deren Unterkategorien sowie Beiträge
+
+|Beschreibung der obersten Kategorie |Beschreibung der obersten
+Kategorie anzeigen
+
+|Unterkategorienebenen |Anzahl der anzuzeigenden Unterkategorienebenen
+
+|Leere Kategorien |Zeigt leere Kategorien in der Übersicht
+
+|Unterkategorienbeschreibungen |Zeigt die Beschreibung von
+Unterkategorien
+
+|# Beiträge in Kategorie |Zeigt die Anzahl der zugeordneten Beiträge
+hinter dem jeweiligen Kategorienamen
+
+|Blog/Hauptbeiträge |Beeinflusst die Darstellung der Blogansicht
+(Auflistung der Inhalte ein Kategorie) bzw. der Hauptbeiträge-Ansicht
+(Auflistung aller als _Haupt­beitrag_ markierten Inhalte)
+
+|# Führende |Anzahl der Beiträge, deren Einleitungstext in voller Breite
+angezeigt wird
+
+|# Einleitung |Anzahl der Beiträge, deren Einleitungstext in Spalten
+angezeigt wird
+
+|# Spalten |Anzahl der Spalten in der Blogansicht
+
+|# Links |Anzahl der, unterhalb der Blogansicht verlinkten, weiteren
+Beiträge
+
+|Mehrspaltige Sortierung a|
+Sortierung der Beiträge in den Spalten. Kann entweder abwärts oder
+seitlich erfolgen:
+
+image:book/07-inhalte-verwalten/media/224.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2897.PNG,width=76,height=76]
+
+BILD 7.51 Abwärtssortierung
+
+image:book/07-inhalte-verwalten/media/225.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2904.PNG,width=75,height=75]
+
+BILD 7.52 Seitliche Sortierung
+
+|Unterkategorien einbinden |Falls „keine“ ausgewählt ist, werden in der
+Blogansicht nur Beiträge aus der gewählten Kategorie angezeigt; wird ein
+anderer Wert ausgewählt, so werden auch Beiträge aus den angegebenen
+Unterkategorienebenen ausgegeben.
+
+|Listenlayout |Beeinflusst die Darstellung von Beitragslisten
+
+|„Anzeige“ anzeigen |Zeigt das „Anzeige“-Feld, das ermöglicht, die
+Anzahl der angezeigten Beiträge zu regulieren
+
+|Filterfeld |Zeigt die Eingabefelder zum Filtern der ausgegebenen
+Beiträge
+
+|Tabellenüberschriften |Zeigt die Kopfzeile der Listenausgabe
+
+|Datum |Zeigt das Erstellungsdatum der Beiträge
+
+| |
+
+|Seitenaufrufe anzeigen |Zeigt die Anzahl der Aufrufe der Beiträge
+
+|Autor in Liste anzeigen |Zeigt die Autoren der Beiträge
+
+|Zeige Stimmen in Liste |Zeigt die Anzahl der abgegebenen Stimmen
+
+|Zeige Bewertungen in Liste |Zeigt das Ergebnis der Beitragsbewertung
+
+|Gemeinsam |Beeinflusst Parameter, die alle oben genannten ­Ausgabearten
+betreffen
+
+|Kategoriensortierung |Auswahl der Kategoriensortierung, also der
+Reihen­folge, in der die Kategorien untereinander ausgegeben werden
+
+|Beitragssortierung a|
+Auswahl des Kriteriums, nach dem die Sortierung der Beiträge erfolgen
+soll:
+
+* Datum
+* Titel
+* Autor
+* Zugriffe
+* Manuelle Reihenfolge
+
+|Sortierdatum |Auswahl, welches Datum (_Erstellungsdatum_,
+_Veröffentlichungsdatum_, _Bearbeitungsdatum_) für die Sortierung
+verwendet werden soll
+
+|Seitenzahlen |Auswahl, ob ein „Weiterblättern“ in den Beitragsansichten
+über die Ausgabe von Seitenzahlen möglich sein soll. „Auto“ zeigt die
+Sortierung nur dann an, wenn auch mehr als eine Seite vorhanden ist.
+
+|Gesamtseitenzahlen |Zeigt die Anzahl der Gesamtseiten
+
+|Haupteintrag |Auswählen, ob Hauptbeiträge zusammen mit anderen
+Beiträgen angezeigt (Option "Anzeigen"), komplett verborgen (Option
+"Verbergen") oder nur Hauptbeiträge (Option "Nur") angezeigt werden
+sollen.
+
+|Integration |Beeinflusst die Feed-Generierung
+
+|Feedlink anzeigen |Hinterlegt den Link zum zugehörigen RSS-Feed im
+Quellcode, der dann in der Browseradressleiste angezeigt wird.
+
+|Für jeden Feed-Eintrag |Auswahl, ob im Feed der Einleitungs- oder der
+Gesamttext verwendet werden soll
+
+|Weiterlesen-Link |Verwendet den Weiterlesen-Link im Newsfeed
+
+|URL-Routing |Ermöglicht die Wahl zwischen dem „alten“ und dem „neuen“
+Mechanismus zur URL-Generierung, siehe Kapitel 13.2
+
+|Benutze Eigene Felder |Aktiviert oder Deaktiviert die Einbindung der
+Funktion zur Verwaltung eigener Felder
+
+|Berechtigungen |Ermöglicht die Beeinflussung der Beitragsberechtigungen
+(siehe Kapitel 11, „Benutzer- und Rechteverwaltung“)
+|===
+
+Wir finden zahlreiche Parameter vor, mit denen wir sowohl einige
+allgemeine als auch zahlreiche, ansichtsspezifische (_Beiträge_,
+_Kategorie_, _Kategorien_, _Blog/Hauptbeiträge_, _Listenlayout_)
+Einstellungen vornehmen können. Was genau es mit diesen verschiedenen
+Ansichtstypen auf sich hat, erfahren wir im nächsten Kapitel (siehe
+8.2.1, „Menütypen“) und begnügen uns derweil mit der Anpassung der
+Parameter für die Beitragsansicht, da hier durch die
+Standardeinstellungen zahlreiche Informationen eingeblendet werden, die
+bei simpleren Seiten (wie der unseres Bauern Birnennase) störend wären.
+Daher blenden wir über die Optionen die Angaben für _Kategorie_,
+_Autor_, _Veröffentlichungsdatum_, _Seitenaufrufe_ im Tab _Beiträge_ aus
+und verlassen den Dialog mit einem Klick auf Speichern & Schliessen.
+
+image:book/07-inhalte-verwalten/media/227.png[book/07-inhalte-verwalten/media/227,width=548,height=436]
+
+BILD 7.52 Anpassung der standardmäßigen Beitragsoptionen
+
+=== Hauptbeiträge
+
+Nun fehlt uns nur noch ein letzter Menüeintrag in diesem Bereich, den
+wir im Administrationsbereich unter _Inhalt ++>++ Haupteinträge_ finden.
+Hier finden wir, wie der Titel bereits vermuten ließ, eine Liste aller
+Beiträge, die als _Haupteintrag_ markiert sind. Der Aufbau der Liste
+sowie die Funktionen sind nahezu identisch mit der Beitragsliste – der
+einzige Unterschied besteht in dem zusätzlichen Toolbar-Button _Kein
+Haupteintrag_, der die Markierung eines Beitrags als _Haupteintrag_
+wieder aufhebt.
+
+image:book/07-inhalte-verwalten/media/228.png[book/07-inhalte-verwalten/media/228,width=548,height=157]
+
+BILD 7.54 Listenansicht der Hauptbeiträge

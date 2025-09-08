@@ -25,6 +25,10 @@ möchte Ich Ihnen trotzdem nahelegen, das Kapitel zumindest kurz zu
 überfliegen, denn vermutlich gibt es auch für Sie noch die eine oder
 andere Kleinigkeit, die Ihnen die Arbeit erleichtern kann.
 
+include::abschnitte/01-lokaler-webserver.adoc[]
 
+include::abschnitte/02-entwicklungstools.adoc[]
 
-include::book/03-einrichten/cap03.adoc[]
+include::abschnitte/03-auswahl-browser.adoc[]
+
+include::abschnitte/04-passwort-manager.adoc[]

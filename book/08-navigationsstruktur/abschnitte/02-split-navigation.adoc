@@ -1,0 +1,45 @@
+=== Split-Navigationen anlegen
+
+Abschließend möchte ich noch auf einen Navigationstyp eingehen, den wir
+in unserem konkreten Beispiel nicht nutzen. Aufgrund seiner hohen
+Verbreitung möchte ich dennoch darauf eingehen: die _Split-Navigation_.
+
+Bei dieser Navigation teilt sich die Navigationsstruktur in zwei oder
+mehr Bereiche auf, die dann an unterschiedlichen Stellen der Seite
+angezeigt werden. Oftmals zeigt man dabei die erste Navigationsebene in
+einer horizontalen Leiste unterhalb des Headers an, die jeweils
+zugehörigen Untermenüpunkte werden dann in einer vertikalen Leiste in
+der linken oder rechten Spalte der Seite angezeigt (siehe Bild 8.20 und
+Bild 8.21).
+
+image:book/08-navigationsstruktur/media/35.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild811.PNG,width=476,height=248]
+
+BILD 8.20 Split-Navigation „Schulleben“
+
+image:book/08-navigationsstruktur/media/36.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++8++\++Bild822.PNG,width=502,height=219]
+
+BILD 8.21 Split-Navigiation „Unsere Schule“
+
+Die gesamte Menüstruktur ist in einem einzelnen Menü hinterlegt, jedoch
+werden zur Ausgabe zwei verschiedene Module (siehe Kapitel 10.1.3,
+„Module: Das RSS-Feed-Modul einbinden“) genutzt, die wir in der
+_Modulverwaltung_ des _Backends_ unter Erweiterungen ++>++ Module
+finden. Betrachten wir die Parameter des oberen _Moduls_, das die erste
+Navigationsebene darstellt, so finden wir die Möglichkeit zu definieren,
+welche _Menüebenen_ des gewählten Menüs in diesem Modul dargestellt
+werden sollen (siehe Bild 8.22). Durch die Wahl des Werts „1“ beim
+Parameter _Letzte Ebene_ stellen wir sicher, dass nur _Menüeinträge_ der
+ersten Ebene in diesem Modul angezeigt werden.
+
+image:book/08-navigationsstruktur/media/38.png[book/08-navigationsstruktur/media/38,width=548,height=251]
+
+BILD 8.22 Parameter zur Beeinflussung der dargestellten Menüebene
+
+Dementsprechend setzen wir den Parameter _Erste Ebene_ des Moduls für
+die linke Navigation auf „2“, damit dort nur Menüeinträge ab der zweiten
+Ebene dargestellt werden. Dadurch ist es möglich, sehr flexible
+Menüsysteme aufzubauen.
+
+image:book/08-navigationsstruktur/media/40.png[book/08-navigationsstruktur/media/40,width=548,height=253]
+
+BILD 8.23 Parameter des Moduls zur Darstellung der zweiten Menüebene

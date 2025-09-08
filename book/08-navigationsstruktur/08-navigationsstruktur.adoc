@@ -1,3 +1,17 @@
 [[08-navigationsstruktur]]
 
-include::book/08-navigationsstruktur/cap08.adoc[]
+== Navigationsstruktur anlegen
+
+Im vorherigen Kapitel haben wir die benötigten Texte und Bilder in die
+Seite eingefügt, stellten aber beim Aufruf des Frontends unserer Seite
+fest, dass sich hier nach wie vor nichts verändert hat – aber warum?! Um
+dies herauszufinden, müssen wir das Wissen aus Kapitel 5, „Grundlegende
+Begriffe und Architektur“, reaktivieren, in dem wir gelernt haben, dass
+Menüstruktur und Inhaltsstruktur voneinander unabhängig sind. Daraus
+folgt, dass unsere neu angelegten _Inhalte_ natürlich nicht von selber
+im _Menü_ abgebildet werden, sondern wir die Menüstruktur erst manuell
+aufbauen müssen. Dies wollen wir nun in Kapitel 8 tun.
+
+include::abschnitte/01-menusystem.adoc[]
+
+include::abschnitte/02-split-navigation.adoc[]

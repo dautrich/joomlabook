@@ -1,0 +1,72 @@
+=== Andere Templates nutzen
+
+Was aber, wenn Sie mit den vorhandenen Templates nicht so richtig viel
+anfangen können, sich aber nicht an ein eigenes, selbst zu
+programmierendes Templates herantrauen? In diesem Falle können Sie
+glücklicherweise auf eine schier unüberschaubare Menge an fertigen
+Templates zurückgreifen, die oftmals kostenlos genutzt und verändert
+werden dürfen. Wo aber kann man diese Templates finden?
+
+==== Template-Verzeichnisse
+
+Eine Quelle für fertige Joomla!-Templates ist das deutschsprachige
+Portal [.underline]#www.joomlaos.de#, das große Verzeichnisse pflegt,
+die oftmals den direkten Download der Templates ermöglichen.
+[.underline]#Joomlaos.de# sortiert die Templates dabei in verschiedenen
+Kategorien und bietet zusätzlich eine leicht zu nutzende
+Template-Galerie.
+
+image:book/09-templatesystem/media/25.png[book/09-templatesystem/media/25,width=548,height=425]
+
+BILD 9.12 [.underline]#Joomlaos.de#
+
+Das klingt doch alles in allem nach einen großzügigen Angebot, oder?
+Suchen Sie etwa schon den Haken an der Sache? Ich würde Sie anlügen,
+wenn ich diesen verschweigen würde. Das große Problem mit
+_Template_-Verzeichnissen dieser Art ist, dass man als Nutzer leider
+kaum Möglichkeiten hat, die Qualität eines _Templates_ vor der Nutzung
+zu beurteilen. Ist der Code valide? Welche Einstellungsmöglichkeiten
+gibt es? Passt die Darstellung in den gängigen Browsern? Diesen
+Qualitätskriterien für den professionellen Einsatz können freie
+_Templates_ oftmals leider nicht gerecht werden – daher gilt hier: vor
+der Nutzung intensiv testen!
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Joomlaos.de bietet neben der Template-Galerie auch eine große
+Bandbreite an Joomla-Erweiterungen zum Download. Da die Seite vom
+Betreiber jedoch zunehmend vernachlässigt wird, wird die dort
+angebotenen Erweiterungen oftmals massiv veraltet, nutzen Sie das Portal
+daher ausschließlich für Templates.
+|===
+
+==== Template-Clubs
+
+Neben den zahlreichen Verzeichnissen für freie Templates haben sich
+einige Anbieter wie Yootheme ([.underline]#www.yootheme.com#),
+RocketTheme ([.underline]#www.rockettheme.com#) oder Joomlart
+([.underline]#www.joomlart.com#) darauf spezialisiert, qualitativ
+hochwertige und gestalterisch ansprechende Templates zu gestalten und
+diese anschließend in einem sog. _Template-Club_ im Rahmen einer
+kostenpflichtigen Mitgliedschaft zur Verfügung zu stellen. Im Regelfall
+veröffentlichen diese Clubs ein bis zwei neue _Templates_ monatlich, die
+dann von den zahlenden Kunden heruntergeladen und verwendet werden
+können. Die _Templates_ werden häufig zusammen mit speziell darauf
+abgestimmten _Erweiterungen_ angeboten, die sich nahtlos ins Design
+einfügen und daher einen sehr runden Gesamteindruck abliefern.
+
+image:book/09-templatesystem/media/26.png[book/09-templatesystem/media/26,width=548,height=388]
+
+BILD 9.13 [.underline]#www.yootheme.com#
+
+Leider sind die _Templates_ dieser Anbieter durch ihre vielen
+verschiedenen Parameter und Nutzungsmöglichkeiten im Regelfall sehr
+umfangreich, was zu längeren Ladezeiten führen kann.
+
+==== Installation
+
+Die Installation der heruntergeladenen Templates erledigen Sie über den
+Erweiterungsmanager (siehe Kapitel 10.2.2, „Erweiterungen
+installieren“). Anschließend muss das Template dann noch, wie in Kapitel
+9.4 beschrieben, gewechselt werden.

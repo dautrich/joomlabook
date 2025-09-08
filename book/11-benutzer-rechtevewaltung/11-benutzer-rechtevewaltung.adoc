@@ -1,0 +1,24 @@
+[[11-benutzer-rechtevewaltung]]
+
+== Benutzer- und Rechteverwaltung
+
+Eine der meistkritisiertesten Funktionen von Joomla! 1.5 war die nur
+sehr rudimentär ausgeprägte _Benutzer_- und _Rechteverwaltung_, die eine
+fein granulierte Rechtevergabe, wie man sie im professionellen Einsatz
+benötigt, nicht wiedergeben konnte.
+
+Um dieses Problem aus der Welt zu schaffen, hat das Entwicklerteam mit
+Joomla! 1.6 ein komplett neues Rechtesystem integriert, das nun auch
+komplexeste Strukturen abbilden kann. Leider ist die Nutzung des Systems
+aufgrund seiner zahlreichen Möglichkeiten nicht ganz trivial – am Ende
+dieses Kapitels werden Sie es aber problemlos durchschaut haben.
+
+include::abschnitte/01-benutzerverwaltung.adoc[]
+
+include::abschnitte/02-gruppen.adoc[]
+
+include::abschnitte/03-zugriffsebene.adoc[]
+
+include::abschnitte/04-berechtigungen.adoc[]
+
+include::abschnitte/05-parameter.adoc[]

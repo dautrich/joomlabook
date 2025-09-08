@@ -1,0 +1,167 @@
+=== Gruppen
+
+Die _Benutzergruppen_ bilden den ersten Baustein unserer
+Rechteverwaltung. Was haben die Gruppen mit der Rechteverwaltung zutun?
+Ganz einfach: Joomla! verwaltet _Berechtigungen_ jeglicher Art nicht für
+einzelne Benutzer, sondern *ausschließlich* für _Benutzergruppen_ –
+einem bestimmten Nutzer die _Berechtigung_ XY einzuräumen, ist also nur
+möglich, indem ich der _Benutzergruppe_ (des Nutzers) die _Berechtigung_
+einräume. Interessant ist dabei, dass das Gruppensystem *hierarchisch*
+angeordnet ist und dadurch Berechtigungen „vererbt“ werden können.
+Außerdem ist es möglich, einen _Benutzer_ *mehreren* _Benutzergruppen_
+zuzuordnen, sodass man über das Gruppensystem verschiedene „Rollen“
+abbilden kann.
+
+Das klingt alles ziemlich kompliziert, oder? Um besser zu verstehen, was
+ich meine, denken Sie an das Beispiel einer Schul-Website, auf der die
+Inhalte aus der folgenden Tabelle abgebildet werden sollen.
+
+TABELLE 11.1 Inhaltsstruktur des Beispiels „Schulhomepage“
+
+[width="100%",cols="43%,57%",]
+|===
+|Bereich |Zugriff
+|Startseite a|
+Alle lesend
+
+Schulleitung schreibend
+
+|Forum |Schulangehörige lesend und schreibend
+|Informationen der Fachschaften a|
+Schulangehörige lesend
+
+Leiter der Fachschaften schreibend
+
+|Informationen für das Kollegium a|
+Lehrer lesend
+
+Schulleitung schreibend
+
+|===
+
+Daraus ergäbe sich beispielsweise eine _Gruppen- und Rechtestruktur_,
+wie sie in Bild 11.3 aufgebaut ist. Durch die hierarchische
+Strukturierung der _Gruppen_ werden die _Berechtigungen_ der jeweiligen
+übergeordneten _Gruppe_ geerbt, sodass jeweils nur „zusätzliche“
+_Rechte_ (in der Abbildung unterstrichen) zugewiesen werden müssen. Das
+macht das Rechtesystem sehr flexibel und zugleich leichter zu
+administrieren, da es weniger „Stellschrauben“ gibt, die verändert
+werden müssen.
+
+image:book/11-benutzer-rechtevewaltung/media/5.png[book/11-benutzer-rechtevewaltung/media/5,width=548,height=411]
+
+Bild 11.3 Rechtestruktur der hypothetischen Schulwebsite
+
+Betrachten Sie die Abbildung gerade und fragen sich, wozu man einem
+Benutzer mehrere _Gruppen_ zuweisen können muss? Stellen Sie sich vor,
+dass jeder Vorsitzende einer Fachschaft aus unserem Beispiel seinen
+individuellen Bereich (Deutsch, Mathe etc.) editieren können sollte.
+Dann würde es nicht einfach nur die _Gruppe_ „Fachschaftsleiter“ geben,
+sondern wir würden mehrere _Gruppen_ (Fachschaft Mathe, Fachschaft
+Deutsch) anlegen, die allesamt von der _Gruppe_ Lehrer abstammen. Wenn
+nun eine Person mehr als einer Fachschaft angehört, dann ist es
+notwendig, dass wir diese Person mehreren _Gruppen_ zuordnen können,
+damit die _Rechte_ zum Bearbeiten der Bereiche stimmen.
+
+Sie merken an dieser Stelle sicherlich, dass das Thema wie angekündigt
+ein wenig komplexer ist, als man es vermutet hätte. Aber
+glücklicherweise legt Joomla! bereits von Haus aus einen Satz
+_Benutzergruppen_ an, der uns beim Aufbau unserer eigenen Rechtestruktur
+unterstützt. Diese finden wir in der _Benutzergruppen_-Übersicht, die
+wir durch einen Klick auf den Submenü-Eintrag Benutzergruppen in der
+Benutzerübersicht erreichen.
+
+image:book/11-benutzer-rechtevewaltung/media/6.png[book/11-benutzer-rechtevewaltung/media/6,width=548,height=222]
+
+BILD 11.4 Benutzergruppen-Übersicht
+
+Standardmäßig existieren acht _Benutzergruppen_, die wie in Bild 11.4 zu
+sehen hierarchisch angeordnet sind. Die _Gruppen_ sowie ihre jeweiligen,
+standardmäßigen Rechte möchte ich in der nachfolgenden Tabelle kurz
+vorstellen.
+
+TABELLE 11.2 Auflistung der Standard-Benutzergruppen
+
+[width="100%",cols="19%,63%,18%",]
+|===
+|Gruppe |Standardberechtigungen |Zugriffsebene
+
+|Öffentlich |Gruppe für alle eingeloggten und nicht eingeloggten
+Benutzer. Erlaubt ausschließlich das Betrachten des _Frontends_.
+|Öffentlich
+
+|Gast |Gruppe für alle Nutzer die nicht eingeloggt sind. Erlaubt, wie
+bei der Gruppe Öffentlich, die Betrachtung des _Frontends_, enthält
+jedoch im Unterschied nur Nutzer die nicht eingeloggt sind |Gast
+
+|Manager |Zugelassen für die Anmeldung im _Frontend_ und _Backend_ sowie
+für die Editierung von Beiträgen und den Inhalten der installierten
+Komponenten a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Administrator |Darf die Systemkonfiguration nicht verändern, hat
+ansonsten alle Rechte a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Registriert |Darf sich im _Frontend_ einloggen und Inhalte mit der
+Zugriffsebene „Registriert“ betrachten a|
+Öffentlich
+
+Registriert
+
+|Autor |Darf neue Inhalte im _Frontend_ anlegen und die eigenen Beiträge
+bearbeiten, jedoch Beiträge nicht selbst veröffentlichen a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Editor |Darf alle Inhalte im _Frontend_ bearbeiten, eigene Beiträge
+anlegen, jedoch diese nicht selbst veröffentlichen a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Publisher |Darf alle Inhalte im _Frontend_ bearbeiten, selber Beiträge
+verfassen und alle Beiträge veröffentlichen a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Super Benutzer |Darf alles a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|===
+
+Diese Gruppenstruktur können Sie als Ausgangsbasis für Ihre eigene
+Gruppenstruktur verwenden, indem Sie über die entsprechenden
+Toolbar-Werkzeuge neue _Benutzergruppen_ anlegen. Das entsprechende
+Formular ist dabei sehr rudimentär und fragt im Wesentlichen nur ab, wie
+die neue _Gruppe_ heißen und von welcher _Gruppe_ sie die bestehenden
+Rechte erben soll.
+
+image:book/11-benutzer-rechtevewaltung/media/9.png[book/11-benutzer-rechtevewaltung/media/9,width=548,height=129]
+
+BILD 11.5 Anlegen einer neuen Benutzergruppe
+
+Suchen Sie verzweifelt nach der Möglichkeit, die Rechte der jeweiligen
+Gruppe festzulegen? Keine Sorge, das kommt noch. Zuerst einmal wollen
+wir uns mit dem Begriff der _Zugriffsebene_ beschäftigen, der bereits in
+Tabelle 11.2 aufgetaucht ist.

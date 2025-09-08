@@ -2,10 +2,10 @@
 
 == Über Joomla!
 
-include::book/02-ueber-joomla/abschnitte/cms.adoc
+include::abschnitte/01-cms.adoc
 
-include::book/02-ueber-joomla/abschnitte/geschichte.adoc
+include::abschnitte/02-geschichte.adoc
 
-include::book/02-ueber-joomla/abschnitte/organisation.adoc
+include::abschnitte/03-organisation.adoc
 
-include::book/02-ueber-joomla/abschnitte/releasestrategie.adoc
+include::abschnitte/04-releasestrategie.adoc

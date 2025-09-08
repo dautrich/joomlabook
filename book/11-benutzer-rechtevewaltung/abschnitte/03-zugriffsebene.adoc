@@ -1,0 +1,63 @@
+=== Zugriffsebene
+
+_Zugriffsebenen_ sind das nächste Teil im Joomla!-Rechte-Puzzle.
+Zugriffsebenen existieren ausschließlich, um festzulegen, welche
+_Benutzergruppe_ einen bestimmten Inhalt im *Front­end* *betrachten* kann
+– wobei der jeweilige Inhalt ein Beitrag, ein Menüeintrag, ein Modul
+oder irgendein anderer im System hinterlegter Inhalt sein kann. Diese
+Festlegung erfolgt unabhängig vom sonstigen Rechtesystem, das für die
+Steuerung aller anderen Aktionen (Anlegen, Editieren, Löschen etc.)
+zuständig ist.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Der Grund für die Existenz dieses, zugegebenermaßen,
+etwas wenig intuitiven Systems ist im Wunsch nach
+Rückwärtskompatibilität zu älteren Joomla!-Versionen zu suchen. Dort
+wurde das Zugriffsebenensystem genutzt, um die Unzulänglichkeiten des
+starren Rechtesystems auszugleichen.
+|===
+
+_Zugriffsebenen_ stehen in engem Bezug zu _Benutzergruppen_, da eine
+Zuordnung zwischen den beiden Bereichen erfolgen muss. Dabei ist es
+möglich, einer _Benutzergruppe_ mehrere _Zugriffsebenen_ zuzuweisen – so
+kann ein _Nutzer_ der Gruppe „Editor“ Inhalte betrachten, die den Ebenen
+„Öffentlich“, „Registriert“ oder „Spezial“ zugeordnet sind.
+
+Umgekehrt kann eine _Zugriffsebene_ auch mehreren _Benutzergruppen_
+zugeordnet sein, denn die Ebene „Spezial“ kann von den Gruppen „Editor“,
+„Autor“, „Publisher“, „Manager“, „Administrator“ und „Super
+Administrator“ betrachtet werden.
+
+Die entsprechende Verwaltung der Zugriffsebenen erfolgt im gleichnamigen
+Submenü-Bereich der Benutzerverwaltung.
+
+image:book/11-benutzer-rechtevewaltung/media/11.png[book/11-benutzer-rechtevewaltung/media/11,width=548,height=163]
+
+BILD 11.6 Übersicht der angelegten Zugriffsebenen
+
+Nach einem Klick auf Neu erhalten wir hier die Möglichkeit, eine neue
+Zugriffsebene anzulegen und dabei den _Titel_ der Ebene zu vergeben und
+die Zuordnungseinstellungen vorzunehmen. Beachten Sie dabei, dass auch
+_Zugriffsebenen_ in der Gruppenstruktur vererbt werden – wird eine
+_Zugriffsebene_ also der Gruppe „Autor“ zugeordnet, so können auch
+„Editoren“ und „Publisher“ Inhalte mit der entsprechenden
+_Zugriffsebene_ betrachten.
+
+image:book/11-benutzer-rechtevewaltung/media/13.png[book/11-benutzer-rechtevewaltung/media/13,width=548,height=304]
+
+BILD 11.7 Anlegen einer neuen Zugriffsebene
+
+Standardmäßig existieren in Joomla! fünf verschiedene _Zugriffsebenen_,
+die im normalen Einsatz oftmals bereits ausreichen:
+
+* _Öffentlich:_ Sichtbar für alle _Benutzer_, egal ob diese eingeloggt
+oder nicht eingeloggt sind
+* _Gast:_ Sichtbar für alle _Benutzer_, die nicht eingeloggt sind
+* _Registriert:_ Sichtbar für alle _Benutzer_, die eingeloggt sind
+* _Spezial:_ Sichtbar für alle _Benutzer_, die den _Gruppen_ „Autor“,
+„Editor“, „Publisher“, „Manager“, „Administrator“ und „Super
+Administrator“ zugeordnet sind
+* _Super_ _Benutzer:_ Sichtbar für alle _Benutzer_, die der Gruppe
+„Super Benutzer“ zugeordnet sind

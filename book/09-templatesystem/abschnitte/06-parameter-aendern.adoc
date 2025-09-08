@@ -1,0 +1,38 @@
+=== Parameter ändern
+
+Nun kommen wir nochmals auf den angesprochen Tab _Erweitert_ des
+_Template-Stils_ zurück, der die Parameter des Templates enthält. Da
+diese sich von Template zu Template unterscheiden, ist es hier leider
+nicht möglich, eine allgemeine Beschreibung anzugeben. Ich werde mich
+daher auf die nötigen Anpassungen des _Beez3-Templates_ an unsere
+Vorstellungen beschränken.
+
+Dort ändern wir im ersten Schritt das standardmäßige Logo. Wir ersetzen
+es mit den aus dem _Medien-Manager_ bekannten Schritten durch das _Logo_
+unseres imaginären Kunden. Auf die gleiche Art und Weise ersetzen wir
+auch das Headerbild (_Bild im Kopfbereich_) und vergeben anschließend
+einen _Seitentitel_ sowie eine _Seitenbeschreibung_. Damit unser selbst
+gewähltes Headerbild verwendet wird, müssen wir außerdem den Parameter
+_Template-Farbe_ auf _Eigene_ setzen. Wir schließen unsere Änderungen an
+diesem Template-Stil mit einem Klick auf Speichern & Schliessen in der
+Toolbar ab.
+
+image:book/09-templatesystem/media/16.png[book/09-templatesystem/media/16,width=548,height=366]
+
+BILD 9.8 Template-Parameter des Beez3 nach der Anpassung
+
+Werfen wir nun einen Blick ins _Frontend_, so stellen wir fest, dass wir
+einem zum Kunden passenden Design schon ein gutes Stück näher gekommen
+sind – allerdings stört noch die dunkle Schrift auf dem Headerbilder den
+optischen Gesamteindruck. Da es jedoch keine Möglichkeit gibt, diesen
+Störfaktor mittels Parameter anzupassen, müssen wir hier selbst Hand
+anlegen und den CSS-Code des Templates anpassen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Wenn Sie Joomla! professionell einsetzen wollen,
+werden Sie nicht drum herumkommen, sich grundlegende Kenntnisse im
+Bereich HTML und CSS zuzulegen. Beide Sprachen bilden die Grundlage für
+die individuelle Anpassung von Templates und sind daher unabdingbar.
+|===

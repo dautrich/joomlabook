@@ -1,0 +1,73 @@
+=== Benutzerverwaltung
+
+Starten wir mit der Benutzerverwaltung, die sich im Backend unter dem
+Menüpunkt _Benutzer ++>++ Verwalten_ verbirgt. Die grundlegende Struktur
+der Verwaltung ist identisch mit den bereits bekannten Listenansichten
+des Joomla!-Backends und bietet die folgenden Spalten:
+
+* _Name:_ der eingegebene Klarname des Benutzers sowie ein Icon zum
+Hinzufügen bzw. Lesen der passenden Benutzerhinweise
+* _Benutzername:_ der jeweilige Benutzername
+* _Aktiviert:_ Zeigt an, ob der Nutzer bereits den Aktivierungslink in
+der ihm zugesendeten Mail angeklickt hat
+* _Freigegeben:_ Zeigt an, ob der Benutzer durch den Administrator
+freigegeben wurde
+* _Benutzergruppe:_ Benutzergruppen, welcher der Nutzer angehört
+* _E-Mail-Adresse:_ vom Nutzer hinterlegte E-Mail-Adresse
+* _Letzter Besuch:_ Datum des letzten Login des Benutzers
+* _Registrierungsdatum:_ Datum der Registrierung
+
+image:book/11-benutzer-rechtevewaltung/media/2.png[book/11-benutzer-rechtevewaltung/media/2,width=548,height=153]
+
+BILD 11.1 Benutzerverwaltung – Übersicht der Nutzer
+
+Klicken wir auf den Toolbar-Button Neu, so öffnet sich wie vermutet das
+Formular zum Anlegen eines neuen Benutzers. Dort werden standardmäßig
+die Felder
+
+* _Name:_ Klarname des Benutzers
+* _Benutzername:_ frei wählbarer Benutzername
+* _Passwort:_ Benutzerpasswort, muss durch nochmalige Eingabe bestätigt
+werden
+* _E-Mail-Adresse:_ E-Mail-Adresse des Nutzers
+
+abgefragt, womit die relevanten Pflichtangaben des Nutzers bereits
+erledigt wären.
+
+Als nächtes können wir im Tab _Zugewiesene Gruppen_ auswählen, welchen
+_Benutzergruppen_ (siehe Kapitel 11.2, „Gruppen“) der jeweilige Benutzer
+zugeordnet werden soll.
+
+Außerdem finden wir dort den Tab _Basiseinstellungen_, der uns die
+Anpassung der folgenden, für jeden Benutzer individuell festlegbaren
+Parameter erlaubt:
+
+* _Backend Template Stil:_ Angabe des _Backend-Templates_, das für den
+entsprechenden Benutzer verwendet werden soll
+* _Backend Sprache:_ Sprache, die für den Benutzer im _Backend_
+verwendet werden soll
+* _Frontend Sprache:_ Sprache, die für den Benutzer im _Frontend_
+verwendet werden soll
+* _Editor:_ Auswahl des WYSIWYG-Editors, der für den Benutzer geladen
+werden soll
+* _Hilfeseite:_ Auswahl des Hilfe-Portals
+* _Zeitzone:_ Auswahl der Zeitzone
+
+Das sieht unspektakulär aus? Ja, im ersten Moment mag das sein –
+bedenken Sie aber, dass Sie so beispielsweise die Möglichkeit erhalten,
+weniger erfahrenen Nutzern einen Editor zur Verfügung zu stellen, der
+seinen Fähigkeiten entspricht.
+
+image:book/11-benutzer-rechtevewaltung/media/4.png[book/11-benutzer-rechtevewaltung/media/4,width=548,height=333]
+
+BILD 11.2 Anlegen eines neuen Benutzers
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Eine für die Praxis sehr nützliche Funktion verbirgt sich
+hinter dem Schalter _Passwortzurücksetzung fordern_. Ist dieser
+aktiviert, wird der entsprechende Nutzer beim nächsten Login dazu
+aufgefordert, sein Passwort zu verändern. Erst wenn ein neues Passwort
+hinterlegt wurde, ist die Arbeit im System möglich.
+|===

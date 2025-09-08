@@ -1,0 +1,25 @@
+[[10-erweiterungen]]
+
+== Joomla!-Erweiterungen
+
+Schauen wir zu Beginn dieses Kapitels erst einmal, wo wir gerade stehen:
+Wir haben eine auf Joomla! basierende Seite für unseren imaginären
+Kunden installiert, die Inhalte eingepflegt und das Design angepasst.
+Was aber machen wir, wenn wir nicht nur Texte und Menüeinträge
+darstellen wollen, also Funktionen benötigen, die über die reine
+Darstellung von frei einzugebenden Texten hinausgehen? Hier wäre es
+jetzt äußerst hilfreich, wenn wir eine Möglichkeit hätten, Joomla! mit
+weiteren Funktionen zu erweitern – und genau diese Möglichkeit haben
+wir!
+
+Joomla! ist erweiterbar aufgebaut, weshalb wir neue Funktionen bzw.
+Designs in Form von _Komponenten, Modulen, Plug-ins_ und _Templates_
+problemlos nachrüsten können. Im ersten Teil dieses Kapitels wollen wir
+zunächst einen Blick auf die ohnehin vorhandenen Erweiterungen werfen
+und das lang ersehnte Kontaktformular für unseren Kunden nachrüsten. Im
+zweiten Teil wollen wir uns dann mit den administrativen Aufgaben rund
+um die Verwaltung der Erweiterung sowie der Installation von
+zusätzlichen Erweiterungen beschäftigen.
+
+include::abschnitte/01-integrierte-erweiterungen.adoc
+include::abschnitte/02-erweiterungen-verwalten.adoc

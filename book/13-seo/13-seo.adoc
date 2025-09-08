@@ -12,12 +12,12 @@ regelrechte Buchreihen veröffentlicht, die das Thema wesentlich besser
 abdecken. Stattdessen möchte ich einige Joomla!-spezifische Dinge
 erläutern.
 
-include::book/13-seo/abschnitte/meta-daten.adoc[]
+include::abschnitte/meta-daten.adoc[]
 
-include::book/13-seo/abschnitte/modern-routing.adoc[]
+include::abschnitte/modern-routing.adoc[]
 
-include::book/13-seo/abschnitte/sef-urls.adoc[]
+include::abschnitte/sef-urls.adoc[]
 
-include::book/13-seo/abschnitte/seo-erweiterungen.adoc[]
+include::abschnitte/seo-erweiterungen.adoc[]
 
-include::book/13-seo/abschnitte/umleitungen.adoc[]
+include::abschnitte/umleitungen.adoc[]

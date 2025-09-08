@@ -1,0 +1,14 @@
+=== Template-Stil wechseln
+
+Wie können wir nun das Template wechseln? Dazu wechseln wir zurück in
+die Übersicht der _Template-Stile_, wählen dort das gewünschte
+Frontend-Template _Beez3_ mit der Checkbox am Beginn der Zeile aus und
+machen es durch einen Klick auf den Toolbar-Button _Standard_ zum neuen
+Standardtemplate der Seite.
+
+image:book/09-templatesystem/media/12.png[book/09-templatesystem/media/12,width=548,height=113]
+
+BILD 9.6 Wechseln des Standard-Template-Stils der Seite
+
+Wenn wir die Seite nun im _Frontend_ betrachten, stellen wir mit Freude
+fest, dass sich das Design aufgrund des Template-Wechsels verändert hat.

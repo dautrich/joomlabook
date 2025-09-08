@@ -1,3 +1,27 @@
 [[09-templatesystem]]
 
-include::book/09-templatesystem/cap09.adoc[]
+== Das Template-System
+
+Die inhaltlichen Arbeiten an der Seite sind jetzt, abgesehen vom noch
+fehlenden Kontakt­formular, abgeschlossen. Sie sind nun in der Lage,
+Joomla! zu _installieren_ und zu _konfigurieren_, und können _Beiträge_
+und _Menüeinträge_ anlegen und diese über Parameter beeinflussen. Doch
+wie gestalten wir unsere Seite jetzt ansprechend? Wo wird eigentlich das
+Design bestimmt? Diesen Fragen wollen wir uns in Kapitel 9 widmen, indem
+wir uns das _Template-System_ näher anschauen.
+
+include::abschnitte/01-was-ist-ein-template.adoc[]
+
+include::abschnitte/02-template-uebersicht.adoc[]
+
+include::abschnitte/03-editieren-template.adoc[]
+
+include::abschnitte/04-template-stil-wechseln.adoc[]
+
+include::abschnitte/05-template-zuweisung.adoc[]
+
+include::abschnitte/06-parameter-aendern.adoc[]
+
+include::abschnitte/07-manuelle-template-anpassungen.adoc[]
+
+include::abschnitte/08-andere-templates.adoc[]

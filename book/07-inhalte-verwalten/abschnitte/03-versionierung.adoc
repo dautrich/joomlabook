@@ -1,0 +1,63 @@
+=== Versionierung
+
+Eine weitere Funktion der Joomla-Beitragsverwaltung, die sich als
+äußerst nützlich erweisen kann, ist die integrierte _Versionierung_ von
+Beiträgen. Diese Funktion speichert eine vorgegebene Anzahl von
+Vorgängerversionen (standardmäßig 10) eines Beitrags in der Datenbank
+und erlaubt es uns, diese Vorgängerversionen zu betrachten, mit der
+aktuellen Version zu vergleichen und diese alten Versionen
+wiederherzustellen.
+
+Um diese älteren Versionen aufzurufen, wechseln wir in die
+_Bearbeitungansicht_ des Beitrags und rufen die Versionsliste über den
+entsprechenden Button Versionen.
+
+image:book/07-inhalte-verwalten/media/230.png[book/07-inhalte-verwalten/media/230,width=548,height=194]
+
+Bild 7.55 Button _Versionen_ in der Toolbar des Bearbeitungslayouts
+
+In der Versionsliste erhalten wir nun eine Übersicht der vorhandenen
+Versionen, zu denen das jeweilige Speicherdatum, der Versionhinweis und
+der entsprechende Autor hinterlegt sind. Die jeweils aktuelle Version
+ist durch ein Sternchen hinter dem Datum markiert.
+
+Durch die Auswahl der jeweiligen Checkbox am Beginn der Zeile und die
+Betätigung des entsprechenden Buttons Wiederherstellen kann eine
+bestimmte Version wiederhergestellt werden, die dabei den aktuellen
+Stand überschreibt.
+
+image:book/07-inhalte-verwalten/media/231.png[book/07-inhalte-verwalten/media/231,width=548,height=229]
+
+Bild 7.56 Versionsverlauf eines Beitrags
+
+Eine Komfortmerkmal der Versionsverwaltung ist dabei die Funktion zum
+Vergleichen von zwei Beiträgen. Um diese zu nutzen, müssen beide
+Beitragsversionen durch die Checkboxen ausgewählt werden, anschließend
+können die ausgewählten Versionen durch den Button Vergleichen in der
+Toolbar miteinander verglichen werden. Dabei werden sowohl Änderungen am
+eigentlichen Beitragstext als auch Änderungen an wichtigen Parametern
+überprüft und etwaige Abweichungen und Änderungen grafisch sichtbar
+gemacht.
+
+Weiterhin bietet uns die Versionsverwaltung die Möglichkeit, einen
+bestimmten Versionsstand dauerhaft in der Versionshistorie zu speichern
+und nicht automatisch zu löschen, wie es standardmäßig nach 10
+Speicherungen der Fall wäre. Dafür muss beim jeweiligen Versionsstand
+der entsprechende Button in der Spalte _Immer speichern_ betätigt
+werden. Die Seite lädt dann neu und symbolisiert die dauerhafte
+Speicherung dieses Versionsstands durch ein Schloss-Symbol.
+
+image:book/07-inhalte-verwalten/media/232.png[book/07-inhalte-verwalten/media/232,width=548,height=228]
+
+Bild 7.57 Versionshistorie mit dauerhaft gespeicherten Versionsstand
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Wenn eine Joomla Seite bereits vor der Version 3.x installiert
+und anschließend auf die aktuelle Version aktualisiert wurde, ist die
+Versionierungsfunktion eventuell nicht aktiv, da sie nach einem Update
+explizit aktiviert werden müsste. Dies kann im Reiter
+_Bearbeitungslayout_ der globalen Beitragsoptionen (siehe 7.2.3) durch
+die Anpassung des Parameters _Versionen speichern_ vorgenommen werden.
+|===

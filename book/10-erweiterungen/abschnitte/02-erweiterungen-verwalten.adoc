@@ -1,0 +1,481 @@
+=== Erweiterungen verwalten
+
+Haben Sie sich erfolgreich durch die Tabelle 10.1 gekämpft? Dann wissen
+Sie nämlich jetzt, dass die in Joomla! integrierten _Erweiterungen_ uns
+bereits erlauben, zahlreiche, oft benötigte Funktionen abzudecken. Was
+aber, wenn der „schlimmste“ aller denkbaren Fälle eintritt und wir eine
+Funktion benötigen, die so von Haus aus nicht integriert ist?
+
+Hier spielt Joomla! einen seiner Trümpfe aus: Durch die mehr als 7800
+verfügbaren Erweiterungen ist es möglich, fast jede denkbare Funktion
+bequem nachträglich zu installieren. Aber wie geht das genau vonstatten?
+Wo findet man Erweiterungen? Worauf ist bei der Erweiterungswahl zu
+achten? Wie kann man sie aktualisieren oder vielleicht sogar
+deinstallieren? Diesen Fragen wollen wir uns nun im zweiten Teil dieses
+Kapitels widmen.
+
+==== Erweiterungen finden
+
+===== extensions.joomla.org
+
+Im ersten Schritt stellt sich natürlich die Frage: Wo kann ich die für
+meinen Bedarf passende Erweiterung finden? Zu diesem Zwecke findet sich
+unter [.underline]#extensions.joomla.org# das offizielle
+Erweiterungsverzeichnis des Joomla!-Projekts, das sich in verschiedene,
+nach Anwendungsbereich gegliederte Bereiche (siehe Boxen im unteren
+Bereich) teilt. Zudem gibt es eine Suchfunktion, die das Finden der
+benötigten Funktion erleichtern soll.
+
+image:book/10-erweiterungen/media/38.png[book/10-erweiterungen/media/38,width=548,height=372]
+
+BILD 10.18 Offizielles Joomla! Extensions Directory
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Eine besondere Rolle im Extensions-Directory nimmt die
+Kategorie _Official Extensions_ ein. In dieser Kategorie finden sich
+Erweiterungen, die das Joomla!-Projekt als offiziell gepflegte
+Erweiterung behandelt. Diese Erweiterungen sind aus der Idee entstanden,
+Core-Erweiterungen, die nicht zwingend auf jeder Seite benötigt werden,
+aus dem Joomla-Core heraus zu lösen und als nachinstallierbares Paket
+anzubieten. Das erste Exemplar dieser Gattung ist die frühere
+Core-Komponente „Weblinks“, die nun als nachinstallierbares Paket
+gehandhabt wird.
+|===
+
+Wir gehen für den weiteren Verlauf davon aus, dass unser Bauer
+Birnennase trotz intensiver Gespräche nicht davon abzubringen ist, ein
+Gästebuch auf seiner Seite anzeigen zu wollen, weshalb wir den
+Suchbegriff „Guestbook“ im Suchfeld eingeben. Daraufhin erhalten wir
+eine Liste mit gefühlten drei Dutzend Gästebüchern von verschiedenen
+Entwicklern, die im Wesentlichen wohl alle das Gleiche tun. Zu jedem
+Suchergebnis finden wir dabei:
+
+* den Namen der jeweiligen Erweiterung (1)
+* das Logo/eine frei wählbare Grafik (2)
+* eine Angabe, mit welchen Joomla!-Versionen die Erweiterung kompatibel
+ist (3)
+* die Durchschnittsbewertung sowie die Anzahl der Bewertungen (4)
+* {blank}
+* {blank}
+* eine Angabe, ob die Erweiterung kommerziell oder nichtkommerziell
+vertrieben wird (5)
+* den Namen des jeweiligen Entwicklers (6)
+
+Die Nummerierungen hinter den Beschreibungen können Sie den Markierungen
+in Bild 10.19 zuordnen.
+
+image:book/10-erweiterungen/media/40.png[book/10-erweiterungen/media/40,width=548,height=260]
+
+BILD 10.19 Beispieleintrag in [.underline]#extensions.joomla.org#
+
+Nach einem Klick auf den Namen des jeweiligen Eintrags gelangt man zur
+Detailbeschreibung der Erweiterung, die uns neben einigen weiteren
+Angaben den ersehnten Download-Button präsentiert. Dieser leitet uns im
+Normalfall übrigens „nur“ zur Download-Seite des Entwicklers weiter, da
+das _Extensions-Directory_ keine eigenen Downloads hostet. Zudem finden
+wir hier, unterhalb der Beschreibung, mehr oder weniger ausführliche
+Kommentare (Reviews) anderer Nutzer, die ein Gefühl für die Qualität der
+Erweiterung vermitteln.
+
+image:book/10-erweiterungen/media/42.png[book/10-erweiterungen/media/42,width=548,height=490]
+
+BILD 10.20 Detailseite von [.underline]#extensions.joomla.org#
+
+===== Checkliste für die Auswahl der passenden Erweiterung
+
+Damit wäre auch schon der wohl spannendste Aspekt der
+Erweiterungsauswahl angesprochen: Wie wähle ich aus der Vielzahl der
+Erweiterungen die für mich passende aus? Welche ist zuverlässig und gut
+programmiert? In den letzten Jahren habe ich die Checkliste in Tabelle
+10.2 als Grundlage für meine Auswahl entwickelt.
+
+TABELLE 10.2 Checkliste für die Auswahl der passenden Erweiterung
+
+[width="100%",cols="12%,28%,60%",]
+|===
+|Schritt |Titel |Beschreibung
+
+|1 |Kompatibilität prüfen |Am Anfang eines jeden Erweiterungstests
+sollte geprüft werden, ob die jeweilige Erweiterung überhaupt mit der
+verwendeten Joomla!-Version kompatibel ist – ist dies nicht der Fall, so
+scheidet die Erweiterung von vornherein aus.
+
+|2 |Erweiterungsart prüfen |Wollen wir die Erweiterung im
+_Hauptausgabebereich_ nutzen? Dann ist ein Modul bzw. Plug-in vermutlich
+ungeeignet.
+
+|3 |Nutzerbewertungen lesen |Wie ist die Durchschnittsbewertung der
+Komponente? Häufen sich Nutzerbeschwerden?
+
+|4 |Lizenz prüfen |Ist die Erweiterung kostenlos verfügbar oder wird sie
+kommerziell vertrieben? Ist das Budget zum Kauf groß genug?
+
+|5 |Entwicklerseite besuchen |Existiert die Seite des Entwicklers noch?
+Wann ist die letzte Version erschienen? Scheint das Projekt inzwischen
+„tot“ zu sein? Wann wurde der Eintrag im Extensions-Directory zuletzt
+aktualisiert?
+
+|6 |Programmcode prüfen |Es lohnt sich, nach dem Download der
+Erweiterung einen Blick in den Code zu werfen – insbesondere sollten Sie
+dabei prüfen, ob im Frontend-Verzeichnis von Komponenten
+(_components/com++_++KOMPONENTENNAME_) ein Ordner _views_ existiert,
+weil dieser benötigt wird, um die Ausgabe der Erweiterung zu
+überschreiben.
+
+|7 |Funktionen testen |Im letzten Schritt sollten Sie die nun noch
+infrage kommenden Erweiterungen intensiv testen und dadurch
+herausfinden, ob die benötigten Funktionen tatsächlich vorhanden sind.
+|===
+
+===== Deutschsprachige Erweiterungsverzeichnisse
+
+Was aber tut man, wenn man sich mit der englischen Sprache schwertut und
+sich deshalb auf [.underline]#extensions.joomla.org# nur schwer
+zurechtfindet? Es ist natürlich simpel, hier kurz eine Suchmaschine der
+Wahl anzuwerfen, „Joomla Downloads“ als Suchbegriff zu wählen und dann
+zu schauen, was an deutschsprachigen Ergebnissen heraus kommt.
+Unweigerlich werden Sie dabei auf diverse Portale kommen, wobei
+joomlaos.de mit großen Abstand das prominenteste sein wird.
+
+All diese Portale haben dabei das gleiche Grundproblem: sie basieren auf
+dem Engagement des jeweiligen Portalbetreibers, da die
+Erweiterungsentwickler selbst Ihre Erweiterungen und insbesondere deren
+Updates natürlich nicht auf all den kleinen, sprachspezifischen Seiten
+einpflegen können. Die Portalbetreiber müssen somit sehr viel Zeit
+investieren, um die Liste der Erweiterungen und die zugehörigen
+Downloads zu pflegen und genau hier liegt das Problem: viele
+Portalbetreiber können die notwendige Zeit nicht dauerhaft
+bereitstellen, weshalb diese Portale sich nach und nach mit veralteten
+und unsicheren Erweiterungen füllen.
+
+Daher möchte ich Ihnen sehr nachdrücklich raten, ausschließlich das
+offizielle Erweiterungsverzeichnis zu nutzen.
+
+==== Erweiterungen installieren
+
+Zurück zu unserem Beispiel, der Integration eines Gästebuchs auf
+_www.bauer-birnennase.de_. Nach sorgfältiger Prüfung der verschiedenen
+Erweiterungen haben wir uns letztendlich für die Erweiterung _Phoca
+Guestbook_ entschieden, die wir über die Detailseite der Erweiterung im
+Joomla! Extensions Directory herunterladen und z.B. auf dem Desktop
+ablegen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Insbesondere wenn man regelmäßig mit
+Joomla!-Seiten arbeitet, neigt man dazu, die heruntergeladenen
+Erweiterungen auf dem Rechner in einer Art Archiv zu speichern, damit
+man sie nicht jedes Mal herunterladen muss. Von diesem Vorgehen würde
+ich abraten, da Sie dadurch zwangsläufig veraltete (weil lokal
+gespeicherte) Versionen auf Ihren Seiten installieren werden, die
+eventuell sogar über Sicherheitslücken angreifbar sind. Laden Sie daher
+die entsprechenden Erweiterungen lieber „frisch“ aus dem Netz.
+|===
+
+Anschließend wechseln wir über einen Klick auf _Erweiterungen ++>++_
+_Verwalten ++>++ Installieren_ im Backend zum Erweiterungsmanager, der
+uns drei verschiedene Möglichkeiten zur Installation anbietet:
+
+[arabic]
+. _Paketdatei hochladen:_ Lädt ein _.zip/.tar.gz/.tar.bz2_-Archiv vom
+lokalen Rechner zur Joomla!-Seite hoch, entpackt das Archiv und
+installiert die enthaltene Erweiterung
+
+[arabic, start=3]
+. _Aus Verzeichnis installieren:_ Erlaubt die Angabe eines
+Verzeichnisses auf dem Server, das die Dateien des entpackten
+Installationsarchivs enthält
+. _Von Webadresse installieren:_ Erlaubt die Angabe einer URL zum
+Installationsarchiv, das dann von dem angegebenen externen Server
+heruntergeladen, entpackt und installiert wird, ohne den Umweg über den
+lokalen Rechner zu nehmen
+
+Im Regelfall werden wir in der normalen administrativen Arbeit die
+Möglichkeiten 1 und 2 nutzen. Methode 1 nutzen wir dabei für alle
+„normalen“ Installationen, Methode 2 kann nützlich sein, um extrem große
+Pakete vorher mittels FTP hochzuladen, wenn der Upload über den Browser
+scheitert.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Wir nutzen nun die Methode 1 _Paketdatei hochladen_, um die gerade
+heruntergeladene ­Installationsdatei auf unserem lokalen Rechner zu
+wählen, und starten anschließend den Vorgang mittels Hochladen &
+Installieren.
+
+image:book/10-erweiterungen/media/44.png[book/10-erweiterungen/media/44,width=548,height=263]
+
+BILD 10.21 Hochladen eines lokal gespeicherten Erweiterungspakets
+
+Anschließend bestätigt uns Joomla! im Regelfall die erfolgreiche
+Installation mit einer (erweiterungsabhängigen) Meldung. Im
+Zweifelsfalle gilt immer: Lesen Sie die dort ausgegebenen Meldungen auf
+jeden Fall durch, denn häufig finden Sie hier noch weitergehende
+Anweisungen.
+
+image:book/10-erweiterungen/media/46.png[book/10-erweiterungen/media/46,width=548,height=381]
+
+BILD 10.22 Installationsbestätigung von _Phoca Guestbook_
+
+Durch einen Klick auf das _Komponenten_-Menü können wir feststellen,
+dass sich die Erweiterung dort wie erwartet mit einigen Menüpunkten
+verewigt hat. Mit anderen Worten: Das war’s! Wir haben gerade unsere
+erste Joomla!-Erweiterung installiert. Eigentlich ganz einfach, oder?
+
+Nun müssen wir die Komponenten noch im Frontend einbinden. Dafür legen
+wir unter _Phoca Guestbook ++>++ Guestbooks_ ein neues Gästebuch an und
+wechseln anschließend in die _Menüeintrags-Verwaltung_, wo wir einen
+neuen _Menüeintrag_ anlegen. Bei der Auswahl des Menütyps können wir nun
+den Typ _Guestbook_ der gerade installierten Erweiterung auswählen, den
+_Titel_ des Eintrags vergeben und in den Parametern in der rechten
+Spalte unser gerade angelegtes Gästebuch auswählen.
+
+image:book/10-erweiterungen/media/48.png[book/10-erweiterungen/media/48,width=548,height=374]
+
+BILD 10.23 Menütyp der neu installierten Erweiterung
+
+Werfen wir daraufhin einen Blick ins Frontend, so erwartet uns dort das
+leere Gästebuch mit einem Formular, um neue Einträge zu hinterlassen.
+Das Formular ist derzeit noch in englischer Sprache, die deutschen
+Sprachdateien für die Erweiterung können jedoch auf der Entwicklerseite
+heruntergeladen und anschließend über den gerade gezeigten Weg
+nachinstalliert werden.
+
+Nun sind Sie also in der Lage, Ihre Joomla!-Installation selbstständig
+mit neuen _Erweiterungen_ auszustatten, wodurch sich nahezu unendliche
+Gestaltungsmöglichkeiten eröffnen. Ich bitte an dieser Stelle um
+Verständnis dafür, dass ich nicht auf die Konfiguration und Nutzung
+einzelner Erweiterungen eingehe, da dies bei der schieren Anzahl der
+angebotenen Erweiterungen wohl ganze Buchbände füllen würde – hier gilt
+leider: probieren geht über studieren.
+
+image:book/10-erweiterungen/media/50.png[book/10-erweiterungen/media/50,width=548,height=485]
+
+BILD 10.24 Frontend der Beispielseite nach Installation der Erweiterung
+
+===== 10.2.2.1 Aus Webkatalog installieren
+
+Eine Alternative zur Installation über den Upload von
+Erweiterungspaketen ist die Nutzung der Funktion zur Installation aus
+dem _Webkatalog_. Bei dieser Funktion wird die Erweiterungsdatenbank des
+offiziellen Extensions Directory direkt im Backend Ihrer Installation
+dargestellt. Unterstützt die jeweilige Erweiterung dabei das
+entsprechende Feature, kann direkt per Klick aus dem Backend heraus die
+Installation gestartet werden.
+
+Um die Funktion zu nutzen, müssen wir im ersten Schritt den
+entsprechenden Tab aktivieren, da dieser standardmäßig deaktiviert ist.
+Um dies zutun, wechseln wir im ersten Schritt erneut in die
+Installationansicht, indem wir im Menü auf Erweiterungen ++>++ Verwalten
+++>++ Installieren klicken.
+
+Im oberen Bereich kann der entsprechende Tab nun per Klick auf „Aus
+Webkatalog installieren“-Tab hinzufügen aktiviert werden, siehe Bild
+10.25.
+
+image:book/10-erweiterungen/media/51.png[book/10-erweiterungen/media/51,width=548,height=237]
+
+Bild 10.25 Dialog zur Aktivierung der Webkatalog-Funktion
+
+Anschließend können die entsprechenden Erweiterungen über den neuen Tab
+durchsucht und installiert werden – eine echte Komfortfunktion,
+insbesondere wenn man bereits weiß, welche Erweiterung man sucht.
+
+image:book/10-erweiterungen/media/52.png[book/10-erweiterungen/media/52,width=548,height=322]
+
+Bild 10.26 Webkatalog-Funktion im Backend
+
+==== Erweiterungsmanager
+
+Lassen Sie uns als nächstes die weiteren Möglichkeiten des
+Erweiterungsmanagers betrachten, den Sie unter _Erweiterungen ++>++_
+_Verwalten_ finden. Dieser bietet uns über das komponenteninterne Menü
+acht mögliche Funktionen:
+
+* _Installieren:_ unter Kapitel 10.2.2 genutzte Funktion zum
+Installieren neuer Erweiterungen
+* _Aktualisieren:_ Bietet uns die Möglichkeit,die installierten
+Dritterweiterungen (falls unterstützt) auf neue Versionen zu
+aktualisieren
+* _Verwalten:_ Übersicht aller installierten Erweiterungen mit
+Funktionen zur Deinstallation bzw. Deaktivierung
+* _Überprüfen:_ Entdeckt Erweiterungen, die nicht korrekt installiert
+bzw. manuell via FTP hochgeladen wurden
+* _Datenbank:_ Ermöglicht das manuelle Ausführen von Datenbankupdates
+nach einer Joomla!-Aktualisierung
+* _Warnungen:_ Prüft die Systemumgebung auf etwaige Fehler, welche die
+korrekte Funktion des Erweiterungsmanagers verhindern
+* _Sprachen installieren:_ Erlaubt die Installation von Sprachpaketen
+direkt aus dem Backend heraus
+* _Aktualisierungsquellen:_ Verwaltungsoberfläche für die
+Aktualisierungsserver der Erweiterungen, erlaubt es bestimmte Server zu
+aktivieren oder zu deaktivieren.
+
+image:book/10-erweiterungen/media/54.png[book/10-erweiterungen/media/54,width=548,height=172]
+
+BILD 10.27 Submenü des Erweiterungsmanagers
+
+===== Erweiterungen verwalten
+
+Wir starten mit dem Submenü-Punkt _Verwalten_, der uns eine Liste aller
+installierten Erweiterungen ausgibt. Beim Betrachten der Liste fällt
+auf, dass einige der dort ausgegebenen Erweiterungen ein „ausgegrautes“
+Status-Icon mit einem Schloss-Symbol haben, weil Sie für die korrekte
+Funktion von Joomla! benötigt werden und daher nicht deinstalliert
+werden können.
+
+Alle anderen Erweiterungen können durch die Selektierung des
+entsprechenden Eintrags mittels Checkbox markiert und anschließend über
+die Nutzung des Toolbar-Buttons deaktiviert bzw. deinstalliert werden.
+
+image:book/10-erweiterungen/media/56.png[book/10-erweiterungen/media/56,width=548,height=351]
+
+BILD 10.28 Erweiterungsverwaltung
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Auch wenn einige Erweiterungen, die standardmäßig
+bei der Installation mitgeliefert werden, nicht ausgegraut sind und
+daher deinstalliert werden könnten, sollten Sie dies auf jeden Fall
+vermeiden. Diese Erweiterungen können nicht separat heruntergeladen und
+müssten daher, im Fall der Fälle, aufwendig nachinstalliert werden, um
+sie wieder nutzen zu können.
+|===
+
+===== Erweiterungen überprüfen
+
+Der Menüpunkt _Überprüfen_ durchsucht nach einem Klick auf den
+gleichnamigen Toolbar-Button die Verzeichnisse _/components_,
+_/administrator/components_, _/modules_, _/plugins_, _/libraries_,
+_/languages_ und _/templates_ und listet anschließend alle Erweiterungen
+auf, deren Dateien zwar (mittels FTP) hochgeladen wurden, bei denen der
+Installationsprozess jedoch noch nicht gestartet wurde. Sollte es
+entsprechende Erweiterungen geben, so können diese anschließend über die
+Selektion des Eintrags und die Nutzung des _Installieren_-Buttons
+nachinstalliert werden.
+
+image:book/10-erweiterungen/media/58.png[book/10-erweiterungen/media/58,width=548,height=188]
+
+BILD 10.29 Ausgabe der _Überprüfen_-Funktion
+
+Dies erlaubt theoretisch die „manuelle“ Installation von Erweiterungen,
+wenn die Serverumgebung aufgrund der Rechtestruktur keine
+Dateioperationen durch PHP zulässt. Im Regelfall sollte man jedoch
+vermeiden, auf diese Funktion angewiesen zu sein, da sie enorm
+umständlich ist.
+
+===== Erweiterungen aktualisieren
+
+Die Funktion _Aktualisieren_ erlaubt uns die bequeme Aktualisierung von
+installierten Erweiterungen. Dabei werden nach einem Klick auf den
+Toolbar-Button _Aktualisierungen suchen_ die Update-Server der
+jeweiligen Entwickler kontaktiert, um abzufragen, ob eine neue Version
+der jeweiligen Erweiterung vorliegt.
+
+.
+
+image:book/10-erweiterungen/media/60.png[book/10-erweiterungen/media/60,width=548,height=188]
+
+BILD 10.30 Dialog zum Aktualisieren von Erweiterungen
+
+===== Datenbank
+
+Im Bereich Datenbank erlaubt uns Joomla! das manuelle Ausführen von
+Datenbankupdates, die beim Update der Joomla!- oder Erweiterungsversion
+notwendig werden. Diese Funktion ist dann nötig, wenn wir aufgrund von
+Problemen mit den Verzeichnisrechten die integrierte
+Aktualisierungsfunktion nicht nutzen können.
+
+image:book/10-erweiterungen/media/62.png[book/10-erweiterungen/media/62,width=548,height=189]
+
+BILD 10.31 Funktion _Datenbank_ zur Aktualisierung der Datenbankstruktur
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |In Joomla-Kreisen wird diese Funktion auch als „Magic Button“
+bezeichnet, da er auch Probleme beheben kann, die in keinem erkennbaren
+Zusammenhang mit der Datenbank stehen. Der Hintergrund für diese
+magischen Fähigkeiten ist, dass der Button tatsächlich nicht nur das
+Datenbank-Schema aktualisiert sondern sämtliche
+Nachinstallations-Skripte von Joomla ausführt, in den z.B. auch
+Dateioperationen vorgenommen werden.
+|===
+
+===== Warnungen
+
+Im Bereich _Warnungen_ gibt Joomla! verschiedene Fehlermeldungen aus,
+wenn die Systemumgebung auf dem Server zu Problemen bei der Installation
+bzw. Deinstallation von Erweiterungen führen sollte. Geprüft wird im
+Einzelnen:
+
+* Erlaubt PHP das Hochladen von Dateien (PHP-Direktive
+_file++_++uploads_)?
+* Existiert das temporäre Upload-Verzeichnis von PHP und ist es
+beschreibbar (PHP++_++Direktive _upload++_++tmp++_++dir_)?
+* Existiert das in der Joomla!-Konfiguration angegebene temporäre
+Verzeichnis und ist es beschreibbar?
+* Ist die Beschränkung des Arbeitsspeicherverbrauchs hoch genug
+(PHP-Direktive _memory++_++limit_)?
+* Können Dateien hochgeladen werden, die mindestens 4 MB groß sind
+(PHP-Direktiven _post++_++max++_++size_ und
+_upload++_++max++_++filesize_)?
+
+Ist dabei eine oder sind mehrere der genannten Voraussetzungen nicht
+erfüllt, so gibt Joomla! eine entsprechende Fehlermeldung aus.
+
+image:book/10-erweiterungen/media/64.png[book/10-erweiterungen/media/64,width=548,height=187]
+
+BILD 10.32 Ausgabe verschiedener Warnmeldungen im Erweiterungsmanager
+
+===== 10.2.3.6 Sprachen installieren
+
+Dieser Bereich erlaubt es uns, offizielle _Sprachpakete_ für das
+Joomla!-Backend und –Frontend per Mausklick nachzuinstallieren. Die
+jeweils angezeigte Versionsnummer gibt uns dabei Aufschluss darüber, wie
+aktuell die jeweilige Sprachversion im Verhältnis zur aktuellen
+Joomla-Version ist.
+
+image:book/10-erweiterungen/media/65.png[book/10-erweiterungen/media/65,width=548,height=309]
+
+Bild 10.33 Übersicht der verfügbaren _Sprachpakete_
+
+===== 10.2.3.7 Aktualisierungsquellen
+
+Das in Joomla! integrierte System zur Aktualisierung von Erweiterungen
+arbeitet mit sogenannten _Aktualisierungsquellen_. Dabei handelt es sich
+um Server, die vom jeweiligen Erweiterungsentwickler betrieben werden
+und die die jeweils aktuelle Erweiterungsversion enthalten. Joomla!
+fragt diese Server regelmäßig ab und kann so feststellen, ob es
+Aktualisierungen für die installierten Erweiterungen gibt.
+
+Ist eine Aktualisierungsquelle einmal nicht verfügbar, z.B. weil der
+Entwickler Probleme mit seiner Serverumgebung hat, wird diese Quelle von
+Joomla automatisch deaktiviert. In der Liste der Aktualisierungsquellen
+kann dieser Update-Server dann manuell wieder aktiviert werden, wodurch
+die Aktualisierungen wieder korrekt abgerufen werden. Umgekehrt können
+existierende Quellen auch deaktiviert oder gelöscht werden.
+
+Eine besondere Rolle hat die Funktion _Wiederherstellen_ die über den
+gleichnamigen Toolbar-Button aufgerufen werden kann. Bei dieser Funktion
+werden die aktuellen Update-Server gelöscht und anschließend neu aus den
+sogenannten Manifest-Files (gewissermaßen eine Beschreibungs-Datei) der
+jeweiligen Erweiterungen neu eingelesen. Dadurch werden z.B.
+Aktualisierungsquellen für nicht mehr genutzte Erweiterungen entfernt.
+
+image:book/10-erweiterungen/media/66.png[book/10-erweiterungen/media/66,width=548,height=246]
+
+Bild 10.34 Liste der _Aktualisierungsquellen_
+
+Damit wären wir am Ende dieses Kapitels angelangt. Sie haben darin die
+Joomla-Erweiterungsverwaltung kennengelernt, haben Bekanntschaft mit den
+bereits integrierten Erweiterungen gemacht und können, falls notwendig,
+Erweiterungen von Drittanbietern suchen, beurteilen, installieren und
+nutzen.

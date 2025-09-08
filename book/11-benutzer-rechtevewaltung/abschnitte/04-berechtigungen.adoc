@@ -1,0 +1,170 @@
+=== Berechtigungen
+
+Rekapitulieren wir noch einmal im Schnelldurchlauf:
+
+* Joomla! kann mehrere _Benutzer_ verwalten.
+* Ein _Benutzer_ kann mehreren _Benutzergruppen_ angehören.
+* Joomla! nutzt die _Benutzergruppen_, um die Rechte eines _Benutzers_
+festzulegen.
+* Betrachtungsrechte werden über _Zugriffsebenen_ gesteuert.
+* Eine _Zugriffsebene_ kann mehreren _Gruppen_ zugeordnet sein und
+umgekehrt.
+
+Kommen wir nun zum letzten Akt der Rechteverwaltung: den
+_Berechtigungen_. Diese legen fest, ob _Nutzer_, die einer gewissen
+_Gruppe_ angehören, eine bestimmte Aktion ausführen dürfen – die große
+Ausnahme stellt dabei die Aktion „Betrachten“ dar, da diese ja über die
+_Zugriffsebenen_ gesteuert wird.
+
+Das Berechtigungssystem arbeitet dabei ebenfalls mit Vererbungen, wobei
+das in Bild 11.8 gezeigte Vererbungsschema zur Anwendung kommt. Es
+erlaubt uns, grundsätzliche Rechte auf Systemebene festzulegen – und
+darauf basierend dann Ausnahmen auf Komponenten-, Kategorie- oder
+Eintragsfootnote:[Ein Eintrag kann dabei jedwede Art von Inhalt sein,
+also z.B. ein Beitrag, ein Modul, ein Menüeintrag, ein Weblink oder ein
+Benutzer.]-Ebene.
+
+image:book/11-benutzer-rechtevewaltung/media/14.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++11++\++Bild661.PNG,width=331,height=293]
+
+BILD 11.8 Vererbung der Berechtigungen
+
+==== System-Berechtigungen
+
+Wo aber lassen sich diese _Berechtigungen_ nun anpassen? Beginnen wir
+mit den _System-Berechtigungen_, die erstens als Vorgabe für alle
+anderen Berechtigungsebenen fungieren und zweitens die Festlegung
+einiger Berechtigungen erlauben, die ausschließlich auf dieser obersten
+Ebene konfiguriert werden können. Die System-Berechtigungen finden wir
+im Tab _Berechtigungen_ der Konfiguration (_System_ _++>++
+Konfiguration_) im Backend unserer Installation.
+
+image:book/11-benutzer-rechtevewaltung/media/16.png[book/11-benutzer-rechtevewaltung/media/16,width=548,height=354]
+
+BILD 11.9 __Berechtigungs__übersicht in der Systemkonfiguration
+
+Hier können wir für jede _Benutzergruppe_ separat festlegen, ob die
+entsprechende Aktion _Erlaubt_, _Verweigert_ oder _Veerbt_ sein soll.
+Letzteres bedeutet, dass die _Berechtigungen_ der übergeordneten
+_Benutzergruppen_ übernommen werden.
+
+In der Spalte _Errechnete Einstellungen_ findet sich der Status der
+jeweiligen Aktion wobei etwaige Änderungen sofort als Vorschau sichtbar
+aber noch nicht sofort gespeichert werden.
+
+image:book/11-benutzer-rechtevewaltung/media/18.png[book/11-benutzer-rechtevewaltung/media/18,width=548,height=273]
+
+BILD 11.10 _Berechtigungen_ der _Benutzergruppe_ Manager
+
+In den _System-Berechtigungen_ können die in Tabelle 11.3 aufgelisteten
+Aktionen angepasst werden.
+
+TABELLE 11.3 Konfigurierbare Aktionen in den _System-Berechtigungen_
+
+[width="100%",cols="51%,49%",]
+|===
+|Aktion |Beschreibung
+
+|Seitenanmeldung |Erlaubt dem _Benutzer_ die Anmeldung im _Frontend_
+
+|Administratoranmeldung |Erlaubt dem _Benutzer_ die Anmeldung im
+_Backend_
+
+|Offline Zugang |Erlaubt die Betrachtung des _Frontends_, wenn dieses
+sich im ­__Offline-Modus__ befindet
+
+|Super Benutzer |Erlaubt dem _Benutzer_, alle Aktionen durchzuführen
+
+|Administrationszugriff |Erlaubt dem _Benutzer_ die Nutzung aller
+_Backend_-Funktionen außer der Editierung der _Konfiguration_
+
+|Erstellen |Ermöglicht dem _Benutzer_, Inhalte in jeder installierten
+_Komponente_ hinzuzufügen
+
+|Löschen |Ermöglicht dem _Benutzer_, Inhalte in jeder installierten
+_Komponente_ zu löschen
+
+|Bearbeiten |Erlaubt dem _Benutzer_, Inhalte in jeder installierten
+_Komponente_ zu editieren
+
+|Status bearbeiten |Erlaubt dem _Benutzer_, den Veröffentlichungsstatus
+von jeder ­installierten _Komponente_ zu editieren
+
+|Eigene Inhalte bearbeiten |Erlaubt dem _Benutzer_, eigene Inhalte in
+jeder _Komponente_ zu ­editieren
+
+|Werte eigener Felder bearbeiten |Erlaubt dem _Benutzer_, die Werte von
+benutzerdefinierten Feldern in jeder Komponente zu verändern
+|===
+
+==== Komponenten-Berechtigungen
+
+Springen wir nun zur nächsten Ebene: den Komponenten-Berechtigungen.
+Diese finden wir im _Optionen_-Dialog der jeweiligen Komponente, wobei
+hier sowohl _Front_- (_Beiträge, Banner_) aus auch _Backend-Komponenten_
+(_Massen-Mail, Menüverwaltung_) individuell konfiguriert werden können.
+Dafür öffnen wir beispielsweise die _Optionen_ der
+_Menüeintragsverwaltung_ durch einen Klick auf den entsprechenden
+Toolbar-Button und finden dort den Tab _Berechtigungen_, der uns erneut
+die Berechtigungsvergabe für die einzelnen Benutzergruppen erlaubt. Die
+zur Verfügung stehenden Aktionen sind dabei in der Regel auf _ACL &
+Optionen konfigurieren_ (erlaubt der jeweiligen Gruppe, diesen Dialog zu
+öffnen), _Nur Optionen konfiguerien_ (erlaubt der jeweiligen Gruppe die
+Optionen der Komponente ohne Berechtigungen zu bearbeiten),
+_Administrationszugriff_ (erlaubt die Verwendung der Komponente),
+_Erstellen_, _Löschen_, _Bearbeiten_ und _Status bearbeiten_ beschränkt.
+
+image:book/11-benutzer-rechtevewaltung/media/19.png[book/11-benutzer-rechtevewaltung/media/19,width=548,height=250]
+
+BILD 11.11 Komponenten-Berechtigungen, hier am Beispiel der
+Menüverwaltung
+
+==== Kategorie-Berechtigungen
+
+Wenn eine _Komponente_ die Verwaltung verschiedener _Kategorien_
+unterstützt (_Beiträge_, _Banner_ etc.), so können wir hier die nächste
+Ebene zur Berechtigungsvergabe nutzen. Dies ist besonders nützlich, um
+Nutzern Bearbeitungsrechte nur in einem bestimmten Bereich der Seite
+einzuräumen.
+
+Die _Kategorie-Berechtigungen_ werden (wer hätte das vermutet) im
+Formular zum Anlegen/Bearbeiten einer _Kategorie_ vergeben und befinden
+sich im entsprechenden Tab des Formulars. Die dort möglichen _Aktionen_
+betreffen selbstverständlich nicht die Kategorie selbst, sondern die
+Einträge, die dieser Kategorie zugeordnet sind. Wenn wir also einer
+_Nutzergruppe_ die Aktion _Erstellen_ in einer bestimmten _Kategorie_
+verbieten würden, so kann diese Gruppe auch weiterhin Unterkategorien zu
+dieser _Kategorie_ erstellen, aber in dieser _Kategorie_ keine
+_Beiträge_ hinzufügen.
+
+==== Eintragsberechtigungen
+
+Das bringt uns auch schon zur letzten Ebene: den Eintragsberechtigungen.
+Diese regulieren, ob eine Nutzergruppe eine bestimmte Aktion auf einen
+einzelnen _Eintrag_ (_Beitrag, Banner_ etc.) anwenden kann. Dadurch wird
+es z.B. möglich, einzelnen Mitarbeitern die Bearbeitung eines einzelnen
+_Beitrags_ zu erlauben. Auch diese Berechtigungen finden wir im
+entsprechenden Tab des Editierungsformulars, wobei der Satz der
+möglichen Aktionen hier logischerweise auf den konkreten Fall angepasst
+ist und dadurch nur die Aktionen _Löschen_, _Bearbeiten_ und _Status
+bearbeiten_ zur Verfügung stehen.
+
+image:book/11-benutzer-rechtevewaltung/media/22.png[book/11-benutzer-rechtevewaltung/media/22,width=548,height=182]
+
+BILD 11.12 Eintragsberechtigungen, hier am Beispiel eines Beitrags
+
+Damit wären die grundlegenden Strukturen der Rechteverwaltung erklärt,
+die ich hier nochmals abschließend zusammenfassen möchte:
+
+* Joomla! kann mehrere _Benutzer_ verwalten.
+* Ein _Benutzer_ kann mehreren _Benutzergruppen_ angehören.
+* Joomla! nutzt die _Benutzergruppen_, um die Rechte eines _Benutzers_
+festzulegen.
+* Betrachtungsrechte werden über _Zugriffsebenen_ gesteuert.
+* Eine _Zugriffsebene_ kann mehreren _Gruppen_ zugeordnet sein und
+umgekehrt.
+* Bearbeitungsrechte werden über die _Berechtigungen_ gesteuert.
+* Berechtigungen können auf _System_-, _Komponenten_-, _Kategorie-_ und
+_Eintragsebene_ vergeben werden.
+
+Sie sind nun in der Lage, die Rechteverwaltung von Joomla! zu nutzen, um
+auf ihren Seiten individuelle Rechtestrukturen zu erzeugen .

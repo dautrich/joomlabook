@@ -1,4 +1,58 @@
 [[01-einleitung]]
 
-include::book/01-einleitung/cap01.adoc[]
+== Einleitung
+
+Liebe Leserin, Lieber Leser,
+
+man kann wohl guten Gewissens behaupten, dass sich der OpenSource CMS
+Markt aktuell im Wandel befindet. Wordpress vergrößert unaufhörlich
+seinen Marktanteil, Software-As-A-Service Lösungen wie Wix.com oder
+Jimdo buhlen um die Gunst der Anwender und beinahe jeden Tag wird
+irgendwo ein weiteres, kleines und schlankes CMS veröffentlicht, dass
+innovativer und besser sein möchte als alle seine Vorgänger zusammen.
+
+Nicht wenige Kollegen aus der Web-Szene prophezeien angesichts dieser
+Veränderungen das baldige Verschwinden von Joomla, da es in der heutigen
+Zeit keinen sinnvollen Einsatzzweck mehr habe und man am besten
+schleunigst zu einem der anderen, vermeintlich besseren Systeme wechseln
+solle.
+
+Wir sind überzeugt, dass die Kollegen mit dieser Einschätzung kaum
+falscher liegen könnten. Auf dem CMS-Markt finden sich mit Wordpress,
+den genannten SAAS-Lösungen und diversen kleineren CMS zahlreiche
+Systeme die sich für die Realisierung kleiner bis mittelgroßer Seiten
+anbieten. Der Enterprise-Markt wird durch kommerzielle Systeme sowie
+TYPO3 und Drupal dominiert – aber der Markt „dazwischen“ ist weder mit
+der einen, noch mit der anderen Kategorie von CMS sinnvoll bedienbar.
+
+Genau hier liegt die große Stärke von Joomla – es ist der ideale Mix aus
+leicht erlernbarem Baukastensystem und technisch ausgereiftem Framework
+zur Realisierung komplexer Anforderungen. Es verfügt über ein
+reichhaltiges Portfolio an fertigen Erweiterungen, kann aber genauso gut
+durch eigene Entwicklungen ergänzt werden. Diese Fähigkeiten machen es
+zur eierlegenden Wollmilchsau der CMS-Industrie und somit auch in
+Zukunft zum Werkzeug der Wahl für Dienstleister und ambitionierte
+Hobbynutzer.
+
+Mit diesem Buch möchten wir genau dieser Zielgruppe eine Hilfe an die
+Hand geben, die Ihnen beim Einstieg in Joomla hilft ohne Sie nach einer
+Grundeinführung im Regen stehen zu lassen. Dieses Buch basiert auf über
+10 Jahren Erfahrung als Joomla-Dienstleister und fasst all die kleinen
+Tipps, Tricks und Workflows zusammen, die ein professionelles Arbeiten
+ausmachen!
+
+Wir glauben an eine großartige Zukunft für Joomla und sind sicher, dass
+Sie es nach diesem Buch auch tun werden!
+
+Viel Freude bei der Lektüre wünschen Ihnen
+
+_David Jardin_ _und Elisa Foltyn_
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++04 |
+|icn004 |Alle Codebeispiele aus dem Buch finden Sie auch im Internet
+unter [.underline]#http://buch.djumla.de/3.6#
+|===
+
 

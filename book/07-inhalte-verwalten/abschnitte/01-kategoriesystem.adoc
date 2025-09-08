@@ -1,0 +1,589 @@
+=== Kategoriensystem anlegen
+
+Die Kategorienstruktur ist nun erstellt, sodass wir mit dem Anlegen der
+ersten Kategorie beginnen können.
+
+==== Kategorienübersicht
+
+Dafür öffnen wir die Kategorienverwaltung für Beiträge durch einen Klick
+auf Inhalt ++>++ Kategorien und finden dort die Kategorienliste vor, die
+derzeit nur einen Eintrag, nämlich die bereits erwähnte
+Standardkategorie „Uncategorized“, beinhaltet. Die Listenübersicht teilt
+sich in verschiedene Bereiche, die in Bild 7.2 markiert und anschließend
+erklärt sind.
+
+image:book/07-inhalte-verwalten/media/2.png[book/07-inhalte-verwalten/media/2,width=548,height=171]
+
+BILD 7.2 Aufbau der Kategorienübersicht im Backend
+
+TABELLE 7.2 Erklärung der Markierungen in Bild 7.2
+
+[width="100%",cols="17%,83%",]
+|===
+|Markierung |Erläuterung
+|1 |Filterfunktionen zur Reduzierung der Liste auf bestimmte Einträge
+|2 |Liste der angelegten Kategorien
+|3 |Einzelner Listeneintrag
+|4 |Toolbar der Kategorienliste
+|===
+
+Das grundsätzliche Layout dieser Liste wird sich dabei von nun an durch
+alle Listenansichten im Joomla!-Backend ziehen, sodass wir, falls wir
+beispielsweise eine Filterfunktion für die Listenausgabe benötigen,
+stets wissen, dass die Filteroptionen am Beginn der Liste zu finden
+sind.
+
+Im konkreten Fall bietet uns Joomla! für die Kategorienübersicht nun
+folgende Möglichkeiten zur Filterung an:
+
+* _Suche:_ einfaches Eingabefeld zur Suche nach Kategorien, deren
+Namensbestandteil der eingegebene Begriff ist
+* Diverse weitere Detailfilter, die sich hinter dem Knopf
+_Suchwerkzeuge_ verstecken:
+* _Max. Ebenen auswählen:_ Beschränkt die Ausgabe in der Liste auf
+Kategorien der angegebenen Ebenen. Wird hier also beispielsweise „2“ als
+Wert ausgewählt, so zeigt die Liste nur eine Unterkategorienebene.
+* _Status auswählen:_ Filtert die Kategorienliste anhand des jeweiligen
+Status (Freigegeben, Gesperrt, Papierkorb, Archiviert)
+* _Zugriffsebene wählen:_ Zeigt nur Kategorien, die einer bestimmten
+Zugriffsebene zugeordnet sind
+* _Sprache wählen:_ Zeigt nur Kategorien, die einer bestimmten Sprache
+zugeordnet sind
+* _Schlagwort wählen:_ Zeigt nur Kategorien, die mit einem bestimmten
+Schlagwort (Tag) versehen sind.
+
+Diese Filterungsoptionen sind enorm nützlich, wenn man eine große Anzahl
+von Kategorien angelegt hat und dadurch die Übersichtlichkeit verloren
+geht.
+
+Die eigentliche Liste zeigt nun für jede Kategorie den _Titel_ sowie den
+_Alias_, dessen genaue Bedeutung wir später beleuchten werden. Außerdem
+wird über ein Icon (in diesem Fall ein grüner Pfeil) der _Status_ des
+jeweiligen Eintrags symbolisiert, es gibt eine Information über die
+Anzahl der zur Kategorie zugeordneten veröffentlichten, gesperrten,
+archivierten und gelöschten _Beiträge_, und die _Zugriffsebene_, die
+_Sprache_ und die eindeutige _Kategorie-ID_ werden ausgegeben. Am
+Zeilenbeginn findet sich eine Checkbox, die den jeweiligen Eintrag
+auswählt, um anschließend verschiedene Aktionen darauf anwenden zu
+können, die sich in der _Toolbar_ finden. Die Auswahl aller sichtbaren
+Kategorien auf einmal erfolgt über die Checkbox am Beginn der Kopfzeile
+der Listenansicht.
+
+image:book/07-inhalte-verwalten/media/3.png[book/07-inhalte-verwalten/media/3,width=548,height=77]
+
+BILD 7.3 Ausgegebene Informationen für jeden Listeneintrag
+
+Über die Kopfzeile der Liste ist es zudem möglich, die Einträge durch
+einen Klick auf den jeweiligen Spaltentitel gemäß der Werte der
+jeweiligen Spalte sortieren zu lassen – die derzeit zur Sortierung
+genutzte Spalte ist durch einen entsprechenden Pfeil markiert. Die
+Richtung der Sortierung lässt sich durch einen weiteren Klick auf den
+jeweiligen Spaltennamen umkehren, woraufhin auch der Pfeil umgedreht
+wird, um die auf- bzw. absteigende Sortierung zu visualisieren.
+
+Rei
+
+BILD 7.4 Auf- bzw. absteigende Sortierung der Listeneinträge durch Klick
+auf den Spaltentitel
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Praxistipp: Die korrekte Verschachtelung der Kategorien
+untereinander wird nur bei Sortierung nach der Spalte _Reihenfolge_
+(erste Spalte, symbolisiert durch die beiden Pfeile) wiedergegeben.
+|===
+
+==== Kategorie anlegen
+
+Nachdem wir uns einen Überblick verschafft haben, starten wir mit dem
+Anlegen einer ersten eigenen Kategorie durch den Klick auf den Button
+Neu in der Toolbar, woraufhin Joomla! das Formular zum Anlegen einer
+neuen Kategorie öffnet.
+
+Dieses Formular teilt Joomla! in mehrere Tabs, die wiederrum in ein bis
+zwei Spalten aufgeteilt sind. Die wichtigsten Parameter finden sich in
+der Regel im ersten Tab, speziellere Parameter werden auf die weiteren
+Tabs verteilt.
+
+image:book/07-inhalte-verwalten/media/6.png[book/07-inhalte-verwalten/media/6,width=548,height=450]
+
+BILD 7.5 Formular zum Anlegen einer neuen Kategorie
+
+Wir starten in der linken Spalte und vergeben als Erstes einen
+aussagekräftigen _Titel_ für die Kategorie. Dieser Titel wird an
+verschiedenen Stellen der Seite verwendet und sollte eindeutig sein,
+kann aber auch noch im Nachhinein verändert werden. Wir vergeben als
+Titel, gemäß unserem Kategorienbaum, „Obst“.
+
+Das nächste Feld zur Angabe des _Alias_ erlaubt es uns, die URLs unserer
+späteren Seite zu beeinflussen. Diese Möglichkeit entsteht aufgrund der
+Tatsache, dass Joomla! z.B. bei der Generierung einer URL für einen
+Beitrag, die jeweilige Kategorie mit in die URL aufnimmt
+(_www.bauer-birnennase.de/_*obst*_/elstar.html_) – dabei ist frei
+konfigurierbar, wie der Name der jeweiligen Kategorie in der URL lauten
+soll, da dies unabhängig vom eigentlichen _Titel_-Feld bestimmt wird.
+Stattdessen erfolgt die Festlegung des jeweiligen Bezeichners durch das
+_Alias_-Feld. Falls das Feld leer gelassen wird, generiert Joomla!
+jedoch auch automatisch einen Alias aus dem _Titel_ der jeweiligen
+Kategorie, worauf wir uns in diesem Falle verlassen.
+
+Die wichtigsten Parameter und Einstellungen einer Kategorie finden sich
+in der rechten Spalte des Formulars: Die Auswahlliste des Parameters
+_Übergeordnet_ erlaubt es uns, die Verschachtelung der einzelnen
+Kategorien festzulegen. Da unsere Kategorie „Obst“ jedoch, gemäß des
+Seitenbaums, keine übergeordnete Kategorie hat, sondern, zusammen mit
+Informationen, die erste Kategorienebene darstellt, belassen wir den
+Parameter beim Standardeintrag „keine übergeordnete Kategorie“.
+
+Über den _Status_ können wir festlegen, wie der Status der jeweiligen
+Kategorie lautet. Zur Auswahl stehen dabei:
+
+* _Veröffentlicht:_ Im Front- und Backend sichtbar
+* _Versteckt:_ Nur im Backend sichtbar. Nützlich, um neue Kategorien zu
+hinterlegen, die erst noch durch einen anderen Nutzer geprüft werden
+müssen und daher noch nicht sichtbar sein sollen.
+* _Archiviert:_ Kategorien, die nicht mehr aktiv genutzt werden, jedoch
+nicht gelöscht werden sollen
+* _Papierkorb:_ Aus der Kategorienliste entfernt und nur noch im
+Papierkorb sichtbar
+
+Wir wählen in diesem Falle „Freigegeben“ als Status, da wir ja im
+weiteren Verlauf mit der Kategorie arbeiten wollen.
+
+Die Parameter für _Zugriffsebene_ und _Berechtigungen_ erlauben uns zu
+konfigurieren, welche Nutzer die entsprechende Kategorie und ihre
+Beiträge betrachten und bearbeiten können. Diesem Thema widmen wir uns
+nochmals intensiv in Kapitel 11, „Benutzer und Rechteverwaltung“, und
+belassen die Einstellungen daher bei den Standardwerten.
+
+Die Auswahlliste für die _Sprache_ benötigen wir zum Aufbau einer
+mehrsprachigen Seite, was noch Thema des Kapitels 14,
+„Mehrsprachigkeit“, wird – daher übernehmen wir auch hier erst einmal
+den Standardwert „Alle“.
+
+Das Feld _Notiz_ kann für zusätzliche Informationen genutzt werden, die
+im Backend der Seite angezeigt werden. Hier könnte z.B. beschrieben
+werden, wo und wie die entsprechende Kategorie im Frontend verwendet
+wird.
+
+Der _Versionshinweis_ wird zusammen mit dem jeweiligen Text und Titel
+der Kategorie in der Versionierungstabelle von Joomla gespeichert, aus
+der ältere Versionen von Beiträgen und Kategorien wiederhergestellt
+werden können, siehe 7.4.
+
+Nun verbleibt in der linken Spalte des Formulars nur noch das
+mehrzeilige Eingabefeld für die _Beschreibung_. Dieses Eingabefeld ist
+mit einem sog. What-You-See-Is-What-You-Get-Editor (WYSIWYG)
+ausgestattet, der es auch unerfahrenen Nutzern ohne HTML-Kenntnisse
+erlaubt, verschiedene Formatierungen auf den jeweiligen Text anzuwenden.
+Eine intensive Beschreibung der Möglichkeiten des Editors erfolgt im
+nächsten Unterkapitel, weshalb wir uns vorerst mit der Eingabe eines
+einfachen, unformatierten Beschreibungstextes begnügen.
+
+image:book/07-inhalte-verwalten/media/6.png[book/07-inhalte-verwalten/media/6,width=548,height=450]
+
+BILD 7.6 Fertig ausgefüllte linke Spalte zur Erstellung der Kategorie
+„Obst“
+
+Jetzt erfolgt die Konfiguration der Parameter in den weiteren Tabs des
+Eingabeformulars. Die Parameter sind in verschiedene Gruppen (_Optionen,
+Veröffentlichung, Berechtigungen_) gegliedert. Durch einen Klick auf den
+jeweiligen Reiter erhalten wir weitere Einstellungsmöglichkeiten, die in
+der Parameterliste in Tabelle 7.3 zusammengefasst sind.
+
+image:book/07-inhalte-verwalten/media/9.png[book/07-inhalte-verwalten/media/9,width=548,height=154]
+
+BILD 7.7 Ansicht des Tabs _Optionen_ in der Kategorieverwaltung
+
+TABELLE 7.3 Kategorie-Parameter
+
+[width="100%",cols="32%,68%",]
+|===
+|Parameter |Erklärung
+
+| |
+
+| |
+
+|Optionen |
+
+|Alternatives Layout |Erlaubt es, einer bestimmten Kategorie ein
+separates Ausgabetemplate zuzuweisen, um kategorienspezifische
+Besonderheiten in der Ausgabe zu berücksichtigen (siehe Kapitel 12.2.1,
+­„Kategorie-Layouts“)
+
+|Bild |Bild der Kategorie, das über den Medien-Manager hochgeladen und
+ausgewählt wird. Kann an verschiedenen Stellen der Seite ausgegeben
+werden.
+
+|Alternativer Text |Alternativer Text für das ausgewählte Bild, wird
+verwendet wenn das Bild nicht angezeigt werden kann
+
+|Veröffentlichung |
+
+|Erstellungsdatum |Automatisch gesetztes Erstellungsdatum der Kategorie
+
+|Autor |Nutzer der die Kategorie erstellt hat, über das Icon rechts
+neben dem Feld kann manuell ein anderer Nutzer gewählt werden
+
+|Bearbeitungsdatum |Automatisch gesetztes Bearbeitungsdatum
+
+|Bearbeitet von |Automatisch gesetztes Feld, das den Nutzer speichert,
+der das Feld zuletzt beabreitet hat
+
+|Zugriffe |Automatisch gesetztes Feld dass die Zugriffsanzahl auf die
+Kategorie enthält
+
+|ID |Automatisch generierte ID der Kategorie
+
+|Meta-Beschreibung |Festlegung der Meta-Beschreibung, die bei der
+Ausgabe der ­Kategorie gesetzt wird
+
+|Meta-Schlüsselworte |Festlegung der Meta-Keywords, die bei der Ausgabe
+der Kate­gorie verwendet werden
+
+|Autor |Text für die Autor-Angabe in den Meta-Tags bei Ausgabe der
+­Kategorie
+
+|Robots |Spezielle Anweisungen für Suchmaschinen-Robots für diese
+­Kategorie festlegen
+
+|Berechtigungen |
+
+|Zugriffsrechte |Diverse Einstellungen, werden in Kapitel 11,
+Rechteverwaltung behandelt
+|===
+
+Wir belassen diese Parameter erst einmal bei den Standardwerten, da für
+unsere Zwecke keine Modifikationen notwendig sind.
+
+Nun haben wir also alle nötigen Einstellungen für unsere neue Kategorie
+vorgenommen und müssen unsere Änderungen nun speichern bzw. verwerfen,
+wofür uns Joomla! vier verschiedene Buttons in der Toolbar zur Verfügung
+stellt:
+
+* _Speichern:_ Speichert die Änderungen an der Kategorie und öffnet
+anschließend erneut das Formular zur Bearbeitung dieser Kategorie.
+Entspricht der „Anwenden“-Funktion zahlreicher anderer Programme.
+* _Speichern & Schließen:_ Speichert die Änderungen und öffnet
+anschließend die Kategorienübersicht
+* _Speichern & Neu:_ Speichert die Änderungen und öffnet anschließend
+ein neues, leeres Eingabeformular, um eine weitere Kategorie anzulegen
+* {blank}
+* _Abbrechen:_ Verwirft die Änderungen und öffnet die
+Kategorienübersicht
+
+Wir nutzen in diesem Falle die Funktion Speichern & Neu, da wir die
+Gunst der Stunde dazu nutzen wollen, eine weitere Kategorie anzulegen.
+
+image:book/07-inhalte-verwalten/media/10.png[book/07-inhalte-verwalten/media/10,width=548,height=98]
+
+BILD 7.8 Toolbar-Buttons zum Speichern bzw. Verwerfen der Änderungen
+
+==== Anlegen einer untergeordneten Kategorie
+
+Nach einem Klick auf Speichern & Neu öffnet sich das Formular zum
+Anlegen einer Kategorie, woraufhin wir als _Titel_ der neuen Kategorie
+„Birnen“ eingeben und einen entsprechenden Beschreibungstext eintragen.
+Jetzt kommt der spannende Teil! Da die Kategorie „Birnen“ in unserem
+Kategorienbaum eine Unterkategorie des gerade hinzugefügten Eintrags
+„Obst“ ist, müssen wir die entsprechende Relation festlegen. Dafür
+wählen wir in der Auswahlliste des _Übergeordnet_-Parameters den
+entsprechenden Eintrag aus.
+
+image:book/07-inhalte-verwalten/media/13.png[book/07-inhalte-verwalten/media/13,width=548,height=263]
+
+BILD 7.9 Auswahl der übergeordneten Kategorie
+
+Nach der Auswahl verlassen wir diesen Dialog über einen Klick auf
+Speichern & Schliessen, woraufhin wir zur Kategorienübersicht gelangen,
+in der wir nun unsere beiden angelegten Kategorien finden. Die Relation
+der beiden Kategorien untereinander wird über die Einrückung des
+Eintrags „Birnen“ dargestellt.
+
+image:book/07-inhalte-verwalten/media/15.png[book/07-inhalte-verwalten/media/15,width=548,height=112]
+
+BILD 7.10 Kategorienübersicht mit den beiden neuen, korrekt zugeordneten
+Kategorien
+
+Dieses Verfahren wenden wir nun analog für die anderen Kategorien
+unserer Baumstruktur (siehe Bild 7.1) an und erhalten schließlich unsere
+gewünschte Kategorienstruktur (siehe Bild 7.11).
+
+image:book/07-inhalte-verwalten/media/17.png[book/07-inhalte-verwalten/media/17,width=548,height=183]
+
+BILD 7.11 Fertige, der Vorgabe entsprechende Kategorienstruktur
+
+==== Bestehende Kategorien ändern
+
+Was aber, wenn wir beim Anlegen einen Fehler gemacht haben oder einen
+der Parameter nachträglich verändern wollen? Glücklicherweise müssen wir
+dann die bereits angelegte Kategorie nicht löschen und eine neue
+Kategorie anlegen, sondern wir können einfach die Bearbeitungsfunktion
+nutzen. Dabei haben wir zwei verschiedene Methoden zum Aufruf zur
+Auswahl.
+
+Die erste, sehr intuitive Methode ist das Öffnen der
+Bearbeitungsfunktion über einen simplen Klick auf den jeweiligen _Titel_
+der Kategorie in der Listenansicht (siehe Bild 7.12).
+
+image:book/07-inhalte-verwalten/media/19.png[book/07-inhalte-verwalten/media/19,width=548,height=211]
+
+BILD 7.12 Bearbeiten einer Kategorie durch Klick auf den Titel
+
+Alternativ dazu kann der entsprechende Eintrag auch einfach über die
+Checkbox am Beginn der Zeile selektiert werden, woraufhin der Button
+_Bearbeiten_ in der Toolbar genutzt werden kann (siehe Bild 7.13).
+
+image:book/07-inhalte-verwalten/media/21.png[book/07-inhalte-verwalten/media/21,width=548,height=253]
+
+BILD 7.13 Editieren eines Beitrags durch Nutzung des Toolbar-Buttons
+
+Wenn man einen der beiden Wege genutzt hat, um die entsprechende
+Kategorie zu editieren, öffnet sich der aus Kapitel 7.1.3 bereits
+bekannte Dialog, der jedoch, im Unterschied zum Anlegen einer neuen
+Kategorie, um zwei neue Toolbar-Buttons ergänzt wurde, die den Namen
+_Als Kopie speichern_ und _Versionen_ tragen. Durch den ersten der
+beiden Buttons können wir die aktuell vorgenommenen Änderungen an der
+Kategorie in einer separaten, neu angelegten Kategorie speichern, wobei
+die ursprünglich geöffnete Kategorie unverändert bleibt. Der zweite
+Button ist Bestandteil der Versionierungsfunktion, der wir uns in
+Kapitel 7.4 widmen werden.
+
+image:book/07-inhalte-verwalten/media/23.png[book/07-inhalte-verwalten/media/23,width=548,height=82]
+
+BILD 7.14 Toolbar-Button _Als Kopie speichern_
+
+==== Kategorien entfernen und wiederherstellen
+
+Im nächsten Schritt entfernen wir nun die standardmäßig angelegte
+Kategorie „Uncategorized“, indem wir den Eintrag mit der zugehörigen
+Checkbox markieren und anschließend durch einen Klick auf den
+Toolbar-Button Papierkorb aus der Liste entfernen.
+
+image:book/07-inhalte-verwalten/media/25.png[book/07-inhalte-verwalten/media/25,width=548,height=166]
+
+BILD 7.15 Entfernen der Standardkategorie „Uncategorized“
+
+Joomla! bestätigt diesen Schritt mit einer entsprechenden Meldung und
+die Kategorie ist aus der Auflistung verschwunden. Nun fragt sich der
+aufmerksame Administrator: Wenn die Kategorie jetzt im Papierkorb ist,
+wie könnte ich diese dann jetzt im Fall der Fälle wiederherstellen?
+Dafür muss in der Auswahlliste für _Status auswählen_ (Filteroptionen,
+wird über den Button _Suchwerkzeuge_ eingeblendet) der Eintrag
+_Papierkorb_ ausgewählt werden, woraufhin Joomla! nur noch Kategorien
+auflistet, die sich im Papierkorb befinden. Gleichzeitig verändert sich
+das entsprechende Toolbar-Icon, das uns nun die Möglichkeit bietet, den
+entsprechenden Eintrag endgültig zu löschen – die Beschriftung
+_Papierkorb leeren_ ist hier leider etwas unglücklich gewählt, da der
+Button nicht automatisch den gesamten Papierkorb leert, sondern auch
+hier wieder eine Selektion des jeweiligen Eintrags erforderlich ist.
+
+image:book/07-inhalte-verwalten/media/27.png[book/07-inhalte-verwalten/media/27,width=548,height=108]
+
+BILD 7.16 Dauerhaftes Löschen einer Kategorie mittels _Papierkorb
+leeren_
+
+Um eine Kategorie aus dem Papierkorb wiederherzustellen, reicht ein
+einfacher Klick auf das Papierkorb-Symbol in der _Status_-Spalte des
+jeweiligen Eintrags. Ein Klick auf den Toolbar-Button _Wiederherstellen_
+funktioniert hier leider nicht, da dieser eine andere Funktion
+wahrnimmt, in der deutschen Version aber leider doppeldeutig beschriftet
+worden ist.
+
+image:book/07-inhalte-verwalten/media/29.png[book/07-inhalte-verwalten/media/29,width=548,height=82]
+
+BILD 7.17 Wiederherstellen eines Eintrags aus dem Papierkorb
+
+Wir begnügen uns aber zunächst mit dem dauerhaften Entfernen der
+„Uncategorized“-Kategorie und heben anschließend unsere vorhin
+ausgewählte Filteroption durch einen Klick auf den Button _Zurücksetzen_
+in den Filteroptionen wieder auf.
+
+==== Kategorien veröffentlichen und verstecken
+
+Aus Kapitel 7.1.3, „Anlegen einer untergeordneten Kategorie“, wissen wir
+bereits, dass eine Kategorie unterschiedliche Statuszustände aufweisen
+kann. Während der Status _Papierkorb_ über den entsprechenden
+Toolbar-Button (siehe Kapitel 7.1.5, „Kategorien entfernen und
+wiederherstellen“) gesetzt wird und der Status _Archiviert_ im
+administrativen Alltag praktisch keine Rolle spielt und daher nur über
+das entsprechenden Editierungsformular (siehe Kapitel 7.1.4, „Bestehende
+Kategorien ändern“) vergeben werden kann, werden die beiden
+Statusangaben _Veröffentlicht_ und _Versteckt_ relativ häufig verwendet.
+
+Daher gibt es eine separate Funktion zum Freigeben und Sperren einer
+Kategorie, die, ähnlich wie beim Bearbeiten einer Kategorie, über zwei
+Klickwege genutzt werden kann. Der erste Weg arbeitet über einen Klick
+auf das jeweilige Status-Icon der Kategorie in der Übersichtsliste.
+Daraufhin nimmt die Kategorie den jeweils entgegengesetzten Status an.
+
+image:book/07-inhalte-verwalten/media/31.png[book/07-inhalte-verwalten/media/31,width=548,height=164]
+
+BILD 7.18 Wechseln des Kategorienstatus per Klick auf das jeweilige Icon
+
+Zudem ist es auch hier wieder möglich, den Status über die Selektion der
+Checkbox und die Nutzung der beiden Toolbar-Buttons _Veröffentlichen_
+und _Verstecken_ zu ändern. Die Nutzung erfolgt analog zur Nutzung der
+Buttons _Bearbeiten_ und _Papierkorb_.
+
+==== Kategorie-Reihenfolge ändern
+
+Würden wir im Frontend eine Auflistung aller auf unserer Seite
+vorhandenen Kategorien erzeugen, so würden diese in der Reihenfolge
+ausgegeben, in der wir die Einträge eingegeben haben. Wie lässt sich
+also die Reihenfolge der Ausgabe im Frontend beeinflussen, insbesondere
+wenn wir nicht auf die standardmäßig vorhandene Sortierungsfunktion nach
+dem Alphabet zurückgreifen wollen? Joomla! bietet uns für diese Zwecke
+die Möglichkeit, eine individuelle Reihenfolge der Kategorien festlegen
+zu können, was in der Spalte _Reihenfolge_ geschieht. Voraussetzung für
+die Nutzung der Funktion ist, dass wir die Einträge der Liste im Backend
+aufsteigend nach der Reihenfolge sortieren lassen, was durch das
+zugehörige Icon angezeigt wird (siehe Bild 7.19).
+
+image:book/07-inhalte-verwalten/media/33.png[book/07-inhalte-verwalten/media/33,width=548,height=182]
+
+BILD 7.19 Sortierung der Liste nach der Spalte _Reihenfolge_, um die
+Funktion zur Änderung der Reihenfolge im Frontend zu aktivieren
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Ist die korrekte Sortierung eingestellt, können die Kategorien mittels
+Drag & Drop sortiert werden. Dafür wird der Mauszeiger über dem
+entsprechenden „Griff“ am Beginn der Zeile (siehe Bild 7.20) platziert,
+die linke Maustaste wird gedrückt und gehalten und der entsprechende
+Eintrage kann nun in der Liste verschoben werden (siehe Bild 7.21) ist
+die gewünschte Reihenfolge erreicht, wird die Maustaste losgelassen.
+
+image:book/07-inhalte-verwalten/media/36.png[book/07-inhalte-verwalten/media/36,width=548,height=162]
+
+Bild 7.20 Bedienelement für die Drag & Drop Sortierung von Einträgen
+
+image:book/07-inhalte-verwalten/media/37.png[book/07-inhalte-verwalten/media/37,width=548,height=152]
+
+Bild 7.21 Aktive Drag & Drop Sortierung
+
+==== Freigeben von Kategorien
+
+Kommen wir nun zu den Funktionen, die nicht direkt im Zusammenhang mit
+der Administration der Kategorien stehen, sondern eher als allgemeine
+Wartungsfunktionen anzusehen sind.
+
+Die erste Funktion ist das _Freigeben_ von Kategorien nach der
+Bearbeitung. Bei einem Mehrbenutzersystem wie Joomla! steht man nämlich
+vor dem Problem, dass zwei Administratoren, die zur gleichen Zeit z. B.
+die gleiche Kategorie bearbeiten, die Änderungen des jeweils anderen
+unbeabsichtigt überschreiben würden. Um dies zu verhindern, wird eine
+Kategorie beim Bearbeiten _gesperrt_ und kann somit von anderen Nutzern
+nicht bearbeitet werden. Dies symbolisiert Joomla! durch ein kleines
+Schlosssymbol, das für die anderen Benutzer am Beginn der jeweiligen
+Zeile erscheint (siehe Bild 7.22). Fährt man mit dem Mauszeiger über das
+entsprechende Symbol, wird außerdem ein kleiner Tooltipp eingeblendet,
+der angibt, wann und durch welchen Benutzer die Bearbeitung gestartet
+wurde.
+
+image:book/07-inhalte-verwalten/media/39.png[book/07-inhalte-verwalten/media/39,width=548,height=157]
+
+BILD 7.22 Schlosssymbol und Tooltipp bei _ausgecheckter_ Kategorie
+
+Verlässt der Administrator, der die entsprechende Kategorie editiert,
+den Bearbeitungsdialog über die entsprechenden Toolbar-Schaltflächen, so
+wird die Kategorie wieder für alle Benutzer freigegeben. Wenn der
+jeweilige Administrator aus Nachlässigkeit jedoch vergisst, die
+entsprechenden Toolbar-Buttons zu nutzen, und stattdessen einfach das
+Browserfenster schließt, so bleibt die Kategorie _gesperrt_ – dies ist
+übrigens auch der Grund dafür, warum das Administrationsmenü während der
+Bearbeitung einer Kategorie ausgegraut ist, denn hier würde sonst der
+gleiche Effekt auftreten. Joomla! bietet jedoch die Möglichkeit, diese
+Sperre gezielt per Klick auf das jeweilige wieder aufzuheben.
+
+image:book/07-inhalte-verwalten/media/40.png[book/07-inhalte-verwalten/media/40,width=548,height=155]
+
+BILD 7.23 Erfolgreiche Freigabe
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Obwohl die entsprechende Funktion vorhanden ist, ist es
+lästig, gesperrte Kategorien, Beiträge und weitere Inhalte manuell
+wieder einzuchecken. Achten Sie daher unbedingt darauf, alle
+Bearbeitungsdialoge immer nur über die vorgesehenen Toolbar-Buttons zu
+verlassen, und weisen Sie auch in Schulungen darauf hin.
+
+Insbesondere, wenn es Inhalte in verschiedenen Bereichen der
+Administration betrifft, kann es angenehmer sein, die Funktion
+_Globales_ _Freigeben_ zu nutzen, die über den Menüpunkt _System_
+_++>++_ _Globales_ _Freigeben_ im Backend geöffnet wird. Dort ist
+aufgelistet, wie viele Inhalte in der jeweiligen Datenbanktabelle
+eingecheckt werden können. Dies kann über die Auswahl der jeweiligen
+Checkbox und den Button _Freigeben_ in der Toolbar durch­geführt werden.
+
+|===
+
+==== Wiederherstellen der Kategorienstruktur
+
+Joomla! nutzt zur Speicherung der Kategorienverschachtelung ein relativ
+komplexes Datenbankmuster, das im Fall von unerwarteten Ergebnissen
+(also z.B. Kategorien, die plötzlich einer anderen Oberkategorie
+zugeordnet werden als ursprünglich gewünscht) durch die Nutzung des
+Toolbar-Buttons _Wiederherstellen_ repariert werden kann. Joomla!
+bestätigt den Vorgang anschließend mit einer entsprechenden Meldung.
+
+image:book/07-inhalte-verwalten/media/42.png[book/07-inhalte-verwalten/media/42,width=548,height=138]
+
+BILD 7.24 Wiederherstellen der Kategorienstruktur im Fehlerfall
+
+Was passiert dabei hinter den Kulissen des Systems? Nun, Joomla nutzt
+zur Speicherung der Baumstruktur primär erstmal eine Datenbankspalte, in
+der für jede Kategorie die jeweilige übergeordnete Kategorie abgelegt
+ist. Da diese Art der Datenbankstruktur bei bestimmten Abfragen jedoch
+sehr langsam und aufwendig ist, nutzt Joomla zusätzlich dazu noch
+sogenannte Nested
+Setsfootnote:[http://www.klempert.de/nested++_++sets/], bei denen die
+Relationen in einer anderen Form gespeichert sind. Nested Sets sind
+oftmals wesentlich performanter, in bestimmten Situationen kann es
+jedoch vorkommen, dass die Datensätze dort ungültig werden – in einem
+solchen Fall greift dann die _Wiederherstellen_-Funktion, die das
+Nested-Set auf Basis der übergeordneten Kategorie-IDs neu aufbaut.
+
+==== Kategorienoptionen
+
+Der letzte, nun noch verbleibende Button _Optionen_ öffnet den Dialog
+zur Konfiguration diverser Parameter, die jedoch nicht auf den Bereich
+_Kategorien_, sondern auf den Bereich _Beiträge_ bezogen sind, weshalb
+wir diese Parameter in Kapitel 7.2, „Inhalte erstellen“, betrachten
+wollen.
+
+==== Anwenden von Änderungen auf mehrere Kategorien
+
+Joomla! bietet einige nützliche Features zum Anwenden von Änderungen auf
+mehr als eine Kategorie, die sich hinter dem Button _Stapelverarbeitung_
+verstecken.
+
+image:book/07-inhalte-verwalten/media/45.png[book/07-inhalte-verwalten/media/45,width=548,height=124]
+
+BILD 7.25 Der Button für die Stapelverarbeitung der Kategorieliste
+
+Die Funktionsweise ist bereits aus den anderen Bearbeitungsschritten
+bekannt: Zuerst selektieren wir über die jeweiligen Checkboxen am Beginn
+der Zeile die zu ändernden Kategorien und konfigurieren dann die
+gewünschten Funktionen (siehe Bild 7.26). Abschließend starten wir den
+Prozess durch einen Klick auf Ausführen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Übrigens: An dieser Stelle versteckt sich auch
+die häufig benötigte Funktion zum Verschieben bzw. Kopieren von
+Listeneinträgen, die in Joomla! 1.0 und 1.5 noch einen eigenen
+Toolbar-Button innehatte.
+|===
+
+image:book/07-inhalte-verwalten/media/46.png[book/07-inhalte-verwalten/media/46,width=548,height=129]
+
+BILD 7.26 Dialog zur Stapelverarbeitung von Kategorien

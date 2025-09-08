@@ -1,3 +1,74 @@
 [[07-inhalte-verwalten]]
 
-include::book/07-inhalte-verwalten/cap07.adoc[]
+== Inhalte verwalten
+
+Die Verwaltung der Inhalte ist einer der zentralen Bereiche in der
+Arbeit mit Joomla!, denn hier bekommen wir endlich die Möglichkeit,
+unsere aufwendig verfassten Texte ins Netz zu stellen. Damit wir nicht
+ganz abstrakt zu Werke gehen müssen, möchte ich die bereits in Kapitel
+5, „Grundlegende Begriffe und Architektur“, als Beispiel verwendete
+Internetseite des imaginären Obstbauern Bruno Birnennase als Basis für
+die weiteren Arbeitsschritte verwenden. Wie sieht also das Ziel unserer
+Arbeit, die fertige Seite, aus?
+
+Wir haben in Absprache mit Bruno die folgende Seitenstruktur erstellt.
+
+TABELLE 7.1 Seitenstruktur für _www.bauer-birnennase.de_
+
+[width="100%",cols="19%,21%,60%",]
+|===
+|1. Menüebene |2. Menüebene (falls vorhanden) |Beschreibung
+
+|Willkommen | |Kurzer Einleitungstext mit einem Bild von Bauer
+Birnennase
+
+|Der Obsthof | |Beschreibung der Philosophie und Geschichte des Hofs
+
+|Hofladen | |Anfahrtsbeschreibung und Öffnungszeiten des Hofladens
+
+|Was ist Obst? | |Allgemeiner Definitionstext
+
+|Obstsorten |Birnen |Auflistung der verschiedenen angebauten
+Birnensorten
+
+| |Äpfel |Angebaute Apfelsorten
+
+| |Trauben |Angebaute Traubensorten
+
+|Impressum | |Impressum
+
+|Kontakt | |Kontaktformular
+|===
+
+Um diese Struktur intelligent im Kategoriensystem abzubilden, müssen wir
+das aus Kapitel 5, „Grundlegende Begriffe und Architektur“, bekannte
+Kategorienschema (vgl. Bild 5.3) noch ein wenig erweitern, um die neu
+hinzugekommenen Inhalte einordnen zu können.
+
+image:book/07-inhalte-verwalten/media/1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild506.PNG,width=376,height=281]
+
+BILD 7.1 Ergänzte Inhaltsstruktur zur Abbildung der gewünschten
+Seitenstruktur aus Tabelle 7.1
+
+Was hat sich also, im Vergleich zur Struktur aus Kapitel 5,
+„Grundlegende Begriffe und Architektur“, getan? Die neu hinzugekommenen
+allgemeinen Inhalte _Impressum_, _Hofladen_, _Der Obsthof_ und
+_Willkommen_ haben eine eigene Kategorie _Informationen_ bekommen.
+Alternativ wäre es auch möglich gewesen, diese Inhalte der, bei Joomla!
+standardmäßig vorhandenen, Kategorie „Uncategorized“ zuzuweisen, wir
+wollen jedoch von Anfang an sauber arbeiten und daher auch eine Struktur
+für diese nicht anderweitig kategorisierbaren Inhalte anlegen.
+
+Beim Vergleich der Tabelle 7.1 mit dem Bild 7.1 wird auch noch einmal
+deutlich, dass Inhalts- und Navigations- bzw. Seitenstruktur zwei
+verschiedene Paar Schuhe sind und unabhängig voneinander arbeiten, was
+im ersten Moment vielleicht verwirrend erscheint – aber glauben Sie mir,
+wenn ich sage: Im nächsten Kapitel wird Ihnen einiges klarer werden!
+
+include::abschnitte/01-kategoriesystem.adoc[]
+
+include::abschnitte/02-inhalte.adoc[]
+
+include::abschnitte/03-versionierung.adoc[]
+
+include::abschnitte/04-verschlagwortung.adoc[]

@@ -1,0 +1,83 @@
+=== Parameter der Benutzerverwaltung
+
+Zum Abschluss dieses Kapitels möchte ich noch auf die Parameter der
+Benutzerverwaltung eingehen, die wir, wie üblich, durch einen Klick auf
+den Toolbar-Button _Optionen_ in der Benutzerübersicht öffnen.
+
+image:book/11-benutzer-rechtevewaltung/media/25.png[book/11-benutzer-rechtevewaltung/media/25,width=548,height=324]
+
+BILD 11.13Parameter der _Benutzer_-Komponente
+
+Die Paramater sind insofern erwähnenswert, als dass wir mit ihnen
+Einstellungen vornehmen können, die in früheren Joomla!-Versionen
+oftmals über Dritterweiterungen verändert werden mussten. Eine
+Auflistung mit Erklärung finden Sie in der nachfolgenden Tabelle.
+
+TABELLE 11.4 Parameter der _Benutzer_-Komponente
+
+[width="100%",cols="41%,59%",]
+|===
+|Parameter |Erklärung
+
+|Benutzeroptionen |
+
+|Benutzerregistrierung |Erlaubt einzustellen, ob sich neue _Benutzer_
+auf der Seite registrieren können oder nicht – standardmäßig
+deaktiviert!
+
+|Gruppe für neue Benutzer |_Benutzergruppe_, der neue _Benutzer_ nach
+der Registrierung standardmäßig zugewiesen werden
+
+|Gast Benutzergruppe |_Benutzergruppe_, der _Benutzer_ angehören, die
+nicht eingeloggt sind
+
+|Passwort mitsenden |Steuert, ob die Mail, die ein Nutzer nach der
+Registrierung, sein gerade gewähltes Passwort enthalten soll
+
+|Kontenaktivierung durch a|
+Erlaubt uns, das Prozedere zur Konto-Aktivierung nach der Registrierung
+auszuwählen:
+
+* _Keine:_ Neue _Benutzerkonten_ sind sofort aktiviert.
+* _Benutzer:_ Nach der Registrierung erhält der _Nutzer_ eine E-Mail mit
+einem Bestätigungslink – nachdem er diesen angeklickt hat, ist das Konto
+aktiviert.
+* _Administrator:_ Nachdem der _Nutzer_ sein Konto durch die Nutzung des
+Links aktiviert hat, erhält der _Administrator_ der Seite eine Mail mit
+der Aufforderung, den neuen Benutzer ebenfalls zu aktivieren.
+
+|Informationsmail an Administratoren |Auswahl, ob eine E-Mail an den
+Administrator versendet werden soll, wenn bei der Kontenaktivierung
+_Keine_ oder _Benutzer_ ausgewählt wurde
+
+|Captcha |Auswahl des zu verwendenden _Captcha_ in den Registrierungs-
+bzw. Passwort-vergessen-Formularen
+
+|Einstellung im Frontend |Erlaubt einem _Benutzer_, in seinen
+Profileinstellungen im _Frontend_ seine gewünschte Sprache, den
+WYSIWYG-Editor und die Einstellungen zum Hilfeportal selbst zu verändern
+
+|Frontend-Sprache |Erlaubt einem _Nutzer_, bei der Registrierung die
+gewünschte _Frontend_-Sprache zu wählen
+
+|Benutzername veränderbar |Steuert, ob ein Nutzer seinen Benutzernamen
+nachträglich verändern kann
+
+|Passwortoptionen |
+
+|Zurücksetzungsmaximum |Anzahl der Erlaubten Zurücksetzungen eines
+Nutzerpassworts in einem separat angegebenen Zeitraum
+
+|Zurücksetzungszeit |Zeitraum zur oben genannten Option
+
+|Passwort: Minimale Länge |Minimale Zeichenanzahl für ein Nutzerpasswort
+
+|Minimaler Anteil an Zahlen |Legt die Mindestanzahl von Ziffern im
+Passwort fest
+
+|Minimaler Anteil an Sonderzeichen |Legt die Mindestanzahl von
+Sonderzeichen im Passwort fest
+
+|Minimaler Anteil an Großbuchstaben |Legt die Mindestanzahl von
+Großbuchstaben im Passwort fest
+|===

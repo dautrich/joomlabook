@@ -1,3 +1,27 @@
 [[06-backend]]
 
-include::book/06-backend/cap06.adoc[]
+== Das Backend
+
+Nachdem nun die Grundbegriffe geklärt sind, können wir uns mit unserem
+neuen Werkzeug vertraut machen. Wir starten im _Backend_ unserer
+Joomla!-Installation, das wir unter _www.domain.tld/administrator_ (bzw.
+in der lokalen Umgebung unter
+_localhost:8888/projektname/administrator_) erreichen.
+
+include::abschnitte/01-login.adoc[]
+
+include::abschnitte/02-grundaufbau.adoc[]
+
+include::abschnitte/03-allg-konfiguration.adoc[]
+
+include::abschnitte/04-massenmail.adoc[]
+
+include::abschnitte/05-menu.adoc[]
+
+include::abschnitte/06-medienverwaltung.adoc[]
+
+include::abschnitte/07-komponenten.adoc[]
+
+include::abschnitte/08-erweiterungen.adoc[]
+
+include::abschnitte/09-hilfe.adoc[]

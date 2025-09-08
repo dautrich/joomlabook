@@ -1,0 +1,68 @@
+=== Manuelle Template-Anpassungen
+
+Joomla! speichert alle Dateien eines Templates im Ordner
+_/templates/TEMPLATENAME/_ – im konkreten Fall finden wir die Dateien
+des _Beez3_-Templates also unter _/templates/beez3_.
+
+image:book/09-templatesystem/media/17.png[book/09-templatesystem/media/17,width=548,height=526]
+
+BILD 9.9 Dateien des Beez3-Templates
+
+Dort angelangt, finden wir eine Vielzahl von Dateien und Ordnern vor,
+wodurch sich natürlich die Frage aufdrängt: Wie finden wir heraus,
+welche der zahlreichen CSS-Dateien die Definition der Schriftfarbe
+beinhaltet? Beide Angaben können wir über die Nutzung der
+_Entwicklertools_ des jeweiligen Browsers (siehe Kapitel 3.3.2, „Nutzung
+der Chrome-Entwicklertools“) herausfinden:
+
+Ein Klick mit dem Element-Inspektor auf den entsprechenden Schriftug im
+Header verrät uns, dass wir dessen CSS in der position.css in der Zeile
+290 finden (siehe Bild 9.10).
+
+image:book/09-templatesystem/media/20.png[book/09-templatesystem/media/20,width=548,height=354]
+
+BILD 9.10 Pfadangabe des Header-Bilds
+
+Nachdem wir das entsprechende Bild ersetzt bzw. die entsprechende
+CSS-Definition wie in Listing 9.1 abgebildet verändert haben, erscheint
+das _Template_ in neuem Glanz.
+
+LISTING 9.1 Angepasste CSS-Definition in der position.css
+
+#logo span.header1 ++{++
+
+display: block;
+
+top: 0;
+
+line-height: 0.8em;
+
+font-size: 0.7em;
+
+padding-left: 55px;
+
+color: white;
+
+}
+
+image:book/09-templatesystem/media/23.png[book/09-templatesystem/media/23,width=548,height=551]
+
+BILD 9.11 Ansicht der Seite nach den Template-Anpassungen
+
+Was haben wir also bislang in diesem Kapitel gelernt? Sie haben das
+_Template_-System von Joomla! durchschaut, wissen, dass es dort
+verschiedene _Positionen_, _Templates_ und _Template-Stile_ gibt, haben
+einen vorhandenen Template-Stil über Parameter verändert und
+abschließend sogar manuelle Änderungen an den Dateien des Templates
+vorgenommen. Sie sind also nun in der Lage, das Design eines bestehenden
+_Templates_ an Ihre Bedürfnisse anzu­passen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Sollten Sie eines der standardmäßig vorhandenen
+_Templates_ als Basis für Ihre Website nutzen wollen, so empfiehlt es
+sich, eine Kopie des _Templates_ anzulegen, da Ihre Änderungen
+andernfalls bei einem Update der Joomla!-Installation überschrieben
+werden könnten.
+|===
