@@ -1,3 +1,5 @@
+=== Meta-Daten
+
 Bei Suchmaschinenoptimierung denkt man im ersten Schritt oft an die
 bekannten Meta-Keywords und die Meta-Description, die eine für
 Suchmaschinen optimierte Kurzfassung der Inhalte der jeweiligen Seite
@@ -24,21 +26,21 @@ Eintrags. Diese Daten überschreiben die allgemeinen Meta-Daten (Bild
 Editierungsformular des Eintrags. Diese Daten überschreiben die
 allgemeinen und die eintragsspezifischen Daten (Bild 13.4).
 
-image:/book/13-seo/media/2.png[/book/13-seo/media/2,width=548,height=377]
+image:../media/2.png[book/13-seo/media/2,width=548,height=377]
 
 BILD 13.1 Meta-Description von joomla.de, die in den Suchergebnissen
 dargestellt wird
 
-image:/book/13-seo/media/4.png[/book/13-seo/media/4,width=548,height=335]
+image:../media/4.png[book/13-seo/media/4,width=548,height=335]
 
 BILD 13.2 Meta-Daten der globalen Konfiguration unter Site ++>++
 Konfiguration
 
-image:/book/13-seo/media/6.png[/book/13-seo/media/6,width=548,height=320]
+image:../media/6.png[book/13-seo/media/6,width=548,height=320]
 
 BILD 13.3 Meta-Daten im Formular zur Editierung eines Beitrags
 
-image:/book/13-seo/media/8.png[/book/13-seo/media/8,width=548,height=229]
+image:../media/8.png[book/13-seo/media/8,width=548,height=229]
 
 BILD 13.4 Meta-Daten im Formular zur Editierung eines Menüeintrags
 
