@@ -120,7 +120,7 @@ namespace :book do
     begin
         puts 'Removing generated files'
 
-        FileList['book/contributors.txt', 'joomla-de.html', 'joomla-de-kf8.epub', 'joomla-de.epub', 'joomla-de.fb2.zip', 'joomla-de.mobi', 'joomla-de.pdf'].each do |file|
+        FileList[ 'joomla-de.html', 'joomla-de-kf8.epub', 'joomla-de.epub', 'joomla-de.fb2.zip', 'joomla-de.mobi', 'joomla-de.pdf'].each do |file|
             rm file
 
             # Rescue if file not found
