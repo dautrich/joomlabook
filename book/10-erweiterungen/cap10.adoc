@@ -533,7 +533,6 @@ Installiert_.
 
 image:book/10-erweiterungen/media/34.png[book/10-erweiterungen/media/34,width=548,height=167]
 
-=====
 
 [arabic]
 . {blank}
