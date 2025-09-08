@@ -26,7 +26,7 @@ Eintrags. Diese Daten überschreiben die allgemeinen Meta-Daten (Bild
 Editierungsformular des Eintrags. Diese Daten überschreiben die
 allgemeinen und die eintragsspezifischen Daten (Bild 13.4).
 
-image:../media/2.png[book/13-seo/media/2,width=548,height=377]
+image:book/13-seo/media/2.png[13-seo/media/2,width=548,height=377]
 
 BILD 13.1 Meta-Description von joomla.de, die in den Suchergebnissen
 dargestellt wird
