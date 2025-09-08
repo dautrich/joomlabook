@@ -12,7 +12,7 @@ regelrechte Buchreihen veröffentlicht, die das Thema wesentlich besser
 abdecken. Stattdessen möchte ich einige Joomla!-spezifische Dinge
 erläutern.
 
-include::book/13-seo/abschnitte/meta-data.adoc[]
+include::book/13-seo/abschnitte/meta-daten.adoc[]
 
 include::book/13-seo/abschnitte/modern-routing.adoc[]
 
