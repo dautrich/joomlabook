@@ -33,8 +33,8 @@ namespace :book do
     end
   end
 
-  desc 'build basic book formats, let fb2 out'
-  task :build => [:build_html, :build_epub, :build_mobi, :build_pdf] do
+  desc 'build basic book formats, let fb2 and mobi out'
+  task :build => [:build_html, :build_epub, :build_pdf] do
     begin
         # Run check
         Rake::Task['book:check'].invoke
@@ -47,7 +47,7 @@ namespace :book do
   end
 
   desc 'build basic book formats (for ci)'
-  task :ci => [:build_html, :build_epub, :build_fb2, :build_mobi, :build_pdf] do
+  task :ci => [:build_html, :build_epub, :build_pdf] do
       # Run check, but don't ignore any errors
       Rake::Task['book:check'].invoke
   end
