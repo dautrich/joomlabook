@@ -1,0 +1,648 @@
+== Sicherheit
+
+Joomla! gilt in Szenekreisen oft als unsicheres, leicht angreifbares
+CMS, und ein Blick in die gängigen Supportforen vermittelt schnell das
+Gefühl, dass an dieser Aussage etwas dran sein könnte. Analysiert man
+jedoch die entsprechenden Fälle, so kommt man schnell zu dem Schluss,
+dass die Ursache für den erfolgreichen Angriff nur in sehr wenigen
+Ausnahmefällen auf eine aktuelle Lücke der Joomla!-Kerninstallation
+zurückzuführen ist, sondern vielmehr auf Fehlerkonfigurationen und
+schlecht programmierte Dritterweiterungen. Um effektive Gegenmaßnahmen
+zu ergreifen, ist es jedoch nötig, sowohl die Motivation der Angreifer
+als auch die entsprechenden Angriffstypen zu verstehen, weshalb wir
+dieses Kapitel mit ein wenig Grundlagenarbeit starten wollen.
+
+=== Motivation der Angreifer
+
+Das vermeidliche Joker-Argument von unerfahrenen Webmastern ist oft:
+„Meine Seite ist so unbedeutend, da hat sowieso niemand Interesse, sie
+zu hacken und mir damit zu schaden.“ Wenn man davon ausgeht, dass
+Angreifer nur große Portale attackieren, weil es sich „da wenigstens
+lohnt“, so man an dieser Argumentation auch durchaus etwas richtig sein
+– in der Realität gibt es jedoch im Regelfall nur drei Motivationen für
+einen Angriff.
+
+======= 1. Wirtschaftliche Interessen
+
+Eine gecrackte Joomla!-Installation lässt sich leicht dazu verwenden,
+weiteren Schadcode einzubinden, der dann über Sicherheitslücken in die
+Systeme der Seitenbesucher gelangt und dort genutzt wird, um diese mit
+Trojanern und Würmern zu infizieren. Diese betroffenen Rechner lassen
+sich nun wiederum zu großen Netzwerken (sog. Botnets) zusammenschließen
+und z. B. für den Spamversand missbrauchen, wofür der Betreiber von den
+Spam-Auftraggebern natürlich auch einen entsprechenden Betrag verlangt.
+
+Die Anzahl der mit Schadcode infizierten Seiten beeinflusst direkt die
+Anzahl der potenziell infizierten Rechner und damit auch den Umsatz, den
+der Botnet-Betreiber schlussendlich verbucht. Deshalb wird hier im
+Normalfall das „Masse-statt-Klasse“-Prinzip angewendet, d. h. die
+Angreifer wollen möglichst viele Seiten, unabhängig von deren Inhalt,
+infizieren.
+
+======= 2. Prestige durch Erfolge in „Wettbewerben“
+
+Ein fragwürdiges Hobby, das insbesondere zahlreiche Jugendliche
+anzuziehen scheint, ist das massenhafte Cracken von Webseiten, um den
+Inhalt dieser Seiten zu verändern und so das eigene „Erkennungszeichen“
+(oft Logo und Schriftzug) unterzubringen. Diese „Defacement“ genannten
+Angriffe werden von den Angreifern, in der IT oft als „Script Kiddies“
+bezeichnet, in einschlägigen Portalen gemeldet. Dort wird in einer Art
+Liga-System gezählt, welcher Teilnehmer wie viele Seiten unter seine
+Kontrolle bringen konnte.
+
+image:media/image1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild460.PNG,width=430,height=305]
+
+BILD 21.1 Typische „verunstaltete“ Seite nach einem Angriff durch ein
+Script Kiddie
+
+Da auch in diesem Fall nur die Anzahl der attackierten Seiten für den
+Erfolg zählt, ist deren Inhalt hier zweitrangig, was auch unbekannte und
+inhaltlich veraltete Seiten attraktiv macht.
+
+======= 3. Gezielte Angriffe
+
+Die dritte mögliche Motivation wäre der gezielte Angriff auf eine
+Installation, der z. B. durch einen Mitbewerber in Auftrag gegeben oder
+durchgeführt wird. Die Erfahrung zeigt jedoch, dass nur ein
+verschwindend geringer Anteil der Angriffe auf solche gezielten Aktionen
+zurückzuführen ist.
+
+Interessant ist jedoch, dass sich bei den Motiven 1 und 2 im Gegensatz
+zum gezielten Angriff häufig die Vorgehensweise unterscheidet. So muss,
+um die nötige Anzahl der gecrackten Seiten zu erreichen, bei den beiden
+erstgenannten Motiven auf speziell dafür entwickelte, automatisierte
+Skripte zurückgegriffen werden, die eigens für eine bereits bekannte
+Lücke in einer Software (wie z. B. dem Joomla! Core oder einer
+Erweiterung) geschrieben wurden. Diese Skripte, die in einschlägigen
+Foren zum Herunterladen bereitstehen, durchsuchen über bestimmte
+Suchbegriffe (z. B. „inurl:'com++_++virtuemart'“) die Datenbanken der
+großen Suchmaschinen, um potenzielle Opfer für einen Hack zu finden, und
+führen anschließend automatisiert einen Angriffsversuch aus. Diese
+Methode führt dazu, dass man beispielsweise in den Logdateien seiner
+Joomla!-Installation Einträge wie diesen hier findet:
+
+66.249.xx.xx - - ++[++20/Nov/2011:06:27:54 {plus}0100++]++ "GET
+
+index.php?option=com++_++jp++_++jobs&view=detail&id=1{plus}AND{plus}1=2{plus}UNION{plus}SELECT{plus}++\++group++_++concat(0x503077337220743020743368206330777321,name,username,++\++password,email,usertype,0x503077337220743020743368206330777321)--"
+404 205619 "-" "libwww-perl"
+
+Hier wurde ein Angriff auf die Joomla!-Komponente _com++_++jp++_++jobs_
+ausgeführt, die jedoch auf dem betroffenen System gar nicht installiert
+war, weshalb der Webserver einen Fehler 404 zurückgeliefert hat.
+Vermutlich hat das Skript, das den Angriff ausführte, im
+Suchmaschinenindex nicht nach der entsprechenden Komponente selbst,
+sondern nach Joomla!-Seiten im Allgemeinen gesucht, wodurch diese
+willkürliche Attacke zustande kam.
+
+Folgende Erkenntnis steht also am Ende der Betrachtung der Motivationen:
+In erster Linie ist es die Feststellung, dass *jedes* Joomla! eine
+Zielscheibe für Angriffe ist, unabhängig von deren Bekanntheitsgrad oder
+Größe.
+
+=== Angriffstypen und Gegenmaßnahmen
+
+Betrachten wir nun einmal die fünf gängigsten Angriffsarten, die im
+Umfeld der webbasierenden Anwendungen auftreten, um die Systematik zu
+verstehen und bei der Analyse von fremdem Code sowie dem Schreiben
+eigener Anwendungen solche Fehler vermeiden zu können.
+
+==== SQL Injections
+
+SQL Injections gehören zu den gefährlichsten Angriffsarten, da sie
+häufig auftreten und leicht auszunutzen sind. Ein typisches Beispiel für
+anfälligen Code in einer Joomla!-Erweiterung sähe dabei z. B. so aus:
+
+++<++?php
+
+//Datenbankobjekt laden
+
+$db = JFactory::getDBO();
+
+//SELECT Query, lade introtext und fulltext aus #++__++content
+
+$query = "SELECT title, alias FROM #++__++content WHERE id =
+
+".JRequest::getVar('contentid');
+
+$db-++>++setQuery($query);
+
+$contents = $db-++>++loadObjectList();
+
+foreach($contents as $content)
+
+++{++
+
+echo $content-++>++title.": ".$content-++>++alias;
+
+}
+
+?++>++
+
+Der hier vorliegende Code soll dazu dienen, den Inhalt der Spalten
+_title_ und _alias_ aus der Tabelle _#++__++content_ abzurufen, wenn die
+ID des jeweiligen Artikels dem Parameter contentid entspricht, der
+mittels URL (GET) oder POST-Request übergeben werden kann.
+
+image:media/image2.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild467.PNG,width=547,height=215]
+
+BILD 21.2 Ausgabe der com++_++sqlinject
+
+Problematisch ist jedoch, dass an dieser Stelle nicht geprüft wird, ob
+es sich beim Inhalt der Variablen contentid tatsächlich auch nur um eine
+entsprechende natürliche Zahl handelt, wodurch sich über geschickte
+Manipulation der URL zusätzlicher SQL-Code einspielen lässt.
+
+index.php?option=com++_++sqlinject&contentid=12{plus}UNION{plus}SELECT{plus}username,{plus}password{plus}FROM{plus}%23++__++users
+
+Durch dieses „Injizieren“ einer SQL-Abfrage durch den Angreifer wird nun
+die folgende SQL-Query erzeugt und ausgeführt.
+
+SELECT title, alias FROM #++__++content WHERE id = 12 UNION SELECT
+username, password FROM #++__++users
+
+Wodurch uns, neben dem _title_ und _alias_ des gewählten Inhalts, auch
+noch der Benutzername sowie der Passwort-Hash aller Benutzer ausgegeben
+werden.
+
+image:media/image3.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild476.PNG,width=547,height=222]
+
+BILD 21.3 Ausgabe des Skripts bei Ausnutzung der SQL-Injection-Lücke
+
+Im konkreten Fall von Joomla! lässt sich aus dem erbeuteten
+Passwort-Hash zwar nach dem aktuellen Stand der Technik kein
+Klartextpasswort mehr errechnen, nichtsdestotrotz ermöglicht die
+grundsätzliche Natur von SQL-Injection Attracken einem Angreifer oftmals
+den vollen Lese- und Schreibzugriff auf allen Datenbankinhalte.
+
+======= Gegenmaßnahmen
+
+SQL-Injection-Angriffe sind also enorm gefährlich und können dadurch,
+dass die Datenbankschemata von Joomla! bekannt sind, auch leicht
+ausgenutzt werden. Der einzige wirklich wirksame Schutz ist dabei die
+korrekte Validierung der Variablen vor Verwendung in der Query.
+
+//SELECT Query, lade introtext und fulltext aus #++__++content
+
+$query = "SELECT title, alias FROM #++__++content WHERE id =
+
+".**(int)**JFactory::getApplication()-++>++input-++>++get('contentid');
+
+$db-++>++setQuery($query);
+
+Durch Verwendung von (int) wird die Rückgabe von
+JFactory::getApplicationinput-++>++get() in einen ganzzahligen Wert
+umgewandelt, wodurch der injizierte SQL-Code ausgefiltert wird.
+
+Wenn sich die gültigen Eingabewerte nicht auf einen ganzzahligen Wert
+beschränken lassen, z. B. weil alle Beiträge ausgegeben werden sollen,
+die ein bestimmtes Wort im Text haben, so muss der entsprechende
+Eingabewert mittels JDatabase::quote() für die gefahrlose Verwendung in
+der Abfrage vorbereitet werden. Bei verwendeten externen Erweiterungen
+kann es daher, vor der Verwendung, durchaus ratsam sein, die
+entsprechenden Stellen im Code zu kontrollieren.
+
+==== Directory Traversal
+
+Bei Directory-Traversal-Angriffen wird ausgenutzt, dass es immer wieder
+Fälle bei der Programmierung gibt, bei denen man eine zu öffnende Datei
+per Parameter an ein Skript übergeben muss. Ein typisches Beispiel dafür
+wäre z. B. das Einlesen einer statischen HTML-Datei und die Ausgabe an
+einer bestimmten Stelle des Skripts.
+
+++<++html++>++
+
+++<++title++>++Meine schöne Website++<++/title++>++
+
+++<++/html++>++
+
+++<++body++>++
+
+++<++?php
+
+$seite = $++_++GET++[++'seite'++]++;
+
+echo file++_++get++_++contents("seiten/".$seite);
+
+?++>++
+
+++<++/body++>++
+
+Ein solches Vorgehen wird häufig angewendet, um zu vermeiden, dass man
+bestimmte Inhalte der Seite (Header, Footer etc.) auf jeder Inhaltsseite
+erneut definieren muss. Der jeweilige Inhalt würde nun nämlich durch den
+Aufruf von index.php?seite=impressum.html die Datei _impressum.html_ im
+Unterverzeichnis „seiten“ einlesen und ausgeben. Was aber passiert, wenn
+wir die URL in index.php?seite=gibtsnicht verändern? Richtig, PHP kann
+die Datei nicht finden und wird uns bei aktiviertem
+_error++_++reporting_ eine Fehlermeldung ausgeben, die den Pfad unseres
+Skripts auf dem Server preisgibt.
+
+image:media/image4.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild484.PNG,width=547,height=147]
+
+Mit diesen Angaben wissen wir nun, wie wir uns in das Wurzelverzeichnis
+des Servers hangeln können, um dort an die Datei _/etc/passwd_ zu
+gelangen, die alle Benutzerinforma­tionen des Systems enthält.
+
+image:media/image5.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild491.PNG,width=547,height=379]
+
+BILD 21.4 Ausgabe des Skripts nach der Pfadmanipulation
+
+Damit ein solcher Angriff auf Systemdateien erfolgreich ist, müssen bei
+der PHP-Konfiguration einige sicherheitsrelevante Optionen vergessen
+worden sein – so kann der Administrator durch Setzen des PHP-Parameters
+_open++_++basedir_footnote:[[.underline]#http://de3.php.net/manual/en/ini.core.php#]
+den Zugriff auf bestimmte Verzeichnisse beschränken (was im Übrigen auch
+bei einigen großen Hostern nicht der Fall ist). Jedoch könnte man in
+einem solchen Falle z. B. auch auf Datenbank-Konfigurationsdaten der
+jeweiligen Domain zugreifen und so Kontrolle über die Seite erlangen.
+
+Wie lässt sich also ein solcher Angriff abwehren?
+
+* Durch das Setzen des _open++_++basedir_ wird verhindert, dass bei der
+Attacke auch Systemdateien eingesehen werden können.
+* Durch das Erstellen einer Liste der tatsächlichen Dateien in dem
+jeweiligen Zielverzeichnis und den Abgleich mit dem übergebenen
+Parameter kann ein Ausbrechen aus dem Verzeichnis wirksam verhindert
+werden.
+
+==== Remote Code Execution
+
+Remote Code Executions zählen zu den GAU-Szenarien in der
+Sicherheitswelt. Bei diesem Angriffstyp wird es einem Angreifer
+ermöglicht, beliebigen eigenen Code auf der Website auszuführen, was
+gleichbedeutend mit der Übernahme der kompletten Kontrolle über den
+Webspace ist.
+
+Ein sehr gängiges Angriffszenario entsteht dabei durch die unzureichende
+Prüfung von Datei-Uploadfunktionen. Wird z.B. bei einer Funktion, die
+normalen Nutzern den Upload eines Profilbilds erlaubt, nicht darauf
+geachtet, dass wirklich nur Bilddateien hochgeladen werden können, kann
+ein Angreifer hier eine PHP Datei mit eigenem Schadcode hochladen, die
+er anschließend über seinen Browser aufrufen kann.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Neben dem Angriffsvektor "Uploadfunktion" gibt es noch viele weitere
+Methoden, um eigenen Code einzuschleusen und auszuführen. Zu den
+gängigen Fällen gehören dabei Object-Injection –Attacken, die im
+Zusammenhang mit der unserialize-Funktion von PHP auftreten (Faustregel:
+niemals Nutzereingaben an unserialize() weitergeben) oder in einer
+Abwandlung des oben genannten Directory-Traversal-Angriffs PHP-Code von
+externen Webseiten einbinden und ausführen. U .
+
+==== Cross-Site-Scripting
+
+Cross-Site-Scripting-Attacken, oder einfach nur kurz XSS, entstehen
+ebenfalls durch die unzureichende Validierung von Benutzereingaben. Ein
+Codebeispiel zu verwundbarem Code sähe zum Beispiel wie folgt aus.
+
+++<++?php
+
+$search = $++_++GET++[++'search'++]++;
+
+$db = JFactory::getDBO();
+
+$db-++>++setQuery("SELECT title FROM #++__++content WHERE title
+LIKE(%".$db-
+
+++>++quote($search)."%)");
+
+$results = $db-++>++loadObjectList();
+
+?++>++
+
+++<++p++>++Sie suchten nach ++<++?php echo $search ?++>++:++<++/p++>++
+
+++<++ul++>++
+
+++<++?php foreach ($results as $result): ?++>++
+
+++<++li++><++?php echo $result-++>++title ?++><++/li++>++
+
+++<++?php endforeach; ?++>++
+
+++<++/ul++>++
+
+Beim Aufruf mit einem entsprechenden Suchbegriff würde dabei eine Liste
+der Inhalte generiert werden, die den entsprechenden Begriff in der URL
+haben.
+
+image:media/image6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild781.PNG,width=547,height=239]
+
+BILD 21.5 Ausgabe der Suchergebnisse
+
+Was aber würde passieren, wenn wir ein wenig HTML bzw. JavaScript-Code
+in der URL hinterlegen und unseren Code in der für den Benutzer
+vertrauenswürdigen Umgebung der attackierten Seite ausführen lassen?
+
+Der übergebene Code wird auf der Seite ausgegeben und anschließend vom
+Browser ausgeführt, wodurch ein Popup erzeugt wird. Die gleiche
+Schwachstelle ließe sich aber auch ausnutzen, um z. B. einen
+++<++iframe++>++-Tag zu erzeugen, der von einer anderen Seite Schadcode
+für die Trojaner-Installation nachlädt, wodurch unsere Seite im
+Handumdrehen zur Virenschleuder wird.
+
+Nahezu alle Angriffe dieser Art lassen sich in Joomla! bereits durch
+Anwendung der korrekten Filter für JFilter vereiteln, wodurch bei
+konsequenter Nutzung der API XSS-Probleme die Ausnahme sein sollten.
+
+image:media/image7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild790.PNG,width=547,height=270]
+
+BILD 21.6 Erfolgreiche XSS-Attacke über einen URL-Parameter
+
+==== Cross-Site Request Forgery
+
+Eine Cross-Site Request Forgery, kurz CSRF, nutzt einen prinzipiell
+simplen Trick aus, um bestimmte Aktionen in der angegriffenen Software
+ausführen zu können. Dabei wird auf einer Seite, die der Administrator
+einer auf Joomla! basierenden Homepage besucht, Code hinterlegt, der ein
+Formular wie das folgende enthält.
+
+++<++form
+action="http://www.anzugreifendedomain.tld/administrator/index.php"
+method="post"++>++
+
+++<++input type="text" name="contactname" /++>++
+
+++<++input type="text" name="contactmail" /++>++
+
+++<++textarea name="contactmessage"++><++/textarea++>++
+
+++<++input type="hidden" name="option" value="com++_++users" /++>++
+
+++<++input type="hidden" name="username" value="voldemort" /++>++
+
+++<++input type="hidden" name="password" value="potter" /++>++
+
+++<++input type="hidden" name="email" value="attack@domain.tld" /++>++
+
+++<++input type="hidden" name="task" value="save" /++>++
+
+++<++input type="hidden" name="groups++[]++" value="8" /++>++
+
+++<++/form++>++
+
+Während der Administrator glaubt, er würde ein einfaches Kontaktformular
+ausfüllen und absenden, weist er in Wahrheit seinen Browser an, an die
+Joomla!-Installation, die unter _www.anzugreifendedomain.tld_ läuft, das
+Kommando zur Erstellung eines neuen Benutzers mit dem Namen „Voldemort“
+zu senden; dieser würde dann der Gruppe „Super-Administrator“ angehören.
+
+Voraussetzung wäre zwar, dass der Nutzer tatsächlich Administrator der
+entsprechenden Domain und beim Besuch des Kontaktformulars im Backend
+angemeldet ist, weshalb sich eine solche Attacke normalerweise nur für
+gezielte Angriffe eignet. Trotzdem geht eine reelle Gefahr von CSRFs
+aus, wie zahlreiche erfolgreiche Angriffe auf DSL-Router zeigen.
+
+Joomla! ist glücklicherweise von Haus aus gegen solche Angriffe
+geschützt. Bei der Generierung eines Formulars im Backend wird eine
+zufallsgenerierte Zeichenkette, das sog. Token, als verstecktes Feld im
+Formular hinterlegt und gleichzeitig in der Session des jeweiligen
+Benutzers gespeichert.
+
+image:media/image9.png[media/image9,width=548,height=374]
+
+BILD 21.7 Im Benutzerformular hinterlegtes Token
+
+Wird das Formular nun abgesendet, prüft Joomla!, ob das mitgesendete
+Token immer noch demjenigen entspricht, das in der Session hinterlegt
+ist – unterscheiden sich beide Tokens, so verweigert Joomla! den
+Zugriff. Da es für Angreifer nicht möglich ist, das aktuelle Token „im
+Voraus“ zu erraten, werden CSRF-Angriffe zuverlässig vereitelt.
+
+=== Sicherheitsmaßnahmen
+
+Bei den zahlreichen Bedrohungen, denen unsere Installation ausgesetzt
+ist, stellt sich schlussendlich die Frage, ob sich gewisse
+Vorsorgemaßnahmen treffen lassen, um einen Angriff schon von vornherein
+zu verhindern. Die Antwort wäre hier wohl ein „Jein“, denn mit absoluter
+Sicherheit lässt sich ein solcher erfolgreicher Angriff natürlich nie
+verhindern; aber es gibt einige Grundregeln, die erfolgreiche Angriffe
+zumindest deutlich erschweren.
+
+[width="100%",cols="30%,70%",]
+|===
+|Joomla!-kompatiblen Hoster nutzen |Durch die Auswahl des richtigen
+Hosters vermeiden Sie potenzielle Sicherheitslücken durch falsch
+gesetzte Verzeichnisrechte, suboptimale PHP-Einstellungen und schlechte
+Serverkonfigurationen. Außerdem verfügen spezialisierte Hoster über eine
+serverseitige Firewall, die Angriffe von außen filtert.
+
+|2-Faktor-Authentifizierung verwenden |Aktivieren Sie, wie in Kapitel
+18, Best Practices beschrieben, die 2-Faktor-Authentifzierung für Ihre
+Administratornutzer.
+
+|Sichere Passwörter |Die Verwendung eines sicheren Passworts für FTP,
+Datenbank und den Joomla!-Zugang ist eine der elementaren Maßnahmen zum
+Absichern der Installation. Ihr Passwort sollte mindestens zwölf Zeichen
+lang sein, aus Zahlen, Klein- und Großbuchstaben sowie Sonderzeichen
+(keine Umlaute!) bestehen.
+
+|Aktualisierungen einspielen |Aktualisieren Sie so schnell wie möglich
+den Joomla! Core sowie alle verwendeten Erweiterungen, falls eine neue
+Version erscheint. Oft werden dort sicherheitsrelevante Änderungen
+eingespielt. Angriffe auf diese neuen Lücken starten oft bereits 4-5
+Stunden nachdem das entsprechende Update veröffentlicht wurde – das ist
+somit der Zeitraum, der Ihnen für ein Update bleibt. Hierfür kann es
+hilfreich sein, den Joomla! Security
+Newsletterfootnote:[http://feeds.feedburner.com/JoomlaSecurityNews] und
+die Newsletter der Erweiterungsentwickler zu abonnieren sowie regelmäßig
+die Liste der bekannten, verwundbaren
+Joomla!-Erweiterungenfootnote:[http://vel.joomla.org] zu kontrollieren.
+
+|_.htaccess_-Schutz für den Administratorbereich |Legen Sie eine
+_.htaccess_-Datei mit Passwortschutz für den _/administrator_-Ordner an.
+
+| |
+
+|Löschen Sie ungenutzte Erweiterungen |Jede zusätzlich installierte
+Erweiterung bringt eigenen Code mit und erhöht damit die Angriffsfläche
+Ihrer Installation. Deinstallieren Sie daher Erweiterungen, die nicht
+mehr benötigt werden.
+
+|Prüfen Sie regelmäßig die Logdateien |Eine erfolgreich angegriffene
+Joomla!-Installation lässt sich häufig an Auffälligkeiten (sprunghafter
+Traffic-Zuwachs etc.) erkennen, weshalb Sie regelmäßig Ihre Logdateien
+und Statistiktools auswerten sollten.
+
+|Joomla! _.htaccess_ aktivieren |Aktivieren Sie die mitgelieferte
+_htaccess.txt_ durch Umbenennen in _.htaccess_, da dadurch einige
+Angriffe gefiltert werden.
+
+|Dateiuploads beschränken |Erlauben Sie nur vertrauenswürdigen Nutzern
+den Upload von Dateien auf Ihren Server und prüfen Sie sorgfältig,
+welche Dateitypen hochgeladen werden.
+|===
+
+Wer diese Regeln und Anweisungen beachtet, ist im Normalfall auf der
+sicheren Seite, sollte aber dennoch regelmäßig (mindestens einmal pro
+Woche) Sicherungen anlegen, um im Falle eines Falles die ursprüngliche
+Installation wiederherstellen zu können.
+
+==== Zwei-Faktor-Authenifzierung
+
+Eine weitere Sicherheitsmaßnahme ist die Aktivierung der sog.
+2-Faktor-Authentifzierung. Hinter diesem Begriff verbirgt sich die Idee,
+dass die Absicherung eines sensiblen Bereichs durch ein Passwort alleine
+nicht ausreichend ist, denn ein Passwort ist etwas dass man "nur" wissen
+muss - wird das Passwort einmal abgefangen oder mitgeschnitten, hat der
+Angreifer dieses Wissen kopiert und kann es beliebig weiterverwenden.
+
+Bei der 2-Faktor-Authentifzierung wird zum Faktor "Wissen" daher der
+Faktor "Haben" hinzugefügt, indem man den entsprechenden sensiblen
+Bereich an den physichen Besitz eines bestimmten Geräts bindet. Ohne
+dieses Gerät ist der Login dann nicht mehr möglich, selbst wenn man das
+Passwort weiß - und umgekehrt gilt natürlich auch, dass man sich nur mit
+dem Gerät nicht einloggen kann, da man das Passwort wissen muss.
+
+Joomla verfügt von Haus aus bereits über eine Unterstützung für diesen
+Authentifzierungs-Mechanismus, wobei zwei Typen von Geräten unterstützt
+werden:
+
+* Smartphones, auf denen die App _Authenticator_ von Google installiert
+ist
+* _YubiKeys_, eine Art USB-Stick des Herstellers Yubico
++
+Bei beiden Methoden werden auf dem jeweiligen Gerät, das je einem
+Benutzer zugewiesen ist, Einmal-Passwörter erzeugt, die an Joomla
+übergeben und durch Joomla beim jeweiligen Hersteller überprüft werden.
+Nach der Prüfung ist das jeweilige Passwort gewissermaßen entwertet,
+sodass ein Angreifer, selbst wenn er das Passwort z.B. über einen
+Trojaner abgreift, nicht nochmals zum Login verwenden kann.
++
+Um die Funktion in Joomla zu nutzen, muss im ersten Schritt in der
+Plugin-Übersicht das jeweilige 2-Faktor-Authentifzierungs für den
+Gerätetyp aktiviert werden. Anschließend kann im Profil des jeweiligen
+Benutzers der jeweilige Authentifzierungs-Typ aktiviert und die Kopplung
+mit dem Gerät vorgenommen werden. Dabei werden gleichzeitig auch
+Notfall-Passwörter generiert, die sicher verwahrt werden sollten und zum
+Login verwendet werden können, wenn das Gerät gestohlen oder defekt ist.
++
+image:media/image10.png[media/image10,width=548,height=297]
+
+Bild 21.8 Dialog zur Aktivierung der 2-Faktor-Authentifizierung
+
+Nach der Aktivierung fragt Joomla beim Login im Feld Sicherheitscode das
+jeweilige Authentifizierungs-Token ab, das vom Gerät generiert wird.
+
+image:media/image11.png[media/image11,width=548,height=196]
+
+Bild 21.9 Joomla-Login mit Dialog zur Abfrage des 2FA-Passworts
+
+=== Wie erkenne ich einen Hack?
+
+Woran erkenne ich nun, dass auf meiner Seite etwas schiefgelaufen und es
+einem Angreifer gelungen ist, eine erfolgreiche Attacke durchzuführen?
+Es ist aufgrund der Vielzahl von möglichen Angriffen schwer, hier
+allgemeine Aussagen zu treffen, ich möchte aber dennoch ein paar
+Beispiele für klassische Anzeichen eines Hacks benennen:
+
+* Ein sehr offensichtliches Anzeichen für einen Hack sind sog.
+Defacements (siehe Kapitel 21.1), bei denen die Seite durch das Logo des
+Hackers ersetzt wird.
+* Wenn solche Angriffe stümperhaft ausgeführt werden, kann es vorkommen,
+dass die Seite gar nicht mehr lädt und nur noch eine leere, weiße Seite
+erscheint.
+* Ein weiteres Anzeichen sind sprunghaft ansteigende Zugriffszahlen auf
+bestimmte Dateien oder Ordner sowie
+* ein Anstieg im Traffic-Verbrauch des Servers.
+* Bei Angriffen auf Nutzer-PCs z. B. über Lücken im Flash-Player warnen
+Virenscanner vor dem Besuch der eigenen Seite.
+* Google markiert Seiten, auf denen Schadcode gefunden wurde, in der
+Google Search Console
+footnote:[[.underline]#https://www.google.com/webmasters/tools/home?hl=de#].
+* Oft nutzen Angreifer einen iframe im Code der eigenen Seite zum
+Verteilen von Schadcode – der entsprechende Tag wird dabei zumeist in
+der _index.php_ von Joomla! oder vom verwendeten Template hinterlegt.
+
+Sollte einer dieser Punkte zutreffen, prüfen Sie dringend Ihre Seite
+und, falls der Verdacht sich bestätigt, machen Sie sich an die
+Beseitigung der Schäden, die ich im Folgenden beschreiben möchte.
+
+=== Was tun nach dem Hack?
+
+Wenn die eigene Joomla!-Installation gehackt worden ist, ist es
+notwendig, bestimmte Schritte durchzuführen, um die Gefahr für die
+Seitennutzer zu beseitigen, die Lücke zu schließen und anschließend den
+ursprünglichen Zustand der Seite wiederherzustellen. Dabei ist es
+unabdingbar, dass Sie *alle* folgenden Schritte ohne Ausnahme ausführen.
+
+[width="100%",cols="20%,35%,45%",]
+|===
+|Schritt |Erklärung |Vorgehensweise
+
+|Website offline nehmen |Damit keine weiteren Schäden an der eigenen
+Seite bzw. bei Besuchern der Seite entstehen, ist es unabdingbar, die
+Seite sofort vom Netz zu nehmen. Oft werden solche gehackten Seiten zum
+Versand von Spam oder zum Hosten von Phishing-Seiten genutzt, weshalb
+hier eine schnelle Reaktion gefragt ist. a|
+Am leichtesten ist es, über das Control-Panel des Hosters einen
+Passwortschutz (.htaccess) zu setzen.
+
+Informieren Sie zusätzlich auch Ihren Hoster über den Vorfall, damit
+dieser das Serversystem auf Einbrüche untersuchen kann.
+
+|Sicherheitslücke finden |Um eine erneute Infizierung der Seite zu
+verhindern, ist es nötig, die ausgenutzte Sicherheitslücke zu
+lokalisieren. a|
+Durchsuchen Sie die Logdateien des Servers nach auffälligen Einträgen,
+die auf einen Einbruch hindeuten können. Dadurch ist es im Regelfall
+möglich, die Lücke sowie den Zeitpunkt des Einbruchs zu lokalisieren.
+Helfen kann Ihnen dabei entweder Ihr Hoster oder ein entsprechender
+Dienstleister.
+
+Außerdem empfiehlt es sich, die Rechner aller Administratoren auf
+Trojaner und Viren zu prüfen, da auch das Ausspähen der FTP-Zugangsdaten
+ein gern genutzter Weg ist, um Zugang zur Seite zu erlangen.
+
+|Joomla!-Installation löschen |Oftmals hinterlassen Angreifer
+verschiedene versteckte Skripte (sog. Backdoors) in diversen
+Verzeichnissen und Dateien, um, falls die ursprüngliche Lücke
+geschlossen wurde, trotzdem noch Zugriff auf die Seite erlangen zu
+können. Es ist schwierig, alle diese Backdoors zu finden, weshalb die
+komplette Joomla!-Installation inklusive Datenbank gelöscht werden
+sollte. |Die Datenbank kann mittels phpMyAdmin geleert werden, die Daten
+werden mittels FTP gelöscht.
+
+|Sicherung wiederherstellen |Eine saubere Sicherung der Seite, die auf
+jeden Fall vor dem Einbruchszeitpunkt erstellt wurde, muss eingespielt
+werden. |Die Komplettsicherung der Seite, die z. B. mittels Akeeba
+Backup erstellt wurde, kann nun zurückgespielt werden, wodurch wir auf
+jeden Fall in einer Umgebung arbeiten, in welcher der Angriff noch nicht
+stattgefunden hat. Sollte kein eigenes Backup vorhanden sein, so kann es
+sich lohnen, beim Hoster nach einer entsprechenden Sicherung zu fragen,
+denn oftmals verfügen diese über separate Sicherungssysteme.
+
+|Lücke schließen |Durch das Schließen der Sicherheitslücke wird ein
+erneuter erfolgreicher Hack vermieden. |Die hier auszuführenden Schritte
+hängen von den Erkenntnissen ab, die wir beim Finden der
+Sicherheitslücke bekommen haben. Oft reicht es, bestimmte verwundbare
+Erweiterungen zu updaten oder zu deinstallieren.
+
+|Passwörter ändern |Da der Angreifer eventuell Kenntnis über die
+verwendeten Passwörter hat, müssen diese geändert werden. |Die
+Passwörter für die Datenbankverbindung, die Joomla!-Benutzer, die
+­FTP-Zugänge und, falls vorhanden, die im Backend hinterlegte
+Mailverbindung müssen beim Hoster geändert und anschließend in der nun
+sauberen Joomla!-Installation eingetragen werden.
+
+|Seite wieder freigeben |Abschließend kann die fertige Seite wieder für
+die Besucher freigegeben werden. |
+|===
+
+Durch dieses Vorgehen lässt sich eine erneute Infektion der Seite sehr
+zuverlässig verhindern und eine Gefährdung der Nutzer nahezu
+ausschließen.
+
+Die manuelle Bereinigung einer gehackten Seite, von der kein Backup
+vorliegt, ist ein relativ komplexer Prozess, der viel Erfahrung und
+Wissen benötigt. Kernidee ist dabei, hinterlegte Backdoors über typische
+Pattern ausfindig zu machen und zu entfernen. Ein überaus hilfreiches
+Tool, dass speziell für diesen Fall entwickelt wurde, ist der Dienst
+myjoomla.com, der ähnlich wie ein Joomla-Virenscanner arbeitet.
+Nichtsdestotrotz sollten Sie über fundierte Programmier- und
+Joomla-Kentnisse verfügen, um Schad- von Nutzcode unterscheiden zu
+können.

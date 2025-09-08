@@ -1,0 +1,77 @@
+{
+    "branch": "main",
+    "files": [
+        "book/contributors.adoc",
+        "book/toc.adoc",
+        "book/01-einleitung/cap01.adoc",
+        "book/02-ueber-joomla/cap02.adoc",
+        "book/03-einrichten/cap03.adoc",
+        "book/04-installation/cap04.adoc",
+        "book/05-grundlegendes-architektur/cap05.adoc",
+        "book/06-backend/cap06.adoc",
+        "book/07-inhalte-verwalten/cap07.adoc",
+        "book/08-navigationsstruktur/cap08.adoc",
+        "book/09-templatesystem/cap09.adoc",
+        "book/10-erweiterungen/cap10.adoc",
+        "book/11-benutzer-rechtevewaltung/cap11.adoc",
+        "book/12-template-overwrites/cap12.adoc",
+        "book/13-seo/cap13.adoc",
+        "book/14-mehrsprachigkeit/cap14.adoc",
+        "book/15-spezielle-erweiterungen/cap15.adoc",
+        "book/16-custom-fields/cap16.adoc",
+        "book/17-erweiterungen-erstellen/cap17.adoc",
+        "book/18-best-practices/cap18.adoc",
+        "book/19-online-gehen/cap19.adoc",
+        "book/20-performace-optimierungen/cap20.adoc",
+        "book/21-security/cap21.adoc",
+        "book/22-updates-migration/cap22.adoc"
+    ],
+    "formats": {
+        "pdf": {
+            "version": "web",
+            "index": true,
+            "toc": true,
+            "syntaxhighlighting": true,
+            "show_comments": false
+        },
+        "epub": {
+            "index": true,
+            "toc": true,
+            "epubcheck": true,
+            "embedded_fonts": [
+                "fonts/DejaVuSerif.otf",
+                "fonts/DejaVuSans-Bold.otf",
+                "fonts/hold/UbuntuMono-Bold.otf",
+                "fonts/hold/UbuntuMono-BoldItalic.otf",
+                "fonts/hold/UbuntuMono-Regular.otf",
+                "fonts/hold/UbuntuMono-Italic.otf"
+            ],
+            "syntaxhighlighting": true,
+            "show_comments": false
+        },
+        "mobi": {
+            "index": true,
+            "toc": true,
+            "embedded_fonts": [
+                "fonts/DejaVuSerif.otf",
+                "fonts/DejaVuSans-Bold.otf",
+                "fonts/hold/UbuntuMono-Bold.otf",
+                "fonts/hold/UbuntuMono-BoldItalic.otf",
+                "fonts/hold/UbuntuMono-Regular.otf",
+                "fonts/hold/UbuntuMono-Italic.otf"
+            ],
+            "syntaxhighlighting": true,
+            "show_comments": false
+        },
+        "html": {
+            "index": true,
+            "toc": true,
+            "syntaxhighlighting": true,
+            "show_comments": false,
+            "consolidate": false,
+            "consolidated": false
+        }
+    },
+    "theme": "oreillymedia/atlas_tech1c_theme",
+    "title": "Joomla Buch"
+}

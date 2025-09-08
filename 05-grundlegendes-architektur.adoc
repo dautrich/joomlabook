@@ -1,0 +1,3 @@
+[[05-grundlegendes-architektur]]
+
+include::book/05-grundlegendes-architektur/cap05.adoc[]

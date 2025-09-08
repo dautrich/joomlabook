@@ -1,0 +1,887 @@
+== Das Backend
+
+Nachdem nun die Grundbegriffe geklärt sind, können wir uns mit unserem
+neuen Werkzeug vertraut machen. Wir starten im _Backend_ unserer
+Joomla!-Installation, das wir unter _www.domain.tld/administrator_ (bzw.
+in der lokalen Umgebung unter
+_localhost:8888/projektname/administrator_) erreichen.
+
+=== Login
+
+Hier erwartet uns im ersten Schritt das Login-Formular des
+Administrationsbereichs, in dem wir unsere Benutzerdaten eintragen, die
+wir während der Installation eingegeben haben.
+
+Über den Parameter _Sprache_ könnten wir, falls gewünscht, eine
+alternative Sprache für den Administrationsbereich wählen, was
+insbesondere dann spannend wird, wenn Administratoren mit verschiedenen
+Nationalitäten eine gemeinsame Seite pflegen und damit das _Backend_ in
+ihrer jeweiligen Muttersprache nutzen wollen.
+
+image:media/image1.png[media/image1,width=548,height=336]
+
+BILD 6.1 Login-Bereich des Joomla!-Backends
+
+=== Grundaufbau und Kontrollzentrum
+
+Nach dem erfolgreichen Login gelangen wir zum _Kontrollzentrum_
+(_Control-Panel_) des Joomla!-_Backends_, das uns erlaubt, einige häufig
+ausgeführte Aufgaben mit nur einem Klick zu erreichen. Gleichzeitig
+eignet sich das Kontrollzentrum zur Erklärung des relativ einfach
+gehaltenen Grundaufbaus des _Backends_.
+
+image:media/image3.png[media/image3,width=548,height=404]
+
+BILD 6.2 Aufbau des Joomla!-Control-Panels
+
+[width="100%",cols="33%,67%",]
+|===
+|Markierung (siehe Bild 6.2) |Erläuterung
+
+|1 a|
+_Quick-Links_ zum schnellen Erreichen häufig benötigter Bereiche im
+Backend:
+
+* _Neuer Beitrag:_ Formular zum Hinzufügen eines neuen ­Beitrags
+* _Beiträge:_ Übersichtsliste aller existierenden Beiträge
+* _Kategorien:_ Übersichtsliste aller existierenden Kategorien
+* _Medien:_ Übersicht der auf Mediendateien auf dem Server
+* _Menüs:_ Liste der Menüs
+* {blank}
+* _Module:_ Modulverwaltung
+* _Benutzer:_ Liste der Benutzer
+* _Global:_ Globale Konfiguration für seitenweite Einstellungen
+* {blank}
+* {blank}
+* {blank}
+* _Templates:_ Verwaltung der Templates und Stile
+* _Sprachen:_ Sprachdatei- und Inhaltsprach-Verwaltung
+* _Erweiterungen installieren:_ Erlaubt es, neue Erweiterungen
+aufzuspielen
+* _Joomla! ist aktuell:_ Zeigt an, ob die jeweilige Joomla!-Version
+aktuell ist
+* _Alle Erweiterungen sind aktuell:_ Zeigt an, ob die verwendeten
+Dritterweiterungen aktuell sind
+
+|2 |Informationsbereich des Kontrollzentrums. Zeigt einige durch Module
+selbst konfigurierbare Informationen zur Joomla!-Installation. Ist nur
+im Kontrollzentrum sichtbar.
+
+|3 a|
+Allgemeiner Informationsbereich der Joomla!-Seite. Ist ständig sichtbar
+und zeigt:
+
+* Anzahl der im Frontend eingeloggten Benutzer (0 Besucher)
+* Anzahl der im Backend eingeloggten Benutzer
+* Anzahl der empfangenen Systemnachrichten des angemeldeten Nutzers
+* den Link _Vorschau_, der das Frontend der aktuellen Seite in einem
+neuen Tab öffnet
+* den Link _Abmelden_, der den aktuellen Benutzer aus dem
+­Administrationsbereich ausloggt
+
+|4 |Navigation des Backends
+
+|5 |Bereich der Backends, in dem Nachrichten des Systems eingeblendet
+werden, beispielsweise „Erfolgreich gespeichert“ oder „Beitrag
+gelöscht“. Im konkreten Beispiel ist die Bitte des Joomla-Projekts zu
+sehen, auf freiwilliger Basis anonymisierte Systemdaten zu erfassen, die
+den Entwicklern bei der Weiterentwicklung von Joomla helfen. Wenn Sie
+die Weiterentwicklung des Systems unterstützen wollen, wählen Sie hier
+„immer“. Die erfassten Statistiken sind frei
+abrufbar.footnote:[https://developer.joomla.org/about/stats.html]
+
+|6 |Nachinstallationshinweise werden nach der Neuinstallation bzw. einem
+Update von Joomla angezeigt und dienen dazu, wichtige Informationen bzw.
+Handlungsempfehlungen einzublenden. Per Klick auf den Button Hinweise
+anzeigen können diese Hinweise dann gelesen werden. Einige Hinweise sind
+dabei rein informativer Natur und können durch einen entsprechenden
+Klick als gelesen markiert werden, andere Hinweise enthalten konkrete
+Handlungsempfehlungen oder gar einen Button, der auf Knopfdruck
+Änderungen vornimmt.
+|===
+
+Von hier aus starten wir nun einen kleinen Rundgang durch die
+wichtigsten Seiten des Administrationsbereichs. Wir werden erst einmal
+nur einen kleinen Teil der Seiten näher kennenlernen, weil viele
+Bereiche nochmals im weiteren Verlauf des Buchs erklärt werden – für
+einen allgemeinen Überblick über die Funktionen sollte es jedoch
+reichen. Starten wir also im Menüpunkt _System_, der uns beim Mouseover
+die folgenden Optionen anbietet:
+
+* _Kontrollzentrum:_ zeigt das Kontrollzentrum, in dem wir uns gerade
+befinden
+* {blank}
+* _Konfiguration:_ zeigt die allgemeine Konfiguration der Joomla!-Seite
+* {blank}
+* _Globales_ _Freigeben:_ hebt den automatischen Schreibschutz von
+Joomla!-Inhalten wieder auf, der das Überschreiben von Änderungen eines
+anderen Administrators verhindern soll
+* _Cache leeren:_ leert den Zwischenspeicher, den Joomla! zur
+schnelleren Seitenauslieferung nutzt
+* _Abgelaufenen Cache leeren:_ entfernt Dateien, die unnötigerweise im
+Zwischenspeicher verblieben sind
+* _Systeminformationen:_ zeigt zahlreiche Informationen zur
+Joomla!-Installation, zur Serverumgebung, zu den Verzeichnisrechten und
+bietet die Ausgabe des PHP-Befehls phpinfo()
+* {blank}
+
+Wir ändern nun zuerst einige Einstellungen in unserer Joomla!-Seite und
+wechseln daher mit einem Klick auf System ++>++ Konfiguration in den
+allgemeinen Konfigurationsdialog.
+
+=== Allgemeine Konfiguration
+
+Der Konfigurationsdialog bietet die Möglichkeit, Einstellungen zu
+verändern, die für die gesamte Seite von Bedeutung sind und daher
+zentral gesteuert werden sollten. Sein Aufbau entspricht dem nahezu
+aller Joomla!-Erweiterungen im Backend. Er gliedert sich in die in Bild
+6.3 markierten Bereiche.
+
+image:media/image5.png[media/image5,width=548,height=359]
+
+BILD 6.3 _Allgemeine Konfiguration_ der Joomla-Seite, Reiter _Site_
+
+[width="100%",cols="34%,66%",]
+|===
+|Markierung (siehe Bild 6.3) |Erläuterung
+
+|1 |Icon und Bezeichnung des gerade aktiven _Backend_-Bereichs
+
+|2 |Werkzeugleiste (_Toolbar_) mit, je nach _Backend_-Bereich,
+unterschiedlichen Optionen wie _Speichern_, _Speichern & Schließen_,
+_Abbrechen_, _Löschen_ etc.
+
+|3 |Unternavigation des gerade aktiven _Backend_-Bereichs, der dem
+Nutzer ­oftmals den Umweg über die _Backend_-Navigation erspart
+
+|4 |Ausgabebereich des jeweiligen _Backend_-Bereichs
+|===
+
+Während sich die Ausgabe, in Abhängigkeit vom jeweiligen
+Administrationsbereich, ändert, bleibt die grundsätzliche Aufteilung
+erhalten, sodass die Nutzer stets ein einheitliches Benutzerinterface
+vorfinden.
+
+Im konkreten Fall finden wir nun, wie bereits erwähnt, zahlreiche
+Konfigurationsoptionen, die sich in vier Reiter (_Site, System, Server,
+Textfilter,_ _Berechtigungen,_) aufteilen und die über die _Tabs_ (siehe
+Bild 6.3, Markierung 4, oberer Rand) aufgerufen werden können. Die im
+Reiter _Site_ zur Verfügung stehenden Parameter sind in der Tabelle 6.1
+aufgelistet und bieten viele spannende Möglichkeiten, die auch beim
+Mouseover des jeweiligen Parameternamens nochmals erklärt werden.
+
+TABELLE 6.1 Konfigurationsparameter des Reiters _Site_
+
+[width="100%",cols="34%,66%",]
+|===
+|Parameter |Erklärung
+
+|Website |
+
+|Name der Website |Der Name der Website wird an verschiedenen Stellen
+der ­Website genutzt (Titel der Offline-Seite, Titel des
+Administrationsbereichs) und wurde bereits während der Installation
+vergeben.
+
+|Website offline |Joomla! bietet die Möglichkeit, die Seite z. B. für
+Updates oder größere Anpassungsarbeiten, die ohne die neugierigen Augen
+der Besucher erfolgen sollen, offline zu schalten.
+
+|Offline-Text |Sollte sich die Seite im Offline-Modus befinden, so wird
+einem Besucher entweder gar kein Text (_Verbergen_), ein eigener Text
+(_Eigenen Text benutzen_) oder ein _Standardtext_ angezeigt.
+
+|Eigener Text |Hier kann der _eigene Text_ für den Offline-Modus
+eingegeben werden. HTML-Tags sind dabei erlaubt.
+
+|Offline-Bild |Bild, das auf der Offline-Seite unserer Installation
+angezeigt wird
+
+|Bearbeitungsicons für |Joomla! unterstützt die Bearbeitung von
+bestimmten Seiteninhalten (konkret: Module, Menüs und Beiträge) über das
+Frontend der Seite. Über diesen Parameter kann bestimmt werden, ob die
+Bearbeitungsfunktion nur für Menüs, nurfür Module oder für beide
+Inhaltsarten aktiviert werden soll.
+
+|Editor |Joomla! bietet zur Textbearbeitung verschiedene Editoren, die
+hier für alle Nutzer gesetzt werden können.
+
+|Standard Captcha |Zu verwendendes _Captcha_-Bild zur Verhinderung von
+Spam-Absendungen
+
+|Standard Zugriffsebene |Setzt die standardmäßige _Zugriffsebene_ für
+neue Inhalte, ­Menüpunkte und Module (siehe Kapitel 11.3,
+„Zugriffsebene“)
+
+|Standard Listenlänge |Gibt an, wie viele Einträge standardmäßig in den
+Listenansichten des Administrationsbereichs zur Verfügung stehen sollen
+
+|Standard Feedlänge |Anzahl der _Beiträge_, die in den durch Joomla!
+generierten RSS- und Atom-Feeds abrufbar sein sollen
+
+|Feed-E-Mail |In RSS- und Atom-Feeds kann eine Autor-E-Mail-Adresse
+angegeben werden. Über diesen Parameter wird gesteuert, ob im Feed
+garkeine Adresse, die Mailadresse des jeweiligen Autors oder die
+allgemeine Mailadresse der Seite angegeben wird, wobei entweder „keine“
+oder „Website-E-Mail“ zu empfehlen ist, damit die (unter Umständen
+private) Mailadresse des Autors nicht versehentlich öffentlich wird.
+
+|Globale Meta-Daten |
+
+|Meta-Beschreibung |Meta-Beschreibung für Seiten, die keine eigene,
+separate Meta-Beschreibung zugewiesen bekommen haben
+
+|Meta-Schlüsselwörter |Meta-Keywords für diejenigen Seiten, denen keine
+separaten Keywords zugewiesen wurden
+
+|Robots |Beeinflusst, ob und wie Suchmaschinen (robots) die jeweilige
+Seiten einlesen dürfen.
+
+|Inhaltsrechte |Generiert den Tag ++<++meta name="rights" /++>++, der
+für die Angaben der Lizenz für Inhalte genutzt wird
+
+|Autor-Meta-Tag anzeigen |Steuert die Einblendung des Tags ++<++meta
+name="author" /++>++
+
+|Joomla!-Version anzeigen |Gibt die jeweilige Joomla-Version im
+generator-Tag des HTML-Codes aus – unter Sicherheitsgesichtspunkten
+nicht zu empfehlen.
+
+|Suchmaschinenoptimierung (SEO) |
+
+|Suchmaschinenfreundliche URL |Joomla! bietet die Möglichkeit, URLs für
+Menschen und Suchmaschinen lesbarer zu gestalten. Diese Funktion wird
+über diesen Parameter aktiviert (siehe Kapitel 13.2, „SEF URLs“).
+
+|URL-Rewrite nutzen |Nutzt die URL-Rewriting-Funktionen des Webservers
+(falls unterstützt). Details siehe Kapitel 13.2, „URL-Rewriting“.
+
+|Dateiendung an URL anfügen |Fügt eine zum Dokumententyp passende Endung
+an die URL an
+
+|Unicode-Aliasse |Umlaute und Sonderzeichen in den URLs erlauben oder
+­umwandeln (ä = ae)
+
+|Seitenname auch im Titel |Fügt den Seitennamen (s. o.) zum
+++<++title++>++-Tag hinzu
+
+|Cookies |
+
+|Domaincookie |Ermöglicht es, das Sitzungscookie auf eine bestimmte
+Domain zu beschränken
+
+|Cookie-Pfad |Ermöglicht es, das Sitzungscookie auf einen bestimmten
+Pfad zu beschränken
+|===
+
+Wir nutzen die günstige Gelegenheit und ändern einen Parameter des
+_Site_-Reiters, der standardmäßig leider nicht optimal vorkonfiguriert
+ist. Dafür setzen wir den Parameter _Standard-Listenlänge_ auf den Wert
+„100“, um bei der späteren Administration nicht ständig manuell auf die
+nächste Seite einer Listenansicht wechseln zu müssen.
+
+Nun wechseln wir zum Reiter _System_ und betrachten erneut die zur
+Verfügung stehenden Parameter in Tabelle 6.2.
+
+TABELLE 6.2 Konfigurationsparameter des Reiters _System_
+
+[width="100%",cols="32%,68%",]
+|===
+|Parameter |Erklärung
+
+|System |
+
+| |
+
+|Protokollverzeichnis |Verzeichnis zur Speicherung von
+Joomla!-spezifischen Log­dateien
+
+|Hilfeserver |Server, der für die Anzeige integrierter Hilfe-Dateien
+genutzt wird
+
+|Fehlersuche (Debug) |
+
+|System debuggen |Gibt verschiedene Informationen aus, die Entwicklern
+bei der Fehlerbehebung helfen
+
+|Sprache debuggen |Markiert Systemausgaben, die noch nicht in
+Sprachdateien übersetzt wurden. Relevant für Entwickler.
+
+|Zwischenspeicher (Cache) |
+
+|Cache-Speicher |Auswahl der Zwischenspeichermethoden
+
+|Pfad zum Cache-Ordner |Gibt den absoluten Pfad zu dem Ordner an, den
+Joomla für das Datei-Caching verwendet.
+
+|Cache-Dauer |Steuert, wie lange Inhalte im Zwischenspeicher erhalten
+bleiben sollen
+
+|Plattformspezifischer Cache |Joomla kann für jede Plattform (konkret:
+für jeden User-Agent) einen eigenen Cache erstellen – damit lassen sich
+Seiten, die z.B. über eine hardcodierte Weiche für Mobilgeräte verfügen,
+für die unterschiedlichen Geräte in der jeweiligen Version cachen.
+
+|Cache |Steuert die Zwischenspeicherung der Joomla! Seite zur
+schnelleren Auslieferung (siehe Kapitel 20.1.3, „Integriertes
+Joomla!-Caching“)
+
+|Sitzung (Session) |
+
+|Sitzungsspeicher |Auswahl der Methode zur Speicherung der
+Session-Informationen
+
+|Sitzungslänge |Zeitraum, nachdem ein inaktiver Benutzer automatisch
+abgemeldet wird
+
+|Geteilte Session |Falls aktiviert, wird ein Nutzer, der sowohl über
+Frontend- auch als über Backend-Rechte verfügt, automatisch in beiden
+Seitenbereichen angemeldet, egal ob der Login über das Front- oder
+Backend erfolgt.
+|===
+
+Auch hier passen wir einen wichtigen Parameter an, der uns andernfalls
+viele Nerven bei der Administration kosten würde. Da Joomla! einen
+Benutzer auch dann als „inaktiv“ wahrnimmt, wenn er z. B. bei der
+Eingabe eines komplexen Texts längere Zeit auf einer Seite verweilt,
+kommt es bei der standardmäßigen _Sitzungslänge_ von 15 Minuten oftmals
+zu Situationen, in denen ein Administrator unbeabsichtigt abgemeldet
+wird und dabei seine Änderungen verliert. Daher tragen wir hier einen
+passenden Wert, z.B.„90“ ein.
+
+image:media/image7.png[media/image7,width=548,height=336]
+
+BILD 6.4 Allgemeine Konfiguration, Reiter _System_
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Die Option „Sitzungslänge“ ist sicherheitsrelevant! Bitte
+wählen Sie hier einen Wert, der nicht größer ist als die maximal
+denkbare Bearbeitungspause, die vorkommen könnte. Sehr große Werte (z.B.
+mehrere Tage oder gar Woche und Monate) führen dazu, dass der
+automatische Logout aus dem Backend nicht mehr greift und es Angreifern
+gelingen kann, die Sitzung (und damit die Seite) zu übernehmen.
+|===
+
+Der nächste Reiter, der zahlreiche Parameter beeinflusst, die sich auf
+die Systemumgebung beziehen, nennt sich _Server_ und ist wiederum über
+die Tabs zu erreichen.
+
+Die verfügbaren Parameter, aufgelistet in Tabelle 6.3, führen bei
+Fehlkonfigurationen dazu, dass die Joomla!-Installation im Extremfall
+nicht mehr ohne Weiteres funktionsfähig ist, und sollten daher mit
+Vorsicht verändert werden.
+
+TABELLE 6.3 Konfigurationsparameter des Reiters _Server_
+
+[width="100%",cols="27%,73%",]
+|===
+|Parameter |Erklärung
+
+|Server |
+
+|Tempverzeichnis |Verzeichnis zur Speicherung temporärer Daten,
+insbesondere zum Entpacken von Archiven bei der
+Erweiterungsinstallation. Muss daher beschreibbar sein.
+
+|GZIP-Komprimierung |Komprimierung der Ausgabe vor dem Transfer zum
+Nutzer (siehe Kapitel 20.3.1, „Aktivierung der GZIP-Komprimierung“)
+
+|Fehler berichten |Steuert, welche Fehlermeldungen durch PHP ausgegeben
+werden sollen
+
+|HTTPS erzwingen |Erzwingt die Nutzung des https-Protokolls im
+Administrationsbereich oder der gesamten Seite
+
+|Zeitzone |
+
+|Serverzeitzone |Festlegen der jeweiligen Zeitzone zur Ausgabe von Zeit-
+und Datumsinformationen
+
+|FTP |
+
+|FTP aktivieren |Nutzung des FTP-Modus (siehe Kapitel 4.1, „Installation
+in der lokalen Umgebung“)
+
+|Server |FTP-Server
+
+|Port |Port, auf dem der FTP-Server lauscht
+
+|Benutzername |Benutzer, der für die FTP-Verbindung genutzt wird
+
+|Passwort |Passwort der FTP-Verbindung
+
+|Root-Verzeichnis |Relativer Pfad der Joomla!-Installation auf dem
+FTP-Server
+
+|Proxy |
+
+|Proxyunterstützung |Erlaubt es, einen Proxyserver anzugeben, den Joomla
+dann für den Verbindungsaufbau nach außen, z.B. zum Abruf von Updates,
+nutzt.
+
+|Datenbank |
+
+|Typ |Typ der Datenbankanbindung
+
+|Server |Datenbankserver IP bzw. Hostname
+
+|Benutzer |Benutzer, der zum Aufbau der Datenbankverbindung genutzt wird
+
+|Datenbank |Name der Datenbank auf dem Datenbankserver
+
+|Präfix |Präfix der Datenbanktabellen
+
+|Mailing |
+
+|Mails senden |Steuert global, ob die Joomla-eigene Mailfunktion
+aktiviert oder deaktiviert ist.Vermeidet z.B. den unbeabsichtigten
+Mailversand in Testumgebungen.
+
+|Massenmail deaktivierten |Erlaubt die Funktion zum Versand von
+Infomails an alle Seitenbenutzer (siehe 6.4) zu Deaktivieren
+
+|Absenderadresse |E-Mail-Adresse, die als Absender bei Systememails
+gesetzt wird
+
+|Absendername |Name des Absenders von Systememails
+
+|Antwort-An-Adresse |E-Mail-Adresse die als „Antwort-An“ (Reply-To)
+Adresse von Systememails gesetzt wird
+
+|Antwort-An-Name |Name für die „Antwort-An“-Adresse
+
+|Mailer a|
+Wählt aus, welche Funktion zum Versand von E-Mails verwendet werden
+soll:
+
+* _PHP-Mail:_ integrierte Mailfunktion der PHP-Installation, Standard
+* _Sendmail:_ nutzt das UNIX-Programm sendmail zum Versand, benötigt die
+exec()-Funktion von PHP
+* _SMTP:_ nutzt einen frei konfigurierbaren SMTP-Server zum Versand.
+Alternative, wenn der in PHP integrierte Mailer nicht funktionsfähig
+ist.
+
+|Sendmailverzeichnis |Pfad zum Sendmail-Programm auf dem jeweiligen
+Webserver
+
+|SMTP-Authentifizierung |Falls der Versand mittels SMTP gewählt wurde,
+so kann über diesen Parameter eingestellt werden, ob der Server eine
+Authentifizierung erfordert.
+
+|SMTP-Sicherheit |Wahl der vom SMTP-Server unterstützten
+Verschlüsselungsmethode (SSL bzw. TLS)
+
+|Port |Port, auf dem der SMTP-Server auf Verbindungsversuche wartet
+
+|Benutzer |Benutzer, der zur Anmeldung am SMTP-Server verwendet werden
+soll
+
+|Passwort |Passwort, das zur Anmeldung genutzt werden soll
+
+|Server |Hostname oder IP-Adresse des SMTP-Servers
+|===
+
+Es gibt zwei Parameter, die unsere besondere Aufmerksamkeit erfordern,
+da sie standardmäßig nicht optimal eingestellt sind. Zunächst müssen wir
+die _Serverzeitzone_ an den Standort unserer Serverumgebung anpassen, da
+andernfalls Probleme bei der Datums- und Uhrzeitdarstellung entstehen
+würden.
+
+Außerdem empfiehlt es sich, die _Von E-Mail_-Adresse auf eine allgemeine
+Adresse wie _info@domain.tld_ zu setzen, da dort standardmäßig die bei
+der Installation verwendete, eventuell private E-Mail-Adresse des
+Administrators verwendet wird.
+
+image:media/image9.png[media/image9,width=548,height=440]
+
+BILD 6.5 Allgemeine Konfiguration, Reiter _Server_
+
+Anschließend wechseln wir zum Tab _Textfilter_, über den wir bestimmen,
+welche eingegebenen Informationen und Formatierungen aus einem
+Eingabefeld herausgefiltert werden sollen. Dabei ist es möglich, diese
+Zuordnung für jede _Benutzergruppe_ (=Filtergruppe) separat vorzunehmen.
+Das _Filterverfahren_ steuert aus, ob überhaupt kein HTML verwendet
+werden darf (_Kein HTML_), ob alle Tags verwendet werden dürfen (_Keine
+Filterung_) oder ob _Standard White_- bzw. _Blacklisten_ verwendet
+werden sollen, deren Filteroptionen gängige Angriffe verhindern. Zudem
+ist es auch möglich, _eigene Black_- bzw. _Whitelisten_ festzulegen,
+wofür die beiden Eingabefelder _Elemente filtern_ und _Attribute
+filtern_ genutzt werden.
+
+image:media/image10.png[media/image10,width=548,height=284]
+
+BILD 6.6 Konfiguration der Textfilter
+
+Dem verbleibenden Reiter _Berechtigungen_ widmen wir uns in einem
+späteren Kapitel (siehe 11.4, „Berechtigungen“) und übernehmen daher
+erst einmal unsere Änderungen durch einen Klick auf Speichern &
+Schliessen in der _Toolbar_.
+
+=== Massenmail
+
+Wir landen nun wieder im _Kontrollzentrum_ und betrachten den nächsten
+Obermenüpunkt „Benutzer“, der uns beim Mouseover die folgenden Optionen
+anbietet:
+
+* _Verwalten:_ Übersicht aller vorhandenen Benutzer
+* _Neuer Benutzer:_ Neuen Benutzer hinzufügen
+* _Gruppen:_ Übersicht der Benutzergruppen
+* _Neue Gruppe:_ Neue Benutzergruppe hinzufügen
+* _Zugriffsebenen:_ Auflistung der Zugriffsebenen
+* _Neue Zugriffsebene:_ Neue Zugriffsebene hinzufügen
+* _Benutzerhinweise:_ Erlauben uns, Notizen zu beliebigen Nutzern
+zuzuordnen, die anschließend von den anderen Administratoren betrachtet
+werden können
+* _Neue Hinweis:_ Neuen Hinweis zu einem Benutzer anlegen
+* _Hinweiskategorien:_ Erlaubt die Kategorisierung der Notizen
+* _Neue Kategorie:_ Neue Kategorie für Notizen anlegen
+* _Felder:_ Erlaubt die Verwaltung von Profilfeldern für Nutzer
+* _Feldgruppen:_ Erlaubt die Verwaltung der Gruppen, in der die Felder
+der Profile einsortiert werden
+* _Massenmail_ _an Benutzer:_ Dient zum Versand von E-Mails an die auf
+der Seite registrierten Benutzer
+
+Da der Benutzer-, Gruppen-, Rechteverwaltung ein eigenes Kapitel
+gewidmet ist (siehe Kapitel 11, „Benutzer- und Rechteverwaltung“),
+schauen wir uns erst einmal den Menüpunkt Massenmail an Benutzer an, den
+wir mittels Mausklick öffnen.
+
+Diese Funktion des Administrationsbereichs erlaubt es uns, E-Mails an
+bestimmte _Benutzergruppen_ zu versenden, um beispielsweise über
+anstehende Wartungsarbeiten und damit verbundene Offline-Zeiten zu
+informieren.
+
+image:media/image13.png[media/image13,width=548,height=256]
+
+BILD 6.7 Massenmail-Funktion des Administrationsbereichs
+
+Dafür wählen wir zuerst in der linken Spalte im _Details_-Bereich die
+Gruppe aus, an die wir unsere E-Mail versenden wollen. Leider ist dabei
+keine Mehrfachauswahl möglich, wir können jedoch über die Checkbox
+_E-Mail an Untergruppen_ auch Benutzer in den Versand mit einbeziehen,
+die Untergruppen der gewählten Gruppe zugeordnet sind. Die Zuordnung der
+Gruppen zueinander wird dabei über die unterschiedliche Einrückung
+veranschaulicht.
+
+In der rechten Spalte können wir nun Betreff und Text unserer E-Mail
+vergeben und dafür, falls wir den Parameter _Als HTML versenden_ gewählt
+haben, beliebige HTML-Tags verwenden.
+
+Die fertige Nachricht lässt sich über einen Klick auf den Button
+_Senden_ abschicken, der sich in der _Toolbar_ befindet.
+
+=== Menü: Menüs und Inhalte
+
+Die nächsten beiden Obermenüpunkte heißen _Menüs_ und _Inhalt_ und
+bilden die Bereiche zur Verwaltung von Menüpunkten und Inhalten ab. Da
+wir auch diesen beiden Menüpunkten eigene Kapitel widmen, wollen wir für
+den Moment nur kurz aufzeigen, welche Möglichkeiten sich hier bieten.
+
+Der Navigationspunkt _Menü_ bietet beim Mouseover die folgenden
+Möglichkeiten:
+
+* _Verwalten:_ Auflistung aller erstellten Menüstrukturen
+* _Neues Menü:_ Neue Menüstruktur anlegen
+* Alle Menüeinträge: Zeigt alle Menüeinträge an, unabhängig vom
+zugeordneten Menü
+* _Main Menu:_ Listet die Menüeinträge des standardmäßig angelegten
+Menüs _Main Menu_ auf
+* _Neuer Menüeintrag:_ Legt im Menü _Main Menu_ einen neuen Menüeintrag
+an
+
+Der Menüpunkt _Inhalt_ beinhaltet diverse Optionen rund um die
+Beitragsverwaltung:
+
+* _Beiträge:_ Auflistung aller auf der Seite vorhandenen Beiträge
+* _Neuer Beitrag:_ Öffnet das Formular zum Hinzufügen eines neuen
+Beitrags
+* _Kategorien:_ Listet die Kategorienstruktur der Seite auf
+* _Neue Kategorien:_ Erstellt eine neue Kategorie
+* _Felder:_ Verwaltet die Zusatzfelder, die für die Inhaltsverwaltung
+angelegt wurden
+* _Feldgruppen:_ Verwaltet die Gruppen, in denen die Felder sortiert
+sind.
+* _Haupteinträge:_ Listet die Beiträge auf, die als _Haupteinträge_
+markiert sind
+* _Medien:_ Verwaltet hochgeladene Mediendateien
+
+Wir wollen uns nun dem Menüpunkt _Medien_ widmen, den wir per Klick
+öffnen.
+
+=== Medienverwaltung
+
+image:media/image15.png[media/image15,width=548,height=187]
+
+BILD 6.8 Standardansicht der Medienverwaltung in einer leeren
+Joomla!-Installation
+
+Die in Joomla! integrierte _Medienverwaltung_ bietet rudimentäre
+Funktionen zum Upload von Bild- und Office-Dateiformaten, die in einer
+frei konfigurierbaren Ordnerstruktur abgelegt und anschließend an
+verschiedenen Stellen des Systems verwendet werden können.
+
+Die Medienverwaltung verfügt in der aktuellen Version leider nur über
+einen sehr eingeschränkten Funktionsumfang und bietet daher auch keine,
+in anderen CMS üblichen, integrierten Funktionen zur Manipulation
+(Beschneidung, Verkleinerung, Thumbnail-Erstellung etc.) von
+hinterlegten Bildern.
+
+Wir wollen den Medien-Manager aber dennoch nutzen, um die grundlegende
+Datei- und Ordnerstruktur unserer Dateien anzulegen und ein Beispielbild
+hochzuladen. Dafür legen wir zuerst einen entsprechenden Beispielordner
+an, was durch Angabe des entsprechenden Ordnernamens im Eingabefeld
+unter der Dateiübersicht und einen anschließenden Klick auf Neues
+Verzeichnis erstellen geschieht. Daraufhin erscheint der neu angelegte
+Ordner sowohl in der linken Spalte des Medien-Managers, der als
+Ordner-Browser fungiert, als auch in der rechten Spalte des Browsers, wo
+er mit einem entsprechend großen Icon versehen wurde (siehe Bild 6.9).
+
+image:media/image17.png[media/image17,width=548,height=211]
+
+BILD 6.9 Anlegen eines neuen Ordners im Medienverzeichnis
+
+Nun wechseln wir in den gerade erstellten Ordner, indem wir auf das Icon
+bzw. den Ordnernamen in einer der beiden Spalten klicken. Dieser ist
+erwartungsgemäß leer, weshalb wir für unsere weitere Arbeit erst ein
+neues Bild hochladen müssen. Dies geschieht im _Datei hochladen_-Bereich
+in der rechten Spalte des Medien-Managers. Dort können wir mittels Klick
+auf den Datei auswählen-Button eine _.jpg-_, _.bmp-_, _.gif-_ oder
+_.png_-Datei auf unserer lokalen Festplatte wählen und diese Datei
+anschließend durch einen Klick auf _Hochladen starten_ zum zuvor
+erstellten und selektieren Verzeichnis hinzufügen.
+
+image:media/image19.png[media/image19,width=548,height=176]
+
+BILD 6.10 Upload einer Datei in den Medien-Manager
+
+Die hochgeladene Datei erscheint nun im Dateibrowser (rechte Spalte) und
+könnte als Bild in verschiedenen Bereichen der Administration verwendet
+werden. Diesen erfolgreichen Schritt bestätigt uns das System auch durch
+die Ausgabe einer entsprechenden Statusmeldung über der eigentlichen
+Ausgabe des Medien-Managers.
+
+Das Löschen einer Datei oder eines Ordners erfolgt entweder über das
+mittels Pfeil markierte Icon in Bild 6.11 oder durch Selektion der
+Checkboxen beim entsprechenden Datei-Icon in der Detailansicht
+(Einzuschalten oberhalb der Bildüberischt) und Anklicken des
+_Löschen_-Buttons in der Toolbar. Wir behalten das gerade hochgeladene
+Bild aber erst einmal, da wir es im späteren Verlauf nochmals verwenden
+wollen.
+
+image:media/image21.png[media/image21,width=548,height=169]
+
+BILD 6.11 Bild nach dem erfolgreichen Hochladen; Löschen des Bildes über
+das markierte Icon
+
+image:media/image22.png[media/image22,width=548,height=179]
+
+BILD 6.12 Löschen eines oder mehrerer Bilder über Selektion der
+entsprechenden Checkbox und ­anschließenden Klick auf _Löschen_ in der
+Toolbar
+
+Standardmäßig ist der Upload von Dateien mit einer Maximalgröße von 10
+MB vorgesehen. Was aber, wenn wir größere Dateien hochladen müssen oder
+die Größe der Dateien beschränken wollen? Dafür bietet die
+Medienverwaltung, wie fast jede Joomla!-Erweiterung, einige
+Konfigurationsmöglichkeiten, die über einen Klick auf das Icon
+_Optionen_ am rechten Rand in der Toolbar des jeweiligen Bereichs
+geöffnet werden. Es gibt also, im Unterschied zu Systemen wie _MODx_,
+keinen zentralen Konfigurationsbereich für alle installierten
+Erweiterungen und Funktionen, sondern die entsprechenden Einstellungen
+werden direkt im _Optionen_-Dialog der jeweiligen Komponente
+vorgenommen.
+
+Der Klick auf den entsprechenden Toolbar-Button bringt uns nun in den
+Konfigurationsbereich mit den in Tabelle 6.4 erläuterten Parametern.
+
+TABELLE 6.4 Parameter der Medienverwaltung
+
+[width="100%",cols="34%,66%",]
+|===
+|Parameter |Erklärung
+
+|Erlaubte Dateiendungen |Allgemeine, erlaubte Dateiendungen beim Upload
+von Dateien aller Art
+
+|Max. Größe (in MB) |Maximalgröße der hochgeladenen Dateien
+
+|Dateiverzeichnis-Pfad |Relativer Pfad, in dem die Dateien des
+Medien-Managers ­gespeichert werden sollen
+
+|Bildverzeichnis-Pfad |Relativer Pfad, in dem Dateien gespeichert werden
+sollen, die der Medien-Manager im „Nur Bilder“-Modus hochlädt
+
+|Upload blockieren |Blockiert den Upload für Nutzer, die nicht
+mindestens den ­Benutzerstatus _Publisher_ innehaben, wenn aufgrund der
+Serverumgebung der Inhalt einer Datei nicht zweifelsfrei festgestellt
+werden kann.
+
+|Dateitypen überprüfen |Prüft die hochgeladenen Dateien mit der
+PHP-Erweiterung ­__Fileinfo__ bzw. _MIME Magic_, um zu verhindern, dass
+Dateien mit einer gefälschten Dateiendung hochgeladen werden
+
+|Erlaubte Bildendungen |Erlaubte Dateiendungen im „Nur Bilder“-Modus
+
+|Ignorierte Dateiendungen |Dateiendungen, deren Dateityp nicht auf
+Fälschungsversuche hin überprüft werden soll
+
+|Erlaubte Dateitypen |Kommagetrennte Liste der erlaubten MIME-Typen
+
+|Verbotene Dateitypen |Kommagetrennte Liste der verbotenen MIME-Typen
+
+| |
+|===
+
+Dem aufmerksamen Leser wird aufgefallen sein, dass die Medienverwaltung
+zwei verschiedene Pfadangaben in den Optionen zur Konfiguration
+anbietet: den _Dateiverzeichnis-Pfad_ und den _Bildverzeichnis-Pfad_.
+Diese im ersten Moment verwirrende Unterscheidung entsteht dadurch, dass
+der Medien-Manager in zwei verschiedenen Betriebsarten genutzt wird. Der
+erste, gerade durch uns genutzte Modus ist der allgemeine
+„Datei-und-Bild“-Modus, in dem sowohl der Upload von allgemeinen Dateien
+als auch der Upload von Bildern möglich ist. Wird der Medien-Manager
+aber bei der Bearbeitung eines Beitrags (siehe Kapitel 7.2, „Inhalte
+erstellen“) aufgerufen, so ist der Upload auf Bilddateien beschränkt.
+Speziell für diesen Modus kann dann auch ein separates
+Upload-Verzeichnis durch den _Bildverzeichnis-Pfad_-Parameter angegeben
+werden.
+
+Wir nutzen unseren Besuch im Konfigurationsdialog dafür, die von einigen
+Grafikprogrammen ausgegebene Dateiendung .jpeg zur Liste der _erlaubten
+Bildendungen_ hinzuzufügen, und verlassen den Dialog anschließend durch
+einen Klick auf den Button Speichern & Schliessen in der oberen Leiste
+des Konfigurationsdialogs.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Insbesondere im professionellen Bereich hat das Vektor-basierte
+Grafikformat SVG eine zunehmende Verbreitung. Leider unterstützt Joomla
+3.7 das Hochladen von SVGs über den Medien-Manager nicht, da SVGs
+aufgrund ihrer technischen Eigenschaften als potenzielles
+Sicherheitsrisiko gelten und daher von einem Sicherheitsmechanismus
+geblockt werden. In Joomla 3.8 soll der Upload zumindest für
+Administratoren möglich sein, bis dahin gilt es alternative Lösungen wie
+einen FTP-Upload oder entsprechende Editor-Erweiterungen (Stichwort JCE,
+siehe Kapitel 15) zu nutzen.
+|===
+
+image:media/image25.png[media/image25,width=548,height=315]
+
+BILD 6.13 Konfigurationsdialog der Medienverwaltung
+
+=== Menü: Komponenten
+
+Nachdem wir unser erstes Bild hochgeladen haben, wollen wir mit unserem
+Rundgang fortfahren. Als nächsten Menüpunkt der Administration finden
+wir den Punkt „Komponenten“, der beim Mouseover, wie bereits zuvor die
+anderen Menüpunkte, einige Optionen zur Verfügung stellt:
+
+* _Banner:_ Komponente zur Verwaltung von Werbeanzeigen
+* _Banner:_ Verwaltung der Anzeigen
+* _Kategorien:_ Verwaltung der Anzeigenkategorien
+* _Kunden:_ Verwaltung der Anzeigenkunden
+* _Statistiken:_ Statistik über die Anzahl der Klicks je Anzeige,
+Kategorie und Kunde
+* __Joomla-Aktualisierung:__In Joomla integrierter Mechanismus zum
+Updaten der Installation auf neue Versionen.
+* _Kontakte:_ Verwaltung von Kontaktformularen
+* _Kontakte:_ Verwaltung der einzelnen Kontakte
+* _Kategorien:_ Verwaltung der Kontakt-Kategorien
+* _Übersetzungs-Verknüpfungen:_ Dient zur Verwaltung und Verknüpfung von
+Inhalten auf mehrsprachigen Seiten
+* _Nachinstallationshinweise:_ Zeigt wichtige Hinweise und
+Handlungsempfehlungen an, die nach einer Neuinstallation bzw.
+Aktualisierung von Joomla auftreten.
+* _Nachrichten:_ Schreiben und Empfangen von systeminternen Nachrichten
+* _Nachricht schreiben:_ Nachricht an anderen Benutzer verfassen
+* {blank}
+* _Newsfeeds:_ Komponente zur Anzeige externer Newsfeeds auf der eigenen
+Seite
+* _Feeds:_ Verwaltung der RSS- und Atom-Feeds
+* _Kategorien:_ Verwaltung der Feed-Kategorien
+* _Suchindex:_ ermöglicht die Konfiguration der verbesserten
+Suchfunktion _Suchindex_
+* _Suche:_ ermöglicht die Auswertung von Suchanfragen, die über die
+_Standard-Suche_ ausgeführt werden
+* _Umleitungen:_ ermöglicht die Erstellung von Weiterleitungen, z. B. um
+eine alte URL-Struktur zu ersetzen
+* {blank}
+* {blank}
+* {blank}
+
+Die jeweiligen Funktionen beleuchten wir noch einmal intensiver in
+Kapitel 10.1 („Integrierte Erweiterungen“), weshalb uns an dieser Stelle
+ein kurzer Überblick reicht.
+
+=== Menü: Erweiterungen
+
+Der nächste Menüpunkt „Erweiterungen“ dreht sich rund um die
+Installation, Deinstallation, Aktualisierung und Konfiguration der
+zahlreichen installierten und verfügbaren Joomla!-Erweiterungen. Da wir
+auch diesem Thema ein eigenes Kapitel widmen (siehe Kapitel 10,
+„Joomla!-Erweiterungen“), wollen wir uns wieder nur einen kurzen
+Überblick verschaffen:
+
+* _Verwalten;_ Auflistung, Installation, Deinstallation und
+Aktualisierung der installierten Komponenten, Module, Plug-ins,
+Templates und Sprachdateien
+* _Installieren:_ Bietet diverse Installationswege für Erweiterungen
+* _Aktualisieren:_ Übersicht über die verfügbaren
+Erweiterungsaktualisierungen
+* _Verwalten:_ Erlaubt das Auflisten, Aktivieren, Deaktivieren und
+Deinstallieren von allen Erweiterungstypen
+* _Überprüfen:_ Prüft das Dateisystem auf Erweiterungen, die zwar im
+Dateisystem aber nicht in der Datenbank vorhanden sind
+* _Datenbank:_ Prüft die Datenbank auf ihre Integrität
+* _Warnungen:_ Zeigt mögliche Fehler an, die Erweiterungen verursachen
+* _Sprachen installieren:_ Erlaubt das Installieren von weiteren
+Sprachen über ein bequemes Interface
+* _Aktualisierungsquellen:_ Verwaltung der Aktualisierungsserver, von
+denen die Installation die Liste der verfügbaren Updates bezieht.
+* _Module:_ Verwaltung und Zuordnung der installierten Module
+* _Plugins:_ Verwaltung der installierten Plug-ins
+* _Templates:_ Verwaltung, Zuweisung und Konfiguration der installierten
+Templates
+* _Stile:_ Verwaltung der Templatestile
+* _Templates:_ Verwaltung der Basistemplates
+* _Sprachen:_ Verwaltung und Zuweisung der installierten Sprachdateien
+* _Installiert:_ Verwaltung der Systemsprachen
+* _Inhaltssprachen:_ Verwaltung der Sprachen, in der Inhalte vorliegen
+* _Overrides:_ Verwaltung der angepassten Sprachstrings
+
+=== Menü: Hilfe
+
+Das Hilfe-Menü besteht in erster Linie aus einer Sammlung verschiedener
+externer Links sowie der integrierten Hilfe-Funktion, die jedoch keine
+Inhalte lokal gespeichert hat, weshalb zur Nutzung eine
+Internet-Verbindung erforderlich ist:
+
+* _Joomla!-Hilfe:_ Integrierte Hilfsfunktion, lädt jedoch Inhalte vom
+Joomla!-Hilfe-Server, daher nur mit Internetverbindung nutzbar
+* _Offizielles Supportforum:_ Offizielles, englischsprachiges
+Supportforum _forum.joomla.org_
+* _Offizielles deutsches Forum:_ Deutschsprachiger Bereich von
+_forum.joomla.org_
+* _Dokumentationswiki:_ Umfassendes, gut gepflegtes Wiki
+* _Hilfreiche Joomla!-Links_
+* _Joomla!-Erweiterungen:_ Zentrales Erweiterungsverzeichnis
+* _Joomla!-Übersetzungen:_ Joomla!-Übersetzungszentrale
+* _Joomla!-Verzeichnis:_ Verzeichnis von Joomla!-Hostern und
+-Dienstleistern
+* _Community-Portal:_ Portal zur Community-Pflege mit regelmäßigen
+Blogposts
+* _Sicherheitszentrum:_ Website des Joomla! Security Teams
+* _Entwicklerverzeichnis:_ Verzeichnis zahlreicher Informationen für
+Entwickler
+* _Stack-Exchange:_ Joomla-Subseite bei Stackexchange.com
+* _Joomla-Shop!:_ Online-Shop für zahlreiche Merchandising-Materialien
+
+Viele der angegebenen Links sind überaus interessant, weshalb sich ein
+wenig schmökern durchaus lohnen kann.
+
+Damit wären wir am Ende unseres kleinen Rundgangs angelangt und steigen
+jetzt in den konkreten Teil unserer Arbeit ein: das Einpflegen unserer
+ersten Inhalte.

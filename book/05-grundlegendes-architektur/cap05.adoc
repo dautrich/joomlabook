@@ -1,0 +1,174 @@
+== Grundlegende Begriffe und Architektur
+
+Bevor wir nun mit dem Aufbau unserer Seite beginnen, möchte ich Ihnen
+zunächst einen kleinen Einblick in den Grundaufbau von Joomla! geben.
+
+=== Grundlegende Begriffe
+
+Wenn Sie als Neuling oder Quereinsteiger die Arbeit mit Joomla! in
+Angriff nehmen, werden Sie sich vermutlich mit einigen Begrifflichkeiten
+schwertun, da diese im Joomla!-_Administrationsbereich_ nicht
+ausführlich erklärt sind. Daher möchte ich, bevor wir mit der
+Einrichtung der Seite starten, erst einmal einige wichtige Begriffe
+klären.
+
+==== Backend/Frontend
+
+Das CMS Joomla! teilt sich in seiner aktuellen Version in zwei
+wesentliche Bereiche, die sich _Frontend_ und _Backend_ nennen. Das
+_Frontend_, also die „Vorderseite“ unseres Systems, ist dabei die
+eigentliche Website, die der Besucher der Seite mittels Browser aufruft.
+
+image:media/image2.png[media/image2,width=548,height=323]
+
+BILD 5.1 Frontend der in Kapitel 4.1 installierten Joomla!-Seite
+
+Als _Backend_ bezeichnet man den Administrationsbereich von Joomla!, der
+für die Verwaltung des Systems genutzt wird. Das Backend wird dabei über
+die separate URL _http://www.pfadzujoomla.de/adminstrator_ aufgerufen
+und ist erst nach dem Login mit einem entsprechenden Benutzernamen
+nutzbar. Prinzipiell ist es zwar auch möglich, einige administrative
+Aufgaben wie die Erstellung und Editierung von _Beiträgen_ aus dem
+Frontend zu erledigen, wichtige Optionen wie die Verwaltung von
+_Menüeinträgen_ bleiben jedoch dem Backend vorbehalten.
+
+image:media/image3.png[media/image3,width=548,height=387]
+
+BILD 5.2 Backend einer leeren Joomla!-Installation
+
+==== Komponenten, Module, Plug-ins und Templates
+
+Joomla! teilt seine *Erweiterungen* in vier verschiedene Typen:
+_Komponenten_, _Module_, _Plug-ins_ und _Templates_.
+
+* *Komponenten* sind komplexe, vollwertige Anwendungen, die eine eigene
+Administrationsoberfläche haben und eigene Inhalte verwalten und
+darstellen können. Die Ausgabe erfolgt dabei immer im
+Haupt-Ausgabebereich des verwendeten Templates. Vorinstallierte
+Komponenten sind z. B. die _Beitragsverwaltung_ oder
+_Weblinks_-Komponenten.
+* *Module* entsprechen dem Konzept der Widgets, die in vielen neueren
+Betriebssystemen Einzug gehalten haben und sich auch in einigen anderen
+CMS finden. _Module_ können an verschiedenen, vorgegebenen Stellen des
+verwendeten Templates eingeblendet werden und sind dabei lediglich für
+die Ausgabe von Informationen gedacht. Eingabemöglichkeiten (Formulare
+etc.) entstehen erst durch die Kombination mit _Komponenten_.
+* *Plug-ins* arbeiten in der Regel im Hintergrund und übernehmen dort
+verschiedene Aufgaben wie die Verarbeitung von Login-Vorgängen, das
+Durchsuchen von Inhalten bei Suchanfragen oder das Zur-Verfügung-Stellen
+des Editors. _Plug-ins_ können, anders als _Module_ und _Komponenten_,
+Inhalte nicht selber ausgeben, sondern nur bestehende Inhalte verändern.
+* *Templates* werden zur Gestaltung der Ausgabe von Joomla! genutzt. Es
+handelt sich dabei um leere „Design-Gerüste“, die bereits alle
+relevanten Formatierungen, Grafiken und Dateien enthalten, jedoch
+keinerlei eigene Inhalte mitbringen. Stattdessen arbeiten _Templates_
+mit Platzhaltern, die beim Aufruf der Seite durch die jeweiligen
+hinterlegten Inhalte ersetzt werden.
+
+==== Beiträge, Kategorien, Menüs
+
+Joomla! bringt ein integriertes System zur Verwaltung von sogenannten
+*Beiträgen* mit. Ein _Beitrag_ ist im simpelsten Fall ein einfacher
+Fließtext, es ist jedoch auch möglich, komplexere _Beiträge_ mit
+Bildern, Tabellen und Auflistungen zu erstellen.
+
+Um dabei eine gewisse Übersichtlichkeit in der _Beitragsverwaltung_
+beizubehalten, ist es möglich, _Beiträge_ mit dem integrierten
+*Kategoriensystem* in eine frei wählbare Baumstruktur einzusortieren. Es
+ist möglich, die Kategorien in unendlicher Tiefe miteinander zu
+verschachteln und dadurch beliebige Strukturen zu erzeugen.
+
+Wie könnte nun ein Beispiel für dieses etwas abstrakte System aussehen?
+Stellen wir uns vor, wir arbeiten an der neuen Website für einen
+Obstbauern, der verschiedene Arten von Obst (Äpfel, Birnen, Trauben
+etc.), anbaut und nun die einzelnen Sorten (Golden Delicious, Gala etc.)
+vorstellen möchte. Außerdem möchte er in einem kurzen, allgemeinen Text
+erklären, wie sich der Begriff „Obst“ definiert. In einem solchen Falle
+bietet es sich an, eine Kategorienstruktur zu schaffen, wie sie in Bild
+5.3 zu sehen ist.
+
+image:media/image5.jpeg[media/image5,width=344,height=258]
+
+BILD 5.3 Kategorien- und Beitragsstruktur
+
+Die verschiedenen Obstarten bilden also _Kategorien_, die einzelnen
+Sorten würden dann in Beiträgen beschrieben. Der allgemeine
+Definitionstext würde der Kategorie _Obst_ zugewiesen, da er ja weder
+einer einzelnen Obstart oder -sorte zugewiesen werden kann.
+
+So weit, so gut! Bisher ist die entsprechende Struktur logisch und in
+sich abgeschlossen. Schauen wir uns nun die gewünschte *Menüstruktur*
+unseres Bauern an:
+
+* Startseite
+* Was ist Obst?
+* Apfelsorten
+* Birnensorten
+* Traubensorten
+* Alle Sorten im Überblick
+
+Die _Menüstruktur_ arbeitet hier in nur einer Ebene (es gibt keine
+Untermenüpunkte), was scheinbar im Widerspruch zu unserer logisch
+aufgebauten Kategorienstruktur stehen würde. Das Besondere an Joomla!
+ist jedoch, dass dieser scheinbare Widerspruch eigentlich keiner ist, da
+_Menüstruktur_ und _Kategorienstruktur_ voneinander *unabhängig* sind!
+In diesem Punkt unterscheidet sich Joomla! von vielen anderen
+Content-Management-Systemen wie Typo3 und Contao, da diese mit einem
+Seitenbaum arbeiten, der gleichzeitig strukturgebend für Navigation und
+die Inhalte ist.
+
+Diese Trennung der beiden Strukturen ist insbesondere für unerfahrene
+Nutzer schwierig zu verstehen und wirkt umständlich, weshalb die
+Trennung in der kommenden Joomla!-Version 4.0 zumindest teilweise
+aufgehoben werden soll.
+
+=== Architektur
+
+Der zweite wichtige Schritt für ein rudimentäres Verständnis ist die
+Betrachtung der Joomla!-Architektur, welche Sie in Bild 5.4 sehen.
+
+image:media/image6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++5++\++Bild481.PNG,width=331,height=248]
+
+BILD 5.4 Schematische Darstellung des Systems
+
+==== Joomla!-Framework
+
+Das Joomla!-Framework ist ein objektorientiertes PHP-_Framework_ und
+enthält die Klassen und Funktionen für Datenbankanbindung,
+Formularvalidierung, Filterung von Nutzereingaben oder Bildmanipulation,
+die vom Joomla! CMS genutzt werden, und ist dadurch auch zugleich Basis
+für die Entwicklung eigener Erweiterungen. Es ist relativ gut
+dokumentiert und nutzt einige aktuelle Design-Patterns wie _MVC_ oder
+das _Factory_-Pattern.
+
+Mit der Veröffentlichung von Joomla! 1.7 ist das Framework in ein
+eigenständiges, separat vom CMS entwickelte Projekt ausgelagert worden
+und soll sich dadurch zu einem vollwertigen, unabhängig vom CMS
+lauffähigen _Web-Application-Framework_ entwickeln.
+
+Die Plattform wird im gleichnamigen Github-Projekt unter
+[.underline]#https://github.com/joomla-framework# entwickelt.
+
+image:media/image8.png[media/image8,width=548,height=341]
+
+BILD 5.5 Github-Projekt der Joomla!-Plattform
+
+==== Joomla!-CMS
+
+Das Joomla!-_CMS_ stellt das allgemeine _Front_- und _Backend_ zur
+Verfügung, das wir zum Aufbau unserer Seite benötigen, und sorgt dafür,
+dass die verschiedenen Erweiterungen ineinandergreifen bzw. an der
+entsprechenden Stelle geladen werden. Es ist also der Kern des ansonsten
+modular aufgebauten Systems. Die Entwicklung erfolgt im eigenen
+Github-Projekt, das unter
+[.underline]#https://github.com/joomla/joomla-cms# zu finden ist.
+
+==== Erweiterungen
+
+Die diversen Erweiterungen (_Module, Plug-ins, Komponenten etc_.)
+stellen uns die eigent­lichen CMS-Funktionen (z. B. Anlegen und Anzeigen
+von Menüeinträgen, Artikeln, Formularen etc.) zur Verfügung. Sie greifen
+dabei auf die unterschiedlichen Klassen des _Frameworks_ zurück und
+werden vom _CMS_ aufgerufen.
+
+== 

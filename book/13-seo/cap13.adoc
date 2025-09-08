@@ -1,0 +1,452 @@
+== Suchmaschinenoptimierung
+
+Unsere Beispielseite läuft, Inhalte und Design sind fertig, die Seite
+ist online, aber wird durch Suchmaschinen nicht oder nur schlecht
+gefunden? Dann sollten Sie sich näher mit dem Thema
+Suchmaschinenoptimierung beschäftigen. Ich möchte in diesem Kapitel
+nicht auf die allgemeinen Grundlagen, Techniken und Vorgehensweisen der
+Suchmaschinenoptimierung eingehen – dazu haben andere Autoren bereits
+regelrechte Buchreihen veröffentlicht, die das Thema wesentlich besser
+abdecken. Stattdessen möchte ich einige Joomla!-spezifische Dinge
+erläutern.
+
+=== Meta-Daten
+
+Bei Suchmaschinenoptimierung denkt man im ersten Schritt oft an die
+bekannten Meta-Keywords und die Meta-Description, die eine für
+Suchmaschinen optimierte Kurzfassung der Inhalte der jeweiligen Seite
+bieten sollen. Inzwischen ist es jedoch so, dass nahezu alle größeren
+Suchmaschinen die Meta-Keywords und die -Description nicht mehr in das
+Suchmaschinenranking einbeziehen, sondern nur die Meta-Description zur
+Darstellung in Suchergebnissen nutzen (siehe Bild 13.1). Weiterhin
+verfügt Joomla! über einen Meta-Eintrag, der den Autor des jeweiligen
+Inhalts sowie seine Lizenz ausgibt.
+
+Die Meta-Daten einer Joomla!-Seite können wir nun an drei verschiedenen
+Stellen anpassen, wobei sich die einzelnen Einträge in bekannter Art und
+Weise überschreiben:
+
+* Festlegung allgemeiner Meta-Daten in der Joomla!-Konfiguration unter
+System ++>++ Konfiguration. Diese Daten fungieren als Vorgabe, falls
+keine individuellen Meta-Daten auf _Eintrags_- oder _Menüebene_
+festgelegt sind (Bild 13.2).
+* Eingabe der Meta-Daten für einen bestimmten Eintrag (_Beitrag,
+Kategorie, Kontakt_ etc.) im Bearbeitungsformular des jeweiligen
+Eintrags. Diese Daten überschreiben die allgemeinen Meta-Daten (Bild
+13.3).
+* Eingabe der Meta-Daten für einen bestimmen _Menüeintrag_ im
+Editierungsformular des Eintrags. Diese Daten überschreiben die
+allgemeinen und die eintragsspezifischen Daten (Bild 13.4).
+
+image:media/image2.png[media/image2,width=548,height=377]
+
+BILD 13.1 Meta-Description von joomla.de, die in den Suchergebnissen
+dargestellt wird
+
+image:media/image4.png[media/image4,width=548,height=335]
+
+BILD 13.2 Meta-Daten der globalen Konfiguration unter Site ++>++
+Konfiguration
+
+image:media/image6.png[media/image6,width=548,height=320]
+
+BILD 13.3 Meta-Daten im Formular zur Editierung eines Beitrags
+
+image:media/image8.png[media/image8,width=548,height=229]
+
+BILD 13.4 Meta-Daten im Formular zur Editierung eines Menüeintrags
+
+Über dieses System der sich überschreibenden Meta-Daten ist es möglich,
+allgemeine Daten zu setzen, die nur falls nötig überschrieben werden.
+
+=== SEF URLs
+
+Öffnen Sie die Beispielseite unseres Bauern in Ihrem Webbrowser,
+navigieren Sie zur Unterseite _Obstsorten_ und werfen Sie einen Blick in
+die Adresszeile Ihres Browsers. Dort sollten Sie eine URL finden können,
+die in etwa _/index.php/obstsorten_ lautet. Diese Art URL, bei der man
+aus der Adresse direkt auf den dort gezeigten Inhalt schließen kann,
+nent sich _sprechende URL_ und ist sowohl für Nutzer als auch für
+Suchmaschinen praktisch.
+
+Das Gegenbeispiel wäre eine solch kryptische URL wie
+_/index.php?option=com++_++content&view=categories&id=7&Itemid=104_. Was
+verbirgt sich wohl dahinter? Der Pragmatiker würde sagen: „Klar, da
+finde ich alle Kategorien (_categories_) der Elternkategorie mit der ID
+_7_ der Inhaltskomponente (_com++_++content_), die im Menüeintrag
+(_Itemid_) mit der ID _104_ verlinkt sind.“ Aber jetzt mal im Ernst:
+Wirklich lesbar im Sinne von „Ich kann lesen, was mich erwartet“ sind
+diese URLs nicht.
+
+image:media/image10.png[media/image10,width=548,height=232]
+
+BILD 13.5 Beispiel-URL einer Joomla!-Installation
+
+Der Umstand, dass diese URLs für Menschen nicht lesbar sind, macht sie
+auch für Suchmaschinen ungeeignet, da diese gezielt nach Suchbegriffen
+in der URL der jeweiligen Seite suchen – mit anderen Worten: Wenn jemand
+nach „Obstsorten“ sucht, wäre es für uns praktisch, wenn hier statt der
+kryptischen Zeichenkette eine URL wie /obstsorten.html angezeigt werden
+würde, da dies unser Ranking verbessert. Um dies zu bewerkstelligen,
+bringt Joomla! ein System zur Generierung von genau diesen
+_suchmaschinenfreundlichen URLs_ (kurz SEF URLs) mit, das standardmäßig
+bereits aktiv ist und uns eine schöne URL generiert..
+
+Die Konfiguration der URLs erfolgt über die globalen Einstellungen
+unserer Joomla!-Installation, die wir über den Link System ++>++
+Konfiguration im Backend erreichen. Dort finden wir in der rechten
+Spalte des Reiters _Site_ die Parameter für die
+_Suchmaschinenoptimierung_.
+
+image:media/image11.png[media/image11,width=548,height=304]
+
+BILD 13.6 Suchmaschinenoptimierungs-Parameter
+
+In Kapitel 6.4, haben wir die einzelnen Parameter zwar schon kurz
+kennengelernt, es bietet sich aber an, die verschiedenen Parameter und
+ihre Auswirkungen nun nochmals genauer zu betrachten. In der
+nachfolgenden Tabelle habe ich eine Auflistung der verschiedenen
+Parameter und ihre Auswirkung auf URLs zusammengestellt.
+
+[width="100%",cols="49%,51%",]
+|===
+|Aktivierte Parameter |URL
+
+|keine |_/index.php?option=com++_++content&view= +
+categories&id=7..._
+
+|_Suchmaschinenfreundliche URL_ |_/index.php/obstsorten/aepfel_
+
+|_Suchmaschinenfreundliche URL, Dateiendung an URL anfügen_
+|_/index.php/obstsorten/aepfel.html_
+
+|_Suchmaschinenfreundliche URL, Dateiendung an URL anfügen,
+Unicode-Aliasse_ |_/index.php/obstsorten/äpfel.html_
+
+|_Suchmaschinenfreundliche URL, URL-Rewrite nutzen_
+|_/obstsorten/aepfel_
+
+|_Suchmaschinenfreundliche URL, URL-Rewrite nutzen, Dateiendung an URL
+anfügen_ |_/obstsorten/aepfel.html_
+
+|_Suchmaschinenfreundliche URL, URL-Rewrite nutzen, Dateiendung an URL
+anfügen, Unicode-Aliasse_ |_/obstsorten/äpfel.html_
+|===
+
+==== URL-Rewriting
+
+Jeder der Parameter beeinflusst also die generierte URL, wobei die
+wichtigste Entscheidung die Nutzung oder Nichtnutzung des
+_URL-Rewriting_ ist. Dieses entfernt das störende _/index.php_ aus der
+URL, wodurch die entstehenden URLs besser zu merken sind. Wie aber
+funktioniert die Technik dahinter? Werden tatsächlich Ordner und
+HTML-Dateien im Dateisystem erzeugt? Die Antwort ist natürlich ein Nein
+– stattdessen nutzt der _URL-Rewriting_-Modus eine Funktion von gängigen
+Webservern (Apache, Nginx, Lighttpd, IIS), die einen bestimmten
+URL-Aufruf an eine andere Datei weiterleiten. Werfen Sie beispielsweise
+einen Blick in die Datei _htaccess.txt_, die Sie im
+Joomla!-Hauptverzeichnis oder in gekürzter Form in Listing 13.1 finden.
+
+LISTING 13.1 Durch Joomla! mitgelieferte htaccess.txt
+
+IndexIgnore ++*++
+
+Options -Indexes
+
+Options {plus}FollowSymlinks
+
+RewriteEngine On
+
+RewriteCond %++{++QUERY++_++STRING}
+base64++_++encode++[++^(++]*\++(++[++^)++]*\++) ++[++OR++]++
+
+RewriteCond %++{++QUERY++_++STRING}
+(++<|++%3C)(++[++^s++]*++s){plus}cript.++*++(++>|++%3E) ++[++NC,OR++]++
+
+RewriteCond %++{++QUERY++_++STRING}
+GLOBALS(=++|\[|\++%++[++0-9A-Z++]{++0,2}) ++[++OR++]++
+
+RewriteCond %++{++QUERY++_++STRING}
+++_++REQUEST(=++|\[|\++%++[++0-9A-Z++]{++0,2})
+
+RewriteRule .++*++ index.php ++[++F++]++
+
+RewriteBase /
+
+RewriteRule .++*++ -
+++[++E=HTTP++_++AUTHORIZATION:%++{++HTTP:Authorization}++]++
+
+RewriteCond %++{++REQUEST++_++URI} !^/index++\++.php
+
+RewriteCond %++{++REQUEST++_++FILENAME} !-f
+
+RewriteCond %++{++REQUEST++_++FILENAME} !-d
+
+RewriteRule .++*++ index.php ++[++L++]++
+
+Hier finden wir im letzten Textblock (nach RewriteBase) eine Reihe von
+Parametern für das Apache-Modul _mod++_++rewrite_. Sie weisen das Modul
+an, alle Anfragen an den Webserver, die eine Datei (RewriteCond
+%++{++REQUEST++_++FILENAME} !-f ) oder einen Ordner (RewriteCond
+%++{++REQUEST++_++FILENAME} !-d) abrufen wollen, die bzw. der nicht
+existiert, an die Datei _index.php_ (RewriteRule .++*++ index.php
+++[++L++]++) weiterzugeben. Joomla! kann diese ursprüngliche Anfrage
+dann auswerten und so die korrekte interne URL aufrufen. Durch
+URL-Rewriting werden also alle Anfragen an nicht vorhandene Dateien an
+Joomla! weitergeleitet, sodass geprüft werden kann, ob eine zugehörige
+interne Seite existiert.
+
+Um diese Funktion nutzen zu können, müssen mehrere Voraussetzungen
+erfüllt sein:
+
+[arabic]
+. Es muss ein Webserver verwendet werden, der über eine entsprechende
+Rewriting-Funktion verfügt: _Nginx, Apache, IIS, Lighttpd_ – den von
+Ihrem Hoster verwendeten Webserver sollten Sie erfragen, wenn Sie sich
+unsicher sind.
+. Die Rewriting-Funktion muss aktiviert sein. In einigen Fällen lässt
+sich dies über die Ausgabe der _PHP-Informationen_ (SYSTEM ++>++
+Systeminformationen) auslesen, jedoch stellt dies eher die Ausnahme dar
+(siehe Bild 13.7). Im Zweifelsfalle hilft auch hier eine Anfrage beim
+Hoster.
+. Der Hoster muss die Nutzung eigener Steuerdateien für den Webserver
+(_.htaccess_ für den _Apache_, _web.config_ für den _IIS_) erlauben.
+Auch hier hilft der Hoster weiter.
+
+Sind all diese Voraussetzungen erfüllt, so reicht es im Normalfall, die
+_htaccess.txt_ im Joomla!-Verzeichnis in _.htaccess_ umzubenennen,
+sodass die Datei mit den darin enthaltenen Rewrite-Regeln aktiviert
+wird. Für den _IIS_ muss hier natürlich die Datei _webconfig.txt_ in
+_web.config_ umbenannt werden, da dieser mit _.htaccess_-Dateien nichts
+anfangen kann.
+
+image:media/image13.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++13++\++Bild639.PNG,width=548,height=246]
+
+BILD 13.7 _mod++_++rewrite_ in der Auflistung der Loaded Modules des
+Apache
+
+Anschließend können Sie die _URL-Rewriting_-Funktion in der globalen
+_Konfiguration_ aktivieren.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Bei vielen Hostern kommt es an dieser Stelle immer wieder
+zu Schwierigkeiten im Zusammenhang mit dem _URL-Rewriting_, die sich in
+zwei Fälle einteilen lassen:
+
+Nach dem Umbenennen der _.htaccess_ erzeugt die Seite beim Aufruf einen
+Fehler 500. Hier können Sie im ersten Schritt versuchen, den Eintrag
+Options {plus}FollowSymLinks in der _.htaccess_ mit einer Raute
+auszukommentieren: #Options {plus}FollowSymLinks
+
+Sollte sich der gewünschte Erfolg noch nicht einstellen, so liegt das
+daran, dass der Hoster die eben genannten Voraussetzungen nicht erfüllt.
+Hier hilft kein Basteln, sondern nur eine Konfigurationsänderung, die
+ausschließlich vom Hoster vorgenommen werden kann.
+
+Der zweite Fall erzeugt einen Fehler 404, woraufhin Sie versuchen
+sollten, den Eintrag RewriteBase in der _.htaccess_ zu
+einzukommentieren. Reicht dies immer noch nicht, so liegt Ihre
+Joomla!-Installation vermutlich in einem Unterverzeichnis, das Sie dann
+zur RewriteBase hinzufügen müssen: RewriteBase /Unterverzeichnis/
+
+|===
+
+==== Das Duplicate-Content-Problem
+
+Wenn Sie sich ein wenig mit dem Thema der Suchmaschinenoptimierung
+auseinandersetzen, werden Sie irgendwann zwangsläufig auf den Begriff
+_Duplicate Content_ treffen, der den Fall beschreibt, dass ein
+bestimmter Inhalt über mehrere URLs erreichbar ist. Dabei wird jedoch
+gerne vernachlässigt, dass es streng genommen mehrere Arten von
+_Duplicate Content_ gibt:
+
+[arabic]
+. Ein identischer Inhalt ist unter verschiedenen *Domains* erreichbar:
+Dies passiert beispielsweise, wenn man versehentlich oder absichtlich
+eine Kopie der Joomla!-Installation unter einer anderen, öffentlich
+einsehbaren Domain ablegt oder diese Domain auf die bestehende
+Installation routet. Dieser Fall entspricht der Art von Duplicate
+Content, die unter Umständen von Suchmaschinen abgestraft wird.
+
+[arabic, start=4]
+. Ein identischer Inhalt ist unter mehreren *Subdomains* erreichbar:
+Bekanntestes Beispiel ist die Erreichbarkeit der Seite unter
+_www.domain.tld_ und _domain.tld_, also mit und ohne das Präfix _www_.
+Dieser Fall wird von Suchmaschinen nicht gezielt negativ bewertet, es
+kann jedoch für die Suchmaschinenoptimierung ratsam sein, die URL ohne
+www auf die URL mit www weiterzuleiten.
+. Ein identischer Inhalt ist innerhalb einer Domain über verschiedene
+URLs erreichbar. Dies ist ein Problem, das insbesondere bei einem
+dynamischen CMS-System wie Joomla! auftritt. Sie wollen ein Beispiel?
+Öffnen Sie dazu Ihre Beispielinstallation von Bauer Birnennase,
+deaktivieren Sie die suchmaschinenfreundlichen URLs und rufen Sie den
+Beitrag _Über den Obsthof_ auf. Sie erhalten nun eine URL wie diese
+hier:
+_http://localhost:8888/JoomlaBuch/index.php?option=com++_++content&view=article&id=2&Itemid=109_.
+Jetzt kürzen Sie die URL so, dass nur noch der Parameter _Itemid_ übrig
+bleibt: _http://localhost:8888/JoomlaBuch/index.php?Itemid=109_. Und
+siehe da, der Aufruf funktioniert trotzdem, womit wir einen Inhalt unter
+mehreren URLs innerhalb unserer Domain aufrufen können. Bevor Sie jetzt
+in Panik ausbrechen: Auch diese Art von Duplicate Content wird von
+Suchmaschinen nicht abgestraft, sondern als CMS-typisches Problem
+erkannt. Die Suchmaschinen wählen dann eine der URLs für den jeweiligen
+Inhalt aus und zeigen die anderen URLs in ihren Ergebnissen nicht an.
+Leider ist diese Problematik durch die Grundarchitektur von Joomla!
+bedingt und lässt sich daher nur dadurch umgehen, dass man
+„versehentlich“ indizierte URLs über die Datei _robots.txt_ aus dem
+Index entfernen lässt bzw. die Umleitungs-Erweiterung (Siehe 13.4)
+nutzt.
+
+Im Grunde genommen ist die Problematik im Fall 2 und 3 also, auch wenn
+oft anders dargestellt, nicht direkt nachteilig für das Ranking, sie
+kann jedoch die Optimierung in einigen Fällen erschweren.
+
+=== „Modernes“ Routing
+
+Die im letzten beschriebenen Defizite in der URL-Generierung (jede Seite
+hat eine Vielzahl von gültigen URLs) haben dazu gefördert, dass bereits
+seit einiger Zeit an einem neuen System zur Generierung und Zuordnung
+von URLs (im Fachjargon „_Routing_“ genannt) gearbeitet wird. Dieses
+neue System soll zugleich auch die „hässlichen“ IDs entfernen, die
+Joomla im aktuellen Routing-System an einigen Stellen in der URL
+integriert (z.B.: index.php/obstsorten/aepfel/6-garant).
+
+Dabei liegt auf der Hand, dass das neue _Routing_-System (bei Joomla!
+als _modernes Routing_ bezeichnet) nur als optionales System eingebunden
+werden kann und das bisherige System (genannt _Legacy Routing_) noch
+erhalten bleiben muss, da ja sonst bestehende Seiten bei der Umstellung
+auf die aktuelle Joomla-Version plötzlich ihre URLs verändern würden
+womit zahlreiche Links ins Leere laufen.
+
+Die Auswahl zwischen _Legacy_ und _Modern_ Routing erfolgt dabei für
+jede Erweiterung separat, eine globalen Schalter für die gesamte Seite
+gibt es nicht. Der entsprechende Parameter befindet sich dabei in der
+Regel im Reiter _Integration_ und heißt _URL Routing_, siehe Bild 13.8.
+
+image:media/image14.png[media/image14,width=548,height=161]
+
+Bild 13.8 Parameter zur Anpassung des _URL Routing_ der
+Beitragskomponente
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Das neue Routing ist zwar ein sehr heiß ersehntes Feature,
+aufgrund der hohen Komplexität des Themas und der schier
+unüberschaubaren Anzahl an möglichen Szenarien ist jedoch davon
+auszugehen, dass das System noch an einigen Kinderkrankheiten leiden
+wird. Daher würde ich bei sehr umfangreichen oder geschäftskritischen
+zum jetzigen Zeitpunkt noch zur Vorsicht beim Einsatz raten.
+|===
+
+=== Umleitungen
+
+Eine weitere gängige Problemstellung bei der Suchmaschinenoptimierung
+ist das Umleiten von ehemaligen URLs, damit diese weder für Nutzer noch
+für Suchmaschinen ins Leere laufen. Glücklicherweise gibt uns Joomla!
+auch hier das passende Werkzeuge an die Hand, denn es gibt die
+Core-eigene Komponente _Umleitungen_, die man unter dem Punkt
+Komponenten ++>++ Umleitungen findet.
+
+Beim ersten Aufruf der Komponente weißt diese uns darauf hin, dass
+zuerst das zugehörige Plugin _System – Umleitungen_ aktiviert werden
+muss, damit die Erweiterung funktionieren kann. Öffnen wir die
+Einstellungen dieses Plugins (siehe Bild 13.9) finden wir dort neben den
+„üblichen“ Einstellungen für Plugins und der gesuchten Möglichkeit den
+_Status_ zu verändern auch den standardmäßig aktivierten Parameter _URLs
+sammeln_.
+
+image:media/image15.png[media/image15,width=548,height=235]
+
+Bild 13.9 Parameter des Plugins _System – Umleitung_
+
+Ist der Parameter aktiviert, wird jeder „falsche“ Aufruf auf einer
+Joomla-Seite, der einen 404-Fehler erzeugt, in einer Datenbanktabelle
+gespeichert und kann so anschließend geprüft und falls gewünscht auf die
+korrekte URL weitergeleitet werden (siehe Bild 13.10).
+
+image:media/image16.png[media/image16,width=548,height=128]
+
+Bild 13.1 Umleitungs-Erweiterung mit zwei aufgezeichneten 404 Aufrufen
+
+Der entsprechende Eintrag kann nun angeklickt werden, um im zugehörigen
+Formular die gewünschte _Neue Adresse_ setzen kann. Eine alternative zum
+Aufzeichnen von 404-Aufrufen ist das manuelle Anlegen von Umleitungen
+über die entsprechende Schaltfläche _Neu_ in der Toolbar.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Die Option „URLs sammeln“ sollte auf Live-Seiten nicht
+dauerhaft aktiv sein, da es in der Erweiterung keine Begrenzung für eine
+Maximalanzahl an URLs gibt. Man kann sich somit unbeabsichtigt die
+Datenbank vollmüllen.
+|===
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+Bei einer größeren Anzahl von Umleitungen ist die manuelle Weiterleitung
+natürlich etwas unpraktisch, daher verfügt die Erweiterung über den
+Toolbar-Button _Massenimport_ über den eine ganze Liste von Einträgen
+importiert werden kann, die dabei im Format +
+alte-url1{vbar}neue-url1 +
+alte-url2{vbar}neue-url2
+
+vorliegen müssen.
+
+|===
+
+=== Erweiterungen
+
+Neben diesen integrierten Funktionen bieten externe Anbieter eine Unzahl
+an Erweiterungen für die Suchmaschinenoptimierung von
+Joomla!-Installationen.
+
+==== sh404SEF
+
+_sh404SEF_ (https://weeblr.com/) ist die wohl umfangreichste
+SEO-Erweiterung für Joomla!, die derzeit verfügbar ist, und bietet eine
+riesige Anzahl von Features:
+
+* Generierung von suchmaschinenfreundlichen URLs – ersetzt den
+Joomla!-internen Algorithmus und erlaubt so die manuelle Anpassung von
+URLs
+* Unterstützung von zahlreichen externen Komponenten
+* Vermeidet seiteninternen _Duplicate Content_, indem verschiedene
+interne URLs, die auf den gleichen Inhalt verlinken, die gleiche
+suchmaschinenfreundliche URL erhalten
+* Generierung eigener 404-Seiten
+* Weiterleitung von fehlerhaften auf korrekte URLs
+* Pflege von zahlreichen Meta-Daten und Robot-Einstellungen
+* Integrierte Auswertungsmöglichkeiten mit Google Analytics
+
+Die Erweiterung ist also unheimlich mächtig und verfügt über zahlreiche
+Features, hat jedoch in vielen Fällen die nervige Angewohnheit,
+fehlerhafte URLs zu erzeugen, die dann manuell gelöscht werden müssen.
+Zudem ist sie nur in einem kostenpflichtigen Abonnement erhältlich.
+Dennoch ist _sh404SEF_ meine klare Empfehlung, wenn man denn wirklich
+volle Kontrolle über die URLs benötigt.
+
+==== OSMap
+
+Mit der Erweiterung _OSMap_ ist es möglich, sog. XML-Sitemaps zu
+erstellen, die anschließend von Suchmaschinen ausgelesen werden können.
+Mehr Informationen hierzu finden Sie in Kapitel 18.1.1, „OSMap“.
+
+==== Easy Frontend SEO
+
+Die Erweiterung _EFSEO – Easy Frontend SEO_
+(https://joomla-extensions.kubik-rubik.de/) erlaubt die bequeme
+Verwaltung von _Meta-Daten_ direkt aus dem Frontend heraus und ist somit
+ein interessantes Werkzeug wenn man mit speziellen Dienstleistern für
+die Optimierung zusammenarbeitet, denen man im Frontend eine einfache
+und schnelle Möglichkeit zur Bearbeitung geben möchte. Darüber hinaus
+verfügt die Erweiterung über einen Automatik-Modus der die
+entsprechenden Daten automatisch aus dem entsprechenden Inhalt generiert
+– naturgemäß ist die Qualität dieser Automatik aber natürlich
+beschränkt.

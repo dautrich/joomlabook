@@ -1,0 +1,424 @@
+== Das Template-System
+
+Die inhaltlichen Arbeiten an der Seite sind jetzt, abgesehen vom noch
+fehlenden Kontakt­formular, abgeschlossen. Sie sind nun in der Lage,
+Joomla! zu _installieren_ und zu _konfigurieren_, und können _Beiträge_
+und _Menüeinträge_ anlegen und diese über Parameter beeinflussen. Doch
+wie gestalten wir unsere Seite jetzt ansprechend? Wo wird eigentlich das
+Design bestimmt? Diesen Fragen wollen wir uns in Kapitel 9 widmen, indem
+wir uns das _Template-System_ näher anschauen.
+
+=== Was ist ein Template?
+
+Erinnern Sie sich an die Begriffserklärung aus Kapitel 5.2,
+„Architektur“? Dort haben wir gelernt, dass ein _Template_ eine Art
+„Design-Grundgerüst“ ist, das zwar alle nötigen Formatierungen in Form
+von HTML- und CSS-Code sowie Bildern mitbringt, jedoch keine eigenen
+Inhalte besitzt. Stattdessen sind an verschiedenen Stellen des
+_Templates_ Platzhalter eingefügt, die dann beim Seitenaufruf durch die
+Inhalte der jeweiligen Seite ersetzt werden. Das Konzept entspricht
+gewissermaßen dem Druck von Serienbriefen mit gängigen Office-Lösungen:
+Dort erstellen Sie eine Vorlage (_Template_) mit Platzhaltern, die beim
+Druck durch die Adressdaten des Nutzers ersetzt werden.
+
+Wo liegen die Vorteile dieser Vorgehensweise?
+
+[arabic]
+. Da Design und Inhalt voneinander separiert sind, ist es prinzipiell
+möglich, die Inhalte in einem anderen Format (PDF, JSON, RSS o. Ä.)
+auszugeben, ohne sie dafür separat ablegen zu müssen. Alle
+Ausgabeformate speisen sich aus einer zentralen Datenbank.
+. Es ist möglich, das entsprechende Design mit nur einem Mausklick zu
+wechseln, ohne die hinterlegten Inhalte zu verlieren. Diese werden nach
+dem Template-Wechsel einfach in einem neuen Design ausgegeben.
+. Wir können Änderungen am HTML-Code der Seite durchführen, indem wir
+nur eine zentrale Stelle, nämlich die _index.php_ des Templates
+modifizieren. Die Änderung wird dann anschließend automatisch für alle
+Unterseiten übernommen, da auch diese nur durch Ersetzung der
+Platzhalter generiert werden.
+
+Das klingt doch eigentlich nach überzeugenden Vorteilen, oder?
+
+==== Backend- und Frontend-Templates
+
+Eine Besonderheit des in Joomla! integrierten Template-Systems ist, dass
+es nicht nur die Seitenausgabe im _Frontend_, sondern auch den
+Administrationsbereich (_Backend_) mittels Templates generiert. Es ist
+also möglich, eine speziell an das Kundendesign angepasste Version des
+Backends zu erstellen bzw. zu alternativen Administrationstemplates zu
+wechseln.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Alternative Templates für den Administrationsbereich neigen in
+der Praxis sowohl bei größeren Versionsupdates von Joomla als auch im
+Zusammenspiel mit Dritterweiterungen dazu Probleme zu verursachen. Nach
+wie vor nutzt nur ein kleiner Bruchteil der Nutzer alternative Templates
+für das Backend, weshalb diese oftmals schlechter gepflegt und getestet
+sind als das originale Template des Joomla Kerns.
+|===
+
+==== Modulpositionen
+
+Wie bereits erwähnt, arbeitet das Joomla!-Template-System mit
+verschiedenen Platzhaltern, die sich in zwei Typen gliedern.
+
+Jedes Template verfügt über *genau einen* Platzhalter, der durch die
+Ausgabe der gerade aktiven _Komponente_ ersetzt wird. Dieser Platzhalter
+sitzt im Regelfall in der mittleren Spalte des Templates und arbeitet
+als *Haupt-Ausgabeposition*. Hier wird z. B. der Willkommenstext unserer
+Startseite ausgegeben.
+
+Zudem kann ein Template über *beliebig viele* sog. _Modulpositionen_
+verfügen, die zur Darstellung der installierten _Module_ dienen. Es ist
+dabei möglich, in einer Modulposition ein oder mehrere Module
+gleichzeitig auszugeben und andere Modulpositionen komplett ungenutzt zu
+lassen. Im konkreten Beispiel werden z. B. das Menü sowie das
+Login-Formular in einer Modulposition ausgegeben.
+
+image:media/image1.png[media/image1,width=548,height=337]
+
+BILD 9.1 _Hauptausgabe-Bereich_ (mittig) sowie _Modulpositionen_ (grau
+hinterlegt) des Protostar ­Templates
+
+Erst durch das _Positionssystem_ wird die _Template-Engine_ richtig
+mächtig, denn dadurch können wir unsere Seiteninhalte wie mit einem
+Baukasten zusammenstellen.
+
+=== Template-Übersicht
+
+Joomla! erlaubt uns die Verwaltung und Nutzung mehrerer _Templates_
+gleichzeitig, die bequem über das Backend verwaltet und gewechselt
+werden können.
+
+Dafür öffnen wir die Template-Stil-Übersicht mittels Klick auf
+Erweiterungen ++>++ Templates ++>++ Stile im Menü des Backends. Dort
+finden wir alle derzeit verfügbaren _Template-Stile_ aufgelistet.
+
+image:media/image4.png[media/image4,width=548,height=158]
+
+BILD 9.2 Auflistung der Template-Stile einer frischen
+Joomla!-Installation
+
+==== Template-Stile
+
+_Template-Stile_? Ihnen ist sicherlich aufgefallen, dass dieser Begriff
+bisher noch nicht gefallen ist. Das hängt damit zusammen, dass ich
+Ihnen, in Bezug auf das in Joomla! integrierte Template-System, bisher
+nur die halbe Wahrheit erzählt habe.
+
+Stellen Sie sich vor, wir müssten ein Portal für eine Zeitung erstellen,
+das, je nach aufgerufenem Ressort (Politik, Sport, Wetter),
+unterschiedliche Hintergrundfarben nutzen soll. Wenn wir uns nun vor
+Augen führen, dass das Design (und damit auch die Hintergrundfarbe) über
+das Template gesteuert wird, bräuchten wir nach dieser Denkweise für
+fünf verschiedene Ressorts auch fünf verschiedene Templates, die sich
+jeweils nur in der Farbe unterscheiden. Alle weiteren Dateien (CSS- und
+HTML-Code, Bilder etc.) würden gleich bleiben, aber durch die fünf
+verschiedenen _Templates_ fünffach existieren, was uns die Wartung
+erschweren würde. Daher bietet uns Joomla! an, bestimmte Optionen eines
+Templates in *Templateparameter* zu verlagern, um diesen mehrfachen
+Pflegeaufwand zu vermeiden.
+
+Wir machen so den Hintergrund mittels Parameter gestaltbar und könnten
+dadurch verschiedene *Stile* des gleichen _Templates_ erstellen, die
+sich nur durch den Parameter unterscheiden – diese _Stile_ greifen dabei
+alle auf den Code des _Basistemplates_ zurück. Einen solchen
+_Template-Stil_ können wir dann einem Ressort zuweisen. Denken Sie dabei
+einfach an ein und dasselbe Automodell, das, je nach Kundenwunsch, mit
+einer bestimmten Farbe lackiert wird: Obwohl alle Autos unterschiedlich
+aussehen, basieren sie dennoch auf der gleichen Karosserie.
+
+Standardmäßig erzeugt jedes in Joomla! installierte Template einen
+_Template-Stil_, weshalb wir bei zwei installierten Templates auch zwei
+_Template-Stile_ vorfinden. Das jeweils aktuelle _Standard_-Template
+wird dabei durch einen Stern in der gleichnamigen Spalte markiert.
+
+==== Installierte Templates
+
+Wir wechseln nun mittels Klick auf den Sub-Menüeintrag _Templates_ zur
+Template-Übersicht und finden dort eine Liste der installierten
+Templates vor.
+
+image:media/image5.png[media/image5,width=548,height=216]
+
+BILD 9.3 Liste der standardmäßig installierten Templates
+
+Jedes der dort vorhandenen Templates verfügt über ein kleines
+Vorschau-Bildchen sowie Angaben zur installierten _Version_, zum
+_Erstellungsdatum_ sowie zum _Autor_. Außerdem ist auch der Name des
+jeweiligen Templates angegeben. Oberhalb der Liste finden Sie eine
+Filteroption, die standardmäßig mit _Site_ vorbelegt ist und dadurch die
+Frontend-Templates anzeigt. Stellt man diesen Filter auf _Administrator_
+um, so erhält man stattdessen die Ausgabe der Backend-Templates. In
+Tabelle 9.1 finden Sie eine kleine Auflistung der Templates mit Angaben
+zum Einsatzbereich sowie einer Kurzbeschreibung.
+
+TABELLE 9.1 Auflistung der standardmäßig installierten Templates
+
+[width="100%",cols="21%,11%,68%",]
+|===
+|Name |Bereich |Kurzbeschreibung
+
+|Protostar |Frontend |Standardtemplate im Frontend. Basiert auf dem
+CSS-Framework Bootstrap (in der Version 2).
+
+| | |
+
+|Beez3 |Frontend |Sehr schlichtes und technisch hochwertiges und von
+Haus aus auf Barrierefreiheit optimiertes Template. Gute Basis für die
+Erstellung zukunftssicherer, barrierearmer Seiten.
+
+|Isis |Backend |Benannt nach dem ägyptischen Gott, Standardtemplate für
+den Administrationsbereich. Entspricht in seinem Grundaufbau dem Layout
+seiner Vorgänger und ist daher gut für Nutzer, die bereits Erfahrungen
+mit älteren Joomla!-Versionen haben. Verfügt grundsätzlich über
+Unterstützung für Mobilgeräte.
+
+|Hathor |Backend |Erster Versuch eines barrierearmen Templates für den
+Administratorbereich. Derzeit leider noch sehr unausgereift und daher
+für den produktiven Einsatz nur bedingt geeignet.
+|===
+
+=== Editieren der installierten Templates
+
+Beim Klick auf den jeweiligen Template-Namen gelangen wir zum
+integrierten _Template-Editor_, der uns per Mausklick erlaubt, die HTML-
+und PHP- (linke Spalte) sowie CSS-Dateien (rechte Spalte) des jeweiligen
+Templates ohne FTP-Zugang, direkt aus dem Backend heraus zu bearbeiten.
+
+image:media/image8.png[media/image8,width=548,height=243]
+
+BILD 9.4 Bearbeitungsmöglichkeit der Template-Bestandteile aus dem
+Backend heraus
+
+Der Editor ist dank Syntax-Highlighting relativ komfortabel, bei
+größeren Anpassungen empfiehlt sich dennoch die Nutzung eines
+„richtigen“ Editors.
+
+image:media/image10.png[media/image10,width=548,height=356]
+
+BILD 9.5 Integrierter Template-Editor mit Syntax-Highlighting
+
+=== Template-Stil wechseln
+
+Wie können wir nun das Template wechseln? Dazu wechseln wir zurück in
+die Übersicht der _Template-Stile_, wählen dort das gewünschte
+Frontend-Template _Beez3_ mit der Checkbox am Beginn der Zeile aus und
+machen es durch einen Klick auf den Toolbar-Button _Standard_ zum neuen
+Standardtemplate der Seite.
+
+image:media/image12.png[media/image12,width=548,height=113]
+
+BILD 9.6 Wechseln des Standard-Template-Stils der Seite
+
+Wenn wir die Seite nun im _Frontend_ betrachten, stellen wir mit Freude
+fest, dass sich das Design aufgrund des Template-Wechsels verändert hat.
+
+=== Template-Zuweisung
+
+Im nächsten Schritt klicken wir auf den Namen des jeweiligen
+Template-Stils (_Beez3 – Default_), woraufhin sich das
+Editierungsformular des Template-Stils öffnet, das sich, wie üblich, in
+mehrere Tabs teilt. Oberhalb des Tabs gibt es darüber hinaus noch ein
+Eingabefeld für den Namen des Stils, den man dadurch an die eigenen
+Bedürfnisse anpassen kann.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Im ersten Tab _Details_ finden wir den Template-Namen sowie einen kurzen
+Beschreibungstext. Interessanter wird es bei den Tabs _Erweitert_, denn
+dort finden wir allgemeine Parameter des Templates, und im Tab
+_Menüzugehörigkeit_. In diesem ist es möglich, den Template-Stil, den
+wir gerade bearbeiten, einem oder mehreren Menüpunkten zuzuweisen,
+sodass wir z. B. die eben angedachte Funktion der „ressortspezifischen
+Farbgebung“ realisieren können.
+
+image:media/image14.png[media/image14,width=548,height=490]
+
+BILD 9.7 Menüzuweisungsoptionen in den _Template-Stil_-Parametern
+
+=== Parameter ändern
+
+Nun kommen wir nochmals auf den angesprochen Tab _Erweitert_ des
+_Template-Stils_ zurück, der die Parameter des Templates enthält. Da
+diese sich von Template zu Template unterscheiden, ist es hier leider
+nicht möglich, eine allgemeine Beschreibung anzugeben. Ich werde mich
+daher auf die nötigen Anpassungen des _Beez3-Templates_ an unsere
+Vorstellungen beschränken.
+
+Dort ändern wir im ersten Schritt das standardmäßige Logo. Wir ersetzen
+es mit den aus dem _Medien-Manager_ bekannten Schritten durch das _Logo_
+unseres imaginären Kunden. Auf die gleiche Art und Weise ersetzen wir
+auch das Headerbild (_Bild im Kopfbereich_) und vergeben anschließend
+einen _Seitentitel_ sowie eine _Seitenbeschreibung_. Damit unser selbst
+gewähltes Headerbild verwendet wird, müssen wir außerdem den Parameter
+_Template-Farbe_ auf _Eigene_ setzen. Wir schließen unsere Änderungen an
+diesem Template-Stil mit einem Klick auf Speichern & Schliessen in der
+Toolbar ab.
+
+image:media/image16.png[media/image16,width=548,height=366]
+
+BILD 9.8 Template-Parameter des Beez3 nach der Anpassung
+
+Werfen wir nun einen Blick ins _Frontend_, so stellen wir fest, dass wir
+einem zum Kunden passenden Design schon ein gutes Stück näher gekommen
+sind – allerdings stört noch die dunkle Schrift auf dem Headerbilder den
+optischen Gesamteindruck. Da es jedoch keine Möglichkeit gibt, diesen
+Störfaktor mittels Parameter anzupassen, müssen wir hier selbst Hand
+anlegen und den CSS-Code des Templates anpassen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Wenn Sie Joomla! professionell einsetzen wollen,
+werden Sie nicht drum herumkommen, sich grundlegende Kenntnisse im
+Bereich HTML und CSS zuzulegen. Beide Sprachen bilden die Grundlage für
+die individuelle Anpassung von Templates und sind daher unabdingbar.
+|===
+
+=== Manuelle Template-Anpassungen
+
+Joomla! speichert alle Dateien eines Templates im Ordner
+_/templates/TEMPLATENAME/_ – im konkreten Fall finden wir die Dateien
+des _Beez3_-Templates also unter _/templates/beez3_.
+
+image:media/image17.png[media/image17,width=548,height=526]
+
+BILD 9.9 Dateien des Beez3-Templates
+
+Dort angelangt, finden wir eine Vielzahl von Dateien und Ordnern vor,
+wodurch sich natürlich die Frage aufdrängt: Wie finden wir heraus,
+welche der zahlreichen CSS-Dateien die Definition der Schriftfarbe
+beinhaltet? Beide Angaben können wir über die Nutzung der
+_Entwicklertools_ des jeweiligen Browsers (siehe Kapitel 3.3.2, „Nutzung
+der Chrome-Entwicklertools“) herausfinden:
+
+Ein Klick mit dem Element-Inspektor auf den entsprechenden Schriftug im
+Header verrät uns, dass wir dessen CSS in der position.css in der Zeile
+290 finden (siehe Bild 9.10).
+
+image:media/image20.png[media/image20,width=548,height=354]
+
+BILD 9.10 Pfadangabe des Header-Bilds
+
+Nachdem wir das entsprechende Bild ersetzt bzw. die entsprechende
+CSS-Definition wie in Listing 9.1 abgebildet verändert haben, erscheint
+das _Template_ in neuem Glanz.
+
+LISTING 9.1 Angepasste CSS-Definition in der position.css
+
+#logo span.header1 ++{++
+
+display: block;
+
+top: 0;
+
+line-height: 0.8em;
+
+font-size: 0.7em;
+
+padding-left: 55px;
+
+color: white;
+
+}
+
+image:media/image23.png[media/image23,width=548,height=551]
+
+BILD 9.11 Ansicht der Seite nach den Template-Anpassungen
+
+Was haben wir also bislang in diesem Kapitel gelernt? Sie haben das
+_Template_-System von Joomla! durchschaut, wissen, dass es dort
+verschiedene _Positionen_, _Templates_ und _Template-Stile_ gibt, haben
+einen vorhandenen Template-Stil über Parameter verändert und
+abschließend sogar manuelle Änderungen an den Dateien des Templates
+vorgenommen. Sie sind also nun in der Lage, das Design eines bestehenden
+_Templates_ an Ihre Bedürfnisse anzu­passen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Sollten Sie eines der standardmäßig vorhandenen
+_Templates_ als Basis für Ihre Website nutzen wollen, so empfiehlt es
+sich, eine Kopie des _Templates_ anzulegen, da Ihre Änderungen
+andernfalls bei einem Update der Joomla!-Installation überschrieben
+werden könnten.
+|===
+
+=== Andere Templates nutzen
+
+Was aber, wenn Sie mit den vorhandenen Templates nicht so richtig viel
+anfangen können, sich aber nicht an ein eigenes, selbst zu
+programmierendes Templates herantrauen? In diesem Falle können Sie
+glücklicherweise auf eine schier unüberschaubare Menge an fertigen
+Templates zurückgreifen, die oftmals kostenlos genutzt und verändert
+werden dürfen. Wo aber kann man diese Templates finden?
+
+==== Template-Verzeichnisse
+
+Eine Quelle für fertige Joomla!-Templates ist das deutschsprachige
+Portal [.underline]#www.joomlaos.de#, das große Verzeichnisse pflegt,
+die oftmals den direkten Download der Templates ermöglichen.
+[.underline]#Joomlaos.de# sortiert die Templates dabei in verschiedenen
+Kategorien und bietet zusätzlich eine leicht zu nutzende
+Template-Galerie.
+
+image:media/image25.png[media/image25,width=548,height=425]
+
+BILD 9.12 [.underline]#Joomlaos.de#
+
+Das klingt doch alles in allem nach einen großzügigen Angebot, oder?
+Suchen Sie etwa schon den Haken an der Sache? Ich würde Sie anlügen,
+wenn ich diesen verschweigen würde. Das große Problem mit
+_Template_-Verzeichnissen dieser Art ist, dass man als Nutzer leider
+kaum Möglichkeiten hat, die Qualität eines _Templates_ vor der Nutzung
+zu beurteilen. Ist der Code valide? Welche Einstellungsmöglichkeiten
+gibt es? Passt die Darstellung in den gängigen Browsern? Diesen
+Qualitätskriterien für den professionellen Einsatz können freie
+_Templates_ oftmals leider nicht gerecht werden – daher gilt hier: vor
+der Nutzung intensiv testen!
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Joomlaos.de bietet neben der Template-Galerie auch eine große
+Bandbreite an Joomla-Erweiterungen zum Download. Da die Seite vom
+Betreiber jedoch zunehmend vernachlässigt wird, wird die dort
+angebotenen Erweiterungen oftmals massiv veraltet, nutzen Sie das Portal
+daher ausschließlich für Templates.
+|===
+
+==== Template-Clubs
+
+Neben den zahlreichen Verzeichnissen für freie Templates haben sich
+einige Anbieter wie Yootheme ([.underline]#www.yootheme.com#),
+RocketTheme ([.underline]#www.rockettheme.com#) oder Joomlart
+([.underline]#www.joomlart.com#) darauf spezialisiert, qualitativ
+hochwertige und gestalterisch ansprechende Templates zu gestalten und
+diese anschließend in einem sog. _Template-Club_ im Rahmen einer
+kostenpflichtigen Mitgliedschaft zur Verfügung zu stellen. Im Regelfall
+veröffentlichen diese Clubs ein bis zwei neue _Templates_ monatlich, die
+dann von den zahlenden Kunden heruntergeladen und verwendet werden
+können. Die _Templates_ werden häufig zusammen mit speziell darauf
+abgestimmten _Erweiterungen_ angeboten, die sich nahtlos ins Design
+einfügen und daher einen sehr runden Gesamteindruck abliefern.
+
+image:media/image26.png[media/image26,width=548,height=388]
+
+BILD 9.13 [.underline]#www.yootheme.com#
+
+Leider sind die _Templates_ dieser Anbieter durch ihre vielen
+verschiedenen Parameter und Nutzungsmöglichkeiten im Regelfall sehr
+umfangreich, was zu längeren Ladezeiten führen kann.
+
+==== Installation
+
+Die Installation der heruntergeladenen Templates erledigen Sie über den
+Erweiterungsmanager (siehe Kapitel 10.2.2, „Erweiterungen
+installieren“). Anschließend muss das Template dann noch, wie in Kapitel
+9.4 beschrieben, gewechselt werden.

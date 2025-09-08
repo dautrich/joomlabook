@@ -1,0 +1,573 @@
+== Benutzer- und Rechteverwaltung
+
+Eine der meistkritisiertesten Funktionen von Joomla! 1.5 war die nur
+sehr rudimentär ausgeprägte _Benutzer_- und _Rechteverwaltung_, die eine
+fein granulierte Rechtevergabe, wie man sie im professionellen Einsatz
+benötigt, nicht wiedergeben konnte.
+
+Um dieses Problem aus der Welt zu schaffen, hat das Entwicklerteam mit
+Joomla! 1.6 ein komplett neues Rechtesystem integriert, das nun auch
+komplexeste Strukturen abbilden kann. Leider ist die Nutzung des Systems
+aufgrund seiner zahlreichen Möglichkeiten nicht ganz trivial – am Ende
+dieses Kapitels werden Sie es aber problemlos durchschaut haben.
+
+=== Benutzerverwaltung
+
+Starten wir mit der Benutzerverwaltung, die sich im Backend unter dem
+Menüpunkt _Benutzer ++>++ Verwalten_ verbirgt. Die grundlegende Struktur
+der Verwaltung ist identisch mit den bereits bekannten Listenansichten
+des Joomla!-Backends und bietet die folgenden Spalten:
+
+* _Name:_ der eingegebene Klarname des Benutzers sowie ein Icon zum
+Hinzufügen bzw. Lesen der passenden Benutzerhinweise
+* _Benutzername:_ der jeweilige Benutzername
+* _Aktiviert:_ Zeigt an, ob der Nutzer bereits den Aktivierungslink in
+der ihm zugesendeten Mail angeklickt hat
+* _Freigegeben:_ Zeigt an, ob der Benutzer durch den Administrator
+freigegeben wurde
+* _Benutzergruppe:_ Benutzergruppen, welcher der Nutzer angehört
+* _E-Mail-Adresse:_ vom Nutzer hinterlegte E-Mail-Adresse
+* _Letzter Besuch:_ Datum des letzten Login des Benutzers
+* _Registrierungsdatum:_ Datum der Registrierung
+
+image:media/image2.png[media/image2,width=548,height=153]
+
+BILD 11.1 Benutzerverwaltung – Übersicht der Nutzer
+
+Klicken wir auf den Toolbar-Button Neu, so öffnet sich wie vermutet das
+Formular zum Anlegen eines neuen Benutzers. Dort werden standardmäßig
+die Felder
+
+* _Name:_ Klarname des Benutzers
+* _Benutzername:_ frei wählbarer Benutzername
+* _Passwort:_ Benutzerpasswort, muss durch nochmalige Eingabe bestätigt
+werden
+* _E-Mail-Adresse:_ E-Mail-Adresse des Nutzers
+
+abgefragt, womit die relevanten Pflichtangaben des Nutzers bereits
+erledigt wären.
+
+Als nächtes können wir im Tab _Zugewiesene Gruppen_ auswählen, welchen
+_Benutzergruppen_ (siehe Kapitel 11.2, „Gruppen“) der jeweilige Benutzer
+zugeordnet werden soll.
+
+Außerdem finden wir dort den Tab _Basiseinstellungen_, der uns die
+Anpassung der folgenden, für jeden Benutzer individuell festlegbaren
+Parameter erlaubt:
+
+* _Backend Template Stil:_ Angabe des _Backend-Templates_, das für den
+entsprechenden Benutzer verwendet werden soll
+* _Backend Sprache:_ Sprache, die für den Benutzer im _Backend_
+verwendet werden soll
+* _Frontend Sprache:_ Sprache, die für den Benutzer im _Frontend_
+verwendet werden soll
+* _Editor:_ Auswahl des WYSIWYG-Editors, der für den Benutzer geladen
+werden soll
+* _Hilfeseite:_ Auswahl des Hilfe-Portals
+* _Zeitzone:_ Auswahl der Zeitzone
+
+Das sieht unspektakulär aus? Ja, im ersten Moment mag das sein –
+bedenken Sie aber, dass Sie so beispielsweise die Möglichkeit erhalten,
+weniger erfahrenen Nutzern einen Editor zur Verfügung zu stellen, der
+seinen Fähigkeiten entspricht.
+
+image:media/image4.png[media/image4,width=548,height=333]
+
+BILD 11.2 Anlegen eines neuen Benutzers
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Eine für die Praxis sehr nützliche Funktion verbirgt sich
+hinter dem Schalter _Passwortzurücksetzung fordern_. Ist dieser
+aktiviert, wird der entsprechende Nutzer beim nächsten Login dazu
+aufgefordert, sein Passwort zu verändern. Erst wenn ein neues Passwort
+hinterlegt wurde, ist die Arbeit im System möglich.
+|===
+
+=== Gruppen
+
+Die _Benutzergruppen_ bilden den ersten Baustein unserer
+Rechteverwaltung. Was haben die Gruppen mit der Rechteverwaltung zutun?
+Ganz einfach: Joomla! verwaltet _Berechtigungen_ jeglicher Art nicht für
+einzelne Benutzer, sondern *ausschließlich* für _Benutzergruppen_ –
+einem bestimmten Nutzer die _Berechtigung_ XY einzuräumen, ist also nur
+möglich, indem ich der _Benutzergruppe_ (des Nutzers) die _Berechtigung_
+einräume. Interessant ist dabei, dass das Gruppensystem *hierarchisch*
+angeordnet ist und dadurch Berechtigungen „vererbt“ werden können.
+Außerdem ist es möglich, einen _Benutzer_ *mehreren* _Benutzergruppen_
+zuzuordnen, sodass man über das Gruppensystem verschiedene „Rollen“
+abbilden kann.
+
+Das klingt alles ziemlich kompliziert, oder? Um besser zu verstehen, was
+ich meine, denken Sie an das Beispiel einer Schul-Website, auf der die
+Inhalte aus der folgenden Tabelle abgebildet werden sollen.
+
+TABELLE 11.1 Inhaltsstruktur des Beispiels „Schulhomepage“
+
+[width="100%",cols="43%,57%",]
+|===
+|Bereich |Zugriff
+|Startseite a|
+Alle lesend
+
+Schulleitung schreibend
+
+|Forum |Schulangehörige lesend und schreibend
+|Informationen der Fachschaften a|
+Schulangehörige lesend
+
+Leiter der Fachschaften schreibend
+
+|Informationen für das Kollegium a|
+Lehrer lesend
+
+Schulleitung schreibend
+
+|===
+
+Daraus ergäbe sich beispielsweise eine _Gruppen- und Rechtestruktur_,
+wie sie in Bild 11.3 aufgebaut ist. Durch die hierarchische
+Strukturierung der _Gruppen_ werden die _Berechtigungen_ der jeweiligen
+übergeordneten _Gruppe_ geerbt, sodass jeweils nur „zusätzliche“
+_Rechte_ (in der Abbildung unterstrichen) zugewiesen werden müssen. Das
+macht das Rechtesystem sehr flexibel und zugleich leichter zu
+administrieren, da es weniger „Stellschrauben“ gibt, die verändert
+werden müssen.
+
+image:media/image5.png[media/image5,width=548,height=411]
+
+Bild 11.3 Rechtestruktur der hypothetischen Schulwebsite
+
+Betrachten Sie die Abbildung gerade und fragen sich, wozu man einem
+Benutzer mehrere _Gruppen_ zuweisen können muss? Stellen Sie sich vor,
+dass jeder Vorsitzende einer Fachschaft aus unserem Beispiel seinen
+individuellen Bereich (Deutsch, Mathe etc.) editieren können sollte.
+Dann würde es nicht einfach nur die _Gruppe_ „Fachschaftsleiter“ geben,
+sondern wir würden mehrere _Gruppen_ (Fachschaft Mathe, Fachschaft
+Deutsch) anlegen, die allesamt von der _Gruppe_ Lehrer abstammen. Wenn
+nun eine Person mehr als einer Fachschaft angehört, dann ist es
+notwendig, dass wir diese Person mehreren _Gruppen_ zuordnen können,
+damit die _Rechte_ zum Bearbeiten der Bereiche stimmen.
+
+Sie merken an dieser Stelle sicherlich, dass das Thema wie angekündigt
+ein wenig komplexer ist, als man es vermutet hätte. Aber
+glücklicherweise legt Joomla! bereits von Haus aus einen Satz
+_Benutzergruppen_ an, der uns beim Aufbau unserer eigenen Rechtestruktur
+unterstützt. Diese finden wir in der _Benutzergruppen_-Übersicht, die
+wir durch einen Klick auf den Submenü-Eintrag Benutzergruppen in der
+Benutzerübersicht erreichen.
+
+image:media/image6.png[media/image6,width=548,height=222]
+
+BILD 11.4 Benutzergruppen-Übersicht
+
+Standardmäßig existieren acht _Benutzergruppen_, die wie in Bild 11.4 zu
+sehen hierarchisch angeordnet sind. Die _Gruppen_ sowie ihre jeweiligen,
+standardmäßigen Rechte möchte ich in der nachfolgenden Tabelle kurz
+vorstellen.
+
+TABELLE 11.2 Auflistung der Standard-Benutzergruppen
+
+[width="100%",cols="19%,63%,18%",]
+|===
+|Gruppe |Standardberechtigungen |Zugriffsebene
+
+|Öffentlich |Gruppe für alle eingeloggten und nicht eingeloggten
+Benutzer. Erlaubt ausschließlich das Betrachten des _Frontends_.
+|Öffentlich
+
+|Gast |Gruppe für alle Nutzer die nicht eingeloggt sind. Erlaubt, wie
+bei der Gruppe Öffentlich, die Betrachtung des _Frontends_, enthält
+jedoch im Unterschied nur Nutzer die nicht eingeloggt sind |Gast
+
+|Manager |Zugelassen für die Anmeldung im _Frontend_ und _Backend_ sowie
+für die Editierung von Beiträgen und den Inhalten der installierten
+Komponenten a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Administrator |Darf die Systemkonfiguration nicht verändern, hat
+ansonsten alle Rechte a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Registriert |Darf sich im _Frontend_ einloggen und Inhalte mit der
+Zugriffsebene „Registriert“ betrachten a|
+Öffentlich
+
+Registriert
+
+|Autor |Darf neue Inhalte im _Frontend_ anlegen und die eigenen Beiträge
+bearbeiten, jedoch Beiträge nicht selbst veröffentlichen a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Editor |Darf alle Inhalte im _Frontend_ bearbeiten, eigene Beiträge
+anlegen, jedoch diese nicht selbst veröffentlichen a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Publisher |Darf alle Inhalte im _Frontend_ bearbeiten, selber Beiträge
+verfassen und alle Beiträge veröffentlichen a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|Super Benutzer |Darf alles a|
+Öffentlich
+
+Registriert
+
+Spezial
+
+|===
+
+Diese Gruppenstruktur können Sie als Ausgangsbasis für Ihre eigene
+Gruppenstruktur verwenden, indem Sie über die entsprechenden
+Toolbar-Werkzeuge neue _Benutzergruppen_ anlegen. Das entsprechende
+Formular ist dabei sehr rudimentär und fragt im Wesentlichen nur ab, wie
+die neue _Gruppe_ heißen und von welcher _Gruppe_ sie die bestehenden
+Rechte erben soll.
+
+image:media/image9.png[media/image9,width=548,height=129]
+
+BILD 11.5 Anlegen einer neuen Benutzergruppe
+
+Suchen Sie verzweifelt nach der Möglichkeit, die Rechte der jeweiligen
+Gruppe festzulegen? Keine Sorge, das kommt noch. Zuerst einmal wollen
+wir uns mit dem Begriff der _Zugriffsebene_ beschäftigen, der bereits in
+Tabelle 11.2 aufgetaucht ist.
+
+=== Zugriffsebene
+
+_Zugriffsebenen_ sind das nächste Teil im Joomla!-Rechte-Puzzle.
+Zugriffsebenen existieren ausschließlich, um festzulegen, welche
+_Benutzergruppe_ einen bestimmten Inhalt im *Front­end* *betrachten* kann
+– wobei der jeweilige Inhalt ein Beitrag, ein Menüeintrag, ein Modul
+oder irgendein anderer im System hinterlegter Inhalt sein kann. Diese
+Festlegung erfolgt unabhängig vom sonstigen Rechtesystem, das für die
+Steuerung aller anderen Aktionen (Anlegen, Editieren, Löschen etc.)
+zuständig ist.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Der Grund für die Existenz dieses, zugegebenermaßen,
+etwas wenig intuitiven Systems ist im Wunsch nach
+Rückwärtskompatibilität zu älteren Joomla!-Versionen zu suchen. Dort
+wurde das Zugriffsebenensystem genutzt, um die Unzulänglichkeiten des
+starren Rechtesystems auszugleichen.
+|===
+
+_Zugriffsebenen_ stehen in engem Bezug zu _Benutzergruppen_, da eine
+Zuordnung zwischen den beiden Bereichen erfolgen muss. Dabei ist es
+möglich, einer _Benutzergruppe_ mehrere _Zugriffsebenen_ zuzuweisen – so
+kann ein _Nutzer_ der Gruppe „Editor“ Inhalte betrachten, die den Ebenen
+„Öffentlich“, „Registriert“ oder „Spezial“ zugeordnet sind.
+
+Umgekehrt kann eine _Zugriffsebene_ auch mehreren _Benutzergruppen_
+zugeordnet sein, denn die Ebene „Spezial“ kann von den Gruppen „Editor“,
+„Autor“, „Publisher“, „Manager“, „Administrator“ und „Super
+Administrator“ betrachtet werden.
+
+Die entsprechende Verwaltung der Zugriffsebenen erfolgt im gleichnamigen
+Submenü-Bereich der Benutzerverwaltung.
+
+image:media/image11.png[media/image11,width=548,height=163]
+
+BILD 11.6 Übersicht der angelegten Zugriffsebenen
+
+Nach einem Klick auf Neu erhalten wir hier die Möglichkeit, eine neue
+Zugriffsebene anzulegen und dabei den _Titel_ der Ebene zu vergeben und
+die Zuordnungseinstellungen vorzunehmen. Beachten Sie dabei, dass auch
+_Zugriffsebenen_ in der Gruppenstruktur vererbt werden – wird eine
+_Zugriffsebene_ also der Gruppe „Autor“ zugeordnet, so können auch
+„Editoren“ und „Publisher“ Inhalte mit der entsprechenden
+_Zugriffsebene_ betrachten.
+
+image:media/image13.png[media/image13,width=548,height=304]
+
+BILD 11.7 Anlegen einer neuen Zugriffsebene
+
+Standardmäßig existieren in Joomla! fünf verschiedene _Zugriffsebenen_,
+die im normalen Einsatz oftmals bereits ausreichen:
+
+* _Öffentlich:_ Sichtbar für alle _Benutzer_, egal ob diese eingeloggt
+oder nicht eingeloggt sind
+* _Gast:_ Sichtbar für alle _Benutzer_, die nicht eingeloggt sind
+* _Registriert:_ Sichtbar für alle _Benutzer_, die eingeloggt sind
+* _Spezial:_ Sichtbar für alle _Benutzer_, die den _Gruppen_ „Autor“,
+„Editor“, „Publisher“, „Manager“, „Administrator“ und „Super
+Administrator“ zugeordnet sind
+* _Super_ _Benutzer:_ Sichtbar für alle _Benutzer_, die der Gruppe
+„Super Benutzer“ zugeordnet sind
+
+=== Berechtigungen
+
+Rekapitulieren wir noch einmal im Schnelldurchlauf:
+
+* Joomla! kann mehrere _Benutzer_ verwalten.
+* Ein _Benutzer_ kann mehreren _Benutzergruppen_ angehören.
+* Joomla! nutzt die _Benutzergruppen_, um die Rechte eines _Benutzers_
+festzulegen.
+* Betrachtungsrechte werden über _Zugriffsebenen_ gesteuert.
+* Eine _Zugriffsebene_ kann mehreren _Gruppen_ zugeordnet sein und
+umgekehrt.
+
+Kommen wir nun zum letzten Akt der Rechteverwaltung: den
+_Berechtigungen_. Diese legen fest, ob _Nutzer_, die einer gewissen
+_Gruppe_ angehören, eine bestimmte Aktion ausführen dürfen – die große
+Ausnahme stellt dabei die Aktion „Betrachten“ dar, da diese ja über die
+_Zugriffsebenen_ gesteuert wird.
+
+Das Berechtigungssystem arbeitet dabei ebenfalls mit Vererbungen, wobei
+das in Bild 11.8 gezeigte Vererbungsschema zur Anwendung kommt. Es
+erlaubt uns, grundsätzliche Rechte auf Systemebene festzulegen – und
+darauf basierend dann Ausnahmen auf Komponenten-, Kategorie- oder
+Eintragsfootnote:[Ein Eintrag kann dabei jedwede Art von Inhalt sein,
+also z.B. ein Beitrag, ein Modul, ein Menüeintrag, ein Weblink oder ein
+Benutzer.]-Ebene.
+
+image:media/image14.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++11++\++Bild661.PNG,width=331,height=293]
+
+BILD 11.8 Vererbung der Berechtigungen
+
+==== System-Berechtigungen
+
+Wo aber lassen sich diese _Berechtigungen_ nun anpassen? Beginnen wir
+mit den _System-Berechtigungen_, die erstens als Vorgabe für alle
+anderen Berechtigungsebenen fungieren und zweitens die Festlegung
+einiger Berechtigungen erlauben, die ausschließlich auf dieser obersten
+Ebene konfiguriert werden können. Die System-Berechtigungen finden wir
+im Tab _Berechtigungen_ der Konfiguration (_System_ _++>++
+Konfiguration_) im Backend unserer Installation.
+
+image:media/image16.png[media/image16,width=548,height=354]
+
+BILD 11.9 __Berechtigungs__übersicht in der Systemkonfiguration
+
+Hier können wir für jede _Benutzergruppe_ separat festlegen, ob die
+entsprechende Aktion _Erlaubt_, _Verweigert_ oder _Veerbt_ sein soll.
+Letzteres bedeutet, dass die _Berechtigungen_ der übergeordneten
+_Benutzergruppen_ übernommen werden.
+
+In der Spalte _Errechnete Einstellungen_ findet sich der Status der
+jeweiligen Aktion wobei etwaige Änderungen sofort als Vorschau sichtbar
+aber noch nicht sofort gespeichert werden.
+
+image:media/image18.png[media/image18,width=548,height=273]
+
+BILD 11.10 _Berechtigungen_ der _Benutzergruppe_ Manager
+
+In den _System-Berechtigungen_ können die in Tabelle 11.3 aufgelisteten
+Aktionen angepasst werden.
+
+TABELLE 11.3 Konfigurierbare Aktionen in den _System-Berechtigungen_
+
+[width="100%",cols="51%,49%",]
+|===
+|Aktion |Beschreibung
+
+|Seitenanmeldung |Erlaubt dem _Benutzer_ die Anmeldung im _Frontend_
+
+|Administratoranmeldung |Erlaubt dem _Benutzer_ die Anmeldung im
+_Backend_
+
+|Offline Zugang |Erlaubt die Betrachtung des _Frontends_, wenn dieses
+sich im ­__Offline-Modus__ befindet
+
+|Super Benutzer |Erlaubt dem _Benutzer_, alle Aktionen durchzuführen
+
+|Administrationszugriff |Erlaubt dem _Benutzer_ die Nutzung aller
+_Backend_-Funktionen außer der Editierung der _Konfiguration_
+
+|Erstellen |Ermöglicht dem _Benutzer_, Inhalte in jeder installierten
+_Komponente_ hinzuzufügen
+
+|Löschen |Ermöglicht dem _Benutzer_, Inhalte in jeder installierten
+_Komponente_ zu löschen
+
+|Bearbeiten |Erlaubt dem _Benutzer_, Inhalte in jeder installierten
+_Komponente_ zu editieren
+
+|Status bearbeiten |Erlaubt dem _Benutzer_, den Veröffentlichungsstatus
+von jeder ­installierten _Komponente_ zu editieren
+
+|Eigene Inhalte bearbeiten |Erlaubt dem _Benutzer_, eigene Inhalte in
+jeder _Komponente_ zu ­editieren
+
+|Werte eigener Felder bearbeiten |Erlaubt dem _Benutzer_, die Werte von
+benutzerdefinierten Feldern in jeder Komponente zu verändern
+|===
+
+==== Komponenten-Berechtigungen
+
+Springen wir nun zur nächsten Ebene: den Komponenten-Berechtigungen.
+Diese finden wir im _Optionen_-Dialog der jeweiligen Komponente, wobei
+hier sowohl _Front_- (_Beiträge, Banner_) aus auch _Backend-Komponenten_
+(_Massen-Mail, Menüverwaltung_) individuell konfiguriert werden können.
+Dafür öffnen wir beispielsweise die _Optionen_ der
+_Menüeintragsverwaltung_ durch einen Klick auf den entsprechenden
+Toolbar-Button und finden dort den Tab _Berechtigungen_, der uns erneut
+die Berechtigungsvergabe für die einzelnen Benutzergruppen erlaubt. Die
+zur Verfügung stehenden Aktionen sind dabei in der Regel auf _ACL &
+Optionen konfigurieren_ (erlaubt der jeweiligen Gruppe, diesen Dialog zu
+öffnen), _Nur Optionen konfiguerien_ (erlaubt der jeweiligen Gruppe die
+Optionen der Komponente ohne Berechtigungen zu bearbeiten),
+_Administrationszugriff_ (erlaubt die Verwendung der Komponente),
+_Erstellen_, _Löschen_, _Bearbeiten_ und _Status bearbeiten_ beschränkt.
+
+image:media/image19.png[media/image19,width=548,height=250]
+
+BILD 11.11 Komponenten-Berechtigungen, hier am Beispiel der
+Menüverwaltung
+
+==== Kategorie-Berechtigungen
+
+Wenn eine _Komponente_ die Verwaltung verschiedener _Kategorien_
+unterstützt (_Beiträge_, _Banner_ etc.), so können wir hier die nächste
+Ebene zur Berechtigungsvergabe nutzen. Dies ist besonders nützlich, um
+Nutzern Bearbeitungsrechte nur in einem bestimmten Bereich der Seite
+einzuräumen.
+
+Die _Kategorie-Berechtigungen_ werden (wer hätte das vermutet) im
+Formular zum Anlegen/Bearbeiten einer _Kategorie_ vergeben und befinden
+sich im entsprechenden Tab des Formulars. Die dort möglichen _Aktionen_
+betreffen selbstverständlich nicht die Kategorie selbst, sondern die
+Einträge, die dieser Kategorie zugeordnet sind. Wenn wir also einer
+_Nutzergruppe_ die Aktion _Erstellen_ in einer bestimmten _Kategorie_
+verbieten würden, so kann diese Gruppe auch weiterhin Unterkategorien zu
+dieser _Kategorie_ erstellen, aber in dieser _Kategorie_ keine
+_Beiträge_ hinzufügen.
+
+==== Eintragsberechtigungen
+
+Das bringt uns auch schon zur letzten Ebene: den Eintragsberechtigungen.
+Diese regulieren, ob eine Nutzergruppe eine bestimmte Aktion auf einen
+einzelnen _Eintrag_ (_Beitrag, Banner_ etc.) anwenden kann. Dadurch wird
+es z.B. möglich, einzelnen Mitarbeitern die Bearbeitung eines einzelnen
+_Beitrags_ zu erlauben. Auch diese Berechtigungen finden wir im
+entsprechenden Tab des Editierungsformulars, wobei der Satz der
+möglichen Aktionen hier logischerweise auf den konkreten Fall angepasst
+ist und dadurch nur die Aktionen _Löschen_, _Bearbeiten_ und _Status
+bearbeiten_ zur Verfügung stehen.
+
+image:media/image22.png[media/image22,width=548,height=182]
+
+BILD 11.12 Eintragsberechtigungen, hier am Beispiel eines Beitrags
+
+Damit wären die grundlegenden Strukturen der Rechteverwaltung erklärt,
+die ich hier nochmals abschließend zusammenfassen möchte:
+
+* Joomla! kann mehrere _Benutzer_ verwalten.
+* Ein _Benutzer_ kann mehreren _Benutzergruppen_ angehören.
+* Joomla! nutzt die _Benutzergruppen_, um die Rechte eines _Benutzers_
+festzulegen.
+* Betrachtungsrechte werden über _Zugriffsebenen_ gesteuert.
+* Eine _Zugriffsebene_ kann mehreren _Gruppen_ zugeordnet sein und
+umgekehrt.
+* Bearbeitungsrechte werden über die _Berechtigungen_ gesteuert.
+* Berechtigungen können auf _System_-, _Komponenten_-, _Kategorie-_ und
+_Eintragsebene_ vergeben werden.
+
+Sie sind nun in der Lage, die Rechteverwaltung von Joomla! zu nutzen, um
+auf ihren Seiten individuelle Rechtestrukturen zu erzeugen .
+
+=== Parameter der Benutzerverwaltung
+
+Zum Abschluss dieses Kapitels möchte ich noch auf die Parameter der
+Benutzerverwaltung eingehen, die wir, wie üblich, durch einen Klick auf
+den Toolbar-Button _Optionen_ in der Benutzerübersicht öffnen.
+
+image:media/image25.png[media/image25,width=548,height=324]
+
+BILD 11.13Parameter der _Benutzer_-Komponente
+
+Die Paramater sind insofern erwähnenswert, als dass wir mit ihnen
+Einstellungen vornehmen können, die in früheren Joomla!-Versionen
+oftmals über Dritterweiterungen verändert werden mussten. Eine
+Auflistung mit Erklärung finden Sie in der nachfolgenden Tabelle.
+
+TABELLE 11.4 Parameter der _Benutzer_-Komponente
+
+[width="100%",cols="41%,59%",]
+|===
+|Parameter |Erklärung
+
+|Benutzeroptionen |
+
+|Benutzerregistrierung |Erlaubt einzustellen, ob sich neue _Benutzer_
+auf der Seite registrieren können oder nicht – standardmäßig
+deaktiviert!
+
+|Gruppe für neue Benutzer |_Benutzergruppe_, der neue _Benutzer_ nach
+der Registrierung standardmäßig zugewiesen werden
+
+|Gast Benutzergruppe |_Benutzergruppe_, der _Benutzer_ angehören, die
+nicht eingeloggt sind
+
+|Passwort mitsenden |Steuert, ob die Mail, die ein Nutzer nach der
+Registrierung, sein gerade gewähltes Passwort enthalten soll
+
+|Kontenaktivierung durch a|
+Erlaubt uns, das Prozedere zur Konto-Aktivierung nach der Registrierung
+auszuwählen:
+
+* _Keine:_ Neue _Benutzerkonten_ sind sofort aktiviert.
+* _Benutzer:_ Nach der Registrierung erhält der _Nutzer_ eine E-Mail mit
+einem Bestätigungslink – nachdem er diesen angeklickt hat, ist das Konto
+aktiviert.
+* _Administrator:_ Nachdem der _Nutzer_ sein Konto durch die Nutzung des
+Links aktiviert hat, erhält der _Administrator_ der Seite eine Mail mit
+der Aufforderung, den neuen Benutzer ebenfalls zu aktivieren.
+
+|Informationsmail an Administratoren |Auswahl, ob eine E-Mail an den
+Administrator versendet werden soll, wenn bei der Kontenaktivierung
+_Keine_ oder _Benutzer_ ausgewählt wurde
+
+|Captcha |Auswahl des zu verwendenden _Captcha_ in den Registrierungs-
+bzw. Passwort-vergessen-Formularen
+
+|Einstellung im Frontend |Erlaubt einem _Benutzer_, in seinen
+Profileinstellungen im _Frontend_ seine gewünschte Sprache, den
+WYSIWYG-Editor und die Einstellungen zum Hilfeportal selbst zu verändern
+
+|Frontend-Sprache |Erlaubt einem _Nutzer_, bei der Registrierung die
+gewünschte _Frontend_-Sprache zu wählen
+
+|Benutzername veränderbar |Steuert, ob ein Nutzer seinen Benutzernamen
+nachträglich verändern kann
+
+|Passwortoptionen |
+
+|Zurücksetzungsmaximum |Anzahl der Erlaubten Zurücksetzungen eines
+Nutzerpassworts in einem separat angegebenen Zeitraum
+
+|Zurücksetzungszeit |Zeitraum zur oben genannten Option
+
+|Passwort: Minimale Länge |Minimale Zeichenanzahl für ein Nutzerpasswort
+
+|Minimaler Anteil an Zahlen |Legt die Mindestanzahl von Ziffern im
+Passwort fest
+
+|Minimaler Anteil an Sonderzeichen |Legt die Mindestanzahl von
+Sonderzeichen im Passwort fest
+
+|Minimaler Anteil an Großbuchstaben |Legt die Mindestanzahl von
+Großbuchstaben im Passwort fest
+|===

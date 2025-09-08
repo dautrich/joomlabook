@@ -1,0 +1,3 @@
+[[09-templatesystem]]
+
+include::book/09-templatesystem/cap09.adoc[]

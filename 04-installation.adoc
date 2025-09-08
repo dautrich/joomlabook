@@ -1,0 +1,3 @@
+[[04-installation]]
+
+include::book/04-installation/cap04.adoc[]

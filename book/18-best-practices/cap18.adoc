@@ -1,0 +1,1157 @@
+== Best Practices
+
+Durch den Einsatz von Joomla! in zahlreichen Kundenprojekten habe ich
+einige Tipps und Herangehensweisen gesammelt, die ich Ihnen in Form
+dieses Kapitels gerne vorstellen möchte. Beachten Sie aber bitte auch
+die Praxistipps aus Kapitel 6, „Das Backend“, die ebenfalls in meiner
+Arbeit entstanden sind.
+
+=== Sinnvolle Erweiterungen im professionellen Umfeld
+
+Zuerst möchte ich Ihnen einige Erweiterungen vorstellen, die im
+professionellen Einsatz nahezu unverzichtbar sind.
+
+==== OSMap
+
+Die Sitemap-Erweiterung
+_OSMap_footnote:[[.underline]#https://www.joomlashack.com/joomla-extensions/osmap/#],
+die kostenlos unter der GPL-Lizenz zur Verfügung steht, kann dem
+Administrator eine äußerst lästige Aufgabe abnehmen: die Generierung von
+sogenannten XML-Sitemap-Dateien. Diese XML-Sitemaps entsprechen einem
+standardisierten
+Formatfootnote:[[.underline]#http://www.sitemaps.org/#], das es
+Suchmaschinen wie Google oder Bing erleichtern soll, die Inhalte einer
+Website zu indexieren.
+
+Der Aufbau der Sitemap sieht wie folgt aus:
+
+++<++?xml version="1.0" encoding="UTF-8"?++>++
+
+++<++urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"++>++
+
+++<++url++>++
+
+++<++loc++>++http://www.example.com/++<++/loc++>++
+
+++<++lastmod++>++2005-01-01++<++/lastmod++>++
+
+++<++changefreq++>++monthly++<++/changefreq++>++
+
+++<++priority++>++0.8++<++/priority++>++
+
+++<++/url++>++
+
+++<++/urlset++>++
+
+So ist für jede auf der Website vorhandene Unterseite ein eigener
+++<++url++>++...++<++/url++>++-Block hinzuzufügen und durch die Angabe
+der Tags für ++<++lastmod++>++, also dem Datum der letzten Änderung,
+++<++changefreq++>++, was dem durchschnittlichen Rhythmus der Änderung
+an der jeweiligen URL entspricht, sowie der Priorität der jeweiligen
+Seite zu ergänzen.
+
+Bei statischen Websites ist es in der Regel notwendig, die jeweilige
+Datei händisch bzw. unter Zuhilfenahme eines entsprechenden Webdienstes
+zu erstellen und anschließend per FTP auf dem Server zu hinterlegen. Die
+Problematik ist dabei offensichtlich: Jede Änderung an der URL-Struktur
+erfordert eine manuelle Aktualisierung der XML-Sitemap.
+
+OSMap nimmt uns diese Aufgabe durch das automatische Auslesen aller
+Menüeinträge und Beiträge und das anschließende Generieren der passenden
+Datei ab. Dazu öffnen wir nach der Installation von OSMap die
+Konfiguration der Komponente über den Klick auf Komponenten ++>++ OSMap.
+
+image:media/image2.png[media/image2,width=548,height=196]
+
+BILD 18.1 Die Erweiterung OSMap nach der Installation
+
+Neben der Umwandlung von Menüeinträgen verfügt OSMap noch über die
+Funktion, „tiefer“ ins System einzutauchen und auch Inhalte zu erfassen,
+die nicht über das Menü erreichbar sind. Diese Funktion bietet OSMap
+standardmäßig in der Free-Version für Joomla-Beiträge und dort
+eingebundene Bilder an, lässt sich jedoch über Erweiterungen auch für
+andere Joomla-Komponenten anpassen.
+
+Daher verfügt OSMap über ein Plug-in-System, das über den entsprechenden
+Submenüeintrag erreicht werden kann.
+
+image:media/image3.png[media/image3,width=548,height=135]
+
+BILD 18.2 Die Erweiterungsübersicht von OSMap Free
+
+Nun wechseln wir zurück in den Administrationsbereich der Komponente und
+wählen mit dem Klick auf den Titel Default die bereits existierende
+Standard-Sitemap aus.
+
+image:media/image6.png[media/image6,width=548,height=347]
+
+BILD 18.3 Konfiguration der gewünschten Sitemap
+
+Theoretisch kann OSMap zur Verwaltung mehrere Sitemaps verwendet werden
+– so wäre es z.B. denkbar, in die XML-Sitemap für Suchmaschinen alle
+Inhalte auflisten zu lassen, in der Sitemap für den menschlichen
+Besucher jedoch Verlinkungen eines bestimmten Menüs ausblenden zu
+lassen. Um diese Auswahl zu treffen, können wir in der linken Spalte des
+Dialogs auswählen, welche Menüs in die Sitemap eingebunden werden sollen
+und mit welchem Wert deren Priorität in der Sitemap ausgegeben werden
+soll.
+
+Nach dem Speichern & Schliessen der Sitemap springen wir wieder auf die
+Übersichtsseite von OSMap und können dort mit einem Klick auf den Link
+_XML_, der neben dem jeweiligen Sitemap-Titel zu finden ist, unsere
+fertige Sitemap aufrufen.
+
+Ein Haken bleibt jedoch: Der Sitemap-Standard erwartet, dass die
+XML-Sitemap als Datei mit dem Namen _sitemap.xml_ im Wurzelverzeichnis
+der jeweiligen Domain (_domain.tld/sitemap.xml_) hinterlegt ist – die
+Sitemap von OSMap ist jedoch unter der URL _domain.tld_
+_index.php/component/osmap/?view=xml&id=1_ abzurufen. Was lässt sich
+also dagegen tun?
+
+Hier können wir uns mit einem kleinen Trick behelfen und den folgenden
+Codeschnipsel hinter dem Eintrag RewriteEngine On in der _.htaccess_
+unserer Joomla!-Installation hinzufügen:
+
+RewriteCond %++{++REQUEST++_++URI} ^/sitemap.xml
+
+RewriteRule .++*++ /index.php/component/osmap/?view=xml&id=1
+
+Dieser Eintrag leitet die URL _domain.tld/sitemap.xml_ auf die von OSMap
+generierte Datei um, sodass wir, ohne jegliches Zutun, stets eine
+aktuelle Sitemap für Suchmaschinen zur Verfügung stellen.
+
+==== JCE
+
+===== Installation und Konfiguration
+
+Standardmäßig bringt Joomla! zum Bearbeiten von Texten aller Art die
+zwei Editoren TinyMCE und CodeMirror mit.
+
+Während CodeMirror ein reiner Text-Editor mit Syntax-Highlighting ist,
+handelt es sich bei TinyMCE um einen vollwertigen WYSIWYG-Editor, der
+auf dem beliebten, gleichnamigen, unter GPL verfügbaren Skript basiert.
+Der TinyMCE wird von zahlreichen weiteren Content-Management-Systemen
+genutzt und zeichnet sich durch eine vergleichsweise einfache Bedienung
+und qualitativ soliden Code aus, hat jedoch in der von Joomla!
+eingesetzten Version noch einige Schwächen und ist zudem z.B. beim
+Einbinden von Bildern über den Medien-Manager eine Spur zu
+unkomfortabel, was effektives Arbeiten bremst.
+
+Daher gibt es eine auf den Einsatz in Joomla! angepasste Version des
+TinyMCE, der sich „Joomla! Content Editor“ bzw. einfach nur
+„JCE“footnote:[[.underline]#http://www.joomlacontenteditor.net/#] nennt.
+Der Editor, der unter GPL zur Verfügung steht und dessen Entwicklung
+sich über eine kostenpflichtige Pro-Version finanziert, erleichtert die
+Arbeit mit Inhalten enorm und ist daher für mich eine der ersten
+Erweiterungen, die ich in jeder neuen Joomla!-Installation einspiele.
+Die kostenpflichtige Version ist in einem Abonnement erhältlich, das
+sich durch einen äußert fairen Preis von derzeit 25 Euro jährlich
+auszeichnet und daher eine gute Investition darstellt.
+
+Nach dem Herunterladen der Installationspakete für den Editor und des
+Mediabox-Plug-ins sowie dem Einspielen über den Erweiterungsmanager
+verankert sich der JCE mit einem Editor-Plug-in und einer Komponente zur
+Administration im Backend, die wir über einen Klick auf Komponenten
+++>++ JCE Editor öffnen.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Eine großartige Funktion des JCE, die sich
+insbesondere bei der Bedienung durch Endnutzer bewährt, ist die saubere
+Verarbeitung von Inhalten, die aus MS Word kopiert wurden. Word
+hinterlegt nämlich beim Kopieren zahlreiche unsichtbare, aber für uns
+störende Formatierungen im Editor, die zu unerwarteten Formatierungen
+führen und den Normalnutzer oft verzweifeln lassen. Der JCE erkennt beim
+Einfügen die Quelle des Texts, säubert den Inhalt von allen
+überflüssigen Formatierungen und wandelt die Formatierungen
+(Überschriften, Listen) dabei zugleich in valides HTML um.
+|===
+
+Standardmäßig liefert der JCE leider keine deutschen Sprachdateien mit
+und auch eine offizielle deutsche Übersetzung sucht man vergebens – was
+ärgerlich ist, da ja dadurch auch alle Dialoge im eigentlichen Editor in
+englischer Sprache sind, was dem Komfort nicht unbedingt zugutekommt.
+Glücklicherweise gibt es eine Vielzahl von inoffiziellen
+Übersetzungspaketen, aus denen sich insbesondere das Übersetzungspaket
+von
+hst-pc.defootnote:[[.underline]#http://www.hst-pc.de/joomla-jce-editor.html#]
+durch die Qualität und Vollständigkeit der Übersetzung positiv abhebt.
+Dieses Übersetzungspaket können wir nach dem Herunterladen über die
+Joomla-Erweiterungsverwaltung.
+
+image:media/image8.png[media/image8,width=548,height=222]
+
+BILD 18.4 Installation der deutschen Sprachdateien für den JCE
+
+Die Verwaltungskomponente bietet nun die folgenden Optionen.
+
+[width="100%",cols="27%,73%",]
+|===
+|Menüpunkt |Beschreibung
+|Kontrollzentrum |Übersicht über die verschiedenen Optionen
+|Editor-Konfiguration |Allgemeine Konfigurationsoptionen
+|Profile |Verwaltung der verschiedenen Editor-Profile
+| |
+|===
+
+Ein Klick auf Editor-Konfiguration eröffnet dem Administrator diverse
+Konfigurationsmöglichkeiten.
+
+[width="100%",cols="28%,72%",]
+|===
+|Konfigurationsoption |Beschreibung
+
+|HTML überprüfen |Untersucht den erzeugten HTML-Code auf ungültige
+Elemente, nicht geschlossene Tags und weiteren unsauberen HTML-Code und
+versucht diesen zu reparieren
+
+|Dokumententyp |Erlaubt die Festlegung des HTML-Modus auf HTML4 bzw. 5
+
+|Objektkodierung |Kodierung von Sonderzeichen (Umlaute, €-Zeichen usw.)
+– mögliche Optionen sind „UTF-8“ (empfehlenswert), „_benannt_“
+(Ersetzung durch HTML-Entities: ö wird zu &ouml;) oder „_nummeriert_“ (ö
+wird zu &#246;)
+
+|Behalte geschützte Leerzeichen |Beeinflusst ob der Editor die sog.
+Non-Breaking-Spaces (&nbsp;) aus dem Text entfernt
+
+|Fülle leere Tags |Steuert, ob der Editor leere Tags mit einem
+geschützten Leerzeichen (siehe oben) füllt
+
+|Pluginmodus |Unterdrückt das Kodieren von & und ‚ beim Speichern.
+Debugging-Option für schlecht programmierte Joomla!-Erweiterungen.
+
+|Containerelement & Entertaste benutzen |Standardelement für neue
+Element im Editor und das Verhalten nach dem Drücken der Enter-Taste
+
+| |
+
+|Editorstil zurücksetzen |Die Auswahl von „Ja“ ignoriert die
+Formatierungen für Hintergrund- und Textfarbe, die in der template.css
+hinterlegt sind
+
+|Editorstil |Formatierung der Editor-Inhalte über die CSS-Definitionen
+aus einer „eigenen CSS-Datei“, der „Template-CSS-Datei“ oder ganz ohne
+CSS-Definitionen
+
+|Eigene CSS-Datei |Pfad zur eigenen CSS-Datei
+
+|Editor-Klasse |Ein CSS-Klasse, die der Editor um den Textbereich legt
+um die korrekte Darstellung des Inhalts zu gewährleisten
+
+|JavaScript komprimieren |JavaScript des Editors komprimieren. Erzeugt
+eventuell Probleme in älteren Browsern.
+
+|CSS komprimieren |CSS komprimieren. Erzeugt eventuell Probleme in
+älteren Browsern.
+
+|Mit Gzip komprimieren |GZIP-Komprimierung der Editor-Dateien. Nicht von
+allen Servern unterstützt.
+
+|Cookies benutzen |Cookies zum Speichern des Editorstatus (Editor an/aus
+etc.) nutzen
+
+|Benutzerdefinierte Konfigurationsvariablen a|
+Eigene Variablen an den Editor übergeben
+
+Dokumentation:
+[.underline]#http://tinymce.moxiecode.com/wiki.php/Configuration#
+
+|Benutzerdefinierte Callbackdatei |Angabe einer eigenen Datei für
+TinyMCE-Callback-Aufrufe
+|===
+
+Die Standardeinstellungen des JCE sind hierbei durchaus sinnvoll
+gesetzt, sodass im Normalbetrieb keine Anpassungen notwendig sind.
+
+Eine Eigenheit des JCE im Vergleich zum integrierten Editor ist die
+Möglichkeit, verschiedene Profile zu erstellen, die sich unter dem
+gleichnamigen Menüpunkt verwalten lassen.
+
+image:media/image10.png[media/image10,width=548,height=238]
+
+BILD 18.5 Übersicht der Standardprofile des JCE
+
+Diese Profile können genutzt werden, um eine angepasste Version des
+Editors zu bestimmten Komponenten, Seitenbereichen (Frontend/Backend),
+Benutzergruppen oder Benutzern oder sogar Gerätetypen (z.B. Smartphones)
+zuordnen zu können. Standardmäßig wird nur das _Default_-Profil genutzt,
+das sich nach einem Klick auf den gleichnamigen Eintrag bearbeiten
+lässt.
+
+image:media/image12.png[media/image12,width=548,height=388]
+
+BILD 18.6 Allgemeine Parameter des Default-Profils
+
+Die Konfigurationsoptionen sind dabei in mehrere Tabs eingeteilt.
+
+[width="100%",cols="29%,71%",]
+|===
+|Titel des Tabs |Beschreibung
+
+|Einstellungen |Allgemeine Konfigurationsparameter und
+Zuordnungsmöglichkeiten des Profils
+
+|Funktionen |Verwaltung der verfügbaren Editoroptionen
+
+|Editoreinstellungen |Anpassungsmöglichkeiten für allgemeine
+Editorparameter
+
+|Plugin-Einstellungen |Parameter der installierten Plug-ins
+|===
+
+Die Einstellungen können im Regelfall unangetastet bleiben, extrem
+interessant sind jedoch die Anpassungsmöglichkeiten, die uns im
+_Funktionen_-Tab zur Verfügung stehen.
+
+image:media/image14.png[media/image14,width=548,height=380]
+
+BILD 18.7 Festlegung des Editorlayouts mittels Drag & Drop
+
+Hier können wir mittels einer leicht nutzbaren Drag & Drop-Oberfläche
+beliebige Icons aus der Editor-Toolbar hinzufügen oder entfernen, indem
+wir sie aus der Übersicht der _Verfügbaren Schaltflächen_ in das
+_Aktuelle Editorlayout_ verschieben und umgekehrt.
+
+Worin liegt der Vorteil dieser Funktionalität? Wir können durch die
+Entfernung von Optionen wie _Schriftgröße_, _Schriftart_ oder
+_Schriftfarbe_ Funktionen beschneiden, die von unerfahrenen Nutzern
+gerne verwendet werden, um Texte „abwechslungsreicher“ zu gestalten. Da
+dies bei einem professionellen Webauftritt jedoch in der Regel nicht
+erwünscht ist, können wir diesen Formatierungsorgien einen Riegel
+vorschieben. Außerdem neigen Redakteure dazu, von uns vordefinierte
+Formatierungen für Überschriften (++<++h1++>++, ++<++h2++>++) durch
+Anpassung der Schriftgröße und Farbe „nachzubauen“, was wir durch die
+Ausblendung vermeiden können und dadurch den Nutzer zur Verwendung der
+dafür eigentlich gedachten Funktion _Format_ zwingen.
+
+Im Kundeneinsatz hat sich das folgende Editorlayout als Grundlage
+vielfach bewährt.
+
+image:media/image16.png[media/image16,width=548,height=79]
+
+[width="49%",cols="29%,44%,27%",]
+|===
+| | |
+
+|CHV++_++BOX++_++ID++_++01 | |
+
+|icn001 |*Praxistipp:* Durch die Nutzung des im JCE integrierten
+Bildmanagers wird der Joomla!-eigene _Bild_-Button, der unter dem Editor
+sitzt, oft überflüssig und kann daher durch die Deaktivierung des
+Plug-ins _Schaltfläche – Bild_ im Joomla!-Erweiterungsmanager
+ausgeblendet werden. |
+|===
+
+In den zahlreichen Parametern des _Editoreinstellungen_ finden sich
+zahlreiche weitere Konfigurationsoptionen, die durch ausführliche
+Tooltipps, die beim jeweiligen Titel des Parameters hinterlegt sind,
+erklärt werden. Einige Parameter möchte ich jedoch besonders
+hervorheben.
+
+[width="100%",cols="22%,26%,52%",]
+|===
+|Bereich |Parameter |Erklärung
+
+| | |
+
+|Erweitert |JavaScript erlauben |Durch den Wechsel auf „Ja“ erlaubt der
+JCE das Einfügen von JavaScript-Code. Nützliche Funktion zum Einfügen
+von Codeblöcken anderer Anbieter (Werbung etc.), *Achtung*: potenzielles
+Sicherheitsrisiko!
+
+|Dateisystem |Dateisystem |Erlaubt, nach Installation der entsprechenden
+Plugins von der Hersteller-Seite, die Nutzung alternativer Dateisysteme
+wie Amazon S3.
+
+|Dateisystem |Datei-Browser-Position |Standardmäßig zeigt der Editor in
+allen Datei-bezogenen Dialogen oben die Details zum aktuellen Eintrag
+und unten die Liste der Dateien – beim Einpflegen eines neuen Eintrags
+muss man also zuerst unten die entsprechende Datei suchen um dann oben
+deren Einstellungen zu setzen. Dieser Schalter dreht diese unlogische
+Reihenfolge um.
+
+|Dateisystem |Größenänderung beim Upload (nur Pro, siehe unten) |Erlaubt
+es, Bilder beim Upload standardmäßig auf eine vorgegeben Maximalgröße
+verkleinern zu lassen
+
+|Dateisystem |Größenänderungsstatus (nur Pro, siehe unten) |An“ erzwingt
+die Größenänderung und verhindert dadurch, dass Nutzer Bilder in Inhalte
+einfügen, die für die Nutzung im Web nicht geeignet sind
+
+|Dateisystem |Breite ändern (px)/Höhe ändern (px) (nur Pro, siehe unten)
+|Setzt die Maximalgrößen für die Bilder beim Upload
+
+| | |
+
+| | |
+
+| | |
+
+|Dateisystem |Pfad zum Medienverzeichnis |Definiert den Pfad zu dem
+Verzeichnis, in dem der JCE standardmäßig nach Dateien (Bilder, PDFs
+etc.) sucht. ­Besonderes Gimmick ist hier, dass der Pfad durch dynamische
+Elemente wie den Nutzernamen ergänzt werden kann, damit z. B. Redakteure
+nur ihren individuellen Bild­bestand betrachten können.
+|===
+
+Die Anpassung der installierten Plug-ins erfolgt im Tab
+_Plugin-Einstellungen_, wo ich erneut einige im professionellen Umfeld
+relevante Optionen hervorheben möchte.
+
+[width="100%",cols="20%,19%,61%",]
+|===
+|Bereich |Parameter |Erläuterung
+
+|Format |Format-Elemente |Erlaubt die Auswahl der HTML-Elemente die im
+Format-Dropdown für den Nutzer zur Verfügung stehen
+
+|Datei-Browser |Datei/Ordner löschen / umbenennen |Verhindert in
+Mehrbenutzerumgebungen das Löschen / Umbenennen von noch verwendeten
+Bildern durch Mitnutzer
+
+|Zwischenablage |Microsoft Word Bereinigung |Konfiguriert die
+automatische Bereinigung von Texten, die aus MS Word eingefügt werden.
+_Immer_ erzwingt hier die Bereinigung von jedem eingefügten Inhalt,
+wodurch unerwünschte Nebenwirkungen beim Einfügen von Inhalten
+verschwinden
+
+|Zwischenablage |Alle Stile entfernen |Entfernt Inline-CSS-Styles aus
+einzufügenden Inhalten
+
+|Zwischenablage |Alle Spans entfernen |Entfernt alle (meist nutzlosen)
+++<++span++>++-Tags beim Einfügen
+
+|Zwischenablage |Webkit-Stile entfernen |Entfernt spezifische Styles,
+die Webkit-basierende Browser beim Kopieren und Einfügen erzeugen
+
+|Zwischenablage |Bilder für Hochladen vorbereiten |Wandelt Bilder beim
+Einfügen aus einer Textverarbeitung in ein leicht zu bedienendes
+Platzhalterelement um, erlaubt somit die sehr simple Nachpflege dieser
+Bilder nach dem Einfügen
+
+|Bilder-Manager |Berechtigungen |Erlaubt das ausblenden von nicht
+benötigten Optionen aus dem doch sehr umfangreichen Dialog zum Einfügen
+von Bildern
+
+|Link-Manager |Joomla!-Links |Ermöglicht die Ausblendung nicht genutzter
+Joomla-Komponenten (Weblinks etc.) aus dem JCE-Link-Manager
+
+| | |
+
+| | |
+|===
+
+Durch diese zahlreichen Parameter lässt sich der JCE genau auf die
+Bedürfnisse der Seite anpassen, was ihn wesentlich komfortabler in der
+Bedienung macht.
+
+image:media/image18.png[media/image18,width=548,height=319]
+
+BILD 18.8 Konfiguration des JCE – hier: Konfiguration der
+Format-Elemente
+
+Zuletzt müssen wir den neu installierten und fertig konfigurierten
+Editor in der Konfiguration unter System ++>++ Konfiguration noch
+aktivieren.
+
+image:media/image19.png[media/image19,width=548,height=233]
+
+BILD 18.9 Aktivierung des Editors in der Konfiguration
+
+===== Kostenpflichtige Zusatz-Plug-ins
+
+Als Inhaber des kostenpflichten JCE-Abonnements erhält man Zugriff auf
+einige sinnvolle Zusatz-Plug-ins für den Editor.
+
+[width="100%",cols="29%,71%",]
+|===
+|Plug-in |Beschreibung
+
+|Image Manager Extended a|
+Erweiterte Version des Bildmanagers:
+
+* Größenanpassung und Thumbnail-Erstellung (Erzeugen von ­Miniaturen des
+Originalbilds) beim Upload
+* Thumbnails aus Ausschnitten erstellen
+* Mehrere Bilder auf einmal einfügen
+* Bildeditor zur Größenänderung, Beschneidung und Rotation im Editor
+* Erstellung von Popups mit wenigen Klicks
+* Erstellung von _Source-Sets_ für responsive Seiten
+
+|File Manager |Hochladen und Einfügen von Links für verschiedene
+Dokumentenarten
+
+|Media Manager |Hochladen und Einfügen von verschiedenen Audio- und
+Videodateitypen inkl. Player
+
+|Template Manager |Ermöglicht es, vorgefertigte HTML-Blöcke im Editor
+einzufügen
+
+|Captions |Setzt Untertitel zu Bildern
+
+|Markdown-Unterstützung |Erlaubt die Gestaltung der Beiträge mittels
+Markdown
+|===
+
+Als besonders nützlich haben sich dabei vor allen die drei ersten
+Plug-ins erwiesen, da diese das ansonsten komplizierte Verwalten von
+Bildern, Medien und Dateien erleichtern und so viele gängige
+Anwendungsfälle (Upload eines PDF) ohne Nutzung von Zusatzerweiterungen
+(PhocaDownloads o. Ä.) lösen.
+
+[width="100%",cols="41%,59%",]
+|===
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+|===
+
+Die Plug-ins werden über den normalen Plug-in-Installer des JCE
+hinzugefügt und können anschließend in den Plug-in-Einstellungen des
+jeweiligen Profils angepasst werden. Insbesondere der Image Manager
+bietet hier einige Optionen, die dem Endnutzer viel Denkarbeit abnehmen.
+
+Mit dem erweiterten Bildmanager können wir dem Endnutzer also das
+Verkleinern von Bildern auf die richtige Auflösung sowie die
+Thumbnail-Erstellung abnehmen und dadurch zugleich lange Ladezeiten, die
+durch die Verwendung von unpassenden Maßen entstehen würden, verhindern.
+
+===== Nutzung
+
+Auf den ersten Blick unterscheidet sich der JCE, abgesehen von der durch
+uns abgespeckten Toolbar, nur durch Details. So ist es im JCE
+beispielsweise möglich, über die Nutzung der rechten Maustaste ein
+angepasstes Kontextmenü zu laden, das den Nutzungsgewohnheiten vieler
+Redakteure in ihren gewohnten Programmen (MS Word) entspricht.
+
+image:media/image22.png[media/image22,width=548,height=357]
+
+BILD 18.10 Kontextmenü des JCE
+
+Das Einfügen von Verlinkungen innerhalb eines Texts funktioniert über
+den integrierten Link-Manager, der, anders als der Link-einfügen-Dialog
+des TinyMCE, eine Liste aller in der Installation vorhandenen Menüpunkte
+und Inhalte enthält, die über einen Klick ausgewählt werden können. Dies
+erleichtert Verweise zu anderen Seiteninhalten, da kein manuelles
+Copy&Paste der URL mehr notwendig ist.
+
+image:media/image24.png[media/image24,width=548,height=374]
+
+BILD 18.11 JCE-Link-Manager mit Übersicht über Beiträge der Kategorie
+„Uncategorized“
+
+Die Verwaltung von Bildern, Dateien und Medien erfolgt über den
+jeweiligen Manager, der im Aufbau stets ähnlich ist.
+
+image:media/image26.png[media/image26,width=548,height=478]
+
+BILD 18.12 JCE-Bildmanager, aufgeteilt in die zwei Bereiche
+Datei-Browser (1) und Eigenschaften (2)
+
+Der obere Bereich der einzelnen Manager fungiert als Datei-Browser (1) –
+hier können bereits hochgeladene Dateien und Ordner betrachtet,
+umbenannt, gelöscht oder ausgewählt werden. Zusätzlich bietet sich die
+Möglichkeit, einen neuen Ordner hinzuzufügen oder durch Nutzung des
+entsprechenden Buttons (rot markiert, obere rechte Toolbar des
+Datei-Browsers) neue Dateien, Bilder und Medien vom eigenen Rechner
+hochzuladen. Die dafür infrage kommenden Bilder können entweder über den
+bekannten _Durchsuchen_-Button gewählt oder, wenn der jeweilige Browser
+diese Funktion unterstützt (aktuell: Chrome, Firefox, Safari), per Drag
+& Drop aus dem jeweiligen Ordner direkt in das dafür vorgesehene Feld
+geschoben werden.
+
+image:media/image28.png[media/image28,width=548,height=479]
+
+BILD 18.13 Drag & Drop-Bildauswahl beim Upload
+
+Der JCE entfernt dabei auf Wunsch Sonder- und Leerzeichen aus den
+Dateinamen, um Schwierigkeiten,z.B. beim Serverumzug, zu vermeiden, und
+bietet z.B. bei Bildern zusätzlich die bereits angesprochene Möglichkeit
+der Skalierung und Thumbnail-Erstellung beim Upload.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Sowohl der in Joomla integrierte TinyMCE als auch der JCE
+unterstützen den Drag & Drop Upload von Bildern, die direkt in den
+Editor-Text gezogen werden – diese Dateien werden dabei jedoch
+naturgemäß alle in das gleiche allgemeine Uploadverzeichnis hochgeladen,
+was bei großen Seiten schnell unübersichtlich werden kann
+|===
+
+Die hochgeladene Datei wird im Browser durch einen Klick auf den
+Dateinamen ausgewählt, wodurch die entsprechenden Parameter im Bereich
+„Eigenschaft“ (2) gesetzt werden. Diese Parameter, die in Abhängigkeit
+zum jeweiligen Manager stehen, können nun noch modifiziert werden; und
+abschließend wird das Objekt über einen Klick auf Einfügen dem
+Editorfenster hinzugefügt.
+
+image:media/image30.png[media/image30,width=548,height=421]
+
+BILD 18.14 Bildmanager mit gesetzten Parametern
+
+Diese und weitere Funktionen machen den JCE zum besten WYSIWYG-Editor
+für Joomla!, der sich derzeit auf dem Markt finden lässt.
+
+==== ACL Manager
+
+Eine weitere, enorm nützliche Erweiterung ist der _ACL
+Manager_footnote:[[.underline]#http://www.aclmanager.net#] (ACL = Access
+Control List) des niederländischen Entwicklers Sander Potjer, der als
+kommerzielle Komponente für derzeit 25 € pro Jahr unter der GPL
+vertrieben wird.
+
+Der _ACL Manager_ bietet, wie der Name schon vermuten lässt, eine
+angepasste Oberfläche zur Verwaltung der Benutzer, Benutzergruppen sowie
+der jeweiligen Rechte und gestaltet sich, durch eine übersichtliche
+Oberfläche, wesentlich einfacher in der Bedienung als die in Joomla!
+integrierte Oberfläche, die sich über zahlreiche Unterdialoge verteilt.
+Bei der Komponente erfolgt das Zuweisen der zugehörigen Berechtigungen
+auf nur einer einzelnen Seite und sie arbeitet dabei
+komponentenübergreifend.
+
+Die Installation des Managers erfolgt über den normalen
+Joomla!-Erweiterungsinstaller. Anschließend wird die Erweiterung über
+den gleichnamigen Eintrag im Komponenten-Menü gestartet und fordert uns
+auf, die Gruppe auszuwählen, deren Rechte wir verändern wollen.
+
+image:media/image32.png[media/image32,width=548,height=337]
+
+BILD 18.15 Der ACL Manager nach dem Aufruf im Komponentenmenü
+
+Nach der Auswahl der jeweiligen Benutzergruppe, im konkreten Beispiel
+z.B. die Gruppe „Editor“, listet der _ACL Manager_ alle Komponenten,
+Kategorien, Beiträge sowie den allgemeinen Punkt _Konfiguration_ auf und
+ermöglicht hier, jeweils verschiedene Berechtigungen zu sehen und zu
+setzen. Die Legende auf der rechten Seite gibt dabei Aufschluss über den
+jeweiligen Status.
+
+image:media/image34.png[media/image34,width=548,height=304]
+
+BILD 18.16 Übersicht der Komponenten, Kategorien und Beiträge und deren
+Zugriffsrechte für die ­ausgewählte Gruppe im ACL Manager
+
+Durch einen Klick auf das Icon der jeweiligen Aktion können die Rechte
+für die jeweilige Gruppe angepasst werden.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Insbesondere bei umfangreicheren Seiten ist die
+Listendarstellung sehr unübersichtlich, daher bietet der ACL Manager
+eine Option zur Suche nach einem bestimmten Objekttitel sowie die
+Möglichkeit, Kategorien und Beiträge auszublenden.
+|===
+
+Eine weitere, sehr praktische und quasi konkurrenzlose Funktion des
+ACL-Managers ist der _Diagnosebereich_. Das Joomla-Rechtesystem ist
+durch seine Vererbungen darauf angewiesen, dass es für jedes Objekt
+(Beitrag, Menüeintrag, Banner etc) im System einen entsprechenden
+Eintrag in der Rechte für dieses Objekt festgehalten sind. Fehlt dieser
+Eintrag oder enthält ungültige Daten, treten teils kaum nachvollziehbare
+Probleme bei der Berechtigungsverwaltung auf.
+
+Der ACL-Manager kann diese Probleme finden und per Mausklick beheben.
+
+image:media/image35.png[media/image35,width=548,height=272]
+
+BILD 18.17 Diagnosebereich des ACL Managers
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Insbesondere nach größeren Updates oder gar Migrationen gibt es
+häufig zahlreiche Objekte ohne ACL-Eintrag, daher ist nach solchen
+Aktionen ein kurzer Check mit dem ACL-Manager absolut empfehlenswert.
+|===
+
+==== Advanced Module Manager
+
+Bei der Administration komplexer Joomla!-Installationen steht der
+Administrator oft vor der Aufgabe, bestimmte Module auf einigen
+Unterseiten ein- oder auszublenden. Ein beliebtes Beispiel wäre z.B. die
+Auflistung der zuletzt hinzugefügten Beiträge auf der Startseite, was
+sich leicht durch die Erstellung eines neuen Moduls des Typs „Neuste
+Beiträge“ und die Zuordnung zum entsprechenden Menüpunkt realisieren
+lässt.
+
+image:media/image38.png[media/image38,width=548,height=347]
+
+BILD 18.18 Zuordnung eines Moduls zu einem Menüpunkt
+
+Was aber tun, wenn wir ein Modul immer dann einblenden lassen wollen,
+wenn ein Beitrag aus einer bestimmten Kategorie angezeigt wird? Oder
+wenn ein Modul auch zu allen Untermenüpunkten eines Eintrag eingeblendet
+werden soll, ohne dass wir diese Menüpunkte jedes Mal manuell auswählen
+müssen? Oder wenn ein Modul, z. B. mit der Aufforderung, den Browser zu
+aktualisieren, nur bei Nutzern des Internet Explorers angezeigt werden
+soll? Der Joomla!-eigene Modulmanager bietet hier leider nicht die
+gewünschten Möglichkeiten, weshalb sich die Nutzung des Advanced Module
+Managersfootnote:[[.underline]#http://www.regularlabs.com/#] des
+niederländischen Entwicklers Peter van Westen anbietet. Die Erweiterung
+ist in einer Grundversion kostenlos unter der GPL verfügbar, es
+empfiehlt sich jedoch, für den kommerziellen Einsatz eine entsprechende
+Lizenz zu kaufen, um den Entwickler zu unterstützen.
+
+Der Advanced Module Manager, in den die deutschen Sprachdateien bereits
+integriert sind, wird über den Joomla!-Erweiterungsinstaller eingespielt
+und verändert dabei keinerlei Joomla!-Core-Dateien. Dadurch können,
+anders als bei anderen Erweiterungen mit ähnlicher Funktionalität,
+weiterhin Joomla!-Updates durchgeführt werden, ohne auf die veränderten
+Dateien achten zu müssen. Die Erweiterung ersetzt dabei, durch
+geschickte Weiterleitung, die bestehende Modulverwaltung, sodass die
+Administration wie bisher über den Menüpunkt Erweiterungen ++>++ Module
+erfolgt.
+
+Nach der Auswahl des entsprechenden Moduls erreichen wir den Dialog zum
+Bearbeiten des jeweiligen Moduls, wobei der bereits bekannte Tab
+_Zuweisungen_ nun massiv erweitert wurde.
+
+image:media/image40.png[media/image40,width=548,height=359]
+
+BILD 18.19 Modulzuordnung im Advanced Module Manager
+
+Der Module Manager bietet in der freien Version derzeit die folgenden
+Parameter.
+
+[width="100%",cols="28%,72%",]
+|===
+|Titel des Parameters |Erklärung
+
+|Dasselbe wie anderes Modul |Erlaubt die Übernahme der Zuordnungen eines
+bestehenden Moduls bzw. das Gegenteil dieses Moduls
+
+|Vergleichsmethode a|
+„Alle“: Alle folgenden Kriterien müssen erfüllt sein.
+
+„Irgendein“: Nur eins der folgenden Kriterien muss erfüllt sein.
+
+|Zuordnungen anzeigen |Ausblenden aller Zuordnungsmöglichkeiten, die
+derzeit nicht genutzt werden
+
+|Menüpunkte |Zuordnung zu einzelnen Menüpunkten und deren
+Untermenüpunkten
+
+|Startseite |Anzeigen des Moduls auf der Startseite
+
+|Joomla! Content |Zuordnung von Joomla!-Beiträgen oder -Kategorien
+
+| |
+
+| |
+
+|Komponenten |Zuordnung zu bestimmten Komponenten
+
+|URL |Zuordnung zu einer bestimmten URL
+
+|Browser |Anzeige eines Moduls bei der Nutzung eines bestimmten Browsers
+
+|Datum & Uhrzeit |Anzeige eines Moduls an einem bestimmten Datum, einer
+Jahreszeit (kalendarisch), einem Monat, Wochentag oder zu einer
+bestimmten Uhrzeit
+
+|Benutzer |Anzeigen, wenn der Benutzer einer Gruppe oder Zugriffsebene
+­angehört
+
+|Sprache |Anzeigen, wenn der Nutzer eine bestimmte Sprache ausgewählt
+hat
+
+|Template |Anzeigen, wenn ein bestimmter Tag angezeigt wird
+
+|Tags |Eingabefeld für PHP-Code, muss die Werte true oder false
+zurück­geben
+|===
+
+Der Module Manager bietet die Möglichkeit, den entsprechenden
+Zuordnungstyp zu ignorieren, das Modul der entsprechenden Auswahl
+zuzuordnen oder die Auswahl auszuschließen und damit ein Modul auf allen
+Seiten außer den gewählten anzeigen zu lassen. Das macht den ACL Manager
+zu einem sehr mächtigen Werkzeug, um Module nur unter bestimmten
+Bedingungen anzuzeigen, was im professionellen Umfeld ein
+unverzichtbares Feature ist.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+==== Akeeba Backup
+
+Nach der fertigen Installation einer Joomla!-Seite stellt sich
+automatisch die Frage nach einer Möglichkeit, regelmäßig Sicherungen, im
+englischen Backups genannt, anzulegen. Um dabei nicht auf Tools des
+jeweiligen Hosters zurückgreifen zu müssen, bietet sich die Nutzung
+einer passenden Joomla!-Erweiterung an.
+
+Die Königin der Backup-Lösungen für Joomla! ist wohl Akeeba
+Backupfootnote:[[.underline]#https://www.akeebabackup.com/#] des
+griechischen Entwicklers Nicholas K. Dionysopoulos. Die Erweiterung
+liegt in zwei Varianten vor: Die kostenlose Edition Akeeba Backup Core
+bietet die Grundfunktionalitäten, die man von einer Backup-Erweiterung
+erwarten würde:
+
+* Backup aller Joomla!-Dateien sowie der Datenbank
+* Unterstützung für mehrere Archivformate
+* Ausschlussmöglichkeit für bestimmte Dateien, Ordner und Tabellen
+* Begrenzte Automatisierungsmöglichkeit
+
+Die kommerzielle Ausgabe Akeeba Backup Professional liefert zusätzlich:
+
+* Speicherung der Backups bei Cloud-Anbietern (Amazon S3, DropBox,
+Microsoft Windows Azure u.v.m.)
+* Verschlüsselung der Archive
+* Integrierte Wiederherstellung
+* Automatisierungsmöglichkeit über CRON
+* Inkrementelle Datei-Backups
+* Wizard zum Transfer der Seite auf einen anderen Server
+
+Insbesondere bei Hostern, deren Zuverlässigkeit man nicht einschätzen
+kann, würde ich stets zum Einsatz der Pro-Variante raten, da man hier,
+durch die besseren Automatisierungsmöglichkeiten und die Unterstützung
+diverser Cloud-Anbieter, die Backups auch unabhängig vom eigentlichen
+Webhoster speichern kann.
+
+Die Installation von Akeeba Backup erfolgt in beiden Versionen, wie
+üblich, über den Joomla!-Erweitungsmanager. Dabei verankert sich Akeeba
+mit einem Menüeintrag im Komponenten-Menü des Backends.
+
+image:media/image43.png[media/image43,width=548,height=202]
+
+BILD 18.20 Nachinstallationskonfiguration von Akeeba Backup
+
+Vor der Verwendung muss einmalig der Konfigurationsassistent ausgeführt
+werden, der einige wichtige Parameter für die Backup-Erstellung an die
+Serverumgebung anpasst und so gewährleistet, dass auch größere
+Datenmengen problemlos gesichert werden können. Wir starten den Prozess
+mit dem Klick auf Configuration Wizard, lassen den Systemtest
+durchlaufen und werden anschließend aufgefordert, eine erste Sicherung
+erstellen zu lassen, was wir durch den Klick auf Backup Now bestätigen.
+Nun geben wir noch, falls gewünscht, eine kurze Beschreibung für das
+jeweilige Backup ein und starten den Vorgang mit einem erneuten Klick
+auf Backup Now.
+
+Nun können wir den Fortschritt des Backup-Vorgangs beobachten.
+
+image:media/image45.png[media/image45,width=548,height=198]
+
+BILD 18.21 Fortschrittsanzeige beim Backup-Vorgang
+
+Nach Fertigstellung des Backups springen wir über den Button Manage
+Backups zur Backup-Übersicht, wo wir eine Auflistung aller Backups und
+deren Dateien vorfinden. Da Akeeba große Datenmengen in mehrere Teile
+splittet, kann es vorkommen, dass ein Backup nicht nur, wie im
+vorliegenden Fall, aus einem Teil, sondern aus mehreren Teilen besteht.
+Sollte dies der Fall sein, so ist es im Regelfall angenehmer, die
+Dateien des Backups per FTP aus dem Verzeichnis
+_/administrator/components/com++_++akeeba/backup_ herunterzuladen. Zudem
+kann der Download der Dateien im Browser, der über einen Klick auf den
+jeweiligen Button ausgeführt wird, aufgrund von Serverprobleme
+scheitern, wodurch das Backup unbrauchbar werden könnte.
+
+image:media/image47.png[media/image47,width=548,height=187]
+
+BILD 18.22 Backup-Übersicht mit Download-Möglichkeit
+
+Standardmäßig werden Akeeba-Backup-Dateien als JPA-Archive gespeichert,
+die nicht mit gängigen Entpackertools wie 7zip extrahiert werden können
+– der Grund dafür ist, dass es sich bei JPA um ein individuell für
+Akeeba Backup entwickeltes Format handelt, das sich durch
+Serverunabhängigkeit, hohe Performance und gute Komprimierung
+auszeichnet. Die Wiederherstellung der Sicherung erfolgt dann mit dem
+Tool Akeeba Kickstart, dessen Nutzung in Kapitel 19.3 beschrieben wird.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Obwohl Akeeba auch das weit verbreitete
+Zip-Format unterstützt, das aufgrund seiner Verbreitung für viele
+IT-Administrationen die erste Wahl sein wird, möchte ich an dieser
+Stelle ausdrücklich zur Nutzung des JPA-Formats raten, da das Zip-Format
+bei vielen Serverkonfigurationen zu unerwarteten Fehlern führen kann.
+|===
+
+===== Nutzung von Cloud-Storage
+
+Die kostenpflichte Pro-Version unterstützt noch ein besonderes Feature,
+das ich gerne bei der langfristigen technischen Betreuung von
+Kundenprojekten einsetze: die Nutzung von _Cloud-Storage_ Diensten zur
+Speicherung der Backups.
+
+Akeeba verschiebt dafür die erstellten Backups nach Abschluss des
+Pack-Vorgangs auf ein externes Speichermedium, wobei hier sowohl selbst
+betriebene Medien (wie ein FTP-Server des eigenen NAS) als auch
+Cloud-Anbieter wie Dropbox, Amazon S3 oder Azure genutzt werden können.
+Der Vorteil liegt dabei auf der Hand: durch die Cloud-Storages kann man
+zu vergleichsweise geringen Kosten langfristige und Hoster-unabhängige
+Backups für den Worst-Case anlegen.
+
+Besonders eng verzahnt ist Akeeba dabei mit Amazon S3, da hier zwei
+zusätzliche Features genutzt werden können:
+
+[arabic]
+. kann Akeeba den von Amazon angebotenen Speichermodus _Infrequent
+Access_ nutzen, der nochmals Kostenvorteile bringt, wenn die
+gespeicherten Backups mindestens 30 Tage gespeichert werden
+. unterstützt die kostenpflichtige Version des Akeeba-Entpack-Skripts
+Kickstart den Import von Amazon S3 Servern, womit das nervige manuelle
+Herunterladen von Backups für den Restore entfällt
+
+==== 
+
+* {blank}
+* {blank}
+* {blank}
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+==== 
+
+=== Einstellungen
+
+Neben den genannten Erweiterungen und den, bereits in Kapitel 6
+gezeigten Einstellungen der globalen Konfiguration gibt es noch eine
+weitere nützliche Einstellung zum Verstecken von Erweiterungen.
+
+==== Erweiterungen verstecken
+
+Ich habe mittlerweile vermutlich weit über 100 verschiedene
+Joomla!-Installationen aufgesetzt und dabei kein einziges Mal die
+Banner-Erweiterung verwendet – bei Kundenschulungen trat jedoch
+regelmäßig die Frage auf, warum die Komponente denn überhaupt
+installiert ist, wenn man sie nicht nutzt. Die Antwort war dabei stets:
+Die Erweiterung ist in Joomla! integriert und verursacht, wenn man sie
+deinstallieren würde, Probleme.
+
+Durch einen Vortrag des bekannten Bloggers Brian Teeman bin ich
+schließlich auf eine Möglichkeit gestoßen, solchen Fragen vorzubeugen,
+indem ich nicht genutzte Core-Komponenten verstecke.
+
+image:media/image49.png[media/image49,width=548,height=330]
+
+BILD 18.23 Erweiterungsmanager – Deaktivierung ungenutzter Komponenten
+
+Durch die Deaktivierung der jeweiligen Komponente im Erweiterungsmanager
+können auch Core-Erweiterungen ausgeblendet werden, was Benutzerfragen
+vorbeugt, bei Aktualisierungen jedoch keine Probleme hervorruft.
+
+==== Administrations-Gestaltung 
+
+Insbesondere wenn man eine Vielzahl an Projekten betreut und dann auch
+zu allem Überfluss an mehreren Seiten parallel arbeitet, passiert es hin
+und wieder, dass man versehentlich Änderungen an der falschen Seite
+ausführt, weil der Administrationsbereich aller Installationen identisch
+aussieht. Um solche Probleme zu verhindern, kann das Joomla-Backend mit
+einem eigenen Logo (z.B. das Logo des jeweiligen Kunden) und einer
+eigenen Farbe angepasst werden. Die entsprechenden Einstellungen finden
+sich in den _Parametern_ des _Template-Stils_ des Joomla-eigenen
+Backend-Templates Isis (siehe Bild 18.24). Im Tab _Erweitert_ kann dort
+z.B. eine Farbe für die Kopfzeile und ein Logo für die Administration
+selbst und den Administrationslogin gesetzt werden.
+
+image:media/image51.png[media/image51,width=548,height=314]
+
+Bild 18.24 Parameter des Isis Templates und deren Auswirkung in der
+Kopfzeile
+
+Ein angenehmer Nebeneffekt dieser Anpassung ist, dass der Kunde bzw.
+Nutzer stets durch das eigene Logo begrüßt wird, wenn der Login
+aufgerufen wird – eine kleine aber wirkvolle Maßnahme zur
+Personalisierung.
+
+=== Administrations-Menüs
+
+Eine weitere Möglichkeit zur Personalisierung ist die Erstellung
+angepasster _Administrations-Menüs_. Diese in Joomla 3.7 neu eingefügt
+Funktion erlaubt es dem Administrator sowohl global für die gesamte
+Seite als auch spezifisch für einzelne Benutzergruppen (bzw.
+Zugriffsebenen) Menüs zu erstellen, die nur über die Funktionen
+verfügen, die auf der jeweiligen Seite relevant sind.
+
+Um die Funktion zu nutzen müssen wir im ersten Schritt ein neues, leeres
+Menü anlegen, das wir anschließend mit den benötigten Einträgen
+befüllen. Den entsprechenden Dialog rufen wir über Menüs ++>++ Verwalten
+++>++ Neues Menü auf.
+
+In diesem Dialog vergeben wir einen Titel und Menütyp für das neue Menü
+und wählen als Seitenbereich die Administration aus (siehe Bild 18.25).
+
+image:media/image52.png[media/image52,width=548,height=151]
+
+Bild 18.25 Erstellen eines neuen Menüs für die Administration
+
+Im nächsten Schritt können wir über den bekannten Weg (siehe Kapitel 8,
+„Navigationsstruktur anlegen“) Einträge zum neu angelegten Menü
+hinzufügen. Der Prozess unterscheidet sich dabei nur in einigen wenigen
+Punkten vom bereits bekannten Weg für die Menüs des Frontends:
+
+* da das Backend nach dem Login stets auf das Kontrollzentrum leitet,
+gibt es keinen _Startseiteneintrag_
+* die _Menüeintragstypen_ sind spezifisch für die Funktionen des
+Backends
+* eine Vielzahl von Parametern, die nur für das Frontend relevant sind
+(z.B. die Meta-Daten oder die CSS-Klassen der jeweiligen Seiten) sind in
+Backend-Menüs nicht vorhanden
+* die einzelnen Menüeinträge können nicht zu Zugriffsebenen zugewiesen
+werden – das liegt daran, dass die Administration der Zugriffsrechte im
+Backend über die entsprechende ACL-Aktion _Administrationszugriff_
+erfolgt
++
+Sind die entsprechenden Menüeinträge angelegt, muss das entstandene Menü
+noch aktiviert werden.
++
+Dafür wechseln wir über Erweiterungen ++>++ Module in die
+Modulverwaltung und lassen uns durch Anpassung des entsprechenden
+Filters die Administrationsmodule anzeigen (siehe Bild 18.26).
++
+image:media/image53.png[media/image53,width=548,height=319]
+
+Bild 18.26 Übersicht der Backend-Module
+
+Per Klick auf den Eintrag _Admin Menu_ rufen wir die Parameter des
+Standard-Menü-Moduls auf und können dort im Tab _Erweitert_ das
+anzuzeigende Menü auswählen. Wählen wir hier das durch uns definierte
+Menü aus und speichern die veränderten Parameter, wird das normale
+Joomla-Menü durch unsere neuen Einträge ersetzt (siehe Bild 18.27).
+
+Joomla prüft dabei standardmäßig, ob einige, besonders wichtige
+Menüeinträge (konkret: Menü-Verwaltung, Modul-Verwaltung und
+Komponenten-Submenü) sichtbar sind und bietet, falls diese fehlen, einen
+Notfall-Modus an.
+
+image:media/image54.png[media/image54,width=548,height=258]
+
+Bild 18.27 Backend mit eigenem Administrationsmenü
+
+Natürlich kann man, anstatt das Standard-Menü für alle Backend-Nutzer zu
+ersetzen auch in Kombination mit der Rechteverwaltung und eigenen, neu
+angelegten Menümodulen spezielle Menüstrukturen für einzelne
+Benutzergruppen erzeugen. Wenn z.B. ein Endkunde nur auf die
+Beitragsverwaltung zugreifen können soll, kann man mit einer
+entsprechenden Benutzergruppe, einem Menü, einem zur Gruppe zugewiesenen
+Menümodul (bei dem der oben erwähnte Check auf wichtige Einträge
+deaktiviert ist) ein Menü mit nur einem Eintrag, nämlich der
+Beitragsverwaltung erzeugen.
+
+=== Management-Tools
+
+Insbesondere wenn man als Dienstleister im Joomla-Umfeld tätig ist, hat
+man es schnell mit einer großen Anzahl an Seiten zutun, die alle
+aktualisiert, überwacht und gesichert werden wollen. Die Prüfung „zu
+Fuß“, bei der man sich in jedes einzelne Backend einloggen muss, ist
+dabei zeitaufwendig und fehleranfällig, weshalb es bereits seit einigen
+Jahren eine ganze Reihe Tools gibt, die als zentrale Management-Instanz
+für mehrere Seiten fungieren. Zu den bekanntesten dieser Tools zählen
+_MyJoomla.com_, _Watchful.li_, _PerfectDashboard_ und _Deevop_, wobei
+das Grundprinzip überall ähnlich ist: nach einer Registrierung beim
+jeweiligen (kostenpflichtigen) Service lädt man eine kleine
+Joomla-_Erweiterung_ im _Backend_ der jeweiligen Installation hoch, die
+man mit dem Service verknüpfen möchte.
+
+Über diese Erweiterung hat der jeweilige Service nun vollen Zugriff auf
+die jeweilige Installation und kann je nach Service verschiedene
+Aktionen wie Updates, Backups, Malware-Checks oder Monitoring-Pings
+auslösen. Im Dashboard des jeweiligen Dienstes hat man als Administrator
+dabei eine Übersicht über alle Seiten, die dort verwendete
+Joomla-Version, die installierten Erweiterungen und den jeweiligen
+Status der Seite.
+
+Diese Tools erlauben es selbst große Anzahlen an Joomla-Websites mit
+vertretbarem Aufwand zu warten und sind somit elementares Werkzeug für
+viele Dienstleister.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Mit der Installation des jeweiligen Konnektors räumen Sie der
+entsprechenden Plattform vollen Zugriff auf die jeweilige Website ein –
+wird die entsprechende Plattform also irgendwann einmal erfolgreich
+angegriffen, besteht ein hohes Risiko das im Folgenden auch Ihre Website
+unter die Kontrolle der Angreifer fällt. Dieser Umstand und
+datenschutzrechtliche Aspekte sprechen dafür, dass sie den Einsatz
+solcher Tools immer mit dem jeweiligen Seiteninhaber absprechen sollten.
+|===
+
+=== Standard-Paket
+
+Wenn wir uns die Vielzahl an Handgriffen, Einstellungen und
+Erweiterungen vor Augen führen, die wir in diesem Kapitel und in den
+vorherigen Kapiteln getätigt haben, wird schnell klar, dass Sie selbst
+als geübter Administrator einigen Minuten brauchen, um eine neue
+Installation mit den Standard-Anpassungen zu versehen.
+
+Um sich diese Zeit zu sparen und gleichzeitig die Gefahr von vergessenen
+Schritt zu eliminieren, bietet es sich an, die notwendigen Anpassungen
+nur ein einziges Mal in einer neutralen Basisinstallation (ohne weitere
+Inhalte) vorzunehmen und anschließend ein Akeeba-Backup dieser
+Installation zu erstellen. Dieses Backup fungiert dann als
+Standard-Paket für den Start neuer Projekte und muss nur hochgeladen und
+entpackt werden.
+
+=== Fortbildungsmöglichkeiten
+
+Last but not least gehört es natürlich auch zu den Best Practices, das
+eigene Wissen regelmäßig auf den aktuellen Stand zu bringen. Dafür gibt
+es neben unzähligen Online-Quellen, Büchern wie diesen, Video-Tutorials
+und anderen Medien für das Selbststudium auch die Möglichkeit, an
+Präsenz-Veranstaltungen teilzunehmen. Zwei Möglichkeiten möchte ich
+dabei besonders hervorheben.
+
+==== Joomla-Events
+
+Im Joomla-Projekt gibt es eine Vielzahl von Veranstaltungen rund um
+Joomla, wobei diese sich auf mehrere Ebenen aufteilen:
+
+* _Joomla Usergroups_ (kurz JUGs) gibt es in vielen größeren Städten im
+deutschsprachigen Raum. Diese Gruppen haben mehrmals pro Jahr (teils
+sogar monatlich) Treffen die in der Regel sowohl einen Vortrags- als
+auch eine Austausch-Teil haben. Die Treffen sind somit der erste
+Anlaufpunkt um mit der lokalen Community in Kontakt zu kommen und
+Gleichgesinnte kennenzulernen
+* _JoomlaDays_ sind die jeweiligen nationalen Veranstaltungen der
+Community und finden in der Regel ein mal pro Jahr in Form einer
+2-tägigen Konferenz statt. Die JoomlaDays bieten eine perfekte
+Möglichkeit um binnen kürzester Zeit sehr viel neues über Joomla zu
+lernen, mit Dienstleistern, Entwicklern und Community-Mitgliedern aus
+dem ganzen Land in Kontakt zu kommen und sich somit selbst ein
+entsprechendes Netzwerk aus Kollegen aufzubauen
+* _J&Beyond_ und die _Joomla World Conference_ sind die beiden
+internationalen Konferenzen des Joomla-Projekts und finden in der Regel
+im Mai bzw. November statt. Hier trifft sich die internationale
+Community zum Austausch.
++
+Wenn Sie sich ernsthaft mit Joomla auseinander setzen oder gar
+professionell als Dienstleister arbeiten wollen, kann ich Ihnen nur sehr
+nachdrücklich dazu raten, diese Veranstaltungen regelmäßig zu besuchen
+um sich über aktuelle Entwicklungen zu informieren, weiterzubilden und
+ein Netzwerk aufzubauen
+
+==== Zertifizierung
+
+Eine andere Möglichkeit der Fortbildung ist die Teilnahme am
+Joomla-Zertifizierungsprogrammfootnote:[certification.joomla.org]. Im
+Rahmen dieses Programms hat das Joomla-Projekt festgelegt, in welchen
+Bereichen ein Nutzer welches Wissen haben muss, um als zertifizierter
+Joomla-Nutzer auftreten zu dürfen. Dieses Wissen wird im Rahmen eines
+Tests abgefragt und dient somit für Außenstehende als Qualitäts- und
+Wissensnachweis.
+
+Derzeit gibt es eine Zertifizierung zum Joomla-Administrator, die in
+Zukunft durch eine Designer- und eine Entwickler-Zertifizierung ergänzt
+werden soll. Sogenannte
+Learning-Partnerfootnote:[http://resources.joomla.org/en/joomla-learning-partners]
+bieten in Kursen eine entsprechende Vorbereitung auf die Zertifizierung
+an und nehmen auch den eigentlichen Test ab.

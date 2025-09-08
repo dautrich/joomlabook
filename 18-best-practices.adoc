@@ -1,0 +1,3 @@
+[[18-best-practices]]
+
+include::book/18-best-practices/cap18.adoc[]

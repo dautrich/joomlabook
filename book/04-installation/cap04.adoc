@@ -1,0 +1,616 @@
+== Installation
+
+Jetzt sind endlich alle Vorbereitungen abgeschlossen, und wir können mit
+der Installation unserer neuen Joomla!-Seite starten. Dabei ist zu
+unterscheiden, ob wir die Installation direkt auf einem Webserver oder
+in der lokalen Umgebung (XAMPP, MAMP, LAMP) durchführen wollen.
+
+=== Installation in der lokalen Umgebung
+
+Wir starten die Installation unserer Joomla!-Umgebung mit dem Download
+der aktuellsten Joomla! 2.5-Version auf den Desktop. Dabei sollten Sie
+stets auf die offizielle Version zurückgreifen, die Sie auf _joomla.org_
+zum Download finden und keinesfalls externen Download-Portalen oder dem
+Softwaremanager Ihres Webhosters trauen, da sich ihn diesen Quellen
+oftmals veraltete oder modifizierte Joomla-Versionen befinden, die im
+weiteren Betrieb zu Problemen führen. Das entsprechende Archiv entpacken
+wir nun auf dem Desktop und benennen den entsprechenden Ordner um, damit
+er einen aussagekräftigeren Namen erhält – im Zweifelsfalle bietet sich
+hier der entsprechende Titel des Projekts an, für das wir die jeweilige
+Seite erstellen wollen. Ich wähle „JoomlaBuch“ als Ordnername und
+verschiebe den fertigen Ordner in den sog. „Docroot“ meines lokalen
+Webservers (Windows: _C:/xampp/htdocs/_, OSX: _Programme/MAMP/htdocs_,
+Linux: _/var/www_).
+
+image:media/image2.png[media/image2,width=548,height=391]
+
+BILD 4.1 Verschieben des Ordners _JoomlaBuch_ in das
+_htdocs_-Verzeichnis des Webservers unter OS X
+
+Nun legen wir noch eine leere MySQL-Datenbank für unsere Installation
+an, indem wir im Browser das Tool phpMyAdmin aufrufen (XAMPP:
+[.underline]#http://localhost:8888/xampp/phpMy­Admin#, MAMP:
+[.underline]#http://localhost:8888/phpMyAdmin#, Linux:
+[.underline]#http://localhost:8888/phpMy­Admin#) und darin, nach dem
+Login als Root, den Reiter _Datenbanken_ öffnen. Hier legen wir im
+unteren Bereich der Seite den Namen für die neue Datenbank an und
+speichern diese durch den Klick auf Anlegen.
+
+image:media/image3.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild463.PNG,width=547,height=317]
+
+BILD 4.2 Erstellung einer lokalen MySQL-Datenbank mittels phpMyAdmin
+
+Nun können wir die Joomla!-Installation durch den Aufruf von
+[.underline]#http://localhost:8888/JoomlaBuch# im Webbrowser starten –
+sollten Sie beim Umbenennen des Ordners einen anderen Projektnamen
+gewählt haben, so müssen Sie diesen im angegebenen Link entsprechend
+anpassen.
+
+Es öffnet sich der Joomla!-Installationsprozess, der mit der Auswahl der
+Sprache beginnt, die während der weiteren Installation genutzt werden
+soll. Direkt unterhalb der Sprachauswahl sehen Sie nun im Optimalfall
+ein Formular, mit dem die ersten Grunddaten der Joomla!-Installation
+erfasst werden – es sei denn, Ihre lokale Umgebung (bzw. Ihr Provider
+bei der Installation auf einem Webspace) erfüllt die nötigen
+Mindestvoraussetzungen für die Installation von Joomla! nicht, in diesem
+Fall erhalten Sie, wie in Abbildung 4.3 sichtbar, eine Auflistung der zu
+erfüllenden Parameter mit einer entsprechenden farblichen Hervorhebung.
+
+image:media/image4.png[media/image4,width=548,height=388]
+
+BILD 4.3 Prüfung der Serverumgebung während der Installation
+
+Joomla! prüft dabei diverse Voraussetzungen, die in der folgenden
+Tabelle 4.1 dokumentiert sind.
+
+TABELLE 4.1 Benötigte Einstellungen in der Webserverumgebung
+
+[width="100%",cols="65%,13%,22%",]
+|===
+|Parameter |Empfohlener Wert |Beschreibung
+
+|Benötigte Einstellungen | |
+
+|PHP-Version +
+++>++= 5.3.10 |Ja |Prüft, ob die von Joomla! benötigte PHP-Version
+5.3.10 (oder neuer) installiert ist
+
+|Magic Quotes GPC aus |Ja |Prüft, ob die PHP-Option
+magic++_++quotes++_++gpc ausgeschaltet ist
+
+a|
+[width="100%",cols="100%",options="header",]
+!===
+!Register Globals aus
+!===
+
+|Ja |Prüft, ob die PHP-Option register++_++globals ausgeschaltet ist
+
+a|
+[width="100%",cols="100%",options="header",]
+!===
+!Zlib-Kompressionsunterstützung
+!===
+
+|Ja |Prüft, ob PHP mit der Option --with-zlib kompiliert wurde
+
+|XML-Unterstützung |Ja |Prüft, ob PHP ohne die Option --disable-xml
+­kompiliert wurde
+
+|Datenbank-Unterstützung |Ja |Prüft, ob PHP mit mindestens einem von
+Joomla! unterstützen Datenbanktreiber (z.B. mysqli) kompiliert wurde
+
+| | |
+
+|MB-Sprache ist ­Standard |Ja |Prüft, ob die PHP-Direktive
+_mbstring.language_ dem ­Standardwert „neutral“ entspricht
+
+|MB String overload ist deaktiviert |Ja |Prüft, ob die PHP-Direktive
+_mbstring.func++_++overload_ deaktiviert ist
+
+|INI-Parser-Unterstützung |Ja |Prüft, ob die PHP-Funktionen
+parse++_++ini++_++string() und parse++_++ini++_++file() verfügbar sind.
+Falls nicht, liegt das im Regelfall daran, dass sie vom Hoster in der
+php.ini über die _disable++_++functions_-Direktive deaktiviert wurden.
+
+|JSON-Support |Ja |Prüft, ob die PHP-Funktionen json++_++encode() und
+json++_++decode() verfügbar sind oder in der php.ini durch die
+_disable++_++functions_-Direktive deaktiviert wurden
+
+|configuration.php nicht schreibgeschützt |Ja |Prüft, ob es möglich ist,
+die Datei _configuration.php_ im Hauptverzeichnis von Joomla! zu
+erstellen. Sollte dies nicht der Fall sein, so muss die Rechtestruktur
+des ­Servers korrigiert werden (siehe Kapitel 19.1.1, +
+„Das www-run-Problem“).
+
+|Empfohlene Einstellungen | |
+
+|Safe-Mode |Aus |Prüft den Status der Konfigurationsvariablen
+_safe++_++mode_ in der php.ini
+
+|Fehler anzeigen |Aus |Prüft, ob Fehler, die bei der Ausführung des
+Skripts auftreten, auf dem Bildschirm ausgegeben werden. Zuständig dafür
+ist die PHP-Direktive _display++_++errors_ in der php.ini.
+
+|Dateien hochladen |An |Überprüft, ob Dateien auf den Server hochgeladen
+­werden können. PHP-Direktive: _file++_++uploads._
+
+|Magic-Quotes-Laufzeit |Aus |Prüft, ob die PHP-Direktive
+_magic++_++quotes++_++runtime_ aktiviert ist, die bei schlecht
+programmierten Erweiterungen zu unerwarteten Fehlern führen kann
+
+| | |
+
+|Gepufferte Ausgabe |Aus |Prüft, ob die PHP-Direktive
+_output++_++buffer_ aktiv ist
+
+|Automatischer Sitzungsstart |Aus |Prüft, ob die PHP-Direktive
+_session.auto++_++start_ aktiv ist
+
+|Standard-ZIP-Unterstützung |An |Prüft, ob PHP mit der Option
+--with-zlib kompiliert wurde
+|===
+
+Sollte einer der Parameter unter _Installationsprüfung_ dabei nicht den
+Vorgaben entsprechen, so ist es leider nicht möglich, Joomla! auf diesem
+System zu betreiben, weshalb der Installationsprozess an dieser Stelle
+stoppt und Joomla! die erneute Prüfung der Umgebung anbietet..
+
+Die _empfohlenen Einstellungen_ sollten nach Möglichkeit den Vorgaben
+entsprechen, beeinflussen allerdings nicht den Betrieb des
+Joomla!-Kerns, weshalb die Installation problemlos möglich ist.
+
+Sollte einer der genannten Parameter in unserer lokalen Umgebung nicht
+zu den Vorgaben passen, so können wir diesen durch eine entsprechende
+Änderung in der _php.ini_ anpassen – sollte dieses Problem jedoch auf
+dem Webspace des Hosters auftreten, so können die nötigen Änderungen im
+Regelfall nur durch den Hoster selbst vorgenommen werden, da die
+_php.ini_ außerhalb des für uns beschreibbaren Bereichs des Servers
+liegt.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Es gibt einen kleinen Trick, die entsprechende
+_php.ini_-Datei zu finden, die für die PHP-Instanz verantwortlich ist,
+in der unsere Joomla!-Installation läuft. Dafür erstellen wir als Erstes
+eine Datei namens _info.php_ mit dem Inhalt ++<++?php phpinfo(); ?++>++
+und legen diese ins Hauptverzeichnis unserer Joomla!-Installation.
+Anschließend rufen wir die Datei über den Browser auf und können aus der
+phpinfo()-Ausgabe die Pfadangabe zu _php.ini_ ablesen.
+
+image:media/image8.png[media/image8,width=472,height=271]
+
+BILD 4.4 Ausgabe der phpinfo() mit Pfadangabe zur _php.ini_
+
+|===
+
+Sind alle Voraussetzungen erfüllt, können wir mit der Installation
+fortfahren. Bevor wir dabei die von Joomla benötigten Angaben eintragen,
+werfen wir noch einen Blick in die GNU General Public License, kurz GNU
+GPL, auf die Joomla im oberen Bereich des Bildschirms hinweist. Bei der
+GPL handelt es sich um eine sog. Freie Software-Lizenz mit Copyleft, die
+jedem Nutzer erlaubt, den Quellcode eines Werks, das unter der GPL
+steht,
+
+* beliebig in unveränderter Form zu vervielfältigen und zu verbreiten,
+* beliebig zu verändern und zu verbreiten, solange die modifizierte
+Version ebenfalls unter den Bedingungen der GPL verbreitet wird.
+
+Es ist dabei ein weit verbreiteter Irrtum, dass GPL-lizenzierte Software
+per se kostenlos verfügbar sein muss, denn dies wird von der Lizenz
+nicht vorgegeben – im Lizenztext wird sogar explizit die Möglichkeit zur
+kommerziellen Vermarktung eingeräumt.
+
+Wir behalten dieses Wissen nun erst einmal im Hinterkopf und fahren,
+nach der Lektüre der Lizenzbedingungen, mit der Installation fort.
+
+Im nächsten Schritt, fordert uns Joomla dabei auf, diverse Grunddaten
+anzugeben, die für die Installation benötigt werden.
+
+image:media/image9.png[media/image9,width=548,height=569]
+
+BILD 4.5 Erfassung der Grunddaten der Installation
+
+Eine Beschreibung der einzelnen Parameter finden Sie in der folgenden
+Tabelle:
+
+TABELLE 4.2 Konfigurationsparameter von Schritt 1 im
+Installationsprozess
+
+[width="100%",cols="25%,75%",]
+|===
+|Parameter |Erklärung
+
+|Name |Name der Website, der später als Seitentitel der Startseite, als
+Überschrift im Administrationsbereich und als Absendername von E-Mails
+verwendet wird. Kann später in Administrationsbereich verändert ­werden.
+
+|Beschreibung |Meta-Beschreibungstext der Seite für Suchmaschinen
+
+| |
+
+|Site Offline |Versetzt die Seite nach Abschluss der Installation in den
+_Offline-Modus_, damit sie nur vom Administrator betrachtet werden kann
+
+|Administrator-E-Mail |E-Mail-Adresse des Administrators der Seite
+
+|Adminstrator-Benutzername |Ihr gewünschter Benutzername
+
+|Adminstrator-Passwort |Administrator-Passwort (Empfehlung: mindestens
+zehn Zeichen; Klein- und Großbuchstaben, Zahlen sowie Sonderzeichen;
+keine Umlaute)
+
+| |
+|===
+
+Wir tragen hier die entsprechenden Daten ein und setzen die Installation
+dann mit einem Klick auf _Weiter_ fort.
+
+Nun wird die Konfiguration der Datenbankverbindung vorgenommen, bei der
+die folgenden Parameter einzustellen sind.
+
+TABELLE 4.3 Erklärung der Parameter der Datenbankverbindung
+
+[width="100%",cols="24%,76%",]
+|===
+|Parameter |Erklärung
+
+|Datenbanktyp a|
+Derzeit unterstützt Joomla! sechs verschiedene Arten der Anbindung an
+den Datenbank-Server:
+
+_MySQLi_: verbesserte (**i**mproved) MySQL-Erweiterung für PHP –
+*empfohlen*
+
+_MySQL_: ältere MySQL-Erweiterung mit schlechterer Performance, wurde
+mit PHP7 entfernt
+
+_MySQL (PDO)_: MySQL-Erweiterung auf Basis der PDO API, etwas langsamer
+als MySQLi
+
+_PostgreSQL_: Unterstützung für den freien Datenbankserver PostgreSQL
+
+_Microsoft SQL-Server_: Unterstützung für den MS SQL Server
+
+_Microsoft SQL-Azure_: Unterstützung für MS SQL Server in Azure
+Umgebungen
+
+Zu beachten ist hierbei, dass die Unterstützungen für PostgreSQL sowie
+den Microsoft SQL Server nur bei sehr wenigen Nutzern im Einsatz sind
+und daher als fehleranfällig und instabil gelten. Aktuell wird darüber
+diskutiert, die Unterstützung für MsSQL in kommenden Versionen ganz zu
+entfernen.
+
+|Servername |Name (oder IP-Adresse) des Datenbankservers. Falls nicht
+anders ange­geben, ist dies im Regelfall „localhost“.
+
+|Benutzername |Benutzername für die Datenbankverbindung. In lokalen
+Umgebungen häufig „root“, auf dem Webspace ist der Name dem
+Control-Panel des Hosters zu entnehmen.
+
+|Passwort |Passwort für die Datenbankverbindung. In der lokalen Umgebung
+normalerweise entweder „root“ oder gar nicht gesetzt und kann dann leer
+bleiben. Auf dem Webspace ist das Passwort im Control-Panel des Hosters
+zu ver­geben.
+
+|Datenbankname |Name der Datenbank, die wir vor Installationsbeginn
+erstellt haben
+
+|Tabellenpräfix |Ermöglicht es, mehrere Joomla!-Installationen in nur
+einer Datenbank zu ­betreiben, da es als Zeichenkette vor den
+eigentlichen Tabellennamen ­gesetzt wird. Bis einschließlich Joomla 1.5
+standardmäßig auf „jos++_++“ ­gesetzt, seitdem zufallsgeneriert, weshalb
+im Normalfall keine Anpassung erforderlich ist.
+
+|Alte Datenbanktabellen löschen |Erlaubt es, bereits vorhandene Tabellen
+einer alten Joomla!-Installation (mit gleichem Tabellenpräfix) in der
+gewählten Datenbank entweder zu löschen oder mit dem neuen Präfix
+„bak++_++“ zu versehen und dadurch zu sichern
+|===
+
+Von Zeit zu Zeit kommt es vor, dass Joomla! den nächsten
+Installationsschritt mit nicht sehr aussagekräftigen Fehlermeldungen wie
+„Verbindungsfehler“ verweigert. In einem solchen Falle ist der Fehler
+eigentlich immer bei falsch eingetragenen Verbindungsdaten
+(Buchstabendreher, Leerzeichen oder Umlaut im Passwort oder
+Benutzernamen, falscher Servername) zu suchen.
+
+image:media/image11.png[media/image11,width=548,height=521]
+
+BILD 4.6 Konfiguration der Datenbankverbindung während der Installation
+
+Im Normalfall tragen wir hier aber einfach unsere
+Datenbankverbindungsdaten ein und fahren durch einen Klick auf Weiter
+mit der Installation fort.
+
+In Schritt 3 der Installation fragt das System ab, mit welchem
+Beispieldatensatz wir die Installation fortsetzen möchten. Zur Auswahl
+stehen hierbei:
+
+* Keine
+* Englische (GB) Beispieldaten:
+Bloginhalteimage:media/image13.png[media/image13,width=21,height=21]
+* Englische (GB) Beispieldaten:
+Prospektinhalteimage:media/image13.png[media/image13,width=21,height=21]
+* Englische (GB) Beispieldaten: Standardinhalte
+* image:media/image13.png[media/image13,width=21,height=21]Englische
+(GB) Beispieldaten: Joomla!
+erlernenimage:media/image13.png[media/image13,width=21,height=21]
+* Englische (GB) Beispieldaten: Testinhalte
+
+Im Regelfall sollten Sie hier die Option _Keine_ wählen, da die in
+Joomla! integrierten Beispieldatensätze für produktive Websites ohnehin
+uninteressant sind und dann händisch wieder entfernt werden müssten. Ein
+weiterer Vorteil ist, dass die Installation ohne Beispieldaten uns
+erlaubt, Joomla direkt für mehrsprachige Websites einzurichten.
+
+image:media/image14.png[media/image14,width=548,height=320]
+
+Bild 4.7 Auswahl des zu installierenden Beispieldatensatzes
+
+Nach der Auswahl des Beispieldatensatzes können wir nochmal einen
+letzten Blick auf die von uns eingegebenen Daten werfen und die
+Installation anschließend mit dem Klick auf _Installieren_ starten.
+
+Anschließend wird die Installation von Joomla! durchgeführt und nach
+Abschluss des Prozesses beglückwünscht uns das System zur Bewältigung
+dieser Aufgabe. Als letzter Schritt ist nun noch nötig, dass wir das
+Verzeichnis _/installation_ im Joomla!-Verzeichnis löschen, damit
+niemand sonst mehr das Installationstool nutzen und damit Schaden
+anrichten kann. Die Löschung können wir bequem über den entsprechenden,
+prominent platzierten Button (siehe Abb. 4.8) durchführen.
+
+Nun können wir unsere neue Seite über den Klick auf den Button _Website_
+aufrufen.
+
+image:media/image15.png[media/image15,width=548,height=501]
+
+Bild 4.8 Erfolgreicher Abschluss der Installation
+
+Bei der Installation von Joomla gibt es jedoch zwei Sonderfälle zu
+berücksichtigen, auf die ich im Folgenden noch kurz eingehen möchte.
+
+==== Sonderfall 1: der FTP-Modus
+
+Der erste Sonderfall begegnet uns, wenn wir Joomla! in einer Umgebung
+installieren, in der das CMS aufgrund des sog. www-run-Problems (siehe
+Kapitel 19.1.1, „Das www-run-Problem“) keinen Schreibzugriff auf seine
+eigenen Dateien hat. Das ist insofern problematisch, als das dadurch
+viele Grundfunktionen des Systems (Schreiben der Konfigurationsdatei,
+Erweiterungsinstallation, Bildupload) nicht funktionieren würde. Um
+dieses Problem zu umgehen, prüft Joomla im Verlauf der Installation
+automatisch, ob die Dateien beschreibbar sind und fügt im im Fall der
+Fälle einen neuen Schritt 3 an die Eingabe der Datenbankdaten an.
+
+In diesem Schritt bittet Joomla! darum, dass man die Daten des
+FTP-Accounts angibt, mit dem Joomla z.B. beim Webhoster hochgeladen
+wurde. Joomla! nutzt dann diese Daten um eine Verbindung mit dem
+FTP-Server aufzubauen und entsprechende Schreibzugriffe über diesen
+Umweg durchzuführen.
+
+Leider sind die FTP-Zugriffe enorm langsam und unzuverlässig, weshalb
+die Nutzung des FTP-Modus nur im äußersten Notfall in Erwägung gezogen
+werden sollte – besser ist, hier bei der Hosterauswahl auf eine
+vernünftige Joomla!-Unterstützung zu achten, sodass das Problem erst
+garnicht auftaucht.
+
+Wenn man jedoch dann doch einmal vor dem genannten Problem steht, trägt
+man die entsprechenden FTP-Serverdaten ein und aktiviert die
+FTP-Funktion durch die Betätigung des Buttons _Ja_ im entsprechenden
+Dialog (siehe Abb. 4.9).
+
+image:media/image16.png[media/image16,width=548,height=375]
+
+Bild 4.9 Eingabe der FTP-Zugangsdaten während der Joomla-Installation
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Der korrekte _FTP-Root-Pfad_ lässt sich am einfachsten
+feststellen, indem man mit einem FTP-Client wie _Filezilla_ zur
+entsprechenden Joomla!-Installation navigiert und dann den dort
+angegebenen Pfad auf dem Server überträgt.
+
+image:media/image18.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild834.PNG,width=547,height=389]
+
+|===
+
+Die Angaben zu _FTP-Benutzername_ und _FTP-Passwort_ sollten in jedem
+Falle leer gelassen werden, da diese ansonsten im Klartext in der
+_configuration.php_ gespeichert werden, was ein potenzielles
+Sicherheitsrisiko darstellen würde.
+
+[width="100%",cols="25%,75%",]
+|===
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+| |
+|===
+
+Wenn die Zugangsdaten für den FTP-Zugang korrekt konfiguriert sind, kann
+die Installation wieder mittels Klick auf Weiter fortgesetzt werden. .
+
+==== Sonderfall 2: Mehrsprachige Installation
+
+Wenn man bereits zum Zeitpunkt der Installation weiß, dass die
+Joomla-Website mehrsprachig werden soll, sollte im letzten Schritt
+darauf geachtet werden, dass der Button _Verzeichnis „installation“
+löschen_ (siehe Abb. 4.8) nicht vorschnell betätigt wird! Der
+Installationsprozess kann hier nämlich über den Button _Extra Schritt:
+Sprachen installieren_ direkt noch dafür genutzt werden, die benötigten
+Sprachdateien nachzuinstallieren und die neue CMS-Installation für die
+Verwendung von Mehrsprachigkeit vorzubereiten.
+
+Dafür wählen Sie die gewünschten Zusatzsprachen aus (siehe Abb. 4.10)
+und aktivieren im folgenden Schritt die Mehrsprachigkeitsfunktion (siehe
+Abb. 4.11) und wählen die gewünschte Standardsprache aus.
+
+image:media/image19.png[media/image19,width=548,height=376]
+
+Bild 4.10 Auswahl der zu installierenden, zusätzlichen Sprachpakete
+
+image:media/image20.png[media/image20,width=548,height=473]
+
+Bild 4.11 Konfiguration der Mehrsprachigkeitsfunktion während des
+Installationsprozesses
+
+Anschließend löschen Sie auch hier das Verzeichnis _/installation_ durch
+Betätigung des entsprechenden Buttons.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Sie können diesen zusätzlichen Installationsschritt nicht nur
+dafür nutzen, die Mehrsprachigkeitsfunktion zu konfigurieren, sondern er
+bietet sich auch zur einfachen Installation des deutschen Sprachpakets
+bei einsprachigen Seiten an. Lassen sie hierfür einfach die
+Mehrsprachigkeitsfunktion (Siehe Abb. 4.11) deaktiviert und setzen Sie
+einfach nur die deutsche Sprache als Standard.
+|===
+
+=== Installation auf dem Webspace des Hosters
+
+Die Installation auf dem Webspace des Hosters unterscheidet sich von der
+in Kapitel 4.1 beschriebenen Installation in der lokalen Umgebung nur
+durch drei wesentliche Punkte:
+
+Erstens ist es bei Webhostern in der Regel nicht möglich, die
+Serverkonfiguration so anzupassen, dass sie den Bedürfnissen von Joomla!
+entspricht. Deshalb sollten Sie schon vor Vertragsabschluss intensiv das
+Kapitel 19.1, „Die Auswahl des richtigen Hosters“, lesen – dadurch
+ersparen Sie sich viel Ärger bei der späteren Nutzung.
+
+Außerdem ist es notwendig, die Dateien über die Nutzung eines
+FTP-Clients wie _Filezilla_ (siehe Kapitel 3.4, „FTP-Client“) auf den
+Server des Hosters zu transferieren. Dafür öffnet man den FTP-Client,
+trägt die im Control-Panel (Confixx, Plesk, KIS) des Hosters
+hinterlegten FTP-Zugangsdaten ein und öffnet eine neue Verbindung.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Sie sollten wann immer möglich auf SFTP statt FTP
+zurückgreifen. FTP wickelt nämlich alle Datenübertragungen
+unverschlüsselt ab, sodass Angreifer z.B. ihre FTP-Zugangsdaten
+abgreifen können. Bei SFTP, was von vielen großen Hostern und allen
+gängigen FTP-Clients unterstützt wird, erfolgt der Transfer
+verschlüsselt.
+|===
+
+Nun transferiert man die Dateien der Joomla!-Installation, in der Regel
+mittels Drag & Drop, in den sog. _docroot_-Ordner des Webservers, der
+häufig als _htdocs_ oder httpdocs benannt ist. Warum ins Docroot? Nun,
+ist eine Datei namens _blub.txt_ direkt im Docroot _abgelegt_, so kann
+diese später über den Aufruf von _www.domain.tld/blub.txt_ abgerufen
+werden; liegt die Datei hingegen im Unterordner _test_ des Docroot, so
+wird sie später über die URL _www.domain.tld/test/blub.txt_ abgerufen.
+Würden wir also Joomla! in einen Unterordner ablegen, so müssten wir
+später erst eine umständliche Weiterleitung einrichten, damit beim
+Aufruf von domain.tld auch tatsächlich unsere Installation erscheint.
+
+image:media/image23.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild896.PNG,width=547,height=389]
+
+BILD 4.11 Transfer der Joomla!-Installation auf den Server mittels
+FileZilla
+
+Nach dem Transfer ist es notwendig, im Control-Panel des Hosters eine
+neue MySQL-Datenbank sowie einen neuen, zugehörigen MySQL-Benutzer
+anzulegen. Anschließend kann die Installation durch den Aufruf von
+_www.domain.tld/installation_ gestartet werden – die weiteren
+Installationsschritte sind dann Kapitel 4.1 zu entnehmen.
+
+=== Erste Handgriffe nach der Installation
+
+Hiermit ist die Installation unserer Joomla!-Seite abgeschlossen.
+Standardmäßig sind jedoch einige Details des Joomla!-Pakets suboptimal
+und sollten deshalb unmittelbar nach der Installation angepasst werden.
+
+==== Anpassung der robots.txt
+
+Die standardmäßig bei Joomla! mitgelieferte _robots.txt_-Datei erlaubt
+es Suchmaschinen nicht, das Unterverzeichnis _/cache_ zu durchsuchen,
+wodurch CSS- und JavaScript-, und Bild-Dateien, die in diesem
+Verzeichnis von einigen beliebten Erweiterungen abgelegt werden, aus dem
+Suchmaschinenindex ausgeschlossen sind. Das hat z.B. den Nachteil, dass
+Suchmaschinen die Mobilfreundlichkeit der späteren Seite nicht mehr
+korrekt beurteilen können.. Daher empfiehlt es sich, den entsprechenden
+Eintrag in der _robots.txt_, die sich im Hauptverzeichnis der
+Joomla!-Installation befindet, auszukommentieren, sodass die Datei nach
+der Editierung dem entsprechenden Ausschnitt in Listing 4.1 entspricht.
+
+LISTING 4.1 Ausschnitt der modifizierten _robots.txt_-Datei
+
+User-agent: ++*++
+
+Disallow: /administrator/
+
+Disallow: /bin/
+
+#Disallow: /cache/
+
+Disallow: /cli/
+
+Disallow: /components/
+
+Disallow: /includes/
+
+Disallow: /installation/
+
+Disallow: /language/
+
+Disallow: /layouts/
+
+Disallow: /libraries/
+
+Disallow: /logs/
+
+Disallow: /modules/
+
+Disallow: /plugins/
+
+Disallow: /tmp/
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |**Hinweis: **Sollte Ihre Joomla!-Installation in einem
+Unterordner der Domain liegen, also nicht direkt über _www.domain.tld_
+erreichbar sein, so müssen Sie die _robots.txt_ in das Wurzelverzeichnis
+der Domain schieben (_www.domain.tld/robots.txt_) und die in der Datei
+angegebenen Pfade entsprechend anpassen, da robot-Dateien gemäß des
+entsprechenden Standards stets im _Docroot_ der Domain zu finden sein
+müssen.
+|===
+
+==== Leeren des Verzeichnisses /images
+
+Nachdem der _/images_-Ordner nun für Suchmaschinen zugänglich ist,
+empfiehlt es sich, insbesondere wenn die Seite später durch unerfahrene
+Nutzer administriert werden soll, das Verzeichnis zu leeren und die dort
+abgelegten Beispieldaten zu entfernen. Andernfalls würden diese Daten an
+verschiedenen Stellen der Joomla!-Administration (Medien-Manager,
+Bild-Manager des Editors) immer wieder auftauchen und Verwirrung
+stiften. Lediglich die dort ebenfalls vorhandene _index.html_ sollte aus
+Sicherheitsgründen erhalten bleiben.
+
+image:media/image24.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++4++\++Bild1025.PNG,width=547,height=344]
+
+BILD 4.12 _/images_-Verzeichnis nach dem Entfernen der Beispieldaten
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Dieser Schritt sollte ausgelassen werden, wenn
+während der Installation die Funktion _Beispieldaten installieren_
+genutzt wurde, da andernfalls die in den Beispieldaten hinterlegten
+Bilder nicht mehr angezeigt werden würden.
+|===

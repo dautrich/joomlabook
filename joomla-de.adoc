@@ -1,0 +1,36 @@
+= Joomla Book German Edition
+German Joomla Community
+:doctype: book
+:docinfo:
+:toc:
+:toclevels: 2
+:pagenums:
+:front-cover-image: image:book/cover.png[width=1050,height=1600]
+:icons: font
+
+include::book/contributors.adoc[]
+
+include::01-einleitung.adoc[]
+include::02-ueber-joomla.adoc[]
+include::03-einrichten.adoc[]
+include::04-installation.adoc[]
+include::05-grundlegendes-architektur.adoc[]
+include::06-backend.adoc[]
+include::07-inhalte-verwalten.adoc[]
+include::08-navigationsstruktur.adoc[]
+include::09-templatesystem.adoc[]
+include::10-erweiterungen.adoc[]
+include::11-benutzer-rechtevewaltung.adoc[]
+include::12-template-overwrites.adoc[]
+include::13-seo.adoc[]
+include::14-mehrsprachigkeit.adoc[]
+include::15-spezielle-erweiterungen.adoc[]
+include::16-custom-fields.adoc[]
+include::17-erweiterungen-erstellen.adoc[]
+include::18-best-practices.adoc[]
+include::19-online-gehen.adoc[]
+include::20-performace-optimierungen.adoc[]
+include::21-security.adoc[]
+include::22-updates-migration.adoc[]
+
+ifdef::backend-pdf[include::index.adoc[]]

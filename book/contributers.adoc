@@ -1,0 +1,9 @@
+[preface]
+== Mitwirkende
+
+Vielen Dank an alle, die dazu beigetragen haben, dieses Buch für alle besser zu machen.
+
+[source,tabsize=8]
+----
+include::contributors.txt[]
+----

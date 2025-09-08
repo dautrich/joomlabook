@@ -1,0 +1,3 @@
+[[07-inhalte-verwalten]]
+
+include::book/07-inhalte-verwalten/cap07.adoc[]

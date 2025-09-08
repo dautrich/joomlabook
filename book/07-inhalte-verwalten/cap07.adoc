@@ -1,0 +1,1982 @@
+== Inhalte verwalten
+
+Die Verwaltung der Inhalte ist einer der zentralen Bereiche in der
+Arbeit mit Joomla!, denn hier bekommen wir endlich die Möglichkeit,
+unsere aufwendig verfassten Texte ins Netz zu stellen. Damit wir nicht
+ganz abstrakt zu Werke gehen müssen, möchte ich die bereits in Kapitel
+5, „Grundlegende Begriffe und Architektur“, als Beispiel verwendete
+Internetseite des imaginären Obstbauern Bruno Birnennase als Basis für
+die weiteren Arbeitsschritte verwenden. Wie sieht also das Ziel unserer
+Arbeit, die fertige Seite, aus?
+
+Wir haben in Absprache mit Bruno die folgende Seitenstruktur erstellt.
+
+TABELLE 7.1 Seitenstruktur für _www.bauer-birnennase.de_
+
+[width="100%",cols="19%,21%,60%",]
+|===
+|1. Menüebene |2. Menüebene (falls vorhanden) |Beschreibung
+
+|Willkommen | |Kurzer Einleitungstext mit einem Bild von Bauer
+Birnennase
+
+|Der Obsthof | |Beschreibung der Philosophie und Geschichte des Hofs
+
+|Hofladen | |Anfahrtsbeschreibung und Öffnungszeiten des Hofladens
+
+|Was ist Obst? | |Allgemeiner Definitionstext
+
+|Obstsorten |Birnen |Auflistung der verschiedenen angebauten
+Birnensorten
+
+| |Äpfel |Angebaute Apfelsorten
+
+| |Trauben |Angebaute Traubensorten
+
+|Impressum | |Impressum
+
+|Kontakt | |Kontaktformular
+|===
+
+Um diese Struktur intelligent im Kategoriensystem abzubilden, müssen wir
+das aus Kapitel 5, „Grundlegende Begriffe und Architektur“, bekannte
+Kategorienschema (vgl. Bild 5.3) noch ein wenig erweitern, um die neu
+hinzugekommenen Inhalte einordnen zu können.
+
+image:media/image1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild506.PNG,width=376,height=281]
+
+BILD 7.1 Ergänzte Inhaltsstruktur zur Abbildung der gewünschten
+Seitenstruktur aus Tabelle 7.1
+
+Was hat sich also, im Vergleich zur Struktur aus Kapitel 5,
+„Grundlegende Begriffe und Architektur“, getan? Die neu hinzugekommenen
+allgemeinen Inhalte _Impressum_, _Hofladen_, _Der Obsthof_ und
+_Willkommen_ haben eine eigene Kategorie _Informationen_ bekommen.
+Alternativ wäre es auch möglich gewesen, diese Inhalte der, bei Joomla!
+standardmäßig vorhandenen, Kategorie „Uncategorized“ zuzuweisen, wir
+wollen jedoch von Anfang an sauber arbeiten und daher auch eine Struktur
+für diese nicht anderweitig kategorisierbaren Inhalte anlegen.
+
+Beim Vergleich der Tabelle 7.1 mit dem Bild 7.1 wird auch noch einmal
+deutlich, dass Inhalts- und Navigations- bzw. Seitenstruktur zwei
+verschiedene Paar Schuhe sind und unabhängig voneinander arbeiten, was
+im ersten Moment vielleicht verwirrend erscheint – aber glauben Sie mir,
+wenn ich sage: Im nächsten Kapitel wird Ihnen einiges klarer werden!
+
+=== Kategoriensystem anlegen
+
+Die Kategorienstruktur ist nun erstellt, sodass wir mit dem Anlegen der
+ersten Kategorie beginnen können.
+
+==== Kategorienübersicht
+
+Dafür öffnen wir die Kategorienverwaltung für Beiträge durch einen Klick
+auf Inhalt ++>++ Kategorien und finden dort die Kategorienliste vor, die
+derzeit nur einen Eintrag, nämlich die bereits erwähnte
+Standardkategorie „Uncategorized“, beinhaltet. Die Listenübersicht teilt
+sich in verschiedene Bereiche, die in Bild 7.2 markiert und anschließend
+erklärt sind.
+
+image:media/image2.png[media/image2,width=548,height=171]
+
+BILD 7.2 Aufbau der Kategorienübersicht im Backend
+
+TABELLE 7.2 Erklärung der Markierungen in Bild 7.2
+
+[width="100%",cols="17%,83%",]
+|===
+|Markierung |Erläuterung
+|1 |Filterfunktionen zur Reduzierung der Liste auf bestimmte Einträge
+|2 |Liste der angelegten Kategorien
+|3 |Einzelner Listeneintrag
+|4 |Toolbar der Kategorienliste
+|===
+
+Das grundsätzliche Layout dieser Liste wird sich dabei von nun an durch
+alle Listenansichten im Joomla!-Backend ziehen, sodass wir, falls wir
+beispielsweise eine Filterfunktion für die Listenausgabe benötigen,
+stets wissen, dass die Filteroptionen am Beginn der Liste zu finden
+sind.
+
+Im konkreten Fall bietet uns Joomla! für die Kategorienübersicht nun
+folgende Möglichkeiten zur Filterung an:
+
+* _Suche:_ einfaches Eingabefeld zur Suche nach Kategorien, deren
+Namensbestandteil der eingegebene Begriff ist
+* Diverse weitere Detailfilter, die sich hinter dem Knopf
+_Suchwerkzeuge_ verstecken:
+* _Max. Ebenen auswählen:_ Beschränkt die Ausgabe in der Liste auf
+Kategorien der angegebenen Ebenen. Wird hier also beispielsweise „2“ als
+Wert ausgewählt, so zeigt die Liste nur eine Unterkategorienebene.
+* _Status auswählen:_ Filtert die Kategorienliste anhand des jeweiligen
+Status (Freigegeben, Gesperrt, Papierkorb, Archiviert)
+* _Zugriffsebene wählen:_ Zeigt nur Kategorien, die einer bestimmten
+Zugriffsebene zugeordnet sind
+* _Sprache wählen:_ Zeigt nur Kategorien, die einer bestimmten Sprache
+zugeordnet sind
+* _Schlagwort wählen:_ Zeigt nur Kategorien, die mit einem bestimmten
+Schlagwort (Tag) versehen sind.
+
+Diese Filterungsoptionen sind enorm nützlich, wenn man eine große Anzahl
+von Kategorien angelegt hat und dadurch die Übersichtlichkeit verloren
+geht.
+
+Die eigentliche Liste zeigt nun für jede Kategorie den _Titel_ sowie den
+_Alias_, dessen genaue Bedeutung wir später beleuchten werden. Außerdem
+wird über ein Icon (in diesem Fall ein grüner Pfeil) der _Status_ des
+jeweiligen Eintrags symbolisiert, es gibt eine Information über die
+Anzahl der zur Kategorie zugeordneten veröffentlichten, gesperrten,
+archivierten und gelöschten _Beiträge_, und die _Zugriffsebene_, die
+_Sprache_ und die eindeutige _Kategorie-ID_ werden ausgegeben. Am
+Zeilenbeginn findet sich eine Checkbox, die den jeweiligen Eintrag
+auswählt, um anschließend verschiedene Aktionen darauf anwenden zu
+können, die sich in der _Toolbar_ finden. Die Auswahl aller sichtbaren
+Kategorien auf einmal erfolgt über die Checkbox am Beginn der Kopfzeile
+der Listenansicht.
+
+image:media/image3.png[media/image3,width=548,height=77]
+
+BILD 7.3 Ausgegebene Informationen für jeden Listeneintrag
+
+Über die Kopfzeile der Liste ist es zudem möglich, die Einträge durch
+einen Klick auf den jeweiligen Spaltentitel gemäß der Werte der
+jeweiligen Spalte sortieren zu lassen – die derzeit zur Sortierung
+genutzte Spalte ist durch einen entsprechenden Pfeil markiert. Die
+Richtung der Sortierung lässt sich durch einen weiteren Klick auf den
+jeweiligen Spaltennamen umkehren, woraufhin auch der Pfeil umgedreht
+wird, um die auf- bzw. absteigende Sortierung zu visualisieren.
+
+Rei
+
+BILD 7.4 Auf- bzw. absteigende Sortierung der Listeneinträge durch Klick
+auf den Spaltentitel
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Praxistipp: Die korrekte Verschachtelung der Kategorien
+untereinander wird nur bei Sortierung nach der Spalte _Reihenfolge_
+(erste Spalte, symbolisiert durch die beiden Pfeile) wiedergegeben.
+|===
+
+==== Kategorie anlegen
+
+Nachdem wir uns einen Überblick verschafft haben, starten wir mit dem
+Anlegen einer ersten eigenen Kategorie durch den Klick auf den Button
+Neu in der Toolbar, woraufhin Joomla! das Formular zum Anlegen einer
+neuen Kategorie öffnet.
+
+Dieses Formular teilt Joomla! in mehrere Tabs, die wiederrum in ein bis
+zwei Spalten aufgeteilt sind. Die wichtigsten Parameter finden sich in
+der Regel im ersten Tab, speziellere Parameter werden auf die weiteren
+Tabs verteilt.
+
+image:media/image6.png[media/image6,width=548,height=450]
+
+BILD 7.5 Formular zum Anlegen einer neuen Kategorie
+
+Wir starten in der linken Spalte und vergeben als Erstes einen
+aussagekräftigen _Titel_ für die Kategorie. Dieser Titel wird an
+verschiedenen Stellen der Seite verwendet und sollte eindeutig sein,
+kann aber auch noch im Nachhinein verändert werden. Wir vergeben als
+Titel, gemäß unserem Kategorienbaum, „Obst“.
+
+Das nächste Feld zur Angabe des _Alias_ erlaubt es uns, die URLs unserer
+späteren Seite zu beeinflussen. Diese Möglichkeit entsteht aufgrund der
+Tatsache, dass Joomla! z.B. bei der Generierung einer URL für einen
+Beitrag, die jeweilige Kategorie mit in die URL aufnimmt
+(_www.bauer-birnennase.de/_*obst*_/elstar.html_) – dabei ist frei
+konfigurierbar, wie der Name der jeweiligen Kategorie in der URL lauten
+soll, da dies unabhängig vom eigentlichen _Titel_-Feld bestimmt wird.
+Stattdessen erfolgt die Festlegung des jeweiligen Bezeichners durch das
+_Alias_-Feld. Falls das Feld leer gelassen wird, generiert Joomla!
+jedoch auch automatisch einen Alias aus dem _Titel_ der jeweiligen
+Kategorie, worauf wir uns in diesem Falle verlassen.
+
+Die wichtigsten Parameter und Einstellungen einer Kategorie finden sich
+in der rechten Spalte des Formulars: Die Auswahlliste des Parameters
+_Übergeordnet_ erlaubt es uns, die Verschachtelung der einzelnen
+Kategorien festzulegen. Da unsere Kategorie „Obst“ jedoch, gemäß des
+Seitenbaums, keine übergeordnete Kategorie hat, sondern, zusammen mit
+Informationen, die erste Kategorienebene darstellt, belassen wir den
+Parameter beim Standardeintrag „keine übergeordnete Kategorie“.
+
+Über den _Status_ können wir festlegen, wie der Status der jeweiligen
+Kategorie lautet. Zur Auswahl stehen dabei:
+
+* _Veröffentlicht:_ Im Front- und Backend sichtbar
+* _Versteckt:_ Nur im Backend sichtbar. Nützlich, um neue Kategorien zu
+hinterlegen, die erst noch durch einen anderen Nutzer geprüft werden
+müssen und daher noch nicht sichtbar sein sollen.
+* _Archiviert:_ Kategorien, die nicht mehr aktiv genutzt werden, jedoch
+nicht gelöscht werden sollen
+* _Papierkorb:_ Aus der Kategorienliste entfernt und nur noch im
+Papierkorb sichtbar
+
+Wir wählen in diesem Falle „Freigegeben“ als Status, da wir ja im
+weiteren Verlauf mit der Kategorie arbeiten wollen.
+
+Die Parameter für _Zugriffsebene_ und _Berechtigungen_ erlauben uns zu
+konfigurieren, welche Nutzer die entsprechende Kategorie und ihre
+Beiträge betrachten und bearbeiten können. Diesem Thema widmen wir uns
+nochmals intensiv in Kapitel 11, „Benutzer und Rechteverwaltung“, und
+belassen die Einstellungen daher bei den Standardwerten.
+
+Die Auswahlliste für die _Sprache_ benötigen wir zum Aufbau einer
+mehrsprachigen Seite, was noch Thema des Kapitels 14,
+„Mehrsprachigkeit“, wird – daher übernehmen wir auch hier erst einmal
+den Standardwert „Alle“.
+
+Das Feld _Notiz_ kann für zusätzliche Informationen genutzt werden, die
+im Backend der Seite angezeigt werden. Hier könnte z.B. beschrieben
+werden, wo und wie die entsprechende Kategorie im Frontend verwendet
+wird.
+
+Der _Versionshinweis_ wird zusammen mit dem jeweiligen Text und Titel
+der Kategorie in der Versionierungstabelle von Joomla gespeichert, aus
+der ältere Versionen von Beiträgen und Kategorien wiederhergestellt
+werden können, siehe 7.4.
+
+Nun verbleibt in der linken Spalte des Formulars nur noch das
+mehrzeilige Eingabefeld für die _Beschreibung_. Dieses Eingabefeld ist
+mit einem sog. What-You-See-Is-What-You-Get-Editor (WYSIWYG)
+ausgestattet, der es auch unerfahrenen Nutzern ohne HTML-Kenntnisse
+erlaubt, verschiedene Formatierungen auf den jeweiligen Text anzuwenden.
+Eine intensive Beschreibung der Möglichkeiten des Editors erfolgt im
+nächsten Unterkapitel, weshalb wir uns vorerst mit der Eingabe eines
+einfachen, unformatierten Beschreibungstextes begnügen.
+
+image:media/image6.png[media/image6,width=548,height=450]
+
+BILD 7.6 Fertig ausgefüllte linke Spalte zur Erstellung der Kategorie
+„Obst“
+
+Jetzt erfolgt die Konfiguration der Parameter in den weiteren Tabs des
+Eingabeformulars. Die Parameter sind in verschiedene Gruppen (_Optionen,
+Veröffentlichung, Berechtigungen_) gegliedert. Durch einen Klick auf den
+jeweiligen Reiter erhalten wir weitere Einstellungsmöglichkeiten, die in
+der Parameterliste in Tabelle 7.3 zusammengefasst sind.
+
+image:media/image9.png[media/image9,width=548,height=154]
+
+BILD 7.7 Ansicht des Tabs _Optionen_ in der Kategorieverwaltung
+
+TABELLE 7.3 Kategorie-Parameter
+
+[width="100%",cols="32%,68%",]
+|===
+|Parameter |Erklärung
+
+| |
+
+| |
+
+|Optionen |
+
+|Alternatives Layout |Erlaubt es, einer bestimmten Kategorie ein
+separates Ausgabetemplate zuzuweisen, um kategorienspezifische
+Besonderheiten in der Ausgabe zu berücksichtigen (siehe Kapitel 12.2.1,
+­„Kategorie-Layouts“)
+
+|Bild |Bild der Kategorie, das über den Medien-Manager hochgeladen und
+ausgewählt wird. Kann an verschiedenen Stellen der Seite ausgegeben
+werden.
+
+|Alternativer Text |Alternativer Text für das ausgewählte Bild, wird
+verwendet wenn das Bild nicht angezeigt werden kann
+
+|Veröffentlichung |
+
+|Erstellungsdatum |Automatisch gesetztes Erstellungsdatum der Kategorie
+
+|Autor |Nutzer der die Kategorie erstellt hat, über das Icon rechts
+neben dem Feld kann manuell ein anderer Nutzer gewählt werden
+
+|Bearbeitungsdatum |Automatisch gesetztes Bearbeitungsdatum
+
+|Bearbeitet von |Automatisch gesetztes Feld, das den Nutzer speichert,
+der das Feld zuletzt beabreitet hat
+
+|Zugriffe |Automatisch gesetztes Feld dass die Zugriffsanzahl auf die
+Kategorie enthält
+
+|ID |Automatisch generierte ID der Kategorie
+
+|Meta-Beschreibung |Festlegung der Meta-Beschreibung, die bei der
+Ausgabe der ­Kategorie gesetzt wird
+
+|Meta-Schlüsselworte |Festlegung der Meta-Keywords, die bei der Ausgabe
+der Kate­gorie verwendet werden
+
+|Autor |Text für die Autor-Angabe in den Meta-Tags bei Ausgabe der
+­Kategorie
+
+|Robots |Spezielle Anweisungen für Suchmaschinen-Robots für diese
+­Kategorie festlegen
+
+|Berechtigungen |
+
+|Zugriffsrechte |Diverse Einstellungen, werden in Kapitel 11,
+Rechteverwaltung behandelt
+|===
+
+Wir belassen diese Parameter erst einmal bei den Standardwerten, da für
+unsere Zwecke keine Modifikationen notwendig sind.
+
+Nun haben wir also alle nötigen Einstellungen für unsere neue Kategorie
+vorgenommen und müssen unsere Änderungen nun speichern bzw. verwerfen,
+wofür uns Joomla! vier verschiedene Buttons in der Toolbar zur Verfügung
+stellt:
+
+* _Speichern:_ Speichert die Änderungen an der Kategorie und öffnet
+anschließend erneut das Formular zur Bearbeitung dieser Kategorie.
+Entspricht der „Anwenden“-Funktion zahlreicher anderer Programme.
+* _Speichern & Schließen:_ Speichert die Änderungen und öffnet
+anschließend die Kategorienübersicht
+* _Speichern & Neu:_ Speichert die Änderungen und öffnet anschließend
+ein neues, leeres Eingabeformular, um eine weitere Kategorie anzulegen
+* {blank}
+* _Abbrechen:_ Verwirft die Änderungen und öffnet die
+Kategorienübersicht
+
+Wir nutzen in diesem Falle die Funktion Speichern & Neu, da wir die
+Gunst der Stunde dazu nutzen wollen, eine weitere Kategorie anzulegen.
+
+image:media/image10.png[media/image10,width=548,height=98]
+
+BILD 7.8 Toolbar-Buttons zum Speichern bzw. Verwerfen der Änderungen
+
+==== Anlegen einer untergeordneten Kategorie
+
+Nach einem Klick auf Speichern & Neu öffnet sich das Formular zum
+Anlegen einer Kategorie, woraufhin wir als _Titel_ der neuen Kategorie
+„Birnen“ eingeben und einen entsprechenden Beschreibungstext eintragen.
+Jetzt kommt der spannende Teil! Da die Kategorie „Birnen“ in unserem
+Kategorienbaum eine Unterkategorie des gerade hinzugefügten Eintrags
+„Obst“ ist, müssen wir die entsprechende Relation festlegen. Dafür
+wählen wir in der Auswahlliste des _Übergeordnet_-Parameters den
+entsprechenden Eintrag aus.
+
+image:media/image13.png[media/image13,width=548,height=263]
+
+BILD 7.9 Auswahl der übergeordneten Kategorie
+
+Nach der Auswahl verlassen wir diesen Dialog über einen Klick auf
+Speichern & Schliessen, woraufhin wir zur Kategorienübersicht gelangen,
+in der wir nun unsere beiden angelegten Kategorien finden. Die Relation
+der beiden Kategorien untereinander wird über die Einrückung des
+Eintrags „Birnen“ dargestellt.
+
+image:media/image15.png[media/image15,width=548,height=112]
+
+BILD 7.10 Kategorienübersicht mit den beiden neuen, korrekt zugeordneten
+Kategorien
+
+Dieses Verfahren wenden wir nun analog für die anderen Kategorien
+unserer Baumstruktur (siehe Bild 7.1) an und erhalten schließlich unsere
+gewünschte Kategorienstruktur (siehe Bild 7.11).
+
+image:media/image17.png[media/image17,width=548,height=183]
+
+BILD 7.11 Fertige, der Vorgabe entsprechende Kategorienstruktur
+
+==== Bestehende Kategorien ändern
+
+Was aber, wenn wir beim Anlegen einen Fehler gemacht haben oder einen
+der Parameter nachträglich verändern wollen? Glücklicherweise müssen wir
+dann die bereits angelegte Kategorie nicht löschen und eine neue
+Kategorie anlegen, sondern wir können einfach die Bearbeitungsfunktion
+nutzen. Dabei haben wir zwei verschiedene Methoden zum Aufruf zur
+Auswahl.
+
+Die erste, sehr intuitive Methode ist das Öffnen der
+Bearbeitungsfunktion über einen simplen Klick auf den jeweiligen _Titel_
+der Kategorie in der Listenansicht (siehe Bild 7.12).
+
+image:media/image19.png[media/image19,width=548,height=211]
+
+BILD 7.12 Bearbeiten einer Kategorie durch Klick auf den Titel
+
+Alternativ dazu kann der entsprechende Eintrag auch einfach über die
+Checkbox am Beginn der Zeile selektiert werden, woraufhin der Button
+_Bearbeiten_ in der Toolbar genutzt werden kann (siehe Bild 7.13).
+
+image:media/image21.png[media/image21,width=548,height=253]
+
+BILD 7.13 Editieren eines Beitrags durch Nutzung des Toolbar-Buttons
+
+Wenn man einen der beiden Wege genutzt hat, um die entsprechende
+Kategorie zu editieren, öffnet sich der aus Kapitel 7.1.3 bereits
+bekannte Dialog, der jedoch, im Unterschied zum Anlegen einer neuen
+Kategorie, um zwei neue Toolbar-Buttons ergänzt wurde, die den Namen
+_Als Kopie speichern_ und _Versionen_ tragen. Durch den ersten der
+beiden Buttons können wir die aktuell vorgenommenen Änderungen an der
+Kategorie in einer separaten, neu angelegten Kategorie speichern, wobei
+die ursprünglich geöffnete Kategorie unverändert bleibt. Der zweite
+Button ist Bestandteil der Versionierungsfunktion, der wir uns in
+Kapitel 7.4 widmen werden.
+
+image:media/image23.png[media/image23,width=548,height=82]
+
+BILD 7.14 Toolbar-Button _Als Kopie speichern_
+
+==== Kategorien entfernen und wiederherstellen
+
+Im nächsten Schritt entfernen wir nun die standardmäßig angelegte
+Kategorie „Uncategorized“, indem wir den Eintrag mit der zugehörigen
+Checkbox markieren und anschließend durch einen Klick auf den
+Toolbar-Button Papierkorb aus der Liste entfernen.
+
+image:media/image25.png[media/image25,width=548,height=166]
+
+BILD 7.15 Entfernen der Standardkategorie „Uncategorized“
+
+Joomla! bestätigt diesen Schritt mit einer entsprechenden Meldung und
+die Kategorie ist aus der Auflistung verschwunden. Nun fragt sich der
+aufmerksame Administrator: Wenn die Kategorie jetzt im Papierkorb ist,
+wie könnte ich diese dann jetzt im Fall der Fälle wiederherstellen?
+Dafür muss in der Auswahlliste für _Status auswählen_ (Filteroptionen,
+wird über den Button _Suchwerkzeuge_ eingeblendet) der Eintrag
+_Papierkorb_ ausgewählt werden, woraufhin Joomla! nur noch Kategorien
+auflistet, die sich im Papierkorb befinden. Gleichzeitig verändert sich
+das entsprechende Toolbar-Icon, das uns nun die Möglichkeit bietet, den
+entsprechenden Eintrag endgültig zu löschen – die Beschriftung
+_Papierkorb leeren_ ist hier leider etwas unglücklich gewählt, da der
+Button nicht automatisch den gesamten Papierkorb leert, sondern auch
+hier wieder eine Selektion des jeweiligen Eintrags erforderlich ist.
+
+image:media/image27.png[media/image27,width=548,height=108]
+
+BILD 7.16 Dauerhaftes Löschen einer Kategorie mittels _Papierkorb
+leeren_
+
+Um eine Kategorie aus dem Papierkorb wiederherzustellen, reicht ein
+einfacher Klick auf das Papierkorb-Symbol in der _Status_-Spalte des
+jeweiligen Eintrags. Ein Klick auf den Toolbar-Button _Wiederherstellen_
+funktioniert hier leider nicht, da dieser eine andere Funktion
+wahrnimmt, in der deutschen Version aber leider doppeldeutig beschriftet
+worden ist.
+
+image:media/image29.png[media/image29,width=548,height=82]
+
+BILD 7.17 Wiederherstellen eines Eintrags aus dem Papierkorb
+
+Wir begnügen uns aber zunächst mit dem dauerhaften Entfernen der
+„Uncategorized“-Kategorie und heben anschließend unsere vorhin
+ausgewählte Filteroption durch einen Klick auf den Button _Zurücksetzen_
+in den Filteroptionen wieder auf.
+
+==== Kategorien veröffentlichen und verstecken
+
+Aus Kapitel 7.1.3, „Anlegen einer untergeordneten Kategorie“, wissen wir
+bereits, dass eine Kategorie unterschiedliche Statuszustände aufweisen
+kann. Während der Status _Papierkorb_ über den entsprechenden
+Toolbar-Button (siehe Kapitel 7.1.5, „Kategorien entfernen und
+wiederherstellen“) gesetzt wird und der Status _Archiviert_ im
+administrativen Alltag praktisch keine Rolle spielt und daher nur über
+das entsprechenden Editierungsformular (siehe Kapitel 7.1.4, „Bestehende
+Kategorien ändern“) vergeben werden kann, werden die beiden
+Statusangaben _Veröffentlicht_ und _Versteckt_ relativ häufig verwendet.
+
+Daher gibt es eine separate Funktion zum Freigeben und Sperren einer
+Kategorie, die, ähnlich wie beim Bearbeiten einer Kategorie, über zwei
+Klickwege genutzt werden kann. Der erste Weg arbeitet über einen Klick
+auf das jeweilige Status-Icon der Kategorie in der Übersichtsliste.
+Daraufhin nimmt die Kategorie den jeweils entgegengesetzten Status an.
+
+image:media/image31.png[media/image31,width=548,height=164]
+
+BILD 7.18 Wechseln des Kategorienstatus per Klick auf das jeweilige Icon
+
+Zudem ist es auch hier wieder möglich, den Status über die Selektion der
+Checkbox und die Nutzung der beiden Toolbar-Buttons _Veröffentlichen_
+und _Verstecken_ zu ändern. Die Nutzung erfolgt analog zur Nutzung der
+Buttons _Bearbeiten_ und _Papierkorb_.
+
+==== Kategorie-Reihenfolge ändern
+
+Würden wir im Frontend eine Auflistung aller auf unserer Seite
+vorhandenen Kategorien erzeugen, so würden diese in der Reihenfolge
+ausgegeben, in der wir die Einträge eingegeben haben. Wie lässt sich
+also die Reihenfolge der Ausgabe im Frontend beeinflussen, insbesondere
+wenn wir nicht auf die standardmäßig vorhandene Sortierungsfunktion nach
+dem Alphabet zurückgreifen wollen? Joomla! bietet uns für diese Zwecke
+die Möglichkeit, eine individuelle Reihenfolge der Kategorien festlegen
+zu können, was in der Spalte _Reihenfolge_ geschieht. Voraussetzung für
+die Nutzung der Funktion ist, dass wir die Einträge der Liste im Backend
+aufsteigend nach der Reihenfolge sortieren lassen, was durch das
+zugehörige Icon angezeigt wird (siehe Bild 7.19).
+
+image:media/image33.png[media/image33,width=548,height=182]
+
+BILD 7.19 Sortierung der Liste nach der Spalte _Reihenfolge_, um die
+Funktion zur Änderung der Reihenfolge im Frontend zu aktivieren
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Ist die korrekte Sortierung eingestellt, können die Kategorien mittels
+Drag & Drop sortiert werden. Dafür wird der Mauszeiger über dem
+entsprechenden „Griff“ am Beginn der Zeile (siehe Bild 7.20) platziert,
+die linke Maustaste wird gedrückt und gehalten und der entsprechende
+Eintrage kann nun in der Liste verschoben werden (siehe Bild 7.21) ist
+die gewünschte Reihenfolge erreicht, wird die Maustaste losgelassen.
+
+image:media/image36.png[media/image36,width=548,height=162]
+
+Bild 7.20 Bedienelement für die Drag & Drop Sortierung von Einträgen
+
+image:media/image37.png[media/image37,width=548,height=152]
+
+Bild 7.21 Aktive Drag & Drop Sortierung
+
+==== Freigeben von Kategorien
+
+Kommen wir nun zu den Funktionen, die nicht direkt im Zusammenhang mit
+der Administration der Kategorien stehen, sondern eher als allgemeine
+Wartungsfunktionen anzusehen sind.
+
+Die erste Funktion ist das _Freigeben_ von Kategorien nach der
+Bearbeitung. Bei einem Mehrbenutzersystem wie Joomla! steht man nämlich
+vor dem Problem, dass zwei Administratoren, die zur gleichen Zeit z. B.
+die gleiche Kategorie bearbeiten, die Änderungen des jeweils anderen
+unbeabsichtigt überschreiben würden. Um dies zu verhindern, wird eine
+Kategorie beim Bearbeiten _gesperrt_ und kann somit von anderen Nutzern
+nicht bearbeitet werden. Dies symbolisiert Joomla! durch ein kleines
+Schlosssymbol, das für die anderen Benutzer am Beginn der jeweiligen
+Zeile erscheint (siehe Bild 7.22). Fährt man mit dem Mauszeiger über das
+entsprechende Symbol, wird außerdem ein kleiner Tooltipp eingeblendet,
+der angibt, wann und durch welchen Benutzer die Bearbeitung gestartet
+wurde.
+
+image:media/image39.png[media/image39,width=548,height=157]
+
+BILD 7.22 Schlosssymbol und Tooltipp bei _ausgecheckter_ Kategorie
+
+Verlässt der Administrator, der die entsprechende Kategorie editiert,
+den Bearbeitungsdialog über die entsprechenden Toolbar-Schaltflächen, so
+wird die Kategorie wieder für alle Benutzer freigegeben. Wenn der
+jeweilige Administrator aus Nachlässigkeit jedoch vergisst, die
+entsprechenden Toolbar-Buttons zu nutzen, und stattdessen einfach das
+Browserfenster schließt, so bleibt die Kategorie _gesperrt_ – dies ist
+übrigens auch der Grund dafür, warum das Administrationsmenü während der
+Bearbeitung einer Kategorie ausgegraut ist, denn hier würde sonst der
+gleiche Effekt auftreten. Joomla! bietet jedoch die Möglichkeit, diese
+Sperre gezielt per Klick auf das jeweilige wieder aufzuheben.
+
+image:media/image40.png[media/image40,width=548,height=155]
+
+BILD 7.23 Erfolgreiche Freigabe
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Obwohl die entsprechende Funktion vorhanden ist, ist es
+lästig, gesperrte Kategorien, Beiträge und weitere Inhalte manuell
+wieder einzuchecken. Achten Sie daher unbedingt darauf, alle
+Bearbeitungsdialoge immer nur über die vorgesehenen Toolbar-Buttons zu
+verlassen, und weisen Sie auch in Schulungen darauf hin.
+
+Insbesondere, wenn es Inhalte in verschiedenen Bereichen der
+Administration betrifft, kann es angenehmer sein, die Funktion
+_Globales_ _Freigeben_ zu nutzen, die über den Menüpunkt _System_
+_++>++_ _Globales_ _Freigeben_ im Backend geöffnet wird. Dort ist
+aufgelistet, wie viele Inhalte in der jeweiligen Datenbanktabelle
+eingecheckt werden können. Dies kann über die Auswahl der jeweiligen
+Checkbox und den Button _Freigeben_ in der Toolbar durch­geführt werden.
+
+|===
+
+==== Wiederherstellen der Kategorienstruktur
+
+Joomla! nutzt zur Speicherung der Kategorienverschachtelung ein relativ
+komplexes Datenbankmuster, das im Fall von unerwarteten Ergebnissen
+(also z.B. Kategorien, die plötzlich einer anderen Oberkategorie
+zugeordnet werden als ursprünglich gewünscht) durch die Nutzung des
+Toolbar-Buttons _Wiederherstellen_ repariert werden kann. Joomla!
+bestätigt den Vorgang anschließend mit einer entsprechenden Meldung.
+
+image:media/image42.png[media/image42,width=548,height=138]
+
+BILD 7.24 Wiederherstellen der Kategorienstruktur im Fehlerfall
+
+Was passiert dabei hinter den Kulissen des Systems? Nun, Joomla nutzt
+zur Speicherung der Baumstruktur primär erstmal eine Datenbankspalte, in
+der für jede Kategorie die jeweilige übergeordnete Kategorie abgelegt
+ist. Da diese Art der Datenbankstruktur bei bestimmten Abfragen jedoch
+sehr langsam und aufwendig ist, nutzt Joomla zusätzlich dazu noch
+sogenannte Nested
+Setsfootnote:[http://www.klempert.de/nested++_++sets/], bei denen die
+Relationen in einer anderen Form gespeichert sind. Nested Sets sind
+oftmals wesentlich performanter, in bestimmten Situationen kann es
+jedoch vorkommen, dass die Datensätze dort ungültig werden – in einem
+solchen Fall greift dann die _Wiederherstellen_-Funktion, die das
+Nested-Set auf Basis der übergeordneten Kategorie-IDs neu aufbaut.
+
+==== Kategorienoptionen
+
+Der letzte, nun noch verbleibende Button _Optionen_ öffnet den Dialog
+zur Konfiguration diverser Parameter, die jedoch nicht auf den Bereich
+_Kategorien_, sondern auf den Bereich _Beiträge_ bezogen sind, weshalb
+wir diese Parameter in Kapitel 7.2, „Inhalte erstellen“, betrachten
+wollen.
+
+==== Anwenden von Änderungen auf mehrere Kategorien 
+
+Joomla! bietet einige nützliche Features zum Anwenden von Änderungen auf
+mehr als eine Kategorie, die sich hinter dem Button _Stapelverarbeitung_
+verstecken.
+
+image:media/image45.png[media/image45,width=548,height=124]
+
+BILD 7.25 Der Button für die Stapelverarbeitung der Kategorieliste
+
+Die Funktionsweise ist bereits aus den anderen Bearbeitungsschritten
+bekannt: Zuerst selektieren wir über die jeweiligen Checkboxen am Beginn
+der Zeile die zu ändernden Kategorien und konfigurieren dann die
+gewünschten Funktionen (siehe Bild 7.26). Abschließend starten wir den
+Prozess durch einen Klick auf Ausführen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Übrigens: An dieser Stelle versteckt sich auch
+die häufig benötigte Funktion zum Verschieben bzw. Kopieren von
+Listeneinträgen, die in Joomla! 1.0 und 1.5 noch einen eigenen
+Toolbar-Button innehatte.
+|===
+
+image:media/image46.png[media/image46,width=548,height=129]
+
+BILD 7.26 Dialog zur Stapelverarbeitung von Kategorien
+
+=== Inhalte erstellen
+
+Nachdem wir den Aufbau der Kategorienstruktur fertiggestellt haben,
+wollen wir uns nun mit dem Einpflegen der Beiträge beschäftigen.
+
+==== Beitragsübersicht
+
+Zu Beginn wechseln wir über den Aufruf des Menüpunkts Inhalt ++>++
+Beiträge zur Übersichtsliste der bereits angelegten Beiträge. Diese ist
+freundlicherweise identisch aufgebaut wie die Kategorienliste, weshalb
+wir sehr viel erlerntes Wissen aus Kapitel 7.1, „Kategoriensystem
+anlegen“, hier wieder anwenden können.
+
+Unterschiede gibt es nur
+
+* in der Toolbar, wo zwei Buttons _Haupteintrag_ bzw. _Kein
+Haupteintrag_ hinzugekommen sind, die im späteren Kapitelverlauf noch
+eine Rolle spielen.
+* in den Filteroptionen, die uns nun auch erlauben, die Beiträge nach
+_Kategorie_ bzw. _Autor_ zu filtern.
+* in der Kopfzeile der Liste, wo die Spalten nun den Anforderungen der
+Beitragsliste entsprechen.
+
+image:media/image49.png[media/image49,width=548,height=156]
+
+BILD 7.27 Neue Schaltflächen und Funktionen der Beitragsliste im
+Vergleich zur Kategorienliste
+
+Der sonstige Aufbau ist völlig identisch, was sich auch durch die
+weitere Administration ziehen wird. Wir müssen uns also nur einen
+grundlegenden Aufbau für alle Listenansichten merken.
+
+==== Neuen Beitrag anlegen
+
+Wir wollen nun damit fortfahren, unseren ersten Beitrag anzulegen. Dafür
+öffnen wir das entsprechende Formular durch einen Klick auf das Icon Neu
+in der Toolbar der Beitragsübersicht.
+
+image:media/image51.png[media/image51,width=548,height=406]
+
+BILD 7.28 Leeres Formular zum Anlegen eines neuen _Beitrags_
+
+Auch dieses Formular folgt dem bereits bekannten zweispaltigen Aufbau,
+der uns in der linken Spalte erlaubt, die grundsätzlichen Eingabefelder
+auszufüllen, und in der rechten Spalte die wichtigsten Parameter eines
+Beitrags auflistet. Weitere Parameter finden sich dann in den Tabs im
+oberen Bereich des Formulars.
+
+Die Eingabefelder und Optionen m ersten Tab sind dabei weitgehend
+identisch mit dem Dialog zum Anlegen einer neuen Kategorie (siehe
+Kapitel 7.1.2, „Kategorie anlegen“) – neu hinzugekommen sind nur die
+Felder für _Haupteintrag_ und _Kategorie_.
+
+Der Parameter _Haupteintrag_ ermöglicht uns, eine Funktion zu
+realisieren, die insbesondere auf größeren Portalen mit verschiedenen
+Unterrubriken benötigt wird: die Generierung einer Seite, die „wichtige“
+Artikel aus allen Bereichen der Seite auflistet. Denken Sie an ein
+Portal wie [.underline]#Tagesschau.de#, wo Ihnen auf der Startseite die
+wichtigsten Nachrichten aus verschiedenen Ressorts angeboten werden – um
+eine äquivalente Seite mit Joomla! zu erstellen, würden wir die aktuell
+wichtigen Artikel über den Parameter _Haupteintrag_ hervorheben und dann
+auf unserer Startseite alle Beiträge anzeigen, die entsprechend markiert
+sind. In anderen CMS-Systemen wird hierfür gerne eine spezielle
+Kategorie wie „Gerade aktuell“ angelegt, der die entsprechenden Beiträge
+dann, neben ihrem eigentlichen Ressort, zugewiesen werden. Da Joomla!
+jedoch keine Mehrfachzuweisung zu Kategorien unterstützt, müssen wir
+hier einen Umweg über die _Haupteinträge_ nehmen.
+
+Da wir das _Haupteintrag_-Feature für Bauer Birnennase zunächst nicht
+benötigen, begnügen wir uns mit der Eingabe eines _Titels_
+(„Willkommen“), lassen den _Alias_ leer, da dieser ja automatisch
+generiert wird, und wählen unsere zuvor angelegte Kategorie
+_Informationen_ aus, da dies ja, gemäß unserer Seitenstruktur, die
+übergeordnete Kategorie unserer Startseite sein soll.
+
+image:media/image53.png[media/image53,width=548,height=217]
+
+BILD 7.29 Vergabe von Titel und Kategorie unseres ersten Beitrags
+„Willkommen“
+
+===== Der WYSIWYG-Editor TinyMCE
+
+Nun widmen wir uns dem Herzstück der Beitragseditierung, nämlich dem
+integrierten What-You-See-Is-What-You-Get- bzw. kurz WYSIWYG-Editor
+_TinyMCE_. Dieser wandelt die Eingaben und Formatierungen des Nutzers in
+HTML-Code um, der anschließend von Joomla! gespeichert bzw. ausgegeben
+werden kann. Dabei werden entsprechende Eingaben direkt in ihrer finalen
+Form dargestellt, wodurch der Nutzer (daher kommt auch der Name) direkt
+sehen kann, was er ausgegeben bekommt. Der dabei entstehende HTML-Code
+ist zwar im Großen und Ganzen valide, gewinnt jedoch naturgemäß keinen
+Preis für schönen Markup – trotz dieses kleinen Nachteils ist der Editor
+aber im Normalfall unabdingbar, da Sie, ins­besondere beim Geschäft mit
+Endkunden, nur sehr wenig Administratoren finden werden, die genügend
+HTML beherrschen, um den entsprechenden Code selber zu schreiben.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Der _TinyMCE_ ist nicht fest integriert, sondern
+als Plug-in eingebunden und lässt sich daher durch die Installation
+eines alternativen Editors (_FCKEditor_, _JCE_) ersetzen.
+|===
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Der vorinstallierte Editor ist mächtig und bietet eine Vielzahl von
+Funktionen, die über mehrere Zeilen in der _Werkzeugleiste_ verteilt
+sind. Darunter liegen der _Eingabebereich_, der uns die eingegebenen
+Inhalte zeigt, sowie die _Fußzeile_, in der uns unsere Position im
+Markup (_Pfad_) sowie die Anzahl der eingegebenen Wörter angezeigt
+werden.
+
+image:media/image55.png[media/image55,width=548,height=315]
+
+BILD 7.30 Werkzeugleiste des WYSIWYG-Editors
+
+Einen Teil der in der Werkzeugleiste vorhandenen Buttons werden Sie
+vermutlich bereits kennen. Trotzdem möchte ich, bevor wir fortfahren,
+einmal einen kleinen Überblick über die Funktionen der einzelnen Buttons
+geben, die Sie in der Tabelle 7.4 finden. Bitte beachten Sie, dass hier
+auch die Buttons aufgelistet sind, die *standardmäßig deaktiviert* sind.
+
+TABELLE 7.4 Verfügbare Editor-Funktionen
+
+[width="100%",cols="32%,29%,39%",]
+|===
+|Icon |Beschreibung |Anmerkung
+
+|image:media/image56.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1278.PNG,width=42,height=42]
+|fettgedruckt |–
+
+|image:media/image57.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1296.PNG,width=42,height=42]
+|kursiv |–
+
+|image:media/image58.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1314.PNG,width=42,height=42]
+|unterstrichen |–
+
+|image:media/image59.png[media/image59,width=42,height=38]
+|durchgestrichen |–
+
+|image:media/image61.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1341.PNG,width=42,height=42]
+|linksbündig |–
+
+|image:media/image62.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1353.PNG,width=42,height=42]
+|zentriert |–
+
+|image:media/image63.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1368.PNG,width=42,height=42]
+|rechtsbündig |–
+
+|image:media/image64.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1381.PNG,width=42,height=42]
+|Blocksatz |–
+
+|image:media/image65.png[media/image65,width=97,height=33] |Auswahl der
+anzuwendenden Formatierungen |Der Editor lädt die entsprechenden
+CSS-Klassen aus der Datei _editor.css_ im _/css_-Verzeichnis des
+jeweiligen Templates.
+
+|image:media/image68.png[media/image68,width=126,height=38] |Auswahl des
+HTML-Elements a|
+Zur Verfügung stehen:
+
+* Absatz ++<++p++>++
+* Überschrift ++<++h1++>++–++<++h6++>++
+* Adresse ++<++address++>++
+* Rohdaten ++<++pre++>++
+
+|image:media/image70.png[media/image70,width=126,height=38] |Auswahl der
+Schriftart |Der Button ist mit der jeweils aktuell verwendeten
+Schriftart beschriftet
+
+|image:media/image72.png[media/image72,width=126,height=38] |Auswahl der
+Schriftgröße |Der Button ist mit der jeweils aktuell verwendeten
+Schriftgröße beschriftet
+
+|image:media/image74.png[media/image74,width=42,height=38] |Suchen im
+Text |–
+
+| | |
+
+|image:media/image76.png[media/image76,width=62,height=36] |Nicht
+nummerierte Aufzählung |–
+
+|image:media/image78.png[media/image78,width=62,height=36] |Nummerierte
+Aufzählung |–
+
+|image:media/image81.png[media/image81,width=41,height=36]
+|Texteinrückung wiederrufen |Nur bei bereits eingerückten Texten
+anwendbar
+
+|image:media/image83.png[media/image83,width=41,height=36] |Text
+einrücken |–
+
+|image:media/image84.png[media/image84,width=41,height=36] |Schritt
+rückgängig machen |–
+
+|image:media/image86.png[media/image86,width=41,height=36] |Schritt
+wiederholen |–
+
+|image:media/image89.png[media/image89,width=41,height=36] |Verlinkung
+setzen/editieren |Das zu verlinkende Wort muss vorher im Text markiert
+werden.
+
+|image:media/image91.png[media/image91,width=41,height=36] |Verlinkung
+aufheben |Ist nur anwendbar, wenn eine bestehende Verlinkung im Text
+markiert ist
+
+|image:media/image92.png[media/image92,width=41,height=36]
+|Anker/Sprungmarke setzen |Setzt um den aktuell gewählten Text einen
+++<++a++>++-Tag mit der eingegeben ID
+
+|image:media/image94.png[media/image94,width=41,height=36] |Bild
+einfügen |Erfordert die direkte Eingabe der Bild-URL und greift nicht
+auf die Joomla!-eigene Medienverwaltung zu
+
+|image:media/image95.png[media/image95,width=41,height=36] |Quellcode
+anzeigen |Zeigt den Quellcode des aktuellen Beitrags
+
+| | |
+
+| | |
+
+| | |
+
+|image:media/image100.png[media/image100,width=50,height=34] |Fügt das
+aktuelle Datum/Zeit ein |–
+
+| | |
+
+|image:media/image104.png[media/image104,width=60,height=36]
+|Schriftfarbe |–
+
+|image:media/image106.png[media/image106,width=60,height=36]
+|Text-Hintergrundfarbe |–
+
+|image:media/image108.png[media/image108,width=37,height=32] |Vollbild
+|Vergrößert den Editor auf die volle Größe des Browserfensters, kein
+Vollbildmodus im eigentlichen Sinne.
+
+|image:media/image109.png[media/image109,width=46,height=34] |Tabelle
+einfügen |–
+
+|image:media/image112.png[media/image112,width=38,height=34]
+|Eigenschaften der Tabelle |Wird als separate Werkzeugleiste
+eingeblendet sobald eine Tabelle bearbeitet wird
+
+| | |
+
+|image:media/image115.png[media/image115,width=38,height=34] |Zeile
+oberhalb einfügen |s. o.
+
+|image:media/image117.png[media/image117,width=38,height=34] |Zeile
+unterhalb einfügen |s. o.
+
+|image:media/image119.png[media/image119,width=38,height=34] |Zeile
+entfernen |s. o.
+
+|image:media/image121.png[media/image121,width=38,height=34] |Spalte
+davor einfügen |s. o.
+
+|image:media/image123.png[media/image123,width=38,height=34] |Spalte
+dahinter einfügen |s. o.
+
+|image:media/image125.png[media/image125,width=38,height=34] |Spalte
+entfernen |s. o.
+
+| | |
+
+| | |
+
+|image:media/image128.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild1879.PNG,width=42,height=42]
+|Horizontale Linie |Entspricht dem ++<++hr++>++-Tag
+
+|image:media/image130.png[media/image130,width=38,height=33]
+|Formatierungen zurücksetzen |Entfernt alle Formatierungen des
+selektierten Texts
+
+| | |
+
+|image:media/image133.png[media/image133,width=38,height=33]
+|tiefgestellt |–
+
+|image:media/image135.png[media/image135,width=38,height=33]
+|hochgestellt |–
+
+|image:media/image137.png[media/image137,width=38,height=33]
+|Sonderzeichen |Erlaubt das Einfügen von Zeichen, die über die Tastatur
+nicht direkt erreichbar sind
+
+|image:media/image139.png[media/image139,width=38,height=33] |Emoticons
+|–
+
+|image:media/image141.png[media/image141,width=38,height=33]
+|Multimedia-Inhalte einfügen |Erfordert die manuelle Eingabe der
+Video-URL und bietet keine Vernetzung mit dem Medien-Manager
+
+| | |
+
+|image:media/image144.png[media/image144,width=38,height=33]
+|Textrichtung von links nach rechts |–
+
+|image:media/image146.png[media/image146,width=38,height=33]
+|Textrichtung von rechts nach links |–
+
+|image:media/image148.png[media/image148,width=38,height=33]
+|Ausschneiden |–
+
+|image:media/image150.png[media/image150,width=38,height=33] |Kopieren
+|–
+
+|image:media/image151.png[media/image151,width=38,height=33] |Einfügen
+und Formatierungen übernehmen |–
+
+|image:media/image154.png[media/image154,width=38,height=33] |Einfügen
+und Formatierungen entfernen |–
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+| | |
+
+|image:media/image168.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2267.PNG,width=42,height=42]
+|Steuerzeichen einblenden |–
+
+|image:media/image170.png[media/image170,width=38,height=33]
+|Leerzeichen einfügen |Generiert einen Non-Breaking-Space: &nbsp;
+
+|image:media/image172.png[media/image172,width=38,height=33] |Zitat
+einfügen |Generiert einen ++<++blockquote++>++-Tag
+
+|image:media/image174.png[media/image174,width=38,height=33] |Vorlage
+einfügen |Fügt einen vorgefertigten HTML-Block ein. Eigene Templates
+können im Verzeichnis _/media/editors/tinymce/templates_ hinterlegt
+werden.
+
+|image:media/image175.png[media/image175,width=38,height=33] |Drucken
+|Zum Druck wird der entsprechende Dialog des Browsers verwendet, bei dem
+es naturgemäß Abweichungen von der realen Darstellung gibt
+
+|image:media/image176.png[media/image176,width=38,height=33] |Vorschau
+|Keine vollwertige Vorschau-Funktion, da nur der reine Editorinhalt ohne
+CSS des Templates dargestellt wrid
+
+|image:media/image177.png[media/image177,width=38,height=33] |Code
+einfügen |Unterstützt Syntax-Highlighting
+
+|image:media/image178.png[media/image178,width=90,height=34] |Modul
+einfügen |Siehe 7.2.2.6
+
+|image:media/image179.png[media/image179,width=90,height=34] |Link zu
+Menüeintrag einfügen |Siehe 7.2.2.3
+
+|image:media/image180.png[media/image180,width=90,height=34] |Link zu
+Kontakt aus der Kontakt-Komponente einfügen |Siehe 7.2.2.3
+
+|image:media/image181.png[media/image181,width=90,height=34] |Link zu
+anderem Beitrag eingefügen |Siehe 7.2.2.3
+
+|image:media/image182.png[media/image182,width=69,height=33] |Bild mit
+dem Joomla-Mediamanager einfügen |Siehe 7.2.2.2
+
+|image:media/image183.png[media/image183,width=150,height=34]
+|Seitenumbruch einfügen |Siehe 7.2.2.4
+
+|image:media/image184.png[media/image184,width=124,height=34]
+|Weiterlesen-Umbruch einfügen |Siehe 7.2.2.5
+|===
+
+Der Editor bietet also eine ganze Menge an verschiedenen Optionen, von
+denen wir im Normalfall wohl nur einen relativ kleinen Teil nutzen
+werden. Besonders spannend, weil für den „normalen“ Einsatz besonders
+wichtig, sind dabei die Werkzeuge zur Schriftformatierung (_fett,
+kursiv, unterstrichen, rechtsbündig, linksbündig, zentriert_), zur Wahl
+des entsprechenden Formats (_Formate, Absatz, Liste_) sowie die
+Werkzeuge zur Erstellung von _Tabellen_ und die Werkzeuge zum
+_Einfügen_. Die Einfüge-Werkzeuge? Der Pragmatiker in Ihnen wird nun
+vermutlich so etwas sagen wie: „Das funktioniert mit der
+Tastenkombination _Strg{plus}V_ doch dreimal schneller!“ Wahrscheinlich
+hätten Sie recht damit. Trotzdem werden Sie sich im Umgang mit dem
+WYSIWYG-Editor an die Nutzung der Buttons gewöhnen müssen. Tun Sie es
+nicht und fügen beispielsweise diesen Absatz aus _Word_, dem
+Quasi-Marktführer der Textverarbeitungsprogramme, mittels
+Tastenkombination in den Editor ein, so übernimmt der Browser in der
+Regel, für uns unsichtbar, zahlreiche unnötige Formatierungen, die uns
+im weiteren Verlauf das Leben schwermachen würden. Beherzigen Sie daher
+die goldene Regel der WYSIWYG-Editor-Nutzung und geben Sie diese
+unbedingt auch an alle anderen Mitarbeiter und Kunden weiter: Nutzen Sie
+beim _Einfügen_ in den Editor *immer* die entsprechenden Buttons
+_Einfügen_ bzw. _Einfügen als Text_.
+
+Der zweite wichtige Merksatz dieses Unterkapitels beschäftigt sich mit
+der korrekten Formatierung von Überschriften. Werfen Sie einen Blick auf
+das Bild 7.31 – die beiden Überschriften, die Sie dort sehen, scheinen
+auf den ersten Blick völlig identisch zu sein.
+
+image:media/image186.png[media/image186,width=548,height=156]
+
+BILD 7.31 Zwei scheinbar identische Überschriften
+
+Wenn wir jedoch in den Quellcode schauen, so stellen wir fest, dass nur
+eine der beiden Überschriften tatsächlich auch den korrekten HTML-Tag
+(++<++h1++>++) aufweist.
+
+++<++h1++>++Überschrift++<++/h1++>++
+
+++<++p style="font-family: Helvetica ,Arial,sans-serif; font-size: 16px;
+font-
+
+weight: bold; color: #666;"++>++Überschrift++<++/p++>++
+
+Die untere Überschrift steckt in einem normalen ++<++p++>++-Tag, der
+über CSS so gestylt wurde, dass er optisch der „echten“ Überschrift
+entspricht – problematisch ist jedoch, dass bei der manuellen
+Formatierungen mittels CSS die semantische Bedeutung des Elements
+(insbesondere für Suchmaschinen und Screenreader) verloren geht. Warum
+weise ich darauf explizit hin? Insbesondere im professionellen Umfeld
+werden Sie auf Kunden treffen, die nur wenig IT-Erfahrung haben und
+daher, getreu dem Motto „Wenn es richtig aussieht, kann es nicht falsch
+sein“, mit den Werkzeugen für Schriftgröße, -farbe und -art die
+Gestaltung der Überschriften „nachbauen“ werden. Daraus folgt Merksatz
+Nummer 2: Nutzen Sie *immer* das _Formate_-Werkzeug im Editor zum
+Einfügen von Überschriften.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Es empfiehlt sich, gemäß dem Sprichwort „aus den Augen,
+aus dem Sinn“, alle nicht zwingend notwendigen Buttons und Funktionen
+des TinyMCE zu entfernen. Dafür ist es nötig, die entsprechenden
+Parameter des Editor-Plug-ins zu verändern. Dazu wechseln wir durch
+einen Klick auf Erweiterungen ++>++ Plugins in die Plugin-Übersicht und
+öffnen dort das Editierungsformular durch einen Klick auf das Plug-in
+_Editor – TinyMCE_.
+
+image:media/image188.png[media/image188,width=472,height=340]
+
+BILD 7.32 Öffnen des Editor-Plug-ins in der Übersichtsliste
+
+Dort finden wir in der linken Spalte Einstellungen zur den drei
+Editor-_Sets_ (Markierung 1 in Bild 7.33) die jeweils einer oder
+mehrerer Benutzergruppen (Markierung 2) zugeordnet sind. Jedem Set
+können per Drag & Drop die entsprechenden Editor-Werkzeuge zugewiesen
+bzw. aus dem Set entfernt werden (Markierung 3).
+
+image:media/image190.png[media/image190,width=472,height=291]
+
+BILD 7.33 Parametrisierungsmöglichkeiten des TinyMCE
+
+|===
+
+Nachdem wir nun also die „dunklen Künste“ der WYSIWYG-Editor-Nutzung
+beherrschen, tragen wir einen kleinen Beispieltext für unsere
+Willkommensseite ein.
+
+image:media/image192.png[media/image192,width=548,height=318]
+
+BILD 7.34 Beitragsformular mit Beispieltext
+
+===== Bilder einfügen
+
+Damit unsere Seite nicht zu textlastig wird, wollen wir natürlich auch
+einige Bilder im Text platzieren. Konkret möchten wir, gewissermaßen als
+vertrauensbildende Maßnahme, ein Porträtfoto von Bauer Birnennase
+einfügen. Dafür platzieren wir zuerst unseren Cursor an der Stelle des
+Textes, an der wir unser Bild einfügen wollen. Anschließend öffnen wir
+den Medien-Manager durch einen Klick auf den Button _Bild_ am Ende der
+Standard-Werkzeugleiste des Editors – diese Buttons, die nicht zum
+„normalen“ Funktionsumfang eines WYSIWYG-Editors gehören sondern in
+Ihrer Funktionalität mit Joomla verknüpft sind, werden im Übrigen in der
+Joomla!-Terminologie als _Editor-Schaltflächen_ bezeichnet.
+
+image:media/image193.png[media/image193,width=548,height=320]
+
+BILD 7.35 Öffnen des Medien-Managers über den markierten Button _Bild_
+
+Dort finden wir die aus dem Medien-Manager (siehe Kapitel 6.6,
+„Medienverwaltung“) bekannte Auflistung der bereits angelegten Ordner
+und Bilder. Im unteren Bereich des Popups finden wir zudem die ebenfalls
+bekannte Upload-Möglichkeit, um direkt beim Bearbeiten eines Beitrags
+neue Bilder hochladen zu können.
+
+Klicken wir nun auf das für uns infrage kommende Bild, so setzt der
+Medien-Manager automatisch den relativen Pfad des jeweiligen Bilds in
+das Eingabefeld _Bild Webadresse_. Die beiden weiteren Felder für
+_Beschreibung_ und _Bildtitel_ bestimmen das _alt-_ bzw.
+_title_-Attribut unseres Bild-Tags und sollten daher unbedingt
+ausgefüllt werden. Der Parameter für _Ausrichtung_ bestimmt die Position
+des Bilds im Text. Über das Eingabefeld _Bildbeschriftung_ kann ein Text
+gesetzt werden, der unterhalb des Bilds platziert wird, für diese
+Bildunterschrift kann über das Feld _Caption-Klasse_ eine CSS-Klasse für
+das Styling gesetzt werden.
+
+image:media/image196.png[media/image196,width=548,height=403]
+
+BILD 7.36 Medien-Manger beim Einfügen eines Bildes in den Beitrag
+
+Wenn wir mit den entsprechenden Texten zufrieden sind, können wir das
+Bild über den Button _Einfügen_, in der oberen rechten Ecke, im Text
+platzieren.
+
+Über den im WYSIWYG-Editor vorhandenen Button zum Bearbeiten der Bilder
+ist es nun möglich, die Maße des eingefügten Bilds nachträglich
+anzupassen, einen Abstand zum sonstigen Text hinzuzufügen oder das Bild
+mittels float vom Text umfließen zu lassen. Dabei sollten wir jedoch
+beachten, dass die so verkleinerten Bilder immer noch ihre originale
+Dateigröße behalten, weshalb es empfehlenswert ist, die verwendeten
+Bilder bereits vor dem Upload zu verkleinern.
+
+image:media/image198.png[media/image198,width=548,height=322]
+
+BILD 7.37 Beitrag mit eingefügtem Bild
+
+Neben dieser althergebrachten Methode zum Einfügen gibt es auch noch
+eine etwas intuitivere Möglichkeit des Bilduploads: Drag & Drop!
+Unterstützt der Browser die dafür notwendigen Techniken, was in allen
+modernen Browsern der Fall ist, so kann ein Bild ganz einfach per Drag &
+Drop in das Editor-Fenster gezogen und losgelassen werden. Der Editor
+kümmert sich dann im Hintergrund um den Upload und die Platzierung des
+Bilds im Beitrag.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Beim Drag & Drop Upload werden Bilder standardmäßig im Ordner
+/images der Installation platziert. In den Einstellungen des
+Editor-Plugins lässt sich über das Feld _Bilderverzeichnis_ ein
+separates-Uploadverzeichnis definieren, was die Übersicht verbessert.
+|===
+
+===== Verlinkungen zu anderen Beiträgen einfügen
+
+Kommen wir nun zu einem anderen, typischen Anwendungsfall bei der
+Editierung von Beiträgen: dem Einfügen von Verlinkungen zu anderen
+Beiträgen, beispielsweise um bestimmte Begriffe innerhalb des Texts mit
+einem Querverweis zu versehen.
+
+Joomla! bietet uns hier mehrere mögliche Wege: Der erste, durchaus
+legitime Weg wäre das manuelle Kopieren der URL aus der Browserleiste
+und das anschließende Einfügen der Verlinkung durch den entsprechenden
+Button des WYSIWYG-Editors.
+
+image:media/image200.png[media/image200,width=548,height=316]
+
+BILD 7.38 Manuelle Verlinkung eines Beitrags mittels Copy & Paste
+
+Ein anderer, zeitsparenderer Weg ist die Nutzung des _Beitrag_-Buttons
+in der Werkzeugleiste des Editors.
+
+image:media/image201.png[media/image201,width=548,height=127]
+
+BILD 7.39 _Beitrag_-Button in der Werkzeugleiste
+
+Dort finden wir eine Übersicht der bereits vorhandenen Beiträge und
+können, mittels Klick auf den jeweiligen Titel, eine Verlinkung zum
+Beitrag in unseren Text einfügen, ohne die entsprechende URL mühsam
+heraussuchen zu müssen.
+
+image:media/image204.png[media/image204,width=548,height=402]
+
+BILD 7.40 Popup der _Beiträge_-Funktion zum Einfügen von seiteninternen
+Verlinkungen
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |**Hinweis: **Joomla! ersetzt ohne vorherige Warnung den
+selektierten Text durch den Titel des zur Verlinkung gewählten Beitrags.
+|===
+
+Eine weitere Möglichkeit ist die Verlinkung eines bestimmten
+_Menüeintrags_ über den Button _Menü_. Das Verfahren ist hierbei analog
+zur Verlinkung von Beiträgen, die im vorherigen Absatz beschrieben
+wurde. Gleiches gilt auch für die Verlinkung von Kontakten bzw. deren
+Kontaktformularen über den Button _Kontakt_ in der Werkzeugleiste.
+
+===== Seitenumbruch
+
+Eine weitere, in Joomla! integrierte Funktion dient zur Generierung von
+artikelinternen Navigationen, also gewissermaßen zur Erstellung einer
+„Umblättern“-Funktion innerhalb eines Artikels.
+
+Um diese in der Joomla!-Terminologie _Seitenumbruch_ genannte Funktion
+zu nutzen, gibt es eine weitere _Editor-Schaltfläche_ in der Toolbar des
+Editors, die auch den entsprechenden Titel trägt. Vor dem Klick auf den
+Button muss jedoch der Cursor an die entsprechende Stelle innerhalb des
+Texts gesetzt werden, an der der erste Seitenumbruch erfolgen soll.
+
+image:media/image206.png[media/image206,width=548,height=223]
+
+BILD 7.41 Setzen des Seitenumbruchs durch die Nutzung des entsprechenden
+Editor-Buttons
+
+Daraufhin bittet uns Joomla! um die Eingabe des _Seitentitels_ (wird in
+den ++<++title++>++-Tag eingesetzt) und eines Titels für das
+_Inhaltsverzeichnis_, also zur seiteninternen Navigation – die beiden
+Titel müssen dabei nicht identisch sein.
+
+image:media/image207.png[media/image207,width=548,height=282]
+
+BILD 7.42 Dialog zum Einfügen eines _Seitenumbruchs_
+
+Nach Eingabe der beiden Parameter wird der _Seitenumbruch_ mittels Klick
+auf _Seitenumbruch einfügen_ in den Text eingesetzt und ist dort als
+gestrichelte Linie angedeutet. Sämt­licher Text oberhalb dieser Linie ist
+jetzt auf der ersten Seite des Artikels zu sehen, der restliche Teil
+unterhalb der Linie wird auf der zweiten Seite des Artikels dargestellt.
+Nun können wir dieses Verfahren wiederholen, um einen weiteren Umbruch
+zu erzeugen und einen dreiseitigen Artikel zu erhalten, der dann ähnlich
+wie in Bild 7.43 aussehen sollte.
+
+image:media/image210.png[media/image210,width=548,height=215]
+
+BILD 7.43 Artikel mit zwei eingefügten Seitenumbrüchen
+
+Joomla! erzeugt beim Aufruf des entsprechenden Artikels im Frontend eine
+beitragsinterne Navigation, die an der Seite des Artikels angezeigt wird
+und uns erlaubt, durch die einzelnen Seiten des _Beitrags_ zu wechseln.
+
+image:media/image212.png[media/image212,width=548,height=267]
+
+BILD 7.44 Darstellung der _Seitenumbrüche_ im _Frontend_ der Seite
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Da Joomla! den durch die Betätigung der
+Schaltfläche gesetzten ++<++hr++>++-Tag ohne Rücksicht auf das sonstige
+Markup durch einen _Seitenumbruch_ ersetzt, sollte ein solcher Umbruch
+nicht innerhalb eines noch zu schließenden HTML-Elements (Tabellen,
+DIVs, Absätze) gesetzt werden, da dabei der Quellcode „abgeschnitten“
+würde, was die Validität des Dokuments zerstört.
+|===
+
+===== Weiterlesen-Funktion
+
+Eine von der Funktionsweise sehr ähnliche Funktion versteckt sich hinter
+dem Button zur Generierung der _Weiterlesen_-Funktion. Dieser generiert
+die z. B. für Blogs und Newsportale typische Funktion zum „Anteasern“
+eines Artikels – es wird also nur ein erster Teil des Textes in der
+Übersicht ausgegeben, zum kompletten Inhalt gelangt man erst durch einen
+Klick auf die entsprechende Verlinkung unterhalb des Beitrags.
+
+Um die entsprechende Verlinkung zu generieren, setzen wir, ähnlich wie
+im vorherigen Kapitel, den Cursor an die Stelle des Texts, an der wir
+unseren _Weiterlesen_-Link einfügen wollen. Dort fügen wir durch einen
+Klick auf die Schaltfläche Weiterlesen in der Editorleiste die Stelle
+ein, an welcher der Text geteilt werden soll. Anschließend generiert
+Joomla! eine gestrichelte Linie, die beim Aufruf im Frontend ersetzt
+wird.
+
+image:media/image214.png[media/image214,width=548,height=287]
+
+BILD 7.45 Beitrag nach der Nutzung der _Weiterlesen_-Funktion
+
+Beim Aufruf im Frontend wird der entsprechende ++<++hr++>++-Tag durch
+den _Weiterlesen_-Link ersetzt.
+
+image:media/image216.png[media/image216,width=548,height=246]
+
+BILD 7.46 _Weiterlesen_-Button im Frontend der Seite
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Joomla! ist standardmäßig so eingerichtet, dass es
+den _Weiter­lesen_-Link nur in der Kategorienansicht (also der Auflistung
+mehrerer Artikel einer Kategorie) anzeigt – beim direkten Aufruf eines
+Beitrags wird er komplett ohne Verlinkung dargestellt.
+|===
+
+===== Module einfügen 
+
+Über das Editor-Werkzeug _Modul_ kann ein einzelnes Modul bzw. eine
+ganze Modulposition eingefügt werden. Nach einem Klick auf den
+jeweiligen Modulnamen bzw. den Namen der Position generiert der Editor
+unseinen entsprechenden Platzhalter-Code, der dann bei der Darstellung
+des Beitrags auf der Seite durch das jeweilige Modul ersetzt wird.
+
+Sie verstehen gerade nur Bahnhof? Keine Sorge, nachdem wir uns Kapitel
+10.1.3 nochmals näher mit den Modulen beschäftigt haben, werden Sie mit
+diesem Werkzeug deutlich mehr anfangen können als jetzt. Vorläufig
+reicht uns das wissen, dass der Editor uns hierfür eine sehr bequeme
+Möglichkeit zur Verfügung stellt.
+
+image:media/image217.png[media/image217,width=548,height=400]
+
+Bild 7.47 Dialog zum Einfügen von Modulplatzhaltern in einen Beitrag
+
+===== WYSIWYG-Editor deaktivieren
+
+Die letzte nun noch verbleibende _Editor-Schaltfläche_ dient zum
+bequemen Deaktivieren des gewählten WYSIWYG-Editors. Dies kann von Zeit
+zu Zeit notwendig sein, um beispielsweise bestehenden HTML-Code direkt
+in das Eingabefeld einzufügen oder bestimmte, manuelle Formatierungen
+einzugeben, die vom Editor nicht unterstützt werden. Um den Editor ein-
+bzw. auszuschalten, reicht dann ein simpler Klick auf die Schaltfläche
+Editor ein/aus.
+
+image:media/image219.png[media/image219,width=548,height=365]
+
+BILD 7.48 Willkommenstext nach der Deaktivierung des Editors durch die
+entsprechende Schaltfläche
+
+Damit hätten wir alle Parameter, Schaltflächen und Funktionen der linken
+Formularspalte erklärt und ausprobiert und widmen uns nun den
+vielfältigen Konfigurationsoptionen in den Beitragsparametern.
+
+===== Beitragsparameter
+
+Die _Beitragsparameter_ in den weiteren Tabs lassen sich in die
+Untergruppen _Bilder und Links_, _Optionen_, _Veröffentlichung_,
+_Konfigurieren des Editorfensters_ und _Berechtigungen_ aufteilen, wobei
+wir einige der Parameter bereits aus dem Formular zum Anlegen einer
+neuen Kategorie kennen. Deshalb werde ich diese in der folgenden Tabelle
+nicht nochmals gesondert erläutern – alle weiteren Parameter finden Sie
+dort jedoch aufgelistet.
+
+TABELLE 7.5 Beitragsparameter
+
+[width="100%",cols="37%,63%",]
+|===
+|Parameter |Erläuterung
+
+|Bilder und Links |
+
+|Einleitungsbild |Ermöglicht die Auswahl eines Bilds, das im
+Einleitungstext des ­Beitrags angezeigt wird
+
+|Textumfließung des Bildes |Ermöglicht die Steuerung der Ausrichtung des
+Bilds für den Einleitungstext
+
+|Alternativer Text |Angabe des Alternativtexts für das Einleitungsbild
+
+|Bildunterschrift |Angabe der Bildunterschrift für das Bild
+
+|Komplettes Beitragsbild (und Parameter) |Ermöglicht die Auswahl eines
+Bilds, das im Haupttext des Beitrags angezeigt wird, die weiteren Bilder
+sind analog zu den Parametern des Einleitungsbilds.
+
+|Link A-C |Ermöglicht die Hinterlegung von Verlinkungen, die unter dem
+Beitrag angezeigt werden
+
+|Linktext A-C |Angabe des zu verlinkenden Texts
+
+|URL-Zielfenster |Angaben für das target-Attribut des jeweiligen Links
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+|Optionen |
+
+|Titel |Anzeigen des Beitragstitels im _Frontend_
+
+|Titel verlinken |Verlinken des Beitragstitels mit der Detailansicht des
+Inhalts
+
+|Tags anzeigen |Anzeigen der zugeordneten _Schlagwörter_ im Frontend
+
+|Einleitungstext |Falls „Verbergen“ gewählt wird, so wird nur der
+Haupttext, also der Teil des Inhalts nach dem _Weiterlesen_-Umbruch,
+angezeigt. Andernfalls wird der gesamte Text inklusive dem
+Einleitungstext angezeigt.
+
+|Position der Beitragsinfo |Die Beitragsinfo (Kategorie, Autor, Klicks
+etc.) kann oberhalb, unterhalb oder an beiden Positionen (_Aufteilen_)
+eines Beitrags angezeigt werden
+
+|Beitragsinfotitel |Steuert, ob der Beitragsinfo-Bereich mit einem Titel
+überschrieben sein soll
+
+|Kategorie |Zeigt den Titel der _Kategorie_, der der Beitrag zugeordnet
+ist
+
+|Kategorie verlinken |Verlinkt den Titel der _Kategorie_ mit einer Liste
+aller dort zugeordneten Beiträge
+
+|Übergeordnete ­Kategorie |Zeigt den Titel der _übergeordneten Kategorie_
+des Beitrags
+
+|Übergeordnet verlinken |Verlinkt den Titel der übergeordneten Kategorie
+mit einer Übersicht der dort zugewiesenen Beiträge
+
+|Zeige Verknüpfungen |Zeigt die Beitragsversionen, die mit dem aktuellen
+Beitrag in anderen Sprachen verknüpft sind
+
+|Autor |Zeigt den Namen des Autors
+
+|Autor verlinken |Verlinkt den Namen des Autors mit der Website, die im
+Kontaktbereich des jeweiligen Autors hinterlegt ist
+
+|Erstellungsdatum |Zeigt das Erstellungsdatum des Beitrags
+
+|Bearbeitungsdatum |Zeigt das Bearbeitungsdatum des Beitrags
+
+|Veröffentlichungsdatum |Zeigt das Veröffentlichungsdatum des Beitrags
+
+|Seitennavigation |Zeigt unter dem jeweiligen Inhalt Verlinkungen, um
+zum nächsten bzw. vorherigen Beitrag zu wechseln, welcher derselben
+Kategorie zugewiesen ist
+
+|Symbole/Text |„Verbergen“ nutzt für die Darstellung der _Drucken-_ und
+_Per- E-Mail-versenden_-Schaltfläche einen einfachen Textlink,
+„Anzeigen“ nutzt grafische Symbole.
+
+|Drucken |Zeigt die Funktion zum Öffnen der Druckansicht eines Beitrags
+
+|E-Mail |Zeigt die Funktion zum Versenden des Beitrags per E-Mail.
+Besser bekannt als „Tell a Friend“-Funktion. *Achtung*: diese Funktion
+ist nach der aktuellen deutschen Rechtslage nicht erlaubt.
+
+|Beitragsbewertung |Zeigt die Funktion zum Bewerten eines Beitrags
+
+|Seitenaufrufe |Zeigt die Anzahl der bereits getätigten Abrufe des
+jeweiligen Inhalts
+
+|Nicht zugängliche Links |Falls ja, werden Links, die der entsprechende
+Benutzer aufgrund seiner Benutzerrechte eigentlich nicht aufrufen kann,
+trotzdem angezeigt.
+
+|Anderer „Weiterlesen“-Text |Erlaubt die Vergabe eines eigenen Texts für
+die _Weiterlesen_-Verlinkung. Interessant für Suchmaschinenoptimierung
+und Barrierefreiheit.
+
+|Browser Seitentitel |Der entsprechende Titel wird als ++<++title++>++
+Tag hinterlegt, wenn der Beitrag nicht über einen Menüeintrag aufgerufen
+wird.
+
+|Alternatives Layout |Erlaubt die Verwendung eines eigenen Templates für
+den jeweiligen Inhalt. Siehe Kapitel 12.2, „Template-Overrides“.
+
+|Veröffentlichung |
+
+|Veröffentlichung starten |Veröffentlicht den Beitrag erst zum
+angegebenen Zeitpunkt im Front­end der Seite – sinnvoll, um zeitgesteuert
+Inhalte einzublenden
+
+|Veröffentlichung beenden |Macht die Veröffentlichung eines Beitrags zum
+angegebenen Zeitpunkt rückgängig
+
+|Erstellungsdatum |Erstellungsdatum des Beitrags
+
+|Autor |Erlaubt die Auswahl eines in Joomla! angelegten Benutzers,
+dessen Benutzername dann als Autorenname verwendet wird
+
+|Autoralias |Überschreibt den Nutzernamen des jeweiligen Autors durch
+einen frei konfigurierbaren Text
+
+|Konfigurieren des Editorfensters |
+
+|Veröffentlichungsparameter anzeigen |Ermöglicht das Ausblenden des Tabs
+_Veröffentlichung_ bei der Bearbeitung dieses Beitrags
+
+|Beitragseinstellungen anzeigen |Ermöglicht das Ausblenden des Tabs
+_Optionen_ bei der Bearbeitung dieses Beitrags
+
+|Bilder und Links im Backend |Ermöglicht das Ausblenden des Tabs _Bilder
+und Links_ im Backend
+
+|Bilder und Links im Frontend |Ermöglicht das Ausblenden des Tabs
+_Bilder und Links_ im Frontend
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+
+| |
+|===
+
+Die Veröffentlichungs- und Beitragsoptionen dienen also maßgeblich zur
+Beeinflussung der Darstellung des späteren Beitrags im Frontend. Die
+Parameter für die _Konfiguration des Editorfensters_ hingegen erlauben
+uns, das Eingabeformular für einen neuen Beitrag im Backend zu gestalten
+und dabei Parameter zu entfernen, die unser Endnutzer nicht benötigt.
+Dadurch wird die Benutzeroberfläche leichter bedienbar, weshalb ich an
+dieser Stelle sehr nachhaltig dazu raten möchte, von dieser Möglichkeit
+auch Gebrauch zu machen.
+
+Die Parameter im Bereich _Bilder und Links_ ermöglichen uns als
+Administrator, für ein vorgegebenes Layout der Beiträge zu sorgen, indem
+wir die beiden Bilder bzw. die drei Verlinkungen über Templates fest
+positionieren und anschließend die Bild-Werkzeuge aus dem Editor
+entfernen. Dadurch wird ein rudimentäres CCK abgebildet, aufgrund der
+nur sehr eingeschränkten Möglichkeiten möchte ich Ihnen aber eher zur
+Nutzung eines vollwertigen Content Construction Kits (siehe Kapitel 16,
+„CCK-Systeme“) bzw. der integrierten Felder-Verwaltung von Joomla raten.
+
+Aber was hat es mit der mysteriösen Vorgabe „Globale Einstellung“ auf
+sich, die wir bei all diesen Parametern finden? Stellen Sie sich vor,
+Sie möchten festlegen, dass bei allen Beiträgen Ihrer Joomla!-Seite kein
+Autor eingeblendet werden soll – bei fünf Seiten wäre es kein Problem,
+es per Hand vorzunehmen, spätestens bei 50 manuell umzustellenden
+Inhalten wird dies aber zur Sisyphos-Arbeit. Daher bietet uns Joomla!
+die Möglichkeit, in den _globalen Optionen_ der Beitragskomponente
+(siehe Kapitel 7.2.3, „Allgemeine Optionen der Beitragskomponente“)
+seitenweit gültige Voreinstellungen anzulegen. Sie können dann falls
+notwendig überschrieben werden, indem man eine von „Globale Einstellung“
+abweichende Option in den Beitragsparametern wählt. Der aktuell gültige
+globale Wert wird dabei jeweils in Klammern angegeben.
+
+image:media/image220.png[media/image220,width=548,height=319]
+
+BILD 7.49 Beitragsparameter mit der Vorgabe „Globale Einstellung“
+
+Wir belassen es an dieser Stelle aber erst einmal bei den
+Voreinstellungen und schließen unsere Änderungen an der Willkommensseite
+durch einen Klick auf Speichern & Schliessen in der Toolbar ab. Dieses
+Verfahren können Sie nun auch analog für die weiteren, in Bild 7.1
+angegebenen Inhalte anwenden, sodass wir anschließend alle benötigten
+Texte beisammen haben.
+
+==== Allgemeine Optionen der Beitragskomponente
+
+Kommen wir nun zu den vorhin bereits angesprochenen _globalen Optionen_.
+Diese erreichen wir über einen Klick auf den bereits bekannten
+Toolbar-Button _Optionen_, woraufhin sich eine Seite mit allen für diese
+Komponente verfügbaren Parametern öffnet.
+
+image:media/image222.png[media/image222,width=548,height=272]
+
+BILD 7.50 Optionen der Beitragskomponente
+
+Die Parameter sind in verschiedene Tabs gegliedert, die in der Tabelle
+7.6 aufgelistet und erklärt sind.
+
+TABELLE 7.6 Übersicht der Parameter der Beitragskomponente
+
+[width="100%",cols="41%,59%",]
+|===
+|Parameter |Erklärung
+
+|Beiträge |
+
+|Setzt die standardmäßig gültigen Beitragsparameter, die im einzelnen
+Beitrag überschrieben werden können (Erklärung siehe Kapitel 7.2.2.7,
+„Beitragsparameter“) |
+
+|Bearbeitungslayout |
+
+|Ermöglicht die allgemeine Festlegung der Parameter aus den Bereichen
+_Bilder und Links_ bzw. _Konfigurieren des Editorfensters_ der
+Beitragsparameter, deren Erklärung Sie ebenfalls in Kapitel 7.2.2.7
+finden |
+
+|Kategorie |Beeinflusst die Darstellung einer einzelnen
+Beitragskategorie
+
+|Layout auswählen |Darstellung der Beiträge der Kategorie im gewählten
+Layout
+
+|Unterkategorietext |Zeigt die Titel der Unterkategorien als
+Unterüberschriften an
+
+|Kategorientitel |Zeigt den Kategorientitel
+
+|Kategorienbeschreibung |Zeigt die Kategorienbeschreibung
+
+|Kategorienbild |Zeigt das Kategorienbild
+
+|Unterkategorienebenen |Möglichkeit, die Anzahl der
+Unterkategorienebenen zu wählen, die bei der Darstellung einer Kategorie
+ebenfalls angezeigt werden sollen. Kann durch die Auswahl von „keine“
+abgeschaltet werden.
+
+|Leere Kategorien |Zeigt auch (Unter-)Kategorien ohne zugeordnete
+Beiträge
+
+|Meldung „Keine Beiträge“ |Zeigt die Meldung „keine Beiträge“ bei der
+Anzeige von leeren Kategorien
+
+|Unterkategorienbeschreibungen |Zeigt die Beschreibungstexte der
+dargestellten Unterkategorien
+
+|# Beiträge in Kategorie |Zeigt hinter dem jeweiligen Kategorienamen die
+Anzahl der zugeordneten Beiträge
+
+|Tags anzeigen |Zeigt die Schlagwörter der jeweiligen Kategorie
+
+|Kategorien |Beeinflusst die Kategorienübersicht, also die Auflistung
+mehrerer Kategorien, deren Unterkategorien sowie Beiträge
+
+|Beschreibung der obersten Kategorie |Beschreibung der obersten
+Kategorie anzeigen
+
+|Unterkategorienebenen |Anzahl der anzuzeigenden Unterkategorienebenen
+
+|Leere Kategorien |Zeigt leere Kategorien in der Übersicht
+
+|Unterkategorienbeschreibungen |Zeigt die Beschreibung von
+Unterkategorien
+
+|# Beiträge in Kategorie |Zeigt die Anzahl der zugeordneten Beiträge
+hinter dem jeweiligen Kategorienamen
+
+|Blog/Hauptbeiträge |Beeinflusst die Darstellung der Blogansicht
+(Auflistung der Inhalte ein Kategorie) bzw. der Hauptbeiträge-Ansicht
+(Auflistung aller als _Haupt­beitrag_ markierten Inhalte)
+
+|# Führende |Anzahl der Beiträge, deren Einleitungstext in voller Breite
+angezeigt wird
+
+|# Einleitung |Anzahl der Beiträge, deren Einleitungstext in Spalten
+angezeigt wird
+
+|# Spalten |Anzahl der Spalten in der Blogansicht
+
+|# Links |Anzahl der, unterhalb der Blogansicht verlinkten, weiteren
+Beiträge
+
+|Mehrspaltige Sortierung a|
+Sortierung der Beiträge in den Spalten. Kann entweder abwärts oder
+seitlich erfolgen:
+
+image:media/image224.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2897.PNG,width=76,height=76]
+
+BILD 7.51 Abwärtssortierung
+
+image:media/image225.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++7++\++Bild2904.PNG,width=75,height=75]
+
+BILD 7.52 Seitliche Sortierung
+
+|Unterkategorien einbinden |Falls „keine“ ausgewählt ist, werden in der
+Blogansicht nur Beiträge aus der gewählten Kategorie angezeigt; wird ein
+anderer Wert ausgewählt, so werden auch Beiträge aus den angegebenen
+Unterkategorienebenen ausgegeben.
+
+|Listenlayout |Beeinflusst die Darstellung von Beitragslisten
+
+|„Anzeige“ anzeigen |Zeigt das „Anzeige“-Feld, das ermöglicht, die
+Anzahl der angezeigten Beiträge zu regulieren
+
+|Filterfeld |Zeigt die Eingabefelder zum Filtern der ausgegebenen
+Beiträge
+
+|Tabellenüberschriften |Zeigt die Kopfzeile der Listenausgabe
+
+|Datum |Zeigt das Erstellungsdatum der Beiträge
+
+| |
+
+|Seitenaufrufe anzeigen |Zeigt die Anzahl der Aufrufe der Beiträge
+
+|Autor in Liste anzeigen |Zeigt die Autoren der Beiträge
+
+|Zeige Stimmen in Liste |Zeigt die Anzahl der abgegebenen Stimmen
+
+|Zeige Bewertungen in Liste |Zeigt das Ergebnis der Beitragsbewertung
+
+|Gemeinsam |Beeinflusst Parameter, die alle oben genannten ­Ausgabearten
+betreffen
+
+|Kategoriensortierung |Auswahl der Kategoriensortierung, also der
+Reihen­folge, in der die Kategorien untereinander ausgegeben werden
+
+|Beitragssortierung a|
+Auswahl des Kriteriums, nach dem die Sortierung der Beiträge erfolgen
+soll:
+
+* Datum
+* Titel
+* Autor
+* Zugriffe
+* Manuelle Reihenfolge
+
+|Sortierdatum |Auswahl, welches Datum (_Erstellungsdatum_,
+_Veröffentlichungsdatum_, _Bearbeitungsdatum_) für die Sortierung
+verwendet werden soll
+
+|Seitenzahlen |Auswahl, ob ein „Weiterblättern“ in den Beitragsansichten
+über die Ausgabe von Seitenzahlen möglich sein soll. „Auto“ zeigt die
+Sortierung nur dann an, wenn auch mehr als eine Seite vorhanden ist.
+
+|Gesamtseitenzahlen |Zeigt die Anzahl der Gesamtseiten
+
+|Haupteintrag |Auswählen, ob Hauptbeiträge zusammen mit anderen
+Beiträgen angezeigt (Option "Anzeigen"), komplett verborgen (Option
+"Verbergen") oder nur Hauptbeiträge (Option "Nur") angezeigt werden
+sollen.
+
+|Integration |Beeinflusst die Feed-Generierung
+
+|Feedlink anzeigen |Hinterlegt den Link zum zugehörigen RSS-Feed im
+Quellcode, der dann in der Browseradressleiste angezeigt wird.
+
+|Für jeden Feed-Eintrag |Auswahl, ob im Feed der Einleitungs- oder der
+Gesamttext verwendet werden soll
+
+|Weiterlesen-Link |Verwendet den Weiterlesen-Link im Newsfeed
+
+|URL-Routing |Ermöglicht die Wahl zwischen dem „alten“ und dem „neuen“
+Mechanismus zur URL-Generierung, siehe Kapitel 13.2
+
+|Benutze Eigene Felder |Aktiviert oder Deaktiviert die Einbindung der
+Funktion zur Verwaltung eigener Felder
+
+|Berechtigungen |Ermöglicht die Beeinflussung der Beitragsberechtigungen
+(siehe Kapitel 11, „Benutzer- und Rechteverwaltung“)
+|===
+
+Wir finden zahlreiche Parameter vor, mit denen wir sowohl einige
+allgemeine als auch zahlreiche, ansichtsspezifische (_Beiträge_,
+_Kategorie_, _Kategorien_, _Blog/Hauptbeiträge_, _Listenlayout_)
+Einstellungen vornehmen können. Was genau es mit diesen verschiedenen
+Ansichtstypen auf sich hat, erfahren wir im nächsten Kapitel (siehe
+8.2.1, „Menütypen“) und begnügen uns derweil mit der Anpassung der
+Parameter für die Beitragsansicht, da hier durch die
+Standardeinstellungen zahlreiche Informationen eingeblendet werden, die
+bei simpleren Seiten (wie der unseres Bauern Birnennase) störend wären.
+Daher blenden wir über die Optionen die Angaben für _Kategorie_,
+_Autor_, _Veröffentlichungsdatum_, _Seitenaufrufe_ im Tab _Beiträge_ aus
+und verlassen den Dialog mit einem Klick auf Speichern & Schliessen.
+
+image:media/image227.png[media/image227,width=548,height=436]
+
+BILD 7.52 Anpassung der standardmäßigen Beitragsoptionen
+
+=== Hauptbeiträge
+
+Nun fehlt uns nur noch ein letzter Menüeintrag in diesem Bereich, den
+wir im Administrationsbereich unter _Inhalt ++>++ Haupteinträge_ finden.
+Hier finden wir, wie der Titel bereits vermuten ließ, eine Liste aller
+Beiträge, die als _Haupteintrag_ markiert sind. Der Aufbau der Liste
+sowie die Funktionen sind nahezu identisch mit der Beitragsliste – der
+einzige Unterschied besteht in dem zusätzlichen Toolbar-Button _Kein
+Haupteintrag_, der die Markierung eines Beitrags als _Haupteintrag_
+wieder aufhebt.
+
+image:media/image228.png[media/image228,width=548,height=157]
+
+BILD 7.54 Listenansicht der Hauptbeiträge
+
+=== Versionierung
+
+Eine weitere Funktion der Joomla-Beitragsverwaltung, die sich als
+äußerst nützlich erweisen kann, ist die integrierte _Versionierung_ von
+Beiträgen. Diese Funktion speichert eine vorgegebene Anzahl von
+Vorgängerversionen (standardmäßig 10) eines Beitrags in der Datenbank
+und erlaubt es uns, diese Vorgängerversionen zu betrachten, mit der
+aktuellen Version zu vergleichen und diese alten Versionen
+wiederherzustellen.
+
+Um diese älteren Versionen aufzurufen, wechseln wir in die
+_Bearbeitungansicht_ des Beitrags und rufen die Versionsliste über den
+entsprechenden Button Versionen.
+
+image:media/image230.png[media/image230,width=548,height=194]
+
+Bild 7.55 Button _Versionen_ in der Toolbar des Bearbeitungslayouts
+
+In der Versionsliste erhalten wir nun eine Übersicht der vorhandenen
+Versionen, zu denen das jeweilige Speicherdatum, der Versionhinweis und
+der entsprechende Autor hinterlegt sind. Die jeweils aktuelle Version
+ist durch ein Sternchen hinter dem Datum markiert.
+
+Durch die Auswahl der jeweiligen Checkbox am Beginn der Zeile und die
+Betätigung des entsprechenden Buttons Wiederherstellen kann eine
+bestimmte Version wiederhergestellt werden, die dabei den aktuellen
+Stand überschreibt.
+
+image:media/image231.png[media/image231,width=548,height=229]
+
+Bild 7.56 Versionsverlauf eines Beitrags
+
+Eine Komfortmerkmal der Versionsverwaltung ist dabei die Funktion zum
+Vergleichen von zwei Beiträgen. Um diese zu nutzen, müssen beide
+Beitragsversionen durch die Checkboxen ausgewählt werden, anschließend
+können die ausgewählten Versionen durch den Button Vergleichen in der
+Toolbar miteinander verglichen werden. Dabei werden sowohl Änderungen am
+eigentlichen Beitragstext als auch Änderungen an wichtigen Parametern
+überprüft und etwaige Abweichungen und Änderungen grafisch sichtbar
+gemacht.
+
+Weiterhin bietet uns die Versionsverwaltung die Möglichkeit, einen
+bestimmten Versionsstand dauerhaft in der Versionshistorie zu speichern
+und nicht automatisch zu löschen, wie es standardmäßig nach 10
+Speicherungen der Fall wäre. Dafür muss beim jeweiligen Versionsstand
+der entsprechende Button in der Spalte _Immer speichern_ betätigt
+werden. Die Seite lädt dann neu und symbolisiert die dauerhafte
+Speicherung dieses Versionsstands durch ein Schloss-Symbol.
+
+image:media/image232.png[media/image232,width=548,height=228]
+
+Bild 7.57 Versionshistorie mit dauerhaft gespeicherten Versionsstand
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Wenn eine Joomla Seite bereits vor der Version 3.x installiert
+und anschließend auf die aktuelle Version aktualisiert wurde, ist die
+Versionierungsfunktion eventuell nicht aktiv, da sie nach einem Update
+explizit aktiviert werden müsste. Dies kann im Reiter
+_Bearbeitungslayout_ der globalen Beitragsoptionen (siehe 7.2.3) durch
+die Anpassung des Parameters _Versionen speichern_ vorgenommen werden.
+|===
+
+=== Verschlagwortung 
+
+In Kapitel 7.1 haben wir bereits die Funktion von Joomla kennengelernt,
+die maßgeblich für die Strukturierung und Gruppierung von Beiträgen
+zuständig ist: die _Kategoriefunktion_. Diese Funktion erlaubt es uns,
+eine verschachtelte Kategoriestruktur zu erstellen und einen Beitrag
+dann zu jeweils einer Kategorie zuzuweisen – aber was ist, wenn wir mal
+in der Situation sind, einen Beitrag zu mehreren Kategorien hinzufügen
+zu müssen?
+
+Ein konkretes Beispiel: die Seiten unseres freundlichen Obstbauern zählt
+sowohl in der Kategorie Birnen als auch in der Kategorie Äpfel diverse
+Sorten auf, die jeweils einen eigenen Beitrag haben. Nun nehmen wir
+einmal an, dass es in jeder Kategorie (Äpfel, Birnen) jeweils eine Hand
+voll Sorten gibt, die in Bio-Qualität produziert werden – wie können wir
+auf der Website eine Übersicht dieser Bio-Sorten erzeugen, wenn wir die
+Beiträge nicht zu einer zusätzlichen Kategorie _Bio_ hinzufügen können?
+
+Hier kommt die _Verschlagwortungsfunktion_ von Joomla ins Spiel, die es
+erlaubt einem Beitrag mehrere Schlagwörter (engl. Tags) zuzuweisen.
+Diese Schlagwörter werden zusätzlich zur Kategorie vergeben und können
+dabei sowohl auf Beiträge als auch auf andere Inhaltstypen
+(Kontaktformulare, Linklisten, Downloads etc.) angewendet werden, womit
+sich durch Tags eine thematische Gruppierung von verschiedenen
+Inhaltstypen erreichen lässt.
+
+==== Schlagworte anlegen
+
+Vor der Verwendung der Schlagworte müssen diese angelegt werden, wofür
+es in Joomla zwei unterschiedliche Methoden gibt. Die erste Methode ist
+das Anlegen der Schlagworte über die Schlagwortliste, die sich in der
+Administration unter Komponenten ++>++ SChlagwörter (Tags) befindet. Die
+Liste der Tags (siehe Bild 7.58) entspricht hierbei der Systematik der
+Kategorie- und Beitragsliste und erlaubt ebenfalls die Filterung,
+Sortierung und Verwaltung von Einträgen. In der Liste kann über den
+Toolbarbutton Neu ein neues Schlagwort angelegt und gespeichert werden.
+Erwähnenswert ist hierbei, dass sich Schlagworte, analog wie Kategorie,
+miteinander verschachteln lassen, um somit komplexe Systeme aus Unter-
+und Oberbegriffen zu erzeugen.
+
+image:media/image233.png[media/image233,width=548,height=165]
+
+Bild 7.58 Liste der Schlagwörter mit 3 Beispiel-Tags
+
+Die zweite Methode zum Anlegen von Tags erzeugt diese direkt aus dem
+_Bearbeitungsformular_ des jeweiligen Inhalts heraus. Das dortige
+Eingabefeld für Schlagwörter arbeitet mit einer Autovervollständigung,
+das bereits existierende Schlagwörter vorschlägt (siehe Bild 7.59).
+
+image:media/image234.png[media/image234,width=548,height=318]
+
+Bild 7.59 Autovervollständigung von bereits existierenden Tags
+
+Wird ein neues Schlagwort eingegeben, das bisher noch nicht existiert,
+kann dieses nach der Eingabe durch eine Betätigung der Enter-Taste zur
+_Schlagwortliste_ hinzugefügt werden. Mehrere Schlagworte werden dabei
+voneinander abgegrenzt dargestellt (siehe Bild 7.60).
+
+image:media/image235.png[media/image235,width=548,height=351]
+
+Bild 7.60 Ein Beitrag mit mehreren Tags
+
+==== Schlagworte im Frontend
+
+Bei Beiträgen, bei denen die entsprechenden Tags gesetzt wurden, werden
+diese (je nach Einstellung) z.B. im Beitrag angezeigt. Standardmäßig
+sind diese Tags dabei verlinkt, sodass man per Klick zu einer Liste von
+allen Inhalten gelangt, die mit dem entsprechenden Schlagwort versehen
+wurden. Erwähnenswert ist dabei, dass diese Liste dabei
+Inhaltstyp-übergreifend ist, wir also standardmäßig jede Art von Inhalt
+sehen, die mit diesem Tag verknüpft ist. In Bild 7.61 ist dies neben
+einigen Beiträgen z.B. das Kontaktformular der Seite, dass wir ebenfalls
+mit dem Tag *Bio* versehen haben.
+
+image:media/image236.png[media/image236,width=548,height=191]
+
+Bild 7.61 Liste der Inhalte mit dem Tag Bio inklusive Kontaktformular
+(markiert)
+
+Das Verschlagwortungssystem ist somit eine sehr mächtige Funktion von
+Joomla und erlaubt die Erstellung von komplexen Strukturen, wie sie bei
+umfangreichen Webprojekten notwendig werden.

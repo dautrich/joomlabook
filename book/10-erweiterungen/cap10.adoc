@@ -1,0 +1,1435 @@
+== Joomla!-Erweiterungen
+
+Schauen wir zu Beginn dieses Kapitels erst einmal, wo wir gerade stehen:
+Wir haben eine auf Joomla! basierende Seite für unseren imaginären
+Kunden installiert, die Inhalte eingepflegt und das Design angepasst.
+Was aber machen wir, wenn wir nicht nur Texte und Menüeinträge
+darstellen wollen, also Funktionen benötigen, die über die reine
+Darstellung von frei einzugebenden Texten hinausgehen? Hier wäre es
+jetzt äußerst hilfreich, wenn wir eine Möglichkeit hätten, Joomla! mit
+weiteren Funktionen zu erweitern – und genau diese Möglichkeit haben
+wir!
+
+Joomla! ist erweiterbar aufgebaut, weshalb wir neue Funktionen bzw.
+Designs in Form von _Komponenten, Modulen, Plug-ins_ und _Templates_
+problemlos nachrüsten können. Im ersten Teil dieses Kapitels wollen wir
+zunächst einen Blick auf die ohnehin vorhandenen Erweiterungen werfen
+und das lang ersehnte Kontaktformular für unseren Kunden nachrüsten. Im
+zweiten Teil wollen wir uns dann mit den administrativen Aufgaben rund
+um die Verwaltung der Erweiterung sowie der Installation von
+zusätzlichen Erweiterungen beschäftigen.
+
+=== Integrierte Erweiterungen
+
+Die standardmäßig integrierten Erweiterungen bieten bereits zahlreiche
+Möglichkeiten, welche die Realisierung von vielfältigen Anwendungsfällen
+erlauben.
+
+==== Komponenten: Nutzung der Kontakt-Komponente
+
+Starten wir mit der integrierten *Kontakt-Komponente*, die wir zur
+Erzeugung eines Kontaktformulars nutzen können.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Komponenten fungieren als eigenständige Anwendungen
+innerhalb der Joomla!-Installation, werden im Haupt-Ausgabebereich des
+_Templates_ ausgegeben, bieten Möglichkeiten zur Ein- und Ausgabe von
+Daten und verfügen im Regelfall über eine eigene
+Administrationsoberfläche.
+|===
+
+Den Administrationsbereich der Kontakt-Komponente finden wir unter
+_Komponenten ++>++ Kontakte_ des Administrator-Menüs. Dort finden wir
+die bereits bekannte Listenansicht des Administrationsbereichs vor, die
+für uns an dieser Stelle auch nur eine Besonderheit bereithält: Die
+Spalte _Verknüpfter Benutzer_ erlaubt uns festzustellen, ob ein Kontakt
+bereits zu einem in Joomla! registrierten Benutzer zugeordnet ist. Über
+diese Verknüpfungsfunktion ist es möglich, die Autorenangabe eines
+Inhalts mit dem Kontaktformular des jeweiligen Nutzers zu verlinken.
+
+image:media/image2.png[media/image2,width=548,height=130]
+
+BILD 10.1 Übersichtsliste der _Kontakt_-Komponente
+
+Wir öffnen nun per Klick auf den Toolbar-Button Neu das Formular zum
+Eintragen eines neuen Kontakts. Im oberen Bereich geben wir den _Namen_
+des jeweiligen Kontakts (z. B. „Obsthof Birnennase“) ein und können
+anschließend im unteren Bereich den Tab _Neuer Kontakt_ mit allerlei
+Angaben (_z.B. Adresse, E-Mail-Adresse._ _Telefon, Position, Bild)_
+versehen. Sie können sich hier gerne austoben und nach Wunsch Angaben
+eintragen – achten Sie dabei bitte jedoch darauf, dass wenigsten das
+Feld _E-Mail-Adresse_ befüllt ist, da wir dieses für unser späteres
+Kontaktformular benötigen.
+
+In der rechten Spalte ist auffällig, dass es hier auch einen Parameter
+zur Wahl der _Kategorie_ gibt, welcher der neue Kontakt zugeordnet wird
+– dies ermöglicht uns bei komplexeren Projekten wie einer großen
+Unternehmenswebsite, auch die Personalstruktur des Unternehmens in der
+Kategorienstruktur abzubilden. Dabei ist wichtig, dass jede Komponente
+einen eigenen, für sich abgetrennten Kategorie-Baum besitzt, wir können
+hier somit nicht die Kategorien aus der Inhalts-Komponente verwenden.
+
+Weiterhin finden wir neben dem aktuelle Tab _Neuer Kontakt_ noch die
+weiteren Tabs _Weitere Informationen, Anzeige, Formular_ und
+_Veröffentlichung_.
+
+In den _Weiteren Informationen_ können Sie einen längeren
+Beschreibungstext zum jeweiligen Kontakt einpflegen, hier könnte sich
+die jeweilige Person z.B. vorstellen.
+
+Im Tab _Anzeige_ können wir einstellen, welche der Angaben aus dem Tab
+_Neuer Kontakt_ ausgegeben werden sollen. Dabei treffen wir bei vielen
+Einstellungen auf die Vorgabe „Globale Einstellung“, weil auch diese auf
+Komponenten über das bereits bekannte Parametersystem mit Vererbungen
+zurückgreift. Die entsprechenden Vorgaben können wir wie gewohnt über
+den Button _Optionen_ in der Übersichtsliste der Kontakte bearbeiten.
+
+Im Tab _Formular_ finden wir einige Parameter, welche den Versand der
+Mails beeinflussen, die durch das Absenden des Kontaktformulars erzeugt
+werden. Ich verzichte an dieser Stelle auf eine Auflistung der
+Parameter, da diese selbsterklärend sind bzw. durch einen Tooltipp beim
+Mouseover erläutert werden.
+
+Zum Schluss speichern wir den neuen Kontakt ab, woraufhin wir zurück zur
+Übersicht gelangen.
+
+image:media/image4.png[media/image4,width=548,height=283]
+
+BILD 10.2 Dialog zum Anlegen/Editieren eines _Kontakts_
+
+Wenn wir nun ins Frontend unserer Seite schauen, stellen wir fest, dass
+sich dort natürlich rein gar nichts verändert hat – ist auch logisch,
+denn schließlich haben wir noch keinen passenden _Menüeintrag_ zum
+Anzeigen des Kontakts erstellt. Joomla! folgt hier seinem Grundsatz der
+Trennung von Inhalts- und Menüstruktur, den wir bereits aus der
+Beitrags-Komponente kennen.
+
+Wir wechseln also über _Menüs ++>++ Main Menu_ zur Liste der
+Menüeinträge, fügen über den Klick auf Neu einen neuen Menüeintrag hinzu
+und wählen dort nun im ersten Schritt den _Menüeintragstyp_ aus. Welcher
+ist nun der richtige? Logisches Denken ist nun gefragt: Wir nutzen die
+Komponente _Kontakte_ und wollen einen einzelnen Kontakt inklusive
+Kontaktformular anzeigen – da scheint der _Menütyp_ _Kontakte ++>++
+Einzelner Kontakt_ doch wie gemacht für uns zu sein!
+
+image:media/image6.png[media/image6,width=548,height=218]
+
+BILD 10.3 Auswahl des korrekten Menütyps zur Darstellung eines einzelnen
+Kontakts
+
+Nachdem diese Hürde genommen ist, vergeben wir einen _Menütitel_ und
+wählen in den _Benötigten Einstellungen_ noch unseren gerade erstellten
+_Kontakt_ aus, um die Verknüpfung zwischen Menüeintrag und Formular
+herzustellen. Zudem hätten wir an dieser Stelle aufgrund des
+Parametersystems auch erneut die Möglichkeit, die im Kontakt bzw. in den
+Komponenten-Optionen vorgegebenen _Anzeigeoptionen_ zu überschreiben.
+
+Abschließend verlassen wir den Vorgang mittels Klick auf Speichern &
+Schliessen, wechseln ins Frontend und betrachten zufrieden unser neues
+Kontaktformular.
+
+image:media/image8.png[media/image8,width=548,height=423]
+
+BILD 10.4 Kontaktformular im Frontend
+
+Alle weiteren in Joomla! standardmäßig vorhandenen oder nachträglich
+installierten Komponenten funktionieren nun nach demselben Aufbau wie
+die Kontakt-Komponente. Sie administrieren die Inhalte der _Komponente_
+über das Backend, passen sie über die Parameter an Ihre Bedürfnisse an
+und binden sie abschließend über den jeweiligen mitgelieferten _Menütyp_
+in Ihre Seite ein. Komponenten, die eine besondere Rolle haben und daher
+von diesem Grundmuster abweichen, werden entweder in den folgenden
+Unterkapiteln oder im weiteren Verlauf des Buchs beschrieben.
+
+==== Komponenten: Nutzung des Suchindex
+
+Die erste dieser Sonderrollen bei den mitgelieferten Erweiterungen nimmt
+die Sucherweiterung _Suchindex_ (_com++_++finder_) ein. Diese in Joomla!
+2.5 neu hinzugekommene Komponente ist eine Alternative zur
+_Standard-Sucherweiterung_ (_com++_++search_) und verfügt über einige
+Funktionen, mit denen die Standard-Suche nicht aufwarten kann. Zu den
+Kernfunktionen gehören:
+
+* Schnelle, ressourcenschonende Suche durch Nutzung eines Suchindex (der
+mittels Cron-Job aktualisiert werden kann)
+* Autovervollständigung von eingegebenen Suchbegriffen durch
+Wortstammergänzung
+* Ausschließen von bestimmten Seitenteilen aus der Suche
+
+Die Erweiterung ist, da sie ja optional verwendeten werden kann, nicht
+standardmäßig aktiviert, was jedoch durch die Aktivierung des Plug-ins
+_Inhalt –_ _Suchindex_ in der Plug-in-Erweiterung (_Erweiterungen ++>++
+Plugins_) nachgeholt werden kann. Anschließend müssen die bereits
+vorhandenen Inhalte durch den Klick auf den Toolbar-Button _Indexieren_
+der Erweiterung eingelesen werden – danach ist die Anwendung fertig zur
+Verwendung.
+
+image:media/image10.png[media/image10,width=548,height=156]
+
+BILD 10.5 _Suchindex_
+
+Ist der Suchindex erst einmal manuell über diesen Klick erstellt worden,
+werden weitere Anpassungen an den Inhalten automatisch im Index
+übernommen, nichtsdestotrotz sollte der Index über den entsprechenden
+Toolbar-Button regelmäßig neu aufgebaut werden.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Insbesondere bei sehr großen Datensätzen kann es bei der
+Generierung des Index über das Joomla-Interface zu Problemen kommen, der
+Prozess läuft dann nicht durch. In diesen Fällen (und auch wenn die
+Generierung des Index über einen Crob-Job erfolgen soll), kann das
+Kommandozeilenskript _finder++_++index.php_ verwendet werden, dass sich
+im Verzeichnis _/cli_ der Installation befindet. Der Aufruf php
+finder++_++indexer.php --purge leert z.B. den Index und baut ihn
+anschließend neu auf.
+|===
+
+==== Module: Das RSS-Feed-Modul einbinden
+
+Die Nutzung von _Komponenten_ stellt uns nun nicht mehr vor Hindernisse.
+Widmen wir uns jetzt also einem weiteren Erweiterungstyp, den wir bisher
+kaum erwähnt oder behandelt haben: dem *Modul*.
+
+Ein _Modul_ ist, wenn wir uns die Erklärung aus Kapitel 5, „Grundlegende
+Begriffe und Architektur“, noch einmal ins Gedächtnis rufen, eine
+Joomla!-Erweiterung, die ausschließlich zur Ausgabe von Informationen
+dient. Es verfügt (im Normalfall) über keinerlei Logik, um
+Benutzereingaben einlesen, verarbeiten und speichern zu können, und wird
+in den sog. _Modulpositionen_ des _Templates_ ausgegeben. Die
+Darstellung im _Hauptausgabebereich_ ist nur über Umwege möglich. Wenn
+wir unsere Seite öffnen, so finden wir bereits drei Module, die
+standardmäßig in einer Joomla!-Installation Verwendung finden: das
+_Menü_-Modul, das _Login_-Modul sowie das _Breadcrumb_-Modul.
+
+Die Administration der Module erfolgt im Backend unter _Erweiterungen
+++>++ Module_, wo wir eine Listenansicht mit den bereits ausgewählten
+Modulen finden. Diese Liste verfügt dabei, neben den bereits bekannten
+Spalten _Zugriffsebene_, _Sprache_, _ID_, _Titel_, _Status_ und
+_Reihenfolge_, auch über einige für diese Liste spezifische Spalten:
+
+* _Position:_ gibt die _Modulposition_ im _Template_ an, an der das
+_Modul_ ausgegeben wird
+* _Typ:_ gibt an, um welche Art von _Modul_ es sich handelt
+* _Seiten:_ gibt an, ob das entsprechende _Modul_ auf allen oder nur auf
+ausgewählten Seiten des _Frontends_ ausgegeben werden soll
+
+image:media/image12.png[media/image12,width=548,height=207]
+
+BILD 10.6 Auflistung der standardmäßig vorhandenen Module
+
+Um das Modulsystem etwas besser kennenzulernen, wollen wir ein neues
+Modul anlegen, das einen externen RSS-Feed auf unserer Beispielseite
+ausgeben soll. Dafür starten wir mit einem Klick auf den Toolbar-Button
+Neu und werden nun auf der näcshten Seite gefragt, welchen Typ von Modul
+wir erzeugen wollen. Die verschiedenen Typen geben, wie die Namen
+bereits vermuten lassen, unterschiedliche Arten von Inhalten aus – da
+die vollständige Auflistung der Module jedoch in Kapitel 10.1.8,
+„Überblick über die Standarderweiterungen“, zu finden ist, begnügen wir
+uns hier vorläufig mit dem Wissen, dass der _Modultyp_ _Feed – Externen
+Feed anzeigen_ der richtige Typ ist, um, wie gewünscht, einen RSS-Feed
+auf der Seite anzuzeigen.
+
+image:media/image13.png[media/image13,width=548,height=284]
+
+BILD 10.7 Seite zur Auswahl des Modultyps
+
+Nach der Wahl des Modultyps öffnet sich der entsprechende Dialog zum
+Eingeben der Moduldetails, der dem bekannten Aufbau folgt.
+
+Oben links beginnen wir mit der Eingabe des _Titels_, der auf der Seite
+jedoch, falls gewünscht, über den Parameter _Titel anzeigen_ auf der
+rechten Seite ausgeblendet werden kann. Direkt unterhalb findet sich das
+Eingabefeld für die Modul__position__, auf der das Modul im Frontend
+angezeigt werden soll.
+
+image:media/image15.png[media/image15,width=548,height=288]
+
+BILD 10.8 Wahlmöglichkeit für die zu verwendende Modulposition
+
+Klicken wir hier auf das kleine Dreieck in der Positionsauswahl, um das
+Dropdown anzuzeigen, erhalten wir eine Liste aller verfügbaren
+Modulpositionen in allen installierten Templates. Jede Modulposition
+verfügt dabei über einen _Titel_, der im Optimalfall beschreibt, wo sich
+die jeweilige Position im Template befindet, sowie in Klammern dahinter
+der eigentliche, technische Name der Modulposition.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Sie können sich viel Sucharbeit sparen, wenn Sie
+nicht genutzte Templates deaktivieren bzw. deinstallieren, da dann die
+Positionen dieses Templates nicht mehr in der Auswahlliste erscheinen,
+wodurch diese übersichtlicher wird.
+|===
+
+image:media/image18.png[media/image18,width=548,height=310]
+
+BILD 10.9 Auswahlliste der Modulpositionen
+
+Die Auswahl einer bestimmten Position, in unserem Fall „Position 6“,
+erfolgt per Klick auf die jeweilige Option. Daraufhin wird die gewählte
+Option in das Eingabefeld eingesetzt.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Das Eingabefeld _Position_ kann, im Unterschied zu
+vielen anderen Feldern mit ähnlicher Funktion, auch manuell durch
+Eingabe des Positionstitels ausgefüllt werden. Wenn Sie den Titel der
+Position also bereits kennen, können Sie den Namen einfach eintippen und
+müssen nicht durch die Liste scrollen.
+|===
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:* Es wird Ihnen, insbesondere bei schlecht programmierten
+Templates, immer wieder passieren, dass die verwendeten Titel bzw.
+Beschreibungen der Template-Positionen keinen genauen Rückschluss auf
+die Positionierung im Template zulassen. Daher gibt es die Möglichkeit,
+sich alle Positionen des Templates im Frontend in einer Art Vorschau
+anzeigen zu lassen.
+
+Da diese standardmäßig deaktiviert ist, müssen wir zuerst die Parameter
+der Template-Verwaltung (_Erweiterungen ++>++ Templates_, dann Klick auf
+den Button _Optionen_ in der Toolbar) anpassen. Dort finden wir den
+Parameter _Vorschau von_ _Modulpositionen_, den wir aktivieren.
+Anschließend übernehmen wir die Änderung durch einen Klick auf Speichern
+& Schliessen.
+
+image:media/image20.png[media/image20,width=472,height=128]
+
+BILD 10.10 Parameter zur Aktivierung der Modulpositionen-Vorschau
+
+Nun können wir durch Anhängen des Parameters _tp=1_ an die URL im
+Frontend alle Template-Positionen ausgeben lassen, die durch
+halbtransparente Kästen mit einer Namensangabe der jeweiligen Position
+dargestellt werden.
+
+image:media/image22.png[media/image22,width=472,height=390]
+
+BILD 10.11 Frontend-Ausgabe mit Vorschau der Modulpositionen
+
+|===
+
+Die weiteren Angaben in der rechten Spalte kennen wir bereits aus den
+anderen Bearbeitungsdialogen, sodass wir hier keine zusätzlichen
+Erklärungen benötigen.
+
+Wir ignorieren nun voerstmal mal die weiteren Parameter auf der linken
+Seite und schauen stattdessen in den Tab _Menüzuweisung_, der uns
+erlaubt, ein Modul einem bestimmten Menüeintrag zuzuweisen, sodass
+dieses Modul nicht auf allen Seiten, sondern nur auf den gewählten
+erscheint. Dadurch können wir Module einblenden, die zum Kontext des
+jeweiligen Menüeintrags passen.
+
+Ein Beispiel gefällig? Nehmen wir an, unser Bauer würde gerne auch einen
+kleinen Blog auf seiner Seite betreiben und möchte auf der Startseite
+eine Liste der neusten Blogeinträge in der rechten Spalte des Templates
+anzeigen lassen. Ohne die Möglichkeit der _Menüzuweisung_ würde dieses
+_Modul_ auf allen Unterseiten angezeigt – inklusive des Blogs selbst,
+was natürlich keinen Sinn macht.
+
+Über den Parameter _Modulzuweisung_ können wir aus den verschiedenen
+Modi wählen, die von der _Menüzuweisung_ unterstützt werden:
+
+* _Auf allen Seiten:_ Zeigt das Modul auf allen Seiten an
+* _Keine Seiten:_ Hier ist die deutsche Übersetzung leider ein wenig
+unglücklich gewählt – denn die Option bedeutet nicht, dass das _Modul_
+gar nicht angezeigt wird, sondern dass es auf all jenen Seiten
+ausgegeben wird, die keinen eigenen _Menüeintrag_ haben.
+* _Nur auf den_ _gewählten Seiten:_ Zeigt das _Modul_ nur auf den Seiten
+an, die unter _Menüauswahl_ gewählt wurden
+* _Auf allen Seiten mit Ausnahme der gewählten:_ Zeigt das _Modul_ auf
+allen Seiten außer den unter _Menüauswahl_ gewählten an
+
+Wir wollen den Feed nur auf der Startseite von Bauer Birnennase
+ausgeben, weshalb wir als Modus „Nur auf den gewählten Seiten“ und
+anschließend nur den Eintrag _Willkommen_ selektieren.
+
+image:media/image24.png[media/image24,width=548,height=237]
+
+BILD 10.12 Bereich _Menüzuweisung_ in der Modulverwaltung
+
+Im nächsten Schritt schauen wir in den Tab _Erweitert_, der, genauso wie
+der Tab _Menüzuweisung_ für alle Modul-Typen gleich sind und zudem
+einige spannende Möglichkeiten beinhalten:
+
+* _Alternatives Layout:_ Auswahl, ob für die Ausgabe das integrierte
+Layout oder ein Layout im Template (siehe Kapitel 12.2,
+„Template-Overrides“) verwendet werden soll. Erlaubt die individuelle
+Gestaltung eines Moduls.
+* _Modulklassensuffix:_ Hängt den angegebenen Namen an die CSS-Klasse
+des _Moduls_ an. Die Eingabe von „-feed“ erzeugt im Frontend
+beispielsweise ein ++<++div++>++ mit der Klasse moduletable-feed, in dem
+der Inhalt ausgegeben wird. Diese Option erlaubt uns das individuelle
+Styling eines _Moduls_ über CSS.
+* _Caching:_ Steuert, ob das _Modul_ zur Beschleunigung der Ausgabe
+zwischengespeichert werden soll (siehe Kapitel 20.1.3, „Integriertes
+Joomla! Caching“)
+* _Cache-Dauer:_ Steuert die Dauer der Zwischenspeicherung
+* _Modul-Tag:_ Erlaubt die Auswahl des HTML-Tags, der das Modul umgibt
+* _Bootstrap-Größe:_ Steuert die Breite des jeweiligen Moduls im
+12-spaltigen Grid-System des Bootstrap-CSS Systems
+* _Header-Tag:_ Erlaubt die Auswahl des HTML-Tags für den Modultitel
+* _Header-Klasse:_ Erlaubt es, analog zum Modulklassensuffix, eine
+eigene CSS-Klasse für den Modultitel zu setzen
+* _Modulstil:_ Erlaubt es den vorgegeben Modulstil des Templates für das
+aktuelle Modul zu überschreiben, siehe Abschnitt zu _Module-Chromes_ in
+Kapitel 12.1.2
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Die Parameter _Modul-Tag, Bootstrap-Größe, Header-Tag und
+Header-Klasse_ setzen voraus, dass das jeweilige Template bzw. der sog.
+Module-Chrome der Modulposition (siehe Kapitel 12.1.2) diese Optionen
+unterstützt. Wenn dies nicht der Fall ist und die Optionen somit keinen
+Effekt zeigen, können Sie manuell den _Modulstil_ auf den Wert _html5_
+setzen, da dieser diese Optionen korrekt darstellen kann.
+|===
+
+Somit sind all die Parameter des Formulars abgearbeitet, die bei allen
+Modultypen zur Verfügung stehen. Wenden wir uns nun also den Parametern
+zu, die spezifisch für den gerade ausgewählten _Modul-Typ_, in unserem
+Fall also das RSS-Modul, sind. Wir finden diese in der linken Spalte des
+ersten Tabs _Modul_. Ich verzichte an dieser Stelle auf die Auflistung
+der jeweiligen modulspezifischen Parameter, da diese durch Tooltipps gut
+erklärt sind. Geben Sie in unserem Beispiel einfach eine entsprechende
+URL ins Feld _Feed-URL_ ein, damit wir im _Frontend_ später auch die
+Früchte unserer Arbeit betrachten können.
+
+image:media/image26.png[media/image26,width=548,height=399]
+
+BILD 10.13 Parameter des _Feed-Anzeige_-Moduls
+
+* {blank}
+* {blank}
+* {blank}
+* {blank}
+
+Abschließend verlassen wir den Dialog zum Anlegen unseres neuen Moduls
+mit einem Klick auf Speichern & Schliessen, woraufhin wir uns wieder in
+der Modulübersicht befinden. Im Frontend der Seite finden wir nun, beim
+Aufruf der Startseite, unser gerade angelegtes Modul, wobei der Titel
+des Moduls oberhalb der eigentlichen Ausgabe erscheint.
+
+image:media/image28.png[media/image28,width=548,height=348]
+
+BILD 10.14 Ausgabe des Moduls im Frontend
+
+Dieses Wissen erlaubt uns, nach dem Wechsel ins Backend, noch zwei
+weitere Änderungen vorzunehmen: Zum Ersten blenden wir durch die
+Umstellung des Parameters _Titel anzeigen_ im Modul _Main Menu_ den
+lästigen Titel oberhalb der Navigation aus und löschen zum Zweiten durch
+die Selektion des Eintrags in der Übersichtsliste und die Nutzung des
+_Papierkorb_-Buttons das Login-Formular, das wir auf unserer Seite nicht
+benötigen. Dadurch wird unser _Frontend_ optisch nochmals deutlich
+aufgeräumter.
+
+===== Administrator-Module
+
+Haben Sie sich beim Betrachten der Modulübersicht-Liste eigentlich auch
+gefragt, warum es die Filteroption „Site“ oberhalb der Liste gibt (siehe
+Bild 10.6)? Das hängt damit zusammen, dass Joomla! das Modulsystem nicht
+nur im Front-, sondern auch im Backend zur Darstellung verschiedener
+Informationen nutzt. So ist das von uns ständig genutzte
+Administrationsmenü nicht fest im Template verankert, sondern wird über
+ein Modul eingebunden. Dies ermöglicht uns, den Administrationsbereich
+durch die Nutzung von zusätzlichen Modulen an die Bedürfnisse unseres
+Kunden anzupassen. Wenn Sie den Filter auf „Administrator“ umstellen,
+erhalten Sie eine Übersicht der integrierten Module und können, falls
+gewünscht, Änderungen daran vornehmen.
+
+image:media/image30.png[media/image30,width=548,height=301]
+
+BILD 10.15 Modulübersicht nach Umstellung der _Site_-Filteroption
+
+==== Plug-ins
+
+Kommen wir nun zum nächsten Erweiterungstyp, den wir schon an vielen
+Stellen genutzt, aber nie bewusst wahrgenommen haben: *Plug-ins* sind
+die stillen Helden einer jeden Joomla!-Installation und existieren schon
+standardmäßig in verschiedenen Typen, die unterschiedliche Aufgaben
+wahrnehmen:
+
+* _Authentication:_ Authentication-_Plug-ins_ prüfen, ob die vom Nutzer
+beim Login eingegebenen Angaben für Benutzer und Passwort korrekt sind.
+Wie diese Plug-ins dies prüfen bzw. welche (externe) Datenquelle für die
+Prüfung genutzt wird, ist dabei dem jeweiligen Plug-in überlassen.
+Dadurch ist es beispielsweise möglich, Single-Sign-In-Lösungen
+(Anmeldung mit den gleichen Benutzerdaten in verschiedenen Systemen) mit
+Joomla! zu realisieren.
+* _Content:_ Content-_Plug-ins_ werden bei der Ausgabe eines Beitrags
+aufgerufen und bekommen dabei den jeweiligen Text übergeben. Diesen Text
+können Sie anschließend beliebig anpassen und müssen abschließend die
+modifizierte Variante zurückgeben. Dieser _Plug-in_-Typ wird
+beispielsweise für die _Weiterlesen_-Funktion genutzt, indem der im
+übergebenen Text hinterlegte Trenner durch einen _Weiterlesen_-Link
+ersetzt und anschließend zur Ausgabe zurückgegeben wird.
+* _Editors:_ Plug-ins dieses Typs können als WYSIWYG-Editor zur
+Texteditierung genutzt werden.
+* _Editors-XTD:_ Werden als Zusatzbuttons unterhalb des Editors
+ausgegeben und können dadurch editorunabhängig zur Texteditierung
+genutzt werden. Beispiel: _Beiträge_-Button zum Einfügen von
+seiteninternen Verlinkungen.
+* _Extension:_ Werden bei der Installation/Deinstallation von
+Erweiterungen aufgerufen und können dann bestimmte Wartungsaufgaben
+wahrnehmen.
+* _Search:_ Ergänzen die in Joomla! integrierte Suchfunktion um die
+Unterstützung für eine bestimmte Erweiterung.
+* _System:_ Übernehmen diverse Wartungsfunktionen innerhalb der Seite,
+da sie bei jedem Seitenaufruf aufgerufen werden. Dieser _Plug-in_-Typ
+ist sehr mächtig, da man mit ihm an praktisch jeder Stelle des Systems
+eingreifen und Verhalten von Joomla! beeinflussen kann.
+* _User:_ User-Plug-ins werden bei verschiedenen Aktionen rund um die
+Benutzeradministration aufgerufen und können z.B. genutzt werden, um
+zusätzliche Profilfelder hinzuzufügen.
+* _Smart Search:_ Diese Plug-ins werden zur Erstellung des Indexes der
+_Smart Search_ genutzt.
+* _Captcha:_ Captcha-Plug-ins werden zur Verhinderung von
+Spam-Absendungen eingesetzt und erzeugen die bekannten Grafiken mit den
+verzerrten Buchstaben und Zahlen, die man beim Absenden eines Formulars
+abtippen muss.
+* _Quickicon:_ Diese Plug-ins sind für die Benachrichtigungen z.B. zu
+neuen Joomla-Versionen zuständig, die einem Administrator auf der
+Startseite des Backends angezeigt werden.
+* _Fields:_ Joomla verfügt seit Version 3.7 über eine Funktion zur
+Erstellung von eigenen Zusatzfeldern, siehe Kapitel 12. Die verfügbaren
+Feldtypen werden dabei über Plugins des Typs _Fields_ gesetzt.
+* _Two-Factorauth:_ Diese Plug-ins stellen die Funktionalität für die
+sog. 2-Faktor-Auhentifzierung bereit, siehe Kapitel 21, Sicherheit
+
+Die Auflistung aller installierten Plug-ins in der bekannten
+Listenansicht finden wir unter _Erweiterungen ++>++ Plugins_ und können
+dort, nach einem Klick auf den jeweiligen Plug-in-Namen, Änderungen an
+den Parametern vornehmen.
+
+image:media/image32.png[media/image32,width=548,height=384]
+
+BILD 10.16 Liste der installierten Plug-ins
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Achten Sie beim Editieren der Plug-ins sorgfältig
+darauf, dass das Plug-in _Authentifizierung – Joomla!_ aktiviert bleibt,
+da Sie sich andernfalls nicht mehr auf der Seite anmelden können.
+|===
+
+==== Sprachen
+
+Joomla! unterstützt sowohl im _Frontend_ als auch im _Backend_
+verschiedenste Sprachen für die Ausgabe von systemeigenen Texten. Diese
+_Sprachdateien_ liegen dabei ebenfalls als Erweiterungen vor und können
+daher bequem ergänzt werden. Die Übersicht der installierten
+_Sprachdateien_ finden wir unter _Erweiterungen ++>++ Sprachen_ _++>++
+Installiert_.
+
+image:media/image34.png[media/image34,width=548,height=167]
+
+===== 
+
+[arabic]
+. {blank}
+. {blank}
+
+BILD 10.17 Installierte Sprachdateien
+
+==== Templates
+
+Alle in Joomla! genutzten _Templates_ liegen als Erweiterung vor und
+können daher ebenfalls leicht gewechselt werden. Details finden Sie in
+Kapitel 9, „Das Template-System“.
+
+==== Bibliotheken
+
+Seit Joomla! 1.6 verfügt das System über den Erweiterungstyp _library_,
+der für die Verwaltung von gemeinsamen genutzten Programmbibliotheken
+wie _PHPMailer_ vorgesehen ist.
+
+==== Überblick über die Standarderweiterungen
+
+In der folgenden Tabelle finden Sie eine ausführliche Auflistung aller
+standardmäßig installierten Komponenten, Module, Plug-ins und
+Bibliotheken mit einer kurzen Beschreibung ihrer Funktionen. Dabei habe
+ich Erweiterungen, die nur im Administrationsbereich verwendet werden,
+ausgelassen.
+
+TABELLE 10.1 Übersicht aller im Frontend nutzbaren Joomla!-Erweiterungen
+
+[width="100%",cols="34%,,66%",]
+|===
+|Name |Beschreibung |
+
+|Komponenten | |
+
+|Ajax-Schnittstelle | |Erlaubt es, mit wenig Aufwand, Backend-Endpoints
+für AJAX-Abfragen zu erzeugen. Die zugehörige Dokumentation findet sich
+auf im Joomla
+Wiki.footnote:[https://docs.joomla.org/Using++_++Joomla++_++Ajax++_++Interface]
+
+|Banner | |Verwaltet Werbeanzeigen (Bilder und HTML-Code), die über das
+zugehörige Modul im Frontend ausgegeben werden können. Zählt die Klicks
+zur Abrechnung.
+
+|Beiträge | |Integrierte Beitragsverwaltung (_com++_++content_)
+
+|Benutzer | |Übernimmt die Login-, Logout-, Registrierungs-,
+Benutzerprofil- und „Passwort zurücksetzen“-Funktion
+
+|Kategorien | |Bietet eine allgemeine Oberfläche zur Verwaltung von
+verschachtelten Kategorien, die von Joomla! an verschiedenen Stellen
+(Beiträge, Weblinks, Banner usw.) genutzt wird. Kann in eigene
+Erweiterungen eingebunden werden.
+
+|Kontakte | |Realisierung eines Adressbuchs mit der Möglichkeit, ein
+Kontaktformular für die hinterlegten Kontakte zu generieren
+
+|Mail an | |Übernimmt den Versand der E-Mails, die im Frontend durch die
+Nutzung der Funktion „An einen Freund versenden“ entstehen. Kann in
+eigenen Erweiterungen eingebunden werden.
+
+|Medien | |Rudimentäre Datei- und Bildverwaltung, die ebenfalls in
+eigene Erweiterungen eingebunden werden kann
+
+|Newsfeeds | |Erlaubt die Darstellung externer RSS-Feeds im Hauptbereich
+der Seite
+
+|Suche | |Stellt die seiteninterne Standard-Suchfunktion zur Verfügung
+
+|Umleitungen | |Erlaubt dem Administrator, Weiterleitungen für beliebige
+Seiten-URLs zu definieren. Nützlich, um „tote Links“ nach dem Wechsel
+des CMS o. Ä. zu vermeiden.
+
+| | |
+
+|Wrapper | |Bindet externe URLs mittels iFrame ein
+
+|Suchindex | |Der Suchindex ist eine indexbasierte, leistungsfähige
+Sucherweiterung, sie wird die bisherige Suchfunktion in zukünftigen
+Joomla!-Versionen ersetzen.
+
+|Module | |
+
+|Benutzer - Anmeldung | |Erzeugt ein Login-Formular
+
+|Banner | |Zeigt die Werbeanzeigen aus der _Banner_-Komponente
+
+|Beiträge - Archiv | |Zeigt eine Liste der Kalendermonate, die
+archivierte _Beiträge_ enthalten. Nach der Auswahl des Monats wird im
+_Hauptausgabebereich_ die entsprechende Beitragsliste ausgegeben.
+
+| | |
+
+|Beiträge - Kategorie | |Zeigt eine Liste von _Beiträgen_ aus einer oder
+mehreren _Kategorien_ an
+
+|Beiträge – Kategorien | |Zeigt eine Liste von _Kategorien_ an
+
+|Beiträge – Neuste | |Erzeugt eine Liste der neusten _Beiträge_
+
+|Beiträge – Newsflash | |Zeigt eine festzulegende Anzahl von _Beiträgen_
+(inklusive Einführungstext) aus einer oder mehreren _Kategorien_ an
+
+|Beiträge – Verwandte | |Gleicht die Meta-Keywords des aktuellen
+_Beitrags_ mit den Keywords der anderen _Beiträge_ ab und zeigt, falls
+es identische Keywords gibt, den Titel des anderen Beitrags. Dadurch ist
+es möglich, _Beiträge_ mit ähnlichen Themen miteinander zu verknüpfen.
+
+|Beiträge - Beliebte | |Zeigt eine Liste der Beiträge mit den meisten
+Klicks an
+
+|Benutzerdefiniertes Modul | |Gibt einen beliebigen, im _Backend_
+mittels WYSIWYG-Editor ein­gepflegten HTML-Block aus. Erlaubt dadurch die
+Darstellung beliebiger, eigener Inhalte.
+
+|Feeds – Externen Feed anzeigen | |Zeigt einen RSS-Feed an
+
+|Feeds – Feed erzeugen | |Zeigt Buttons zum Abonnieren eines von der
+Seite erzeugten Newsfeeds an
+
+|Fußzeile | |Zeigt die Joomla!-Copyright-Informationen an
+
+|Navigation - Menü | |Zeigt die _Menüeinträge_ eines zu wählenden
+_Menübereichs_ an
+
+|Navigation - Navigationspfad +
+(Breadcrumbs) | |Zeigt den Pfad der Menüpunkte für die geöffnete Seite
+an und erlaubt dem Benutzer daher eine leichtere Orientierung auf der
+Seite
+
+| | |
+
+|Benutzer - Neuste | |Erzeugt eine Liste der neusten _Benutzer_
+
+|Benutzer – Wer ist online | |Gibt die Zahl der aktuellen Seitenbesucher
+(angemeldet oder Gast) an, ist jedoch leider sehr unzuverlässig
+
+|Schlagwörter – Beliebte | |Zeigt eine Liste von _Tags_ mit hohen
+Klickzahlen
+
+|Schlagwörter – Ähnliche | |Gleicht die Meta-Keywords des aktuellen
+_Schlagworts_ mit den Keywords der anderen Schlagwörter ab und zeigt,
+falls es identische Keywords gibt, den Titel des anderen Schlagworts.
+Dadurch ist es möglich, Schlagwörter mit ähnlichen Themen miteinander zu
+verknüpfen.
+
+|Suchindex | |Zeigt das Suchformular für die _Smart Search_ an. Verfügt
+über eine Autovervollständigungsfunktion.
+
+|Sprachauswahl | |Erlaubt die Auswahl der Sprache, in der die
+Seiteninhalte dargestellt werden sollen (siehe Kapitel 14,
+„Mehrsprachigkeit“)
+
+|Statistiken | |Zeigt verschiedene Informationen zum Serversystem, zur
+Seite sowie zu den Besucherzahlen
+
+|Suchen | |Gibt ein Formularfeld zur Eingabe des gewünschten
+Suchbegriffs ein und leitet nach dem Absenden des Formulars zur
+Suchen-_Komponente_ weiter
+
+| | |
+
+| | |
+
+|Wrapper | |Zeigt einen iFrame für eine zu definierende URL an
+
+|Zufallsbild | |Zeigt ein zufälliges Bild aus einem frei definierbaren
+Verzeichnis an
+
+| | |
+
+|Plug-ins | |
+
+|Authentifizierung – Cookies | |Loggt Nutzer, wenn es ein entsprechendes
+„eingeloggt bleiben“-Cookie gibt, automatisch beim Aufruf der Seite ein
+
+|Authentifizierung – GMail | |Erlaubt es Nutzern, sich ohne
+Registrierung mit den Benutzer­daten ihrer Google-Mail-Adresse anzumelden
+
+|Authentifizierung – +
+Joomla! | |Gleicht die eingegebenen Benutzerdaten mit der
+Joomla!-Nutzerdatenbank ab
+
+|Authentifizierung – LDAP | |Gleicht die eingegebenen Benutzerdaten mit
+einem LDAP-Server (ActiveDirectory) ab und erlaubt dadurch die
+Realisierung von Single-Sign-In-Lösungen. Verfügt über zahlreiche
+Parameter, um Nutzer z. B. automatisiert zu bestimmten Nutzergruppen
+hinzuzufügen.
+
+|Benutzer – Joomla! | |Fügt Benutzer nach ihrer Registrierung zur
+Joomla!-Nutzerdatenbank hinzu
+
+|Benutzer – Kontakterstellung | |Erstellt für jeden Benutzer bei der
+Registrierung automatisch einen Eintrag in der _Kontakt_-Komponente
+
+|Benutzer – Profile | |Erlaubt das Hinzufügen zahlreicher zusätzlicher
+Felder zum Benutzerprofil
+
+|Captcha – ReCAPTCHA | |Captcha-Plugin für den Google Dienst ReCAPTCHA.
+Unterstützt sowohl das alte ReCAPTCHA als auch das neue NoCAPTCHA.
+
+|Editor – CodeMirror | |Editor mit Syntax-Highlighting für verschiedene
+Programmier­sprachen
+
+|Editor – Keiner | |Zeigt keinen Editor, sondern nur ein normales
+Texteingabefeld an, wodurch eigener HTML-Code eingegeben werden kann
+
+|Editor – TinyMCE | |Zeigt den TinyMCE-Editor
+
+|Erweiterungen – Joomla! | |Fügt neu installierte Erweiterungen zum
+Update-Manager hinzu
+
+|Feld – Kalender | |Stellt ein Kalender-basiertes Datumsfeld für das
+Anlegen eigener Felder zur Verfügung
+
+|Feld – Checkboxen | |Stellt eine oder mehrere Checkboxen dar
+
+|Feld – Farbe | |JavaScript-basierendes Auswahlfeld für eine Farbe
+
+|Feld – Editor | |Auswahlliste der verfügbaren _Editoren_
+
+|Feld – Galerie | |Feld zur Generierung einer Bildgalerie aus einem
+gewählten Verzeichnis
+
+|Feld – Bildliste | |Erstellt eine Auswahlliste, in der zwischen einem
+oder mehreren Bildern gewählt werden kann, die in einem bestimmten
+Ordner liegen
+
+|Feld – Zahl | |Feld zur Eingabe von Zahlen
+
+|Feld - Liste | |Feld zur Generierung eines Liste von vorgegebenen
+Einträgen
+
+|Feld – Medien | |Feld zur Auswahl einer Datei aus der
+_Medien_-Verwaltung
+
+|Feld – Radio | |Feld zur Erzeugung von Radio-Boxen
+
+|Feld – SQL | |Erstellt eine Auswahlliste, deren Optionen über eine frei
+definierbare SQL-Abfrage generiert wird
+
+|Feld – Text | |Einzeiliges Eingabefeld für Text
+
+|Feld – Textarea | |Mehrzeiliges Eingabefeld für Text
+
+|Feld – URL | |Eingabefeld zur Einpflege einer URL
+
+|Feld – Benutzer | |Auswahlliste mit einer Liste von Benutzern der Seite
+
+|Feld – Benutzergruppen | |Liste zur Auswahl einer Benutzergruppe der
+Seite
+
+|Inhalt – Bewertung | |Realisiert die Bewertungsfunktion für _Beiträge_
+
+| | |
+
+|Inhalt – E-Mail-Verschleierung | |Verschleiert im _Beitrag_ eingefügte
+Mail-Adressen mit JavaScript, damit diese nicht so leicht durch Spambots
+ausgelesen werden können
+
+|Inhalt – Felder | |Gibt die konfigurierten _eigenen Felder_ im Frontend
+aus
+
+|Inhalt – Joomla! | |Prüft, ob zu löschende _Kategorien_ leer sind, und
+warnt andernfalls. Benachrichtigt die Administratoren, wenn neue
+Beiträge im _Front­end_ eingereicht werden.
+
+|Inhalt – Kontakt | |Ruft den Link zum Kontaktformular eines
+Beitrags-Autors ab
+
+|Inhalt – Module laden | |Lädt alle Module, die der angegebenen Position
+(Syntax: ++{++loadposition POSITIONSNAME}) zugewiesen sind bzw. die den
+angegebenen Namen (Syntax: ++{++loadmodule MODULNAME}) ­tragen, an der
+jeweiligen Stelle des Beitrags. Der ursprüngliche Tag wird dabei
+ersetzt.
+
+|Inhalt – Seitennavigation | |Realisiert die Funktion für mehrseitige
+_Beiträge_
+
+|Inhalt – Seitenumbruch | |Realisiert die _Weiterlesen_-Funktion
+
+|Inhalt - Suchindex | |Reicht Änderungen an _Beiträgen_ an den Suchindex
+weiter, damit dieser stets die aktuellen Ergebnisse wiedergibt.
+
+|Installer – Aus Verzeichnis installieren | |Stellt den Tab „Aus
+Verzeichnis installieren“ im Erweiterungsmanager zur Verfügung
+
+|Installer – Durch Hochladen installieren | |Stellt den Tab „Durch
+Hochladen installieren“ im Erweiterungsmanager zur Verfügung
+
+|Installer – Von URL installieren | |Stellt den Tab „Von URL
+installieren“ im Erweiterungsmanager zur Verfügung
+
+|Schaltfläche – Beiträge | |Gibt die Schaltfläche für interne
+Beitragsverlinkung unterhalb des Editors aus
+
+|Schaltfläche – Bild | |Gibt den Button zur Auswahl eines Bilds im
+Medien-Manager aus
+
+|Schaltfläche – Seitenumbruch | |Gibt den Button _Seitenumbruch_ aus
+
+|Schaltfläche – Weiterlesen | |Gibt den Button _Weiterlesen_ aus
+
+|Schaltfläche – Kontakt | |Gibt den Button zum Einfügen von Links zur
+_Kontakt_-Erweiterung aus
+
+|Schaltfläche – Felder | |Gibt dem Button zum Einfügen der _eigenen
+Felder_ aus
+
+|Schaltfläche - Menü | |Gibt dem Button zum Einfügen von _Menülinks_ aus
+
+|Suche – Inhalt | |Erlaubt der Standardsuche das Durchsuchen von
+_Beiträgen_
+
+|Suche – Kategorien | |Erlaubt das Durchsuchen von _Kategorien_ mit der
+Standardsuche
+
+|Suche – Kontakte | |Erlaubt das Durchsuchen von _Kontakten_ mit der
+Standardsuche
+
+|Suche – Newsfeeds | |Erlaubt das Durchsuchen von _Newsfeeds_ mit der
+Standardsuche
+
+|Suche – Schlagwörter | |Erlaubt das Durchsuchen von _Schlagwörtern_ mit
+der Standardsuche
+
+|Suchindex – Inhalt | |Erlaubt das Durchsuchen von _Beiträgen_ mit dem
+Suchindex
+
+|Suchindex – Kategorien | |Erlaubt das Durchsuchen von _Kategorien_ mit
+dem Suchindex
+
+|Suchindex – Kontakte | |Erlaubt das Durchsuchen von _Kontakten_ mit dem
+Suchindex
+
+|Suchindex – Newsfeeds | |Erlaubt das Durchsuchen der _Newsfeeds_ mit
+dem Suchindex
+
+|Suchindex – Schlagwörter | |Erlaubt das Durchsuchen der _Schlagwörter_
+mit dem Suchindex
+
+| | |
+
+|System – Abmelden | |Leitet den Benutzer auf die Startseite um, nachdem
+er sich in einem geschützten Seitenbereich abgemeldet hat.
+
+|System – Angemeldet bleiben | |Implementiert die „angemeldet bleiben“
+Funktion auf Cookie-Basis
+
+|System – Benutzerprotokollierung | |Schreibt Informationen über
+fehlgeschlagene Loginversuche in eine Log-Datei
+
+|System – Seitencache | |Realisiert die Page-Cache-Funktion (siehe
+Kapitel 20.1.3.1, „Page Caching“)
+
+|System – Debug | |Erlaubt das Debuggen der Joomla!-Seite
+
+|System – Felder | |Implementiert die Funktion zum Hinzufügen eigener
+Felder
+
+|System – Highlight | |Hebt bestimmte Begriffe in der Seitenausgabe
+hervor, wird z.B. vom Suchindex zur Markierung des gefunden Begriffs
+verwendet.
+
+| | |
+
+|System – Joomla!-Aktualisierungsmitteilung | |Versendet E-Mails zu
+verfügbaren Joomla-Updates an den Administrator
+
+|System – Joomla!-Statistikerhebung | |Überträgt anonymisierte
+Systemdaten zum Server an das Joomla-Projekt
+
+|System – P3P-Richtlinien | |Fügt den P3P-Header zur Ausgabe hinzu.
+Dieser wird benötigt, damit bestimmte Internet Explorer-Versionen die
+Joomla!-Cookies akzeptieren.
+
+| | |
+
+|System – SEF | |Ersetzt alle auf der Seite vorhandenen URLs durch ihre
+suchmaschinenfreundliche Entsprechung
+
+|System – Sprachenfilter | |Steuert die verwendete Seitensprache
+abhängig von der Browsereinstellung des Browsers
+
+|System - Sprachkürzel | |Erlaubt es den Sprachkürzel in generierten
+HTML-Dokumenten zu ändern, um die Suchmaschinenfreundlichkeit zu
+erhöhen.
+
+|System – Umleitung | |Führt die in der _Umleitungen_-Komponente
+definierten Weiterleitungen aus
+
+|Zwei-Faktor-Authentifizierung – Google Authenticator | |Implementiert
+die 2FA-Funktion für den Google Authenticator
+
+|Zwei-Faktor-Authentifzierung – YubiKey | |Implementiert die
+2FA-Funktion für das Hardware-Dongle YubiKey
+
+|Bibliotheken | |
+
+|FOF | |Rapid-Application-Development Framework, siehe Kapitel 17
+
+|IDNA Convert | |Übersetzt „internationale“ Domains (z.B.) mit Umlauten
+in eine Form, mit der das DNS-System umgehen kann
+
+|Joomla! Platform | |Fasst alle Joomla!-eigenen Klassen in einer
+Bibliothek zusammen
+
+| | |
+
+| | |
+
+|PHPass | |Backport der PHP Password-API, die mit PHP 5.6 eingeführt
+wurde.
+
+|phputf8 | |Bietet UTF-8-Unterstützung für PHP-Installationen, auf denen
+die Multibyte-Erweiterung nicht aktiv ist
+|===
+
+=== Erweiterungen verwalten
+
+Haben Sie sich erfolgreich durch die Tabelle 10.1 gekämpft? Dann wissen
+Sie nämlich jetzt, dass die in Joomla! integrierten _Erweiterungen_ uns
+bereits erlauben, zahlreiche, oft benötigte Funktionen abzudecken. Was
+aber, wenn der „schlimmste“ aller denkbaren Fälle eintritt und wir eine
+Funktion benötigen, die so von Haus aus nicht integriert ist?
+
+Hier spielt Joomla! einen seiner Trümpfe aus: Durch die mehr als 7800
+verfügbaren Erweiterungen ist es möglich, fast jede denkbare Funktion
+bequem nachträglich zu installieren. Aber wie geht das genau vonstatten?
+Wo findet man Erweiterungen? Worauf ist bei der Erweiterungswahl zu
+achten? Wie kann man sie aktualisieren oder vielleicht sogar
+deinstallieren? Diesen Fragen wollen wir uns nun im zweiten Teil dieses
+Kapitels widmen.
+
+==== Erweiterungen finden
+
+===== extensions.joomla.org
+
+Im ersten Schritt stellt sich natürlich die Frage: Wo kann ich die für
+meinen Bedarf passende Erweiterung finden? Zu diesem Zwecke findet sich
+unter [.underline]#extensions.joomla.org# das offizielle
+Erweiterungsverzeichnis des Joomla!-Projekts, das sich in verschiedene,
+nach Anwendungsbereich gegliederte Bereiche (siehe Boxen im unteren
+Bereich) teilt. Zudem gibt es eine Suchfunktion, die das Finden der
+benötigten Funktion erleichtern soll.
+
+image:media/image38.png[media/image38,width=548,height=372]
+
+BILD 10.18 Offizielles Joomla! Extensions Directory
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Eine besondere Rolle im Extensions-Directory nimmt die
+Kategorie _Official Extensions_ ein. In dieser Kategorie finden sich
+Erweiterungen, die das Joomla!-Projekt als offiziell gepflegte
+Erweiterung behandelt. Diese Erweiterungen sind aus der Idee entstanden,
+Core-Erweiterungen, die nicht zwingend auf jeder Seite benötigt werden,
+aus dem Joomla-Core heraus zu lösen und als nachinstallierbares Paket
+anzubieten. Das erste Exemplar dieser Gattung ist die frühere
+Core-Komponente „Weblinks“, die nun als nachinstallierbares Paket
+gehandhabt wird.
+|===
+
+Wir gehen für den weiteren Verlauf davon aus, dass unser Bauer
+Birnennase trotz intensiver Gespräche nicht davon abzubringen ist, ein
+Gästebuch auf seiner Seite anzeigen zu wollen, weshalb wir den
+Suchbegriff „Guestbook“ im Suchfeld eingeben. Daraufhin erhalten wir
+eine Liste mit gefühlten drei Dutzend Gästebüchern von verschiedenen
+Entwicklern, die im Wesentlichen wohl alle das Gleiche tun. Zu jedem
+Suchergebnis finden wir dabei:
+
+* den Namen der jeweiligen Erweiterung (1)
+* das Logo/eine frei wählbare Grafik (2)
+* eine Angabe, mit welchen Joomla!-Versionen die Erweiterung kompatibel
+ist (3)
+* die Durchschnittsbewertung sowie die Anzahl der Bewertungen (4)
+* {blank}
+* {blank}
+* eine Angabe, ob die Erweiterung kommerziell oder nichtkommerziell
+vertrieben wird (5)
+* den Namen des jeweiligen Entwicklers (6)
+
+Die Nummerierungen hinter den Beschreibungen können Sie den Markierungen
+in Bild 10.19 zuordnen.
+
+image:media/image40.png[media/image40,width=548,height=260]
+
+BILD 10.19 Beispieleintrag in [.underline]#extensions.joomla.org#
+
+Nach einem Klick auf den Namen des jeweiligen Eintrags gelangt man zur
+Detailbeschreibung der Erweiterung, die uns neben einigen weiteren
+Angaben den ersehnten Download-Button präsentiert. Dieser leitet uns im
+Normalfall übrigens „nur“ zur Download-Seite des Entwicklers weiter, da
+das _Extensions-Directory_ keine eigenen Downloads hostet. Zudem finden
+wir hier, unterhalb der Beschreibung, mehr oder weniger ausführliche
+Kommentare (Reviews) anderer Nutzer, die ein Gefühl für die Qualität der
+Erweiterung vermitteln.
+
+image:media/image42.png[media/image42,width=548,height=490]
+
+BILD 10.20 Detailseite von [.underline]#extensions.joomla.org#
+
+===== Checkliste für die Auswahl der passenden Erweiterung
+
+Damit wäre auch schon der wohl spannendste Aspekt der
+Erweiterungsauswahl angesprochen: Wie wähle ich aus der Vielzahl der
+Erweiterungen die für mich passende aus? Welche ist zuverlässig und gut
+programmiert? In den letzten Jahren habe ich die Checkliste in Tabelle
+10.2 als Grundlage für meine Auswahl entwickelt.
+
+TABELLE 10.2 Checkliste für die Auswahl der passenden Erweiterung
+
+[width="100%",cols="12%,28%,60%",]
+|===
+|Schritt |Titel |Beschreibung
+
+|1 |Kompatibilität prüfen |Am Anfang eines jeden Erweiterungstests
+sollte geprüft werden, ob die jeweilige Erweiterung überhaupt mit der
+verwendeten Joomla!-Version kompatibel ist – ist dies nicht der Fall, so
+scheidet die Erweiterung von vornherein aus.
+
+|2 |Erweiterungsart prüfen |Wollen wir die Erweiterung im
+_Hauptausgabebereich_ nutzen? Dann ist ein Modul bzw. Plug-in vermutlich
+ungeeignet.
+
+|3 |Nutzerbewertungen lesen |Wie ist die Durchschnittsbewertung der
+Komponente? Häufen sich Nutzerbeschwerden?
+
+|4 |Lizenz prüfen |Ist die Erweiterung kostenlos verfügbar oder wird sie
+kommerziell vertrieben? Ist das Budget zum Kauf groß genug?
+
+|5 |Entwicklerseite besuchen |Existiert die Seite des Entwicklers noch?
+Wann ist die letzte Version erschienen? Scheint das Projekt inzwischen
+„tot“ zu sein? Wann wurde der Eintrag im Extensions-Directory zuletzt
+aktualisiert?
+
+|6 |Programmcode prüfen |Es lohnt sich, nach dem Download der
+Erweiterung einen Blick in den Code zu werfen – insbesondere sollten Sie
+dabei prüfen, ob im Frontend-Verzeichnis von Komponenten
+(_components/com++_++KOMPONENTENNAME_) ein Ordner _views_ existiert,
+weil dieser benötigt wird, um die Ausgabe der Erweiterung zu
+überschreiben.
+
+|7 |Funktionen testen |Im letzten Schritt sollten Sie die nun noch
+infrage kommenden Erweiterungen intensiv testen und dadurch
+herausfinden, ob die benötigten Funktionen tatsächlich vorhanden sind.
+|===
+
+===== Deutschsprachige Erweiterungsverzeichnisse
+
+Was aber tut man, wenn man sich mit der englischen Sprache schwertut und
+sich deshalb auf [.underline]#extensions.joomla.org# nur schwer
+zurechtfindet? Es ist natürlich simpel, hier kurz eine Suchmaschine der
+Wahl anzuwerfen, „Joomla Downloads“ als Suchbegriff zu wählen und dann
+zu schauen, was an deutschsprachigen Ergebnissen heraus kommt.
+Unweigerlich werden Sie dabei auf diverse Portale kommen, wobei
+joomlaos.de mit großen Abstand das prominenteste sein wird.
+
+All diese Portale haben dabei das gleiche Grundproblem: sie basieren auf
+dem Engagement des jeweiligen Portalbetreibers, da die
+Erweiterungsentwickler selbst Ihre Erweiterungen und insbesondere deren
+Updates natürlich nicht auf all den kleinen, sprachspezifischen Seiten
+einpflegen können. Die Portalbetreiber müssen somit sehr viel Zeit
+investieren, um die Liste der Erweiterungen und die zugehörigen
+Downloads zu pflegen und genau hier liegt das Problem: viele
+Portalbetreiber können die notwendige Zeit nicht dauerhaft
+bereitstellen, weshalb diese Portale sich nach und nach mit veralteten
+und unsicheren Erweiterungen füllen.
+
+Daher möchte ich Ihnen sehr nachdrücklich raten, ausschließlich das
+offizielle Erweiterungsverzeichnis zu nutzen.
+
+==== Erweiterungen installieren
+
+Zurück zu unserem Beispiel, der Integration eines Gästebuchs auf
+_www.bauer-birnennase.de_. Nach sorgfältiger Prüfung der verschiedenen
+Erweiterungen haben wir uns letztendlich für die Erweiterung _Phoca
+Guestbook_ entschieden, die wir über die Detailseite der Erweiterung im
+Joomla! Extensions Directory herunterladen und z.B. auf dem Desktop
+ablegen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Insbesondere wenn man regelmäßig mit
+Joomla!-Seiten arbeitet, neigt man dazu, die heruntergeladenen
+Erweiterungen auf dem Rechner in einer Art Archiv zu speichern, damit
+man sie nicht jedes Mal herunterladen muss. Von diesem Vorgehen würde
+ich abraten, da Sie dadurch zwangsläufig veraltete (weil lokal
+gespeicherte) Versionen auf Ihren Seiten installieren werden, die
+eventuell sogar über Sicherheitslücken angreifbar sind. Laden Sie daher
+die entsprechenden Erweiterungen lieber „frisch“ aus dem Netz.
+|===
+
+Anschließend wechseln wir über einen Klick auf _Erweiterungen ++>++_
+_Verwalten ++>++ Installieren_ im Backend zum Erweiterungsmanager, der
+uns drei verschiedene Möglichkeiten zur Installation anbietet:
+
+[arabic]
+. _Paketdatei hochladen:_ Lädt ein _.zip/.tar.gz/.tar.bz2_-Archiv vom
+lokalen Rechner zur Joomla!-Seite hoch, entpackt das Archiv und
+installiert die enthaltene Erweiterung
+
+[arabic, start=3]
+. _Aus Verzeichnis installieren:_ Erlaubt die Angabe eines
+Verzeichnisses auf dem Server, das die Dateien des entpackten
+Installationsarchivs enthält
+. _Von Webadresse installieren:_ Erlaubt die Angabe einer URL zum
+Installationsarchiv, das dann von dem angegebenen externen Server
+heruntergeladen, entpackt und installiert wird, ohne den Umweg über den
+lokalen Rechner zu nehmen
+
+Im Regelfall werden wir in der normalen administrativen Arbeit die
+Möglichkeiten 1 und 2 nutzen. Methode 1 nutzen wir dabei für alle
+„normalen“ Installationen, Methode 2 kann nützlich sein, um extrem große
+Pakete vorher mittels FTP hochzuladen, wenn der Upload über den Browser
+scheitert.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Wir nutzen nun die Methode 1 _Paketdatei hochladen_, um die gerade
+heruntergeladene ­Installationsdatei auf unserem lokalen Rechner zu
+wählen, und starten anschließend den Vorgang mittels Hochladen &
+Installieren.
+
+image:media/image44.png[media/image44,width=548,height=263]
+
+BILD 10.21 Hochladen eines lokal gespeicherten Erweiterungspakets
+
+Anschließend bestätigt uns Joomla! im Regelfall die erfolgreiche
+Installation mit einer (erweiterungsabhängigen) Meldung. Im
+Zweifelsfalle gilt immer: Lesen Sie die dort ausgegebenen Meldungen auf
+jeden Fall durch, denn häufig finden Sie hier noch weitergehende
+Anweisungen.
+
+image:media/image46.png[media/image46,width=548,height=381]
+
+BILD 10.22 Installationsbestätigung von _Phoca Guestbook_
+
+Durch einen Klick auf das _Komponenten_-Menü können wir feststellen,
+dass sich die Erweiterung dort wie erwartet mit einigen Menüpunkten
+verewigt hat. Mit anderen Worten: Das war’s! Wir haben gerade unsere
+erste Joomla!-Erweiterung installiert. Eigentlich ganz einfach, oder?
+
+Nun müssen wir die Komponenten noch im Frontend einbinden. Dafür legen
+wir unter _Phoca Guestbook ++>++ Guestbooks_ ein neues Gästebuch an und
+wechseln anschließend in die _Menüeintrags-Verwaltung_, wo wir einen
+neuen _Menüeintrag_ anlegen. Bei der Auswahl des Menütyps können wir nun
+den Typ _Guestbook_ der gerade installierten Erweiterung auswählen, den
+_Titel_ des Eintrags vergeben und in den Parametern in der rechten
+Spalte unser gerade angelegtes Gästebuch auswählen.
+
+image:media/image48.png[media/image48,width=548,height=374]
+
+BILD 10.23 Menütyp der neu installierten Erweiterung
+
+Werfen wir daraufhin einen Blick ins Frontend, so erwartet uns dort das
+leere Gästebuch mit einem Formular, um neue Einträge zu hinterlassen.
+Das Formular ist derzeit noch in englischer Sprache, die deutschen
+Sprachdateien für die Erweiterung können jedoch auf der Entwicklerseite
+heruntergeladen und anschließend über den gerade gezeigten Weg
+nachinstalliert werden.
+
+Nun sind Sie also in der Lage, Ihre Joomla!-Installation selbstständig
+mit neuen _Erweiterungen_ auszustatten, wodurch sich nahezu unendliche
+Gestaltungsmöglichkeiten eröffnen. Ich bitte an dieser Stelle um
+Verständnis dafür, dass ich nicht auf die Konfiguration und Nutzung
+einzelner Erweiterungen eingehe, da dies bei der schieren Anzahl der
+angebotenen Erweiterungen wohl ganze Buchbände füllen würde – hier gilt
+leider: probieren geht über studieren.
+
+image:media/image50.png[media/image50,width=548,height=485]
+
+BILD 10.24 Frontend der Beispielseite nach Installation der Erweiterung
+
+===== 10.2.2.1 Aus Webkatalog installieren
+
+Eine Alternative zur Installation über den Upload von
+Erweiterungspaketen ist die Nutzung der Funktion zur Installation aus
+dem _Webkatalog_. Bei dieser Funktion wird die Erweiterungsdatenbank des
+offiziellen Extensions Directory direkt im Backend Ihrer Installation
+dargestellt. Unterstützt die jeweilige Erweiterung dabei das
+entsprechende Feature, kann direkt per Klick aus dem Backend heraus die
+Installation gestartet werden.
+
+Um die Funktion zu nutzen, müssen wir im ersten Schritt den
+entsprechenden Tab aktivieren, da dieser standardmäßig deaktiviert ist.
+Um dies zutun, wechseln wir im ersten Schritt erneut in die
+Installationansicht, indem wir im Menü auf Erweiterungen ++>++ Verwalten
+++>++ Installieren klicken.
+
+Im oberen Bereich kann der entsprechende Tab nun per Klick auf „Aus
+Webkatalog installieren“-Tab hinzufügen aktiviert werden, siehe Bild
+10.25.
+
+image:media/image51.png[media/image51,width=548,height=237]
+
+Bild 10.25 Dialog zur Aktivierung der Webkatalog-Funktion
+
+Anschließend können die entsprechenden Erweiterungen über den neuen Tab
+durchsucht und installiert werden – eine echte Komfortfunktion,
+insbesondere wenn man bereits weiß, welche Erweiterung man sucht.
+
+image:media/image52.png[media/image52,width=548,height=322]
+
+Bild 10.26 Webkatalog-Funktion im Backend
+
+==== Erweiterungsmanager
+
+Lassen Sie uns als nächstes die weiteren Möglichkeiten des
+Erweiterungsmanagers betrachten, den Sie unter _Erweiterungen ++>++_
+_Verwalten_ finden. Dieser bietet uns über das komponenteninterne Menü
+acht mögliche Funktionen:
+
+* _Installieren:_ unter Kapitel 10.2.2 genutzte Funktion zum
+Installieren neuer Erweiterungen
+* _Aktualisieren:_ Bietet uns die Möglichkeit,die installierten
+Dritterweiterungen (falls unterstützt) auf neue Versionen zu
+aktualisieren
+* _Verwalten:_ Übersicht aller installierten Erweiterungen mit
+Funktionen zur Deinstallation bzw. Deaktivierung
+* _Überprüfen:_ Entdeckt Erweiterungen, die nicht korrekt installiert
+bzw. manuell via FTP hochgeladen wurden
+* _Datenbank:_ Ermöglicht das manuelle Ausführen von Datenbankupdates
+nach einer Joomla!-Aktualisierung
+* _Warnungen:_ Prüft die Systemumgebung auf etwaige Fehler, welche die
+korrekte Funktion des Erweiterungsmanagers verhindern
+* _Sprachen installieren:_ Erlaubt die Installation von Sprachpaketen
+direkt aus dem Backend heraus
+* _Aktualisierungsquellen:_ Verwaltungsoberfläche für die
+Aktualisierungsserver der Erweiterungen, erlaubt es bestimmte Server zu
+aktivieren oder zu deaktivieren.
+
+image:media/image54.png[media/image54,width=548,height=172]
+
+BILD 10.27 Submenü des Erweiterungsmanagers
+
+===== Erweiterungen verwalten
+
+Wir starten mit dem Submenü-Punkt _Verwalten_, der uns eine Liste aller
+installierten Erweiterungen ausgibt. Beim Betrachten der Liste fällt
+auf, dass einige der dort ausgegebenen Erweiterungen ein „ausgegrautes“
+Status-Icon mit einem Schloss-Symbol haben, weil Sie für die korrekte
+Funktion von Joomla! benötigt werden und daher nicht deinstalliert
+werden können.
+
+Alle anderen Erweiterungen können durch die Selektierung des
+entsprechenden Eintrags mittels Checkbox markiert und anschließend über
+die Nutzung des Toolbar-Buttons deaktiviert bzw. deinstalliert werden.
+
+image:media/image56.png[media/image56,width=548,height=351]
+
+BILD 10.28 Erweiterungsverwaltung
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Auch wenn einige Erweiterungen, die standardmäßig
+bei der Installation mitgeliefert werden, nicht ausgegraut sind und
+daher deinstalliert werden könnten, sollten Sie dies auf jeden Fall
+vermeiden. Diese Erweiterungen können nicht separat heruntergeladen und
+müssten daher, im Fall der Fälle, aufwendig nachinstalliert werden, um
+sie wieder nutzen zu können.
+|===
+
+===== Erweiterungen überprüfen
+
+Der Menüpunkt _Überprüfen_ durchsucht nach einem Klick auf den
+gleichnamigen Toolbar-Button die Verzeichnisse _/components_,
+_/administrator/components_, _/modules_, _/plugins_, _/libraries_,
+_/languages_ und _/templates_ und listet anschließend alle Erweiterungen
+auf, deren Dateien zwar (mittels FTP) hochgeladen wurden, bei denen der
+Installationsprozess jedoch noch nicht gestartet wurde. Sollte es
+entsprechende Erweiterungen geben, so können diese anschließend über die
+Selektion des Eintrags und die Nutzung des _Installieren_-Buttons
+nachinstalliert werden.
+
+image:media/image58.png[media/image58,width=548,height=188]
+
+BILD 10.29 Ausgabe der _Überprüfen_-Funktion
+
+Dies erlaubt theoretisch die „manuelle“ Installation von Erweiterungen,
+wenn die Serverumgebung aufgrund der Rechtestruktur keine
+Dateioperationen durch PHP zulässt. Im Regelfall sollte man jedoch
+vermeiden, auf diese Funktion angewiesen zu sein, da sie enorm
+umständlich ist.
+
+===== Erweiterungen aktualisieren
+
+Die Funktion _Aktualisieren_ erlaubt uns die bequeme Aktualisierung von
+installierten Erweiterungen. Dabei werden nach einem Klick auf den
+Toolbar-Button _Aktualisierungen suchen_ die Update-Server der
+jeweiligen Entwickler kontaktiert, um abzufragen, ob eine neue Version
+der jeweiligen Erweiterung vorliegt.
+
+.
+
+image:media/image60.png[media/image60,width=548,height=188]
+
+BILD 10.30 Dialog zum Aktualisieren von Erweiterungen
+
+===== Datenbank
+
+Im Bereich Datenbank erlaubt uns Joomla! das manuelle Ausführen von
+Datenbankupdates, die beim Update der Joomla!- oder Erweiterungsversion
+notwendig werden. Diese Funktion ist dann nötig, wenn wir aufgrund von
+Problemen mit den Verzeichnisrechten die integrierte
+Aktualisierungsfunktion nicht nutzen können.
+
+image:media/image62.png[media/image62,width=548,height=189]
+
+BILD 10.31 Funktion _Datenbank_ zur Aktualisierung der Datenbankstruktur
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |In Joomla-Kreisen wird diese Funktion auch als „Magic Button“
+bezeichnet, da er auch Probleme beheben kann, die in keinem erkennbaren
+Zusammenhang mit der Datenbank stehen. Der Hintergrund für diese
+magischen Fähigkeiten ist, dass der Button tatsächlich nicht nur das
+Datenbank-Schema aktualisiert sondern sämtliche
+Nachinstallations-Skripte von Joomla ausführt, in den z.B. auch
+Dateioperationen vorgenommen werden.
+|===
+
+===== Warnungen
+
+Im Bereich _Warnungen_ gibt Joomla! verschiedene Fehlermeldungen aus,
+wenn die Systemumgebung auf dem Server zu Problemen bei der Installation
+bzw. Deinstallation von Erweiterungen führen sollte. Geprüft wird im
+Einzelnen:
+
+* Erlaubt PHP das Hochladen von Dateien (PHP-Direktive
+_file++_++uploads_)?
+* Existiert das temporäre Upload-Verzeichnis von PHP und ist es
+beschreibbar (PHP++_++Direktive _upload++_++tmp++_++dir_)?
+* Existiert das in der Joomla!-Konfiguration angegebene temporäre
+Verzeichnis und ist es beschreibbar?
+* Ist die Beschränkung des Arbeitsspeicherverbrauchs hoch genug
+(PHP-Direktive _memory++_++limit_)?
+* Können Dateien hochgeladen werden, die mindestens 4 MB groß sind
+(PHP-Direktiven _post++_++max++_++size_ und
+_upload++_++max++_++filesize_)?
+
+Ist dabei eine oder sind mehrere der genannten Voraussetzungen nicht
+erfüllt, so gibt Joomla! eine entsprechende Fehlermeldung aus.
+
+image:media/image64.png[media/image64,width=548,height=187]
+
+BILD 10.32 Ausgabe verschiedener Warnmeldungen im Erweiterungsmanager
+
+===== 10.2.3.6 Sprachen installieren
+
+Dieser Bereich erlaubt es uns, offizielle _Sprachpakete_ für das
+Joomla!-Backend und –Frontend per Mausklick nachzuinstallieren. Die
+jeweils angezeigte Versionsnummer gibt uns dabei Aufschluss darüber, wie
+aktuell die jeweilige Sprachversion im Verhältnis zur aktuellen
+Joomla-Version ist.
+
+image:media/image65.png[media/image65,width=548,height=309]
+
+Bild 10.33 Übersicht der verfügbaren _Sprachpakete_
+
+===== 10.2.3.7 Aktualisierungsquellen
+
+Das in Joomla! integrierte System zur Aktualisierung von Erweiterungen
+arbeitet mit sogenannten _Aktualisierungsquellen_. Dabei handelt es sich
+um Server, die vom jeweiligen Erweiterungsentwickler betrieben werden
+und die die jeweils aktuelle Erweiterungsversion enthalten. Joomla!
+fragt diese Server regelmäßig ab und kann so feststellen, ob es
+Aktualisierungen für die installierten Erweiterungen gibt.
+
+Ist eine Aktualisierungsquelle einmal nicht verfügbar, z.B. weil der
+Entwickler Probleme mit seiner Serverumgebung hat, wird diese Quelle von
+Joomla automatisch deaktiviert. In der Liste der Aktualisierungsquellen
+kann dieser Update-Server dann manuell wieder aktiviert werden, wodurch
+die Aktualisierungen wieder korrekt abgerufen werden. Umgekehrt können
+existierende Quellen auch deaktiviert oder gelöscht werden.
+
+Eine besondere Rolle hat die Funktion _Wiederherstellen_ die über den
+gleichnamigen Toolbar-Button aufgerufen werden kann. Bei dieser Funktion
+werden die aktuellen Update-Server gelöscht und anschließend neu aus den
+sogenannten Manifest-Files (gewissermaßen eine Beschreibungs-Datei) der
+jeweiligen Erweiterungen neu eingelesen. Dadurch werden z.B.
+Aktualisierungsquellen für nicht mehr genutzte Erweiterungen entfernt.
+
+image:media/image66.png[media/image66,width=548,height=246]
+
+Bild 10.34 Liste der _Aktualisierungsquellen_
+
+Damit wären wir am Ende dieses Kapitels angelangt. Sie haben darin die
+Joomla-Erweiterungsverwaltung kennengelernt, haben Bekanntschaft mit den
+bereits integrierten Erweiterungen gemacht und können, falls notwendig,
+Erweiterungen von Drittanbietern suchen, beurteilen, installieren und
+nutzen.

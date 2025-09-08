@@ -1,0 +1,14 @@
+output
+.DS_Store
+.idea
+
+# build artifacts
+Gemfile.lock
+joomla-de.html
+joomla-de.pdf
+joomla-de.pdfmarks
+joomla-de.epub
+joomla-de.fb2.zip
+joomla-de-kf8.epub
+joomla-de.mobi
+contributors-de.txt
