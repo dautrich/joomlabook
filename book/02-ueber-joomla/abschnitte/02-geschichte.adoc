@@ -1,0 +1,39 @@
+=== Geschichte
+
+Die Wurzeln von Joomla! liegen im CMS Mambo, das seit der
+Jahrtausendwende vom australischen Unternehmen Miro entwickelt und im
+Jahr 2002 als Open-Source-Software veröffentlicht wurde. Mambo
+entwickelte sich schnell zu einem sehr beliebten System und wurde so
+z. B. im Jahr 2004 von der Zeitschrift _Linux User and Developer_ als
+„Best Linux or Open Source Software“ ausgezeichnet. Im August 2005
+entschied sich Miro dazu, die Mambo Foundation, einen gemeinnützigen
+Verein, zu gründen, um das Mambo-Projekt von Miro zu lösen und so zu
+gewährleisten, dass die Weiterentwicklung unabhängig vom Schicksal der
+Firma erfolgen kann.
+
+Einige Tage später kam es jedoch zum Bruch zwischen dem aus Freiwilligen
+bestehenden Entwicklerteam und Miro, woraufhin das gesamte
+Entwicklerteam das Mambo-Projekt verließ, um sich unter dem Namen „Open
+Source Matters“ neu zu gruppieren. Als Grund für diesen Schritt gab das
+Entwicklerteam an, dass die Mambo Foundation ohne Beteiligung der
+Community gegründet worden sei und Miro weiterhin eine starke
+Kontrollfunktion ausübe, die mit einem Open-Source Projekt nicht
+vereinbar wäre – so ließ sich z. B. der Geschäftsführer von Miro zum
+Vorsitzenden der Foundation wählen.
+
+Das Entwicklerteam entschloss sich daraufhin, einen eigenen Ableger von
+Mambo auf den Markt zu bringen, der im September 2005 unter dem Namen
+Joomla! in der Version 1.0 erschien. Joomla! leitet sich vom
+Suaheli-Wort „Jumla“ ab, das in der Übersetzung „Alle zusammen“
+bedeutet. Joomla! 1.0 war zu diesem Zeitpunkt im Wesentlichen nur eine
+leicht fehlerbereinigte Version von Mambo 4.5.2.3, zog jedoch, aufgrund
+des Wechsels des gesamten Entwicklerteams, große Teile der
+Mambo-Community mit sich.
+
+Nach der Veröffentlichung von Joomla! 1.0 und der Stabilisierung des
+Projekts entschloss sich das Entwicklerteam, den alten Code, der
+teilweise noch aus dem Jahr 2000 stammte, über Bord zu werfen und eine
+von Grund auf neu geschriebene Joomla!-Version 1.5 zu schreiben, die im
+Januar 2008 erschien und dem Projekt nochmals einen enormen Aufwind gab.
+In den aktuellen Versionen findet sich dadurch kein Code des Vorgängers
+Mambo mehr.

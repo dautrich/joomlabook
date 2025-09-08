@@ -1,0 +1,30 @@
+[[03-einrichten]]
+
+== Einrichten der Arbeitsumgebung
+
+Nachdem wir uns eingehend mit der Joomla!-Geschichte beschäftigt haben,
+machen wir uns nun an die Arbeit. Bevor wir jedoch mit der Installation
+unserer Joomla!-Umgebung loslegen können, gibt es noch einige äußerst
+wichtige Schritte zu erledigen, in denen wir unsere lokale
+Arbeitsumgebung, gewissermaßen unsere „Werkstatt“, einrichten werden.
+Dabei brauchen wir vor allem vier Programme bei unserer weiteren Arbeit:
+
+* Einen _lokalen Webserver_ mit PHP und MySQL, um neue Joomla!-Seiten
+lokal auf dem eigenen Rechner entwickeln zu können. Natürlich kann man
+dies auch auf einem angemieteten Webspace tun, jedoch dauern viele
+Handgriffe durch den Umweg über FTP deutlich länger.
+* Einen passenden _Texteditor_ zur Editierung von HTML, CSS, JavaScript
+und PHP sowie eine entsprechende _Entwicklungsumgebung_ zur
+Programmierung eigener Joomla!-Erweiterungen
+* Einen _Webbrowser_ inklusive der benötigten Erweiterungen für die
+Webentwicklung
+* Einen _FTP-Client_ zum Transfer von Daten zum Webspace
+
+Wenn Sie die entsprechenden Tools Ihrer Wahl bereits gefunden haben,
+möchte Ich Ihnen trotzdem nahelegen, das Kapitel zumindest kurz zu
+überfliegen, denn vermutlich gibt es auch für Sie noch die eine oder
+andere Kleinigkeit, die Ihnen die Arbeit erleichtern kann.
+
+
+
+include::book/03-einrichten/cap03.adoc[]

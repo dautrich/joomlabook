@@ -1,0 +1,19 @@
+=== Editieren der installierten Templates
+
+Beim Klick auf den jeweiligen Template-Namen gelangen wir zum
+integrierten _Template-Editor_, der uns per Mausklick erlaubt, die HTML-
+und PHP- (linke Spalte) sowie CSS-Dateien (rechte Spalte) des jeweiligen
+Templates ohne FTP-Zugang, direkt aus dem Backend heraus zu bearbeiten.
+
+image:book/09-templatesystem/media/8.png[book/09-templatesystem/media/8,width=548,height=243]
+
+BILD 9.4 Bearbeitungsmöglichkeit der Template-Bestandteile aus dem
+Backend heraus
+
+Der Editor ist dank Syntax-Highlighting relativ komfortabel, bei
+größeren Anpassungen empfiehlt sich dennoch die Nutzung eines
+„richtigen“ Editors.
+
+image:book/09-templatesystem/media/10.png[book/09-templatesystem/media/10,width=548,height=356]
+
+BILD 9.5 Integrierter Template-Editor mit Syntax-Highlighting

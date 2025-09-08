@@ -1,0 +1,43 @@
+=== Menü: Komponenten
+
+Nachdem wir unser erstes Bild hochgeladen haben, wollen wir mit unserem
+Rundgang fortfahren. Als nächsten Menüpunkt der Administration finden
+wir den Punkt „Komponenten“, der beim Mouseover, wie bereits zuvor die
+anderen Menüpunkte, einige Optionen zur Verfügung stellt:
+
+* _Banner:_ Komponente zur Verwaltung von Werbeanzeigen
+* _Banner:_ Verwaltung der Anzeigen
+* _Kategorien:_ Verwaltung der Anzeigenkategorien
+* _Kunden:_ Verwaltung der Anzeigenkunden
+* _Statistiken:_ Statistik über die Anzahl der Klicks je Anzeige,
+Kategorie und Kunde
+* __Joomla-Aktualisierung:__In Joomla integrierter Mechanismus zum
+Updaten der Installation auf neue Versionen.
+* _Kontakte:_ Verwaltung von Kontaktformularen
+* _Kontakte:_ Verwaltung der einzelnen Kontakte
+* _Kategorien:_ Verwaltung der Kontakt-Kategorien
+* _Übersetzungs-Verknüpfungen:_ Dient zur Verwaltung und Verknüpfung von
+Inhalten auf mehrsprachigen Seiten
+* _Nachinstallationshinweise:_ Zeigt wichtige Hinweise und
+Handlungsempfehlungen an, die nach einer Neuinstallation bzw.
+Aktualisierung von Joomla auftreten.
+* _Nachrichten:_ Schreiben und Empfangen von systeminternen Nachrichten
+* _Nachricht schreiben:_ Nachricht an anderen Benutzer verfassen
+* {blank}
+* _Newsfeeds:_ Komponente zur Anzeige externer Newsfeeds auf der eigenen
+Seite
+* _Feeds:_ Verwaltung der RSS- und Atom-Feeds
+* _Kategorien:_ Verwaltung der Feed-Kategorien
+* _Suchindex:_ ermöglicht die Konfiguration der verbesserten
+Suchfunktion _Suchindex_
+* _Suche:_ ermöglicht die Auswertung von Suchanfragen, die über die
+_Standard-Suche_ ausgeführt werden
+* _Umleitungen:_ ermöglicht die Erstellung von Weiterleitungen, z. B. um
+eine alte URL-Struktur zu ersetzen
+* {blank}
+* {blank}
+* {blank}
+
+Die jeweiligen Funktionen beleuchten wir noch einmal intensiver in
+Kapitel 10.1 („Integrierte Erweiterungen“), weshalb uns an dieser Stelle
+ein kurzer Überblick reicht.

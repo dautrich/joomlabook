@@ -1,3 +1,0 @@
-[[02-ueber-joomla]]
-
-include::book/02-ueber-joomla/cap02.adoc[]

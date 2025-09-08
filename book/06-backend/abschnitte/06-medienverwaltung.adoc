@@ -1,0 +1,161 @@
+=== Medienverwaltung
+
+image:book/06-backend/media/15.png[book/06-backend/media/15,width=548,height=187]
+
+BILD 6.8 Standardansicht der Medienverwaltung in einer leeren
+Joomla!-Installation
+
+Die in Joomla! integrierte _Medienverwaltung_ bietet rudimentäre
+Funktionen zum Upload von Bild- und Office-Dateiformaten, die in einer
+frei konfigurierbaren Ordnerstruktur abgelegt und anschließend an
+verschiedenen Stellen des Systems verwendet werden können.
+
+Die Medienverwaltung verfügt in der aktuellen Version leider nur über
+einen sehr eingeschränkten Funktionsumfang und bietet daher auch keine,
+in anderen CMS üblichen, integrierten Funktionen zur Manipulation
+(Beschneidung, Verkleinerung, Thumbnail-Erstellung etc.) von
+hinterlegten Bildern.
+
+Wir wollen den Medien-Manager aber dennoch nutzen, um die grundlegende
+Datei- und Ordnerstruktur unserer Dateien anzulegen und ein Beispielbild
+hochzuladen. Dafür legen wir zuerst einen entsprechenden Beispielordner
+an, was durch Angabe des entsprechenden Ordnernamens im Eingabefeld
+unter der Dateiübersicht und einen anschließenden Klick auf Neues
+Verzeichnis erstellen geschieht. Daraufhin erscheint der neu angelegte
+Ordner sowohl in der linken Spalte des Medien-Managers, der als
+Ordner-Browser fungiert, als auch in der rechten Spalte des Browsers, wo
+er mit einem entsprechend großen Icon versehen wurde (siehe Bild 6.9).
+
+image:book/06-backend/media/17.png[book/06-backend/media/17,width=548,height=211]
+
+BILD 6.9 Anlegen eines neuen Ordners im Medienverzeichnis
+
+Nun wechseln wir in den gerade erstellten Ordner, indem wir auf das Icon
+bzw. den Ordnernamen in einer der beiden Spalten klicken. Dieser ist
+erwartungsgemäß leer, weshalb wir für unsere weitere Arbeit erst ein
+neues Bild hochladen müssen. Dies geschieht im _Datei hochladen_-Bereich
+in der rechten Spalte des Medien-Managers. Dort können wir mittels Klick
+auf den Datei auswählen-Button eine _.jpg-_, _.bmp-_, _.gif-_ oder
+_.png_-Datei auf unserer lokalen Festplatte wählen und diese Datei
+anschließend durch einen Klick auf _Hochladen starten_ zum zuvor
+erstellten und selektieren Verzeichnis hinzufügen.
+
+image:book/06-backend/media/19.png[book/06-backend/media/19,width=548,height=176]
+
+BILD 6.10 Upload einer Datei in den Medien-Manager
+
+Die hochgeladene Datei erscheint nun im Dateibrowser (rechte Spalte) und
+könnte als Bild in verschiedenen Bereichen der Administration verwendet
+werden. Diesen erfolgreichen Schritt bestätigt uns das System auch durch
+die Ausgabe einer entsprechenden Statusmeldung über der eigentlichen
+Ausgabe des Medien-Managers.
+
+Das Löschen einer Datei oder eines Ordners erfolgt entweder über das
+mittels Pfeil markierte Icon in Bild 6.11 oder durch Selektion der
+Checkboxen beim entsprechenden Datei-Icon in der Detailansicht
+(Einzuschalten oberhalb der Bildüberischt) und Anklicken des
+_Löschen_-Buttons in der Toolbar. Wir behalten das gerade hochgeladene
+Bild aber erst einmal, da wir es im späteren Verlauf nochmals verwenden
+wollen.
+
+image:book/06-backend/media/21.png[book/06-backend/media/21,width=548,height=169]
+
+BILD 6.11 Bild nach dem erfolgreichen Hochladen; Löschen des Bildes über
+das markierte Icon
+
+image:book/06-backend/media/22.png[book/06-backend/media/22,width=548,height=179]
+
+BILD 6.12 Löschen eines oder mehrerer Bilder über Selektion der
+entsprechenden Checkbox und ­anschließenden Klick auf _Löschen_ in der
+Toolbar
+
+Standardmäßig ist der Upload von Dateien mit einer Maximalgröße von 10
+MB vorgesehen. Was aber, wenn wir größere Dateien hochladen müssen oder
+die Größe der Dateien beschränken wollen? Dafür bietet die
+Medienverwaltung, wie fast jede Joomla!-Erweiterung, einige
+Konfigurationsmöglichkeiten, die über einen Klick auf das Icon
+_Optionen_ am rechten Rand in der Toolbar des jeweiligen Bereichs
+geöffnet werden. Es gibt also, im Unterschied zu Systemen wie _MODx_,
+keinen zentralen Konfigurationsbereich für alle installierten
+Erweiterungen und Funktionen, sondern die entsprechenden Einstellungen
+werden direkt im _Optionen_-Dialog der jeweiligen Komponente
+vorgenommen.
+
+Der Klick auf den entsprechenden Toolbar-Button bringt uns nun in den
+Konfigurationsbereich mit den in Tabelle 6.4 erläuterten Parametern.
+
+TABELLE 6.4 Parameter der Medienverwaltung
+
+[width="100%",cols="34%,66%",]
+|===
+|Parameter |Erklärung
+
+|Erlaubte Dateiendungen |Allgemeine, erlaubte Dateiendungen beim Upload
+von Dateien aller Art
+
+|Max. Größe (in MB) |Maximalgröße der hochgeladenen Dateien
+
+|Dateiverzeichnis-Pfad |Relativer Pfad, in dem die Dateien des
+Medien-Managers ­gespeichert werden sollen
+
+|Bildverzeichnis-Pfad |Relativer Pfad, in dem Dateien gespeichert werden
+sollen, die der Medien-Manager im „Nur Bilder“-Modus hochlädt
+
+|Upload blockieren |Blockiert den Upload für Nutzer, die nicht
+mindestens den ­Benutzerstatus _Publisher_ innehaben, wenn aufgrund der
+Serverumgebung der Inhalt einer Datei nicht zweifelsfrei festgestellt
+werden kann.
+
+|Dateitypen überprüfen |Prüft die hochgeladenen Dateien mit der
+PHP-Erweiterung ­__Fileinfo__ bzw. _MIME Magic_, um zu verhindern, dass
+Dateien mit einer gefälschten Dateiendung hochgeladen werden
+
+|Erlaubte Bildendungen |Erlaubte Dateiendungen im „Nur Bilder“-Modus
+
+|Ignorierte Dateiendungen |Dateiendungen, deren Dateityp nicht auf
+Fälschungsversuche hin überprüft werden soll
+
+|Erlaubte Dateitypen |Kommagetrennte Liste der erlaubten MIME-Typen
+
+|Verbotene Dateitypen |Kommagetrennte Liste der verbotenen MIME-Typen
+
+| |
+|===
+
+Dem aufmerksamen Leser wird aufgefallen sein, dass die Medienverwaltung
+zwei verschiedene Pfadangaben in den Optionen zur Konfiguration
+anbietet: den _Dateiverzeichnis-Pfad_ und den _Bildverzeichnis-Pfad_.
+Diese im ersten Moment verwirrende Unterscheidung entsteht dadurch, dass
+der Medien-Manager in zwei verschiedenen Betriebsarten genutzt wird. Der
+erste, gerade durch uns genutzte Modus ist der allgemeine
+„Datei-und-Bild“-Modus, in dem sowohl der Upload von allgemeinen Dateien
+als auch der Upload von Bildern möglich ist. Wird der Medien-Manager
+aber bei der Bearbeitung eines Beitrags (siehe Kapitel 7.2, „Inhalte
+erstellen“) aufgerufen, so ist der Upload auf Bilddateien beschränkt.
+Speziell für diesen Modus kann dann auch ein separates
+Upload-Verzeichnis durch den _Bildverzeichnis-Pfad_-Parameter angegeben
+werden.
+
+Wir nutzen unseren Besuch im Konfigurationsdialog dafür, die von einigen
+Grafikprogrammen ausgegebene Dateiendung .jpeg zur Liste der _erlaubten
+Bildendungen_ hinzuzufügen, und verlassen den Dialog anschließend durch
+einen Klick auf den Button Speichern & Schliessen in der oberen Leiste
+des Konfigurationsdialogs.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Insbesondere im professionellen Bereich hat das Vektor-basierte
+Grafikformat SVG eine zunehmende Verbreitung. Leider unterstützt Joomla
+3.7 das Hochladen von SVGs über den Medien-Manager nicht, da SVGs
+aufgrund ihrer technischen Eigenschaften als potenzielles
+Sicherheitsrisiko gelten und daher von einem Sicherheitsmechanismus
+geblockt werden. In Joomla 3.8 soll der Upload zumindest für
+Administratoren möglich sein, bis dahin gilt es alternative Lösungen wie
+einen FTP-Upload oder entsprechende Editor-Erweiterungen (Stichwort JCE,
+siehe Kapitel 15) zu nutzen.
+|===
+
+image:book/06-backend/media/25.png[book/06-backend/media/25,width=548,height=315]
+
+BILD 6.13 Konfigurationsdialog der Medienverwaltung

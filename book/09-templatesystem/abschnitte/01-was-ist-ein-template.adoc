@@ -1,0 +1,77 @@
+=== Was ist ein Template?
+
+Erinnern Sie sich an die Begriffserklärung aus Kapitel 5.2,
+„Architektur“? Dort haben wir gelernt, dass ein _Template_ eine Art
+„Design-Grundgerüst“ ist, das zwar alle nötigen Formatierungen in Form
+von HTML- und CSS-Code sowie Bildern mitbringt, jedoch keine eigenen
+Inhalte besitzt. Stattdessen sind an verschiedenen Stellen des
+_Templates_ Platzhalter eingefügt, die dann beim Seitenaufruf durch die
+Inhalte der jeweiligen Seite ersetzt werden. Das Konzept entspricht
+gewissermaßen dem Druck von Serienbriefen mit gängigen Office-Lösungen:
+Dort erstellen Sie eine Vorlage (_Template_) mit Platzhaltern, die beim
+Druck durch die Adressdaten des Nutzers ersetzt werden.
+
+Wo liegen die Vorteile dieser Vorgehensweise?
+
+[arabic]
+. Da Design und Inhalt voneinander separiert sind, ist es prinzipiell
+möglich, die Inhalte in einem anderen Format (PDF, JSON, RSS o. Ä.)
+auszugeben, ohne sie dafür separat ablegen zu müssen. Alle
+Ausgabeformate speisen sich aus einer zentralen Datenbank.
+. Es ist möglich, das entsprechende Design mit nur einem Mausklick zu
+wechseln, ohne die hinterlegten Inhalte zu verlieren. Diese werden nach
+dem Template-Wechsel einfach in einem neuen Design ausgegeben.
+. Wir können Änderungen am HTML-Code der Seite durchführen, indem wir
+nur eine zentrale Stelle, nämlich die _index.php_ des Templates
+modifizieren. Die Änderung wird dann anschließend automatisch für alle
+Unterseiten übernommen, da auch diese nur durch Ersetzung der
+Platzhalter generiert werden.
+
+Das klingt doch eigentlich nach überzeugenden Vorteilen, oder?
+
+==== Backend- und Frontend-Templates
+
+Eine Besonderheit des in Joomla! integrierten Template-Systems ist, dass
+es nicht nur die Seitenausgabe im _Frontend_, sondern auch den
+Administrationsbereich (_Backend_) mittels Templates generiert. Es ist
+also möglich, eine speziell an das Kundendesign angepasste Version des
+Backends zu erstellen bzw. zu alternativen Administrationstemplates zu
+wechseln.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Alternative Templates für den Administrationsbereich neigen in
+der Praxis sowohl bei größeren Versionsupdates von Joomla als auch im
+Zusammenspiel mit Dritterweiterungen dazu Probleme zu verursachen. Nach
+wie vor nutzt nur ein kleiner Bruchteil der Nutzer alternative Templates
+für das Backend, weshalb diese oftmals schlechter gepflegt und getestet
+sind als das originale Template des Joomla Kerns.
+|===
+
+==== Modulpositionen
+
+Wie bereits erwähnt, arbeitet das Joomla!-Template-System mit
+verschiedenen Platzhaltern, die sich in zwei Typen gliedern.
+
+Jedes Template verfügt über *genau einen* Platzhalter, der durch die
+Ausgabe der gerade aktiven _Komponente_ ersetzt wird. Dieser Platzhalter
+sitzt im Regelfall in der mittleren Spalte des Templates und arbeitet
+als *Haupt-Ausgabeposition*. Hier wird z. B. der Willkommenstext unserer
+Startseite ausgegeben.
+
+Zudem kann ein Template über *beliebig viele* sog. _Modulpositionen_
+verfügen, die zur Darstellung der installierten _Module_ dienen. Es ist
+dabei möglich, in einer Modulposition ein oder mehrere Module
+gleichzeitig auszugeben und andere Modulpositionen komplett ungenutzt zu
+lassen. Im konkreten Beispiel werden z. B. das Menü sowie das
+Login-Formular in einer Modulposition ausgegeben.
+
+image:book/09-templatesystem/media/1.png[book/09-templatesystem/media/1,width=548,height=337]
+
+BILD 9.1 _Hauptausgabe-Bereich_ (mittig) sowie _Modulpositionen_ (grau
+hinterlegt) des Protostar ­Templates
+
+Erst durch das _Positionssystem_ wird die _Template-Engine_ richtig
+mächtig, denn dadurch können wir unsere Seiteninhalte wie mit einem
+Baukasten zusammenstellen.

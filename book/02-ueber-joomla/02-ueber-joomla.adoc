@@ -1,0 +1,11 @@
+[[02-ueber-joomla]]
+
+== Über Joomla!
+
+include::book/02-ueber-joomla/abschnitte/cms.adoc
+
+include::book/02-ueber-joomla/abschnitte/geschichte.adoc
+
+include::book/02-ueber-joomla/abschnitte/organisation.adoc
+
+include::book/02-ueber-joomla/abschnitte/releasestrategie.adoc

@@ -1,0 +1,94 @@
+=== Template-Übersicht
+
+Joomla! erlaubt uns die Verwaltung und Nutzung mehrerer _Templates_
+gleichzeitig, die bequem über das Backend verwaltet und gewechselt
+werden können.
+
+Dafür öffnen wir die Template-Stil-Übersicht mittels Klick auf
+Erweiterungen ++>++ Templates ++>++ Stile im Menü des Backends. Dort
+finden wir alle derzeit verfügbaren _Template-Stile_ aufgelistet.
+
+image:book/09-templatesystem/media/4.png[book/09-templatesystem/media/4,width=548,height=158]
+
+BILD 9.2 Auflistung der Template-Stile einer frischen
+Joomla!-Installation
+
+==== Template-Stile
+
+_Template-Stile_? Ihnen ist sicherlich aufgefallen, dass dieser Begriff
+bisher noch nicht gefallen ist. Das hängt damit zusammen, dass ich
+Ihnen, in Bezug auf das in Joomla! integrierte Template-System, bisher
+nur die halbe Wahrheit erzählt habe.
+
+Stellen Sie sich vor, wir müssten ein Portal für eine Zeitung erstellen,
+das, je nach aufgerufenem Ressort (Politik, Sport, Wetter),
+unterschiedliche Hintergrundfarben nutzen soll. Wenn wir uns nun vor
+Augen führen, dass das Design (und damit auch die Hintergrundfarbe) über
+das Template gesteuert wird, bräuchten wir nach dieser Denkweise für
+fünf verschiedene Ressorts auch fünf verschiedene Templates, die sich
+jeweils nur in der Farbe unterscheiden. Alle weiteren Dateien (CSS- und
+HTML-Code, Bilder etc.) würden gleich bleiben, aber durch die fünf
+verschiedenen _Templates_ fünffach existieren, was uns die Wartung
+erschweren würde. Daher bietet uns Joomla! an, bestimmte Optionen eines
+Templates in *Templateparameter* zu verlagern, um diesen mehrfachen
+Pflegeaufwand zu vermeiden.
+
+Wir machen so den Hintergrund mittels Parameter gestaltbar und könnten
+dadurch verschiedene *Stile* des gleichen _Templates_ erstellen, die
+sich nur durch den Parameter unterscheiden – diese _Stile_ greifen dabei
+alle auf den Code des _Basistemplates_ zurück. Einen solchen
+_Template-Stil_ können wir dann einem Ressort zuweisen. Denken Sie dabei
+einfach an ein und dasselbe Automodell, das, je nach Kundenwunsch, mit
+einer bestimmten Farbe lackiert wird: Obwohl alle Autos unterschiedlich
+aussehen, basieren sie dennoch auf der gleichen Karosserie.
+
+Standardmäßig erzeugt jedes in Joomla! installierte Template einen
+_Template-Stil_, weshalb wir bei zwei installierten Templates auch zwei
+_Template-Stile_ vorfinden. Das jeweils aktuelle _Standard_-Template
+wird dabei durch einen Stern in der gleichnamigen Spalte markiert.
+
+==== Installierte Templates
+
+Wir wechseln nun mittels Klick auf den Sub-Menüeintrag _Templates_ zur
+Template-Übersicht und finden dort eine Liste der installierten
+Templates vor.
+
+image:book/09-templatesystem/media/5.png[book/09-templatesystem/media/5,width=548,height=216]
+
+BILD 9.3 Liste der standardmäßig installierten Templates
+
+Jedes der dort vorhandenen Templates verfügt über ein kleines
+Vorschau-Bildchen sowie Angaben zur installierten _Version_, zum
+_Erstellungsdatum_ sowie zum _Autor_. Außerdem ist auch der Name des
+jeweiligen Templates angegeben. Oberhalb der Liste finden Sie eine
+Filteroption, die standardmäßig mit _Site_ vorbelegt ist und dadurch die
+Frontend-Templates anzeigt. Stellt man diesen Filter auf _Administrator_
+um, so erhält man stattdessen die Ausgabe der Backend-Templates. In
+Tabelle 9.1 finden Sie eine kleine Auflistung der Templates mit Angaben
+zum Einsatzbereich sowie einer Kurzbeschreibung.
+
+TABELLE 9.1 Auflistung der standardmäßig installierten Templates
+
+[width="100%",cols="21%,11%,68%",]
+|===
+|Name |Bereich |Kurzbeschreibung
+
+|Protostar |Frontend |Standardtemplate im Frontend. Basiert auf dem
+CSS-Framework Bootstrap (in der Version 2).
+
+| | |
+
+|Beez3 |Frontend |Sehr schlichtes und technisch hochwertiges und von
+Haus aus auf Barrierefreiheit optimiertes Template. Gute Basis für die
+Erstellung zukunftssicherer, barrierearmer Seiten.
+
+|Isis |Backend |Benannt nach dem ägyptischen Gott, Standardtemplate für
+den Administrationsbereich. Entspricht in seinem Grundaufbau dem Layout
+seiner Vorgänger und ist daher gut für Nutzer, die bereits Erfahrungen
+mit älteren Joomla!-Versionen haben. Verfügt grundsätzlich über
+Unterstützung für Mobilgeräte.
+
+|Hathor |Backend |Erster Versuch eines barrierearmen Templates für den
+Administratorbereich. Derzeit leider noch sehr unausgereift und daher
+für den produktiven Einsatz nur bedingt geeignet.
+|===

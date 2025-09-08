@@ -1,0 +1,31 @@
+=== Content-Management-Systeme
+
+Am Anfang dieses Buches sollten wir uns zunächst einmal mit der Frage
+beschäftigen: Was ist eigentlich ein Content-Management-System (kurz
+CMS)? Die deutsche Übersetzung „Inhaltsverwaltungssystem“ hilft uns ein
+wenig weiter: Ein CMS ist eine Software zur Erstellung, Bearbeitung und
+Verwaltung von Informationen, die aus simplen Texten, aber auch aus
+komplexen Multimediaelementen (Bilder, Videos, Dokumente etc.) bestehen
+können. Dabei ist wichtig, dass die entsprechenden Inhalte im Regelfall
+ohne Programmierkenntnisse eingepflegt werden können.
+
+Obwohl auch sog. Document-Management-Systeme (z. B. Alfresco) oder
+Offline-CMS wie Jekyll im weitesten Sinne zu den
+Content-Management-Systemen gehören, bezieht sich der Begriff des CMS
+i. d. R. auf Web-Content-Management-Systeme, die _ausschließlich_ als
+Webanwendungen arbeiten, also über den Webbrowser administriert werden.
+
+Diese WCMS erlauben es mehreren Benutzern, gemeinschaftlich an den
+hinterlegten Informationen zu arbeiten, und sind medienneutral in ihrer
+Ausgabe. Medienneutral bedeutet dabei, dass die hinterlegten
+Informationen unabhängig vom Ausgabeformat (HTML, PDF, Excel) bzw. der
+Gestaltung der Ausgabe (einfaches Wechseln von Designs) hinterlegt sind
+und so aus einem „Inhaltspool“ verschiedene Arten von Dokumenten erzeugt
+werden können. Dies wird dadurch ermöglicht, dass die Inhalte erst beim
+Aufruf durch den Nutzer _dynamisch_ in ihr finales Ausgabeformat
+gebracht werden. Das unterscheidet Web-CMS vom klassischen Vorgehen mit
+HTML-Editor und FTP-Programm, bei dem die einzelnen Inhalte _statisch_,
+also schon in ihrer endgültigen Form, auf dem Server hinterlegt sind.
+
+Zu den bekanntesten Open-Source-CMS gehören das Blogsystem Wordpress,
+die Enterprise-Systeme Drupal und Typo3 sowie Joomla!.

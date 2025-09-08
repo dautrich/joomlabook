@@ -1,0 +1,33 @@
+=== Menü: Hilfe
+
+Das Hilfe-Menü besteht in erster Linie aus einer Sammlung verschiedener
+externer Links sowie der integrierten Hilfe-Funktion, die jedoch keine
+Inhalte lokal gespeichert hat, weshalb zur Nutzung eine
+Internet-Verbindung erforderlich ist:
+
+* _Joomla!-Hilfe:_ Integrierte Hilfsfunktion, lädt jedoch Inhalte vom
+Joomla!-Hilfe-Server, daher nur mit Internetverbindung nutzbar
+* _Offizielles Supportforum:_ Offizielles, englischsprachiges
+Supportforum _forum.joomla.org_
+* _Offizielles deutsches Forum:_ Deutschsprachiger Bereich von
+_forum.joomla.org_
+* _Dokumentationswiki:_ Umfassendes, gut gepflegtes Wiki
+* _Hilfreiche Joomla!-Links_
+* _Joomla!-Erweiterungen:_ Zentrales Erweiterungsverzeichnis
+* _Joomla!-Übersetzungen:_ Joomla!-Übersetzungszentrale
+* _Joomla!-Verzeichnis:_ Verzeichnis von Joomla!-Hostern und
+-Dienstleistern
+* _Community-Portal:_ Portal zur Community-Pflege mit regelmäßigen
+Blogposts
+* _Sicherheitszentrum:_ Website des Joomla! Security Teams
+* _Entwicklerverzeichnis:_ Verzeichnis zahlreicher Informationen für
+Entwickler
+* _Stack-Exchange:_ Joomla-Subseite bei Stackexchange.com
+* _Joomla-Shop!:_ Online-Shop für zahlreiche Merchandising-Materialien
+
+Viele der angegebenen Links sind überaus interessant, weshalb sich ein
+wenig schmökern durchaus lohnen kann.
+
+Damit wären wir am Ende unseres kleinen Rundgangs angelangt und steigen
+jetzt in den konkreten Teil unserer Arbeit ein: das Einpflegen unserer
+ersten Inhalte.

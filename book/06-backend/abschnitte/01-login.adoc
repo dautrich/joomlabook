@@ -1,0 +1,15 @@
+=== Login
+
+Hier erwartet uns im ersten Schritt das Login-Formular des
+Administrationsbereichs, in dem wir unsere Benutzerdaten eintragen, die
+wir während der Installation eingegeben haben.
+
+Über den Parameter _Sprache_ könnten wir, falls gewünscht, eine
+alternative Sprache für den Administrationsbereich wählen, was
+insbesondere dann spannend wird, wenn Administratoren mit verschiedenen
+Nationalitäten eine gemeinsame Seite pflegen und damit das _Backend_ in
+ihrer jeweiligen Muttersprache nutzen wollen.
+
+image:book/06-backend/media/1.png[book/06-backend/media/1,width=548,height=336]
+
+BILD 6.1 Login-Bereich des Joomla!-Backends

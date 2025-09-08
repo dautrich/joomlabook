@@ -1,0 +1,389 @@
+=== Allgemeine Konfiguration
+
+Der Konfigurationsdialog bietet die Möglichkeit, Einstellungen zu
+verändern, die für die gesamte Seite von Bedeutung sind und daher
+zentral gesteuert werden sollten. Sein Aufbau entspricht dem nahezu
+aller Joomla!-Erweiterungen im Backend. Er gliedert sich in die in Bild
+6.3 markierten Bereiche.
+
+image:book/06-backend/media/5.png[book/06-backend/media/5,width=548,height=359]
+
+BILD 6.3 _Allgemeine Konfiguration_ der Joomla-Seite, Reiter _Site_
+
+[width="100%",cols="34%,66%",]
+|===
+|Markierung (siehe Bild 6.3) |Erläuterung
+
+|1 |Icon und Bezeichnung des gerade aktiven _Backend_-Bereichs
+
+|2 |Werkzeugleiste (_Toolbar_) mit, je nach _Backend_-Bereich,
+unterschiedlichen Optionen wie _Speichern_, _Speichern & Schließen_,
+_Abbrechen_, _Löschen_ etc.
+
+|3 |Unternavigation des gerade aktiven _Backend_-Bereichs, der dem
+Nutzer ­oftmals den Umweg über die _Backend_-Navigation erspart
+
+|4 |Ausgabebereich des jeweiligen _Backend_-Bereichs
+|===
+
+Während sich die Ausgabe, in Abhängigkeit vom jeweiligen
+Administrationsbereich, ändert, bleibt die grundsätzliche Aufteilung
+erhalten, sodass die Nutzer stets ein einheitliches Benutzerinterface
+vorfinden.
+
+Im konkreten Fall finden wir nun, wie bereits erwähnt, zahlreiche
+Konfigurationsoptionen, die sich in vier Reiter (_Site, System, Server,
+Textfilter,_ _Berechtigungen,_) aufteilen und die über die _Tabs_ (siehe
+Bild 6.3, Markierung 4, oberer Rand) aufgerufen werden können. Die im
+Reiter _Site_ zur Verfügung stehenden Parameter sind in der Tabelle 6.1
+aufgelistet und bieten viele spannende Möglichkeiten, die auch beim
+Mouseover des jeweiligen Parameternamens nochmals erklärt werden.
+
+TABELLE 6.1 Konfigurationsparameter des Reiters _Site_
+
+[width="100%",cols="34%,66%",]
+|===
+|Parameter |Erklärung
+
+|Website |
+
+|Name der Website |Der Name der Website wird an verschiedenen Stellen
+der ­Website genutzt (Titel der Offline-Seite, Titel des
+Administrationsbereichs) und wurde bereits während der Installation
+vergeben.
+
+|Website offline |Joomla! bietet die Möglichkeit, die Seite z. B. für
+Updates oder größere Anpassungsarbeiten, die ohne die neugierigen Augen
+der Besucher erfolgen sollen, offline zu schalten.
+
+|Offline-Text |Sollte sich die Seite im Offline-Modus befinden, so wird
+einem Besucher entweder gar kein Text (_Verbergen_), ein eigener Text
+(_Eigenen Text benutzen_) oder ein _Standardtext_ angezeigt.
+
+|Eigener Text |Hier kann der _eigene Text_ für den Offline-Modus
+eingegeben werden. HTML-Tags sind dabei erlaubt.
+
+|Offline-Bild |Bild, das auf der Offline-Seite unserer Installation
+angezeigt wird
+
+|Bearbeitungsicons für |Joomla! unterstützt die Bearbeitung von
+bestimmten Seiteninhalten (konkret: Module, Menüs und Beiträge) über das
+Frontend der Seite. Über diesen Parameter kann bestimmt werden, ob die
+Bearbeitungsfunktion nur für Menüs, nurfür Module oder für beide
+Inhaltsarten aktiviert werden soll.
+
+|Editor |Joomla! bietet zur Textbearbeitung verschiedene Editoren, die
+hier für alle Nutzer gesetzt werden können.
+
+|Standard Captcha |Zu verwendendes _Captcha_-Bild zur Verhinderung von
+Spam-Absendungen
+
+|Standard Zugriffsebene |Setzt die standardmäßige _Zugriffsebene_ für
+neue Inhalte, ­Menüpunkte und Module (siehe Kapitel 11.3,
+„Zugriffsebene“)
+
+|Standard Listenlänge |Gibt an, wie viele Einträge standardmäßig in den
+Listenansichten des Administrationsbereichs zur Verfügung stehen sollen
+
+|Standard Feedlänge |Anzahl der _Beiträge_, die in den durch Joomla!
+generierten RSS- und Atom-Feeds abrufbar sein sollen
+
+|Feed-E-Mail |In RSS- und Atom-Feeds kann eine Autor-E-Mail-Adresse
+angegeben werden. Über diesen Parameter wird gesteuert, ob im Feed
+garkeine Adresse, die Mailadresse des jeweiligen Autors oder die
+allgemeine Mailadresse der Seite angegeben wird, wobei entweder „keine“
+oder „Website-E-Mail“ zu empfehlen ist, damit die (unter Umständen
+private) Mailadresse des Autors nicht versehentlich öffentlich wird.
+
+|Globale Meta-Daten |
+
+|Meta-Beschreibung |Meta-Beschreibung für Seiten, die keine eigene,
+separate Meta-Beschreibung zugewiesen bekommen haben
+
+|Meta-Schlüsselwörter |Meta-Keywords für diejenigen Seiten, denen keine
+separaten Keywords zugewiesen wurden
+
+|Robots |Beeinflusst, ob und wie Suchmaschinen (robots) die jeweilige
+Seiten einlesen dürfen.
+
+|Inhaltsrechte |Generiert den Tag ++<++meta name="rights" /++>++, der
+für die Angaben der Lizenz für Inhalte genutzt wird
+
+|Autor-Meta-Tag anzeigen |Steuert die Einblendung des Tags ++<++meta
+name="author" /++>++
+
+|Joomla!-Version anzeigen |Gibt die jeweilige Joomla-Version im
+generator-Tag des HTML-Codes aus – unter Sicherheitsgesichtspunkten
+nicht zu empfehlen.
+
+|Suchmaschinenoptimierung (SEO) |
+
+|Suchmaschinenfreundliche URL |Joomla! bietet die Möglichkeit, URLs für
+Menschen und Suchmaschinen lesbarer zu gestalten. Diese Funktion wird
+über diesen Parameter aktiviert (siehe Kapitel 13.2, „SEF URLs“).
+
+|URL-Rewrite nutzen |Nutzt die URL-Rewriting-Funktionen des Webservers
+(falls unterstützt). Details siehe Kapitel 13.2, „URL-Rewriting“.
+
+|Dateiendung an URL anfügen |Fügt eine zum Dokumententyp passende Endung
+an die URL an
+
+|Unicode-Aliasse |Umlaute und Sonderzeichen in den URLs erlauben oder
+­umwandeln (ä = ae)
+
+|Seitenname auch im Titel |Fügt den Seitennamen (s. o.) zum
+++<++title++>++-Tag hinzu
+
+|Cookies |
+
+|Domaincookie |Ermöglicht es, das Sitzungscookie auf eine bestimmte
+Domain zu beschränken
+
+|Cookie-Pfad |Ermöglicht es, das Sitzungscookie auf einen bestimmten
+Pfad zu beschränken
+|===
+
+Wir nutzen die günstige Gelegenheit und ändern einen Parameter des
+_Site_-Reiters, der standardmäßig leider nicht optimal vorkonfiguriert
+ist. Dafür setzen wir den Parameter _Standard-Listenlänge_ auf den Wert
+„100“, um bei der späteren Administration nicht ständig manuell auf die
+nächste Seite einer Listenansicht wechseln zu müssen.
+
+Nun wechseln wir zum Reiter _System_ und betrachten erneut die zur
+Verfügung stehenden Parameter in Tabelle 6.2.
+
+TABELLE 6.2 Konfigurationsparameter des Reiters _System_
+
+[width="100%",cols="32%,68%",]
+|===
+|Parameter |Erklärung
+
+|System |
+
+| |
+
+|Protokollverzeichnis |Verzeichnis zur Speicherung von
+Joomla!-spezifischen Log­dateien
+
+|Hilfeserver |Server, der für die Anzeige integrierter Hilfe-Dateien
+genutzt wird
+
+|Fehlersuche (Debug) |
+
+|System debuggen |Gibt verschiedene Informationen aus, die Entwicklern
+bei der Fehlerbehebung helfen
+
+|Sprache debuggen |Markiert Systemausgaben, die noch nicht in
+Sprachdateien übersetzt wurden. Relevant für Entwickler.
+
+|Zwischenspeicher (Cache) |
+
+|Cache-Speicher |Auswahl der Zwischenspeichermethoden
+
+|Pfad zum Cache-Ordner |Gibt den absoluten Pfad zu dem Ordner an, den
+Joomla für das Datei-Caching verwendet.
+
+|Cache-Dauer |Steuert, wie lange Inhalte im Zwischenspeicher erhalten
+bleiben sollen
+
+|Plattformspezifischer Cache |Joomla kann für jede Plattform (konkret:
+für jeden User-Agent) einen eigenen Cache erstellen – damit lassen sich
+Seiten, die z.B. über eine hardcodierte Weiche für Mobilgeräte verfügen,
+für die unterschiedlichen Geräte in der jeweiligen Version cachen.
+
+|Cache |Steuert die Zwischenspeicherung der Joomla! Seite zur
+schnelleren Auslieferung (siehe Kapitel 20.1.3, „Integriertes
+Joomla!-Caching“)
+
+|Sitzung (Session) |
+
+|Sitzungsspeicher |Auswahl der Methode zur Speicherung der
+Session-Informationen
+
+|Sitzungslänge |Zeitraum, nachdem ein inaktiver Benutzer automatisch
+abgemeldet wird
+
+|Geteilte Session |Falls aktiviert, wird ein Nutzer, der sowohl über
+Frontend- auch als über Backend-Rechte verfügt, automatisch in beiden
+Seitenbereichen angemeldet, egal ob der Login über das Front- oder
+Backend erfolgt.
+|===
+
+Auch hier passen wir einen wichtigen Parameter an, der uns andernfalls
+viele Nerven bei der Administration kosten würde. Da Joomla! einen
+Benutzer auch dann als „inaktiv“ wahrnimmt, wenn er z. B. bei der
+Eingabe eines komplexen Texts längere Zeit auf einer Seite verweilt,
+kommt es bei der standardmäßigen _Sitzungslänge_ von 15 Minuten oftmals
+zu Situationen, in denen ein Administrator unbeabsichtigt abgemeldet
+wird und dabei seine Änderungen verliert. Daher tragen wir hier einen
+passenden Wert, z.B.„90“ ein.
+
+image:book/06-backend/media/7.png[book/06-backend/media/7,width=548,height=336]
+
+BILD 6.4 Allgemeine Konfiguration, Reiter _System_
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Die Option „Sitzungslänge“ ist sicherheitsrelevant! Bitte
+wählen Sie hier einen Wert, der nicht größer ist als die maximal
+denkbare Bearbeitungspause, die vorkommen könnte. Sehr große Werte (z.B.
+mehrere Tage oder gar Woche und Monate) führen dazu, dass der
+automatische Logout aus dem Backend nicht mehr greift und es Angreifern
+gelingen kann, die Sitzung (und damit die Seite) zu übernehmen.
+|===
+
+Der nächste Reiter, der zahlreiche Parameter beeinflusst, die sich auf
+die Systemumgebung beziehen, nennt sich _Server_ und ist wiederum über
+die Tabs zu erreichen.
+
+Die verfügbaren Parameter, aufgelistet in Tabelle 6.3, führen bei
+Fehlkonfigurationen dazu, dass die Joomla!-Installation im Extremfall
+nicht mehr ohne Weiteres funktionsfähig ist, und sollten daher mit
+Vorsicht verändert werden.
+
+TABELLE 6.3 Konfigurationsparameter des Reiters _Server_
+
+[width="100%",cols="27%,73%",]
+|===
+|Parameter |Erklärung
+
+|Server |
+
+|Tempverzeichnis |Verzeichnis zur Speicherung temporärer Daten,
+insbesondere zum Entpacken von Archiven bei der
+Erweiterungsinstallation. Muss daher beschreibbar sein.
+
+|GZIP-Komprimierung |Komprimierung der Ausgabe vor dem Transfer zum
+Nutzer (siehe Kapitel 20.3.1, „Aktivierung der GZIP-Komprimierung“)
+
+|Fehler berichten |Steuert, welche Fehlermeldungen durch PHP ausgegeben
+werden sollen
+
+|HTTPS erzwingen |Erzwingt die Nutzung des https-Protokolls im
+Administrationsbereich oder der gesamten Seite
+
+|Zeitzone |
+
+|Serverzeitzone |Festlegen der jeweiligen Zeitzone zur Ausgabe von Zeit-
+und Datumsinformationen
+
+|FTP |
+
+|FTP aktivieren |Nutzung des FTP-Modus (siehe Kapitel 4.1, „Installation
+in der lokalen Umgebung“)
+
+|Server |FTP-Server
+
+|Port |Port, auf dem der FTP-Server lauscht
+
+|Benutzername |Benutzer, der für die FTP-Verbindung genutzt wird
+
+|Passwort |Passwort der FTP-Verbindung
+
+|Root-Verzeichnis |Relativer Pfad der Joomla!-Installation auf dem
+FTP-Server
+
+|Proxy |
+
+|Proxyunterstützung |Erlaubt es, einen Proxyserver anzugeben, den Joomla
+dann für den Verbindungsaufbau nach außen, z.B. zum Abruf von Updates,
+nutzt.
+
+|Datenbank |
+
+|Typ |Typ der Datenbankanbindung
+
+|Server |Datenbankserver IP bzw. Hostname
+
+|Benutzer |Benutzer, der zum Aufbau der Datenbankverbindung genutzt wird
+
+|Datenbank |Name der Datenbank auf dem Datenbankserver
+
+|Präfix |Präfix der Datenbanktabellen
+
+|Mailing |
+
+|Mails senden |Steuert global, ob die Joomla-eigene Mailfunktion
+aktiviert oder deaktiviert ist.Vermeidet z.B. den unbeabsichtigten
+Mailversand in Testumgebungen.
+
+|Massenmail deaktivierten |Erlaubt die Funktion zum Versand von
+Infomails an alle Seitenbenutzer (siehe 6.4) zu Deaktivieren
+
+|Absenderadresse |E-Mail-Adresse, die als Absender bei Systememails
+gesetzt wird
+
+|Absendername |Name des Absenders von Systememails
+
+|Antwort-An-Adresse |E-Mail-Adresse die als „Antwort-An“ (Reply-To)
+Adresse von Systememails gesetzt wird
+
+|Antwort-An-Name |Name für die „Antwort-An“-Adresse
+
+|Mailer a|
+Wählt aus, welche Funktion zum Versand von E-Mails verwendet werden
+soll:
+
+* _PHP-Mail:_ integrierte Mailfunktion der PHP-Installation, Standard
+* _Sendmail:_ nutzt das UNIX-Programm sendmail zum Versand, benötigt die
+exec()-Funktion von PHP
+* _SMTP:_ nutzt einen frei konfigurierbaren SMTP-Server zum Versand.
+Alternative, wenn der in PHP integrierte Mailer nicht funktionsfähig
+ist.
+
+|Sendmailverzeichnis |Pfad zum Sendmail-Programm auf dem jeweiligen
+Webserver
+
+|SMTP-Authentifizierung |Falls der Versand mittels SMTP gewählt wurde,
+so kann über diesen Parameter eingestellt werden, ob der Server eine
+Authentifizierung erfordert.
+
+|SMTP-Sicherheit |Wahl der vom SMTP-Server unterstützten
+Verschlüsselungsmethode (SSL bzw. TLS)
+
+|Port |Port, auf dem der SMTP-Server auf Verbindungsversuche wartet
+
+|Benutzer |Benutzer, der zur Anmeldung am SMTP-Server verwendet werden
+soll
+
+|Passwort |Passwort, das zur Anmeldung genutzt werden soll
+
+|Server |Hostname oder IP-Adresse des SMTP-Servers
+|===
+
+Es gibt zwei Parameter, die unsere besondere Aufmerksamkeit erfordern,
+da sie standardmäßig nicht optimal eingestellt sind. Zunächst müssen wir
+die _Serverzeitzone_ an den Standort unserer Serverumgebung anpassen, da
+andernfalls Probleme bei der Datums- und Uhrzeitdarstellung entstehen
+würden.
+
+Außerdem empfiehlt es sich, die _Von E-Mail_-Adresse auf eine allgemeine
+Adresse wie _info@domain.tld_ zu setzen, da dort standardmäßig die bei
+der Installation verwendete, eventuell private E-Mail-Adresse des
+Administrators verwendet wird.
+
+image:book/06-backend/media/9.png[book/06-backend/media/9,width=548,height=440]
+
+BILD 6.5 Allgemeine Konfiguration, Reiter _Server_
+
+Anschließend wechseln wir zum Tab _Textfilter_, über den wir bestimmen,
+welche eingegebenen Informationen und Formatierungen aus einem
+Eingabefeld herausgefiltert werden sollen. Dabei ist es möglich, diese
+Zuordnung für jede _Benutzergruppe_ (=Filtergruppe) separat vorzunehmen.
+Das _Filterverfahren_ steuert aus, ob überhaupt kein HTML verwendet
+werden darf (_Kein HTML_), ob alle Tags verwendet werden dürfen (_Keine
+Filterung_) oder ob _Standard White_- bzw. _Blacklisten_ verwendet
+werden sollen, deren Filteroptionen gängige Angriffe verhindern. Zudem
+ist es auch möglich, _eigene Black_- bzw. _Whitelisten_ festzulegen,
+wofür die beiden Eingabefelder _Elemente filtern_ und _Attribute
+filtern_ genutzt werden.
+
+image:book/06-backend/media/10.png[book/06-backend/media/10,width=548,height=284]
+
+BILD 6.6 Konfiguration der Textfilter
+
+Dem verbleibenden Reiter _Berechtigungen_ widmen wir uns in einem
+späteren Kapitel (siehe 11.4, „Berechtigungen“) und übernehmen daher
+erst einmal unsere Änderungen durch einen Klick auf Speichern &
+Schliessen in der _Toolbar_.

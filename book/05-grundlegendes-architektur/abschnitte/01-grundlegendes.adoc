@@ -1,8 +1,3 @@
-== Grundlegende Begriffe und Architektur
-
-Bevor wir nun mit dem Aufbau unserer Seite beginnen, möchte ich Ihnen
-zunächst einen kleinen Einblick in den Grundaufbau von Joomla! geben.
-
 === Grundlegende Begriffe
 
 Wenn Sie als Neuling oder Quereinsteiger die Arbeit mit Joomla! in
@@ -121,54 +116,3 @@ Diese Trennung der beiden Strukturen ist insbesondere für unerfahrene
 Nutzer schwierig zu verstehen und wirkt umständlich, weshalb die
 Trennung in der kommenden Joomla!-Version 4.0 zumindest teilweise
 aufgehoben werden soll.
-
-=== Architektur
-
-Der zweite wichtige Schritt für ein rudimentäres Verständnis ist die
-Betrachtung der Joomla!-Architektur, welche Sie in Bild 5.4 sehen.
-
-image:book/05-grundlegendes-architektur/media/6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++5++\++Bild481.PNG,width=331,height=248]
-
-BILD 5.4 Schematische Darstellung des Systems
-
-==== Joomla!-Framework
-
-Das Joomla!-Framework ist ein objektorientiertes PHP-_Framework_ und
-enthält die Klassen und Funktionen für Datenbankanbindung,
-Formularvalidierung, Filterung von Nutzereingaben oder Bildmanipulation,
-die vom Joomla! CMS genutzt werden, und ist dadurch auch zugleich Basis
-für die Entwicklung eigener Erweiterungen. Es ist relativ gut
-dokumentiert und nutzt einige aktuelle Design-Patterns wie _MVC_ oder
-das _Factory_-Pattern.
-
-Mit der Veröffentlichung von Joomla! 1.7 ist das Framework in ein
-eigenständiges, separat vom CMS entwickelte Projekt ausgelagert worden
-und soll sich dadurch zu einem vollwertigen, unabhängig vom CMS
-lauffähigen _Web-Application-Framework_ entwickeln.
-
-Die Plattform wird im gleichnamigen Github-Projekt unter
-[.underline]#https://github.com/joomla-framework# entwickelt.
-
-image:book/05-grundlegendes-architektur/media/8.png[book/05-grundlegendes-architektur/media/8,width=548,height=341]
-
-BILD 5.5 Github-Projekt der Joomla!-Plattform
-
-==== Joomla!-CMS
-
-Das Joomla!-_CMS_ stellt das allgemeine _Front_- und _Backend_ zur
-Verfügung, das wir zum Aufbau unserer Seite benötigen, und sorgt dafür,
-dass die verschiedenen Erweiterungen ineinandergreifen bzw. an der
-entsprechenden Stelle geladen werden. Es ist also der Kern des ansonsten
-modular aufgebauten Systems. Die Entwicklung erfolgt im eigenen
-Github-Projekt, das unter
-[.underline]#https://github.com/joomla/joomla-cms# zu finden ist.
-
-==== Erweiterungen
-
-Die diversen Erweiterungen (_Module, Plug-ins, Komponenten etc_.)
-stellen uns die eigent­lichen CMS-Funktionen (z. B. Anlegen und Anzeigen
-von Menüeinträgen, Artikeln, Formularen etc.) zur Verfügung. Sie greifen
-dabei auf die unterschiedlichen Klassen des _Frameworks_ zurück und
-werden vom _CMS_ aufgerufen.
-
-==

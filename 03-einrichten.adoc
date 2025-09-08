@@ -1,3 +1,0 @@
-[[03-einrichten]]
-
-include::book/03-einrichten/cap03.adoc[]

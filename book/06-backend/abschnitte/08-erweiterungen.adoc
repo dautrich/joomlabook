@@ -1,0 +1,35 @@
+=== Menü: Erweiterungen
+
+Der nächste Menüpunkt „Erweiterungen“ dreht sich rund um die
+Installation, Deinstallation, Aktualisierung und Konfiguration der
+zahlreichen installierten und verfügbaren Joomla!-Erweiterungen. Da wir
+auch diesem Thema ein eigenes Kapitel widmen (siehe Kapitel 10,
+„Joomla!-Erweiterungen“), wollen wir uns wieder nur einen kurzen
+Überblick verschaffen:
+
+* _Verwalten;_ Auflistung, Installation, Deinstallation und
+Aktualisierung der installierten Komponenten, Module, Plug-ins,
+Templates und Sprachdateien
+* _Installieren:_ Bietet diverse Installationswege für Erweiterungen
+* _Aktualisieren:_ Übersicht über die verfügbaren
+Erweiterungsaktualisierungen
+* _Verwalten:_ Erlaubt das Auflisten, Aktivieren, Deaktivieren und
+Deinstallieren von allen Erweiterungstypen
+* _Überprüfen:_ Prüft das Dateisystem auf Erweiterungen, die zwar im
+Dateisystem aber nicht in der Datenbank vorhanden sind
+* _Datenbank:_ Prüft die Datenbank auf ihre Integrität
+* _Warnungen:_ Zeigt mögliche Fehler an, die Erweiterungen verursachen
+* _Sprachen installieren:_ Erlaubt das Installieren von weiteren
+Sprachen über ein bequemes Interface
+* _Aktualisierungsquellen:_ Verwaltung der Aktualisierungsserver, von
+denen die Installation die Liste der verfügbaren Updates bezieht.
+* _Module:_ Verwaltung und Zuordnung der installierten Module
+* _Plugins:_ Verwaltung der installierten Plug-ins
+* _Templates:_ Verwaltung, Zuweisung und Konfiguration der installierten
+Templates
+* _Stile:_ Verwaltung der Templatestile
+* _Templates:_ Verwaltung der Basistemplates
+* _Sprachen:_ Verwaltung und Zuweisung der installierten Sprachdateien
+* _Installiert:_ Verwaltung der Systemsprachen
+* _Inhaltssprachen:_ Verwaltung der Sprachen, in der Inhalte vorliegen
+* _Overrides:_ Verwaltung der angepassten Sprachstrings

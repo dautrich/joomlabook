@@ -1,0 +1,106 @@
+=== Grundaufbau und Kontrollzentrum
+
+Nach dem erfolgreichen Login gelangen wir zum _Kontrollzentrum_
+(_Control-Panel_) des Joomla!-_Backends_, das uns erlaubt, einige häufig
+ausgeführte Aufgaben mit nur einem Klick zu erreichen. Gleichzeitig
+eignet sich das Kontrollzentrum zur Erklärung des relativ einfach
+gehaltenen Grundaufbaus des _Backends_.
+
+image:book/06-backend/media/3.png[book/06-backend/media/3,width=548,height=404]
+
+BILD 6.2 Aufbau des Joomla!-Control-Panels
+
+[width="100%",cols="33%,67%",]
+|===
+|Markierung (siehe Bild 6.2) |Erläuterung
+
+|1 a|
+_Quick-Links_ zum schnellen Erreichen häufig benötigter Bereiche im
+Backend:
+
+* _Neuer Beitrag:_ Formular zum Hinzufügen eines neuen ­Beitrags
+* _Beiträge:_ Übersichtsliste aller existierenden Beiträge
+* _Kategorien:_ Übersichtsliste aller existierenden Kategorien
+* _Medien:_ Übersicht der auf Mediendateien auf dem Server
+* _Menüs:_ Liste der Menüs
+* {blank}
+* _Module:_ Modulverwaltung
+* _Benutzer:_ Liste der Benutzer
+* _Global:_ Globale Konfiguration für seitenweite Einstellungen
+* {blank}
+* {blank}
+* {blank}
+* _Templates:_ Verwaltung der Templates und Stile
+* _Sprachen:_ Sprachdatei- und Inhaltsprach-Verwaltung
+* _Erweiterungen installieren:_ Erlaubt es, neue Erweiterungen
+aufzuspielen
+* _Joomla! ist aktuell:_ Zeigt an, ob die jeweilige Joomla!-Version
+aktuell ist
+* _Alle Erweiterungen sind aktuell:_ Zeigt an, ob die verwendeten
+Dritterweiterungen aktuell sind
+
+|2 |Informationsbereich des Kontrollzentrums. Zeigt einige durch Module
+selbst konfigurierbare Informationen zur Joomla!-Installation. Ist nur
+im Kontrollzentrum sichtbar.
+
+|3 a|
+Allgemeiner Informationsbereich der Joomla!-Seite. Ist ständig sichtbar
+und zeigt:
+
+* Anzahl der im Frontend eingeloggten Benutzer (0 Besucher)
+* Anzahl der im Backend eingeloggten Benutzer
+* Anzahl der empfangenen Systemnachrichten des angemeldeten Nutzers
+* den Link _Vorschau_, der das Frontend der aktuellen Seite in einem
+neuen Tab öffnet
+* den Link _Abmelden_, der den aktuellen Benutzer aus dem
+­Administrationsbereich ausloggt
+
+|4 |Navigation des Backends
+
+|5 |Bereich der Backends, in dem Nachrichten des Systems eingeblendet
+werden, beispielsweise „Erfolgreich gespeichert“ oder „Beitrag
+gelöscht“. Im konkreten Beispiel ist die Bitte des Joomla-Projekts zu
+sehen, auf freiwilliger Basis anonymisierte Systemdaten zu erfassen, die
+den Entwicklern bei der Weiterentwicklung von Joomla helfen. Wenn Sie
+die Weiterentwicklung des Systems unterstützen wollen, wählen Sie hier
+„immer“. Die erfassten Statistiken sind frei
+abrufbar.footnote:[https://developer.joomla.org/about/stats.html]
+
+|6 |Nachinstallationshinweise werden nach der Neuinstallation bzw. einem
+Update von Joomla angezeigt und dienen dazu, wichtige Informationen bzw.
+Handlungsempfehlungen einzublenden. Per Klick auf den Button Hinweise
+anzeigen können diese Hinweise dann gelesen werden. Einige Hinweise sind
+dabei rein informativer Natur und können durch einen entsprechenden
+Klick als gelesen markiert werden, andere Hinweise enthalten konkrete
+Handlungsempfehlungen oder gar einen Button, der auf Knopfdruck
+Änderungen vornimmt.
+|===
+
+Von hier aus starten wir nun einen kleinen Rundgang durch die
+wichtigsten Seiten des Administrationsbereichs. Wir werden erst einmal
+nur einen kleinen Teil der Seiten näher kennenlernen, weil viele
+Bereiche nochmals im weiteren Verlauf des Buchs erklärt werden – für
+einen allgemeinen Überblick über die Funktionen sollte es jedoch
+reichen. Starten wir also im Menüpunkt _System_, der uns beim Mouseover
+die folgenden Optionen anbietet:
+
+* _Kontrollzentrum:_ zeigt das Kontrollzentrum, in dem wir uns gerade
+befinden
+* {blank}
+* _Konfiguration:_ zeigt die allgemeine Konfiguration der Joomla!-Seite
+* {blank}
+* _Globales_ _Freigeben:_ hebt den automatischen Schreibschutz von
+Joomla!-Inhalten wieder auf, der das Überschreiben von Änderungen eines
+anderen Administrators verhindern soll
+* _Cache leeren:_ leert den Zwischenspeicher, den Joomla! zur
+schnelleren Seitenauslieferung nutzt
+* _Abgelaufenen Cache leeren:_ entfernt Dateien, die unnötigerweise im
+Zwischenspeicher verblieben sind
+* _Systeminformationen:_ zeigt zahlreiche Informationen zur
+Joomla!-Installation, zur Serverumgebung, zu den Verzeichnisrechten und
+bietet die Ausgabe des PHP-Befehls phpinfo()
+* {blank}
+
+Wir ändern nun zuerst einige Einstellungen in unserer Joomla!-Seite und
+wechseln daher mit einem Klick auf System ++>++ Konfiguration in den
+allgemeinen Konfigurationsdialog.

@@ -1,0 +1,37 @@
+=== Menü: Menüs und Inhalte
+
+Die nächsten beiden Obermenüpunkte heißen _Menüs_ und _Inhalt_ und
+bilden die Bereiche zur Verwaltung von Menüpunkten und Inhalten ab. Da
+wir auch diesen beiden Menüpunkten eigene Kapitel widmen, wollen wir für
+den Moment nur kurz aufzeigen, welche Möglichkeiten sich hier bieten.
+
+Der Navigationspunkt _Menü_ bietet beim Mouseover die folgenden
+Möglichkeiten:
+
+* _Verwalten:_ Auflistung aller erstellten Menüstrukturen
+* _Neues Menü:_ Neue Menüstruktur anlegen
+* Alle Menüeinträge: Zeigt alle Menüeinträge an, unabhängig vom
+zugeordneten Menü
+* _Main Menu:_ Listet die Menüeinträge des standardmäßig angelegten
+Menüs _Main Menu_ auf
+* _Neuer Menüeintrag:_ Legt im Menü _Main Menu_ einen neuen Menüeintrag
+an
+
+Der Menüpunkt _Inhalt_ beinhaltet diverse Optionen rund um die
+Beitragsverwaltung:
+
+* _Beiträge:_ Auflistung aller auf der Seite vorhandenen Beiträge
+* _Neuer Beitrag:_ Öffnet das Formular zum Hinzufügen eines neuen
+Beitrags
+* _Kategorien:_ Listet die Kategorienstruktur der Seite auf
+* _Neue Kategorien:_ Erstellt eine neue Kategorie
+* _Felder:_ Verwaltet die Zusatzfelder, die für die Inhaltsverwaltung
+angelegt wurden
+* _Feldgruppen:_ Verwaltet die Gruppen, in denen die Felder sortiert
+sind.
+* _Haupteinträge:_ Listet die Beiträge auf, die als _Haupteinträge_
+markiert sind
+* _Medien:_ Verwaltet hochgeladene Mediendateien
+
+Wir wollen uns nun dem Menüpunkt _Medien_ widmen, den wir per Klick
+öffnen.

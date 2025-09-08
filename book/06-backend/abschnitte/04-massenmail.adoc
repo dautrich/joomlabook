@@ -1,0 +1,52 @@
+=== Massenmail
+
+Wir landen nun wieder im _Kontrollzentrum_ und betrachten den nächsten
+Obermenüpunkt „Benutzer“, der uns beim Mouseover die folgenden Optionen
+anbietet:
+
+* _Verwalten:_ Übersicht aller vorhandenen Benutzer
+* _Neuer Benutzer:_ Neuen Benutzer hinzufügen
+* _Gruppen:_ Übersicht der Benutzergruppen
+* _Neue Gruppe:_ Neue Benutzergruppe hinzufügen
+* _Zugriffsebenen:_ Auflistung der Zugriffsebenen
+* _Neue Zugriffsebene:_ Neue Zugriffsebene hinzufügen
+* _Benutzerhinweise:_ Erlauben uns, Notizen zu beliebigen Nutzern
+zuzuordnen, die anschließend von den anderen Administratoren betrachtet
+werden können
+* _Neue Hinweis:_ Neuen Hinweis zu einem Benutzer anlegen
+* _Hinweiskategorien:_ Erlaubt die Kategorisierung der Notizen
+* _Neue Kategorie:_ Neue Kategorie für Notizen anlegen
+* _Felder:_ Erlaubt die Verwaltung von Profilfeldern für Nutzer
+* _Feldgruppen:_ Erlaubt die Verwaltung der Gruppen, in der die Felder
+der Profile einsortiert werden
+* _Massenmail_ _an Benutzer:_ Dient zum Versand von E-Mails an die auf
+der Seite registrierten Benutzer
+
+Da der Benutzer-, Gruppen-, Rechteverwaltung ein eigenes Kapitel
+gewidmet ist (siehe Kapitel 11, „Benutzer- und Rechteverwaltung“),
+schauen wir uns erst einmal den Menüpunkt Massenmail an Benutzer an, den
+wir mittels Mausklick öffnen.
+
+Diese Funktion des Administrationsbereichs erlaubt es uns, E-Mails an
+bestimmte _Benutzergruppen_ zu versenden, um beispielsweise über
+anstehende Wartungsarbeiten und damit verbundene Offline-Zeiten zu
+informieren.
+
+image:book/06-backend/media/13.png[book/06-backend/media/13,width=548,height=256]
+
+BILD 6.7 Massenmail-Funktion des Administrationsbereichs
+
+Dafür wählen wir zuerst in der linken Spalte im _Details_-Bereich die
+Gruppe aus, an die wir unsere E-Mail versenden wollen. Leider ist dabei
+keine Mehrfachauswahl möglich, wir können jedoch über die Checkbox
+_E-Mail an Untergruppen_ auch Benutzer in den Versand mit einbeziehen,
+die Untergruppen der gewählten Gruppe zugeordnet sind. Die Zuordnung der
+Gruppen zueinander wird dabei über die unterschiedliche Einrückung
+veranschaulicht.
+
+In der rechten Spalte können wir nun Betreff und Text unserer E-Mail
+vergeben und dafür, falls wir den Parameter _Als HTML versenden_ gewählt
+haben, beliebige HTML-Tags verwenden.
+
+Die fertige Nachricht lässt sich über einen Klick auf den Button
+_Senden_ abschicken, der sich in der _Toolbar_ befindet.
