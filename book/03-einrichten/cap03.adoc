@@ -335,8 +335,6 @@ Geschmack anpassen lässt.
 Bildimage:book/03-einrichten/media/26.png[book/03-einrichten/media/26,width=548,height=385] 3.14
 Mehrfachauswahl in Sublime Text
 
-=====
-
 ==== Entwicklungsumgebung
 
 ===== Eclipse

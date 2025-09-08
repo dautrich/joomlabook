@@ -99,8 +99,6 @@ Methode – die optionalen Parameter entnehmen Sie bitte der vollständigen
 API-Beschreibung unter [.underline]#api.joomla.org#.
 |===
 
-====
-
 ==== JFactory
 
 Die Klasse JFactory implementiert das sogenannte _Factory_-Pattern in
