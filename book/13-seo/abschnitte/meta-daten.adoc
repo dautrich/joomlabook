@@ -1,5 +1,3 @@
-=== Meta-Daten
-
 Bei Suchmaschinenoptimierung denkt man im ersten Schritt oft an die
 bekannten Meta-Keywords und die Meta-Description, die eine für
 Suchmaschinen optimierte Kurzfassung der Inhalte der jeweiligen Seite
