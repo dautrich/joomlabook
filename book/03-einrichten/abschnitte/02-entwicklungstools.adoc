@@ -27,7 +27,7 @@ schnellen Codes und seines überschaubaren Funktionsumfangs binnen
 Sekunden und bietet eine sehr gute UTF-8-Unterstützung, was ihn zu
 meiner ersten Wahl für die Durchführung kleinerer Änderungen auf
 Windows-Systemen macht.
-image:book/03-einrichten/media/25.jpeg[book/03-einrichten/media/25,width=478,height=371]
+image:media/03/02-13.jpeg[media/03/02-13,width=478,height=371]
 
 Bild 3.23 Notepad{plus}{plus} unter Windows
 
@@ -40,7 +40,7 @@ durch interessante Bedienkonzepte (wie zum Beispiel Mehrfachcursor) und
 durch sein flexibles Plugin-System, womit Sublime sich an den eigenen
 Geschmack anpassen lässt.
 
-Bildimage:book/03-einrichten/media/26.png[book/03-einrichten/media/26,width=548,height=385] 3.14
+Bildimage:media/03/02-14.png[media/03/02-14,width=548,height=385] 3.14
 Mehrfachauswahl in Sublime Text
 
 ==== Entwicklungsumgebung
@@ -83,7 +83,7 @@ kurzen Bedienungseinführung:
 [.underline]#https://docs.joomla.org/Configuring++_++Eclipse++_++for++_++joomla++_++development#
 |===
 
-image:book/03-einrichten/media/29.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild927.PNG,width=502,height=290]
+image:media/03/02-15.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild927.PNG,width=502,height=290]
 
 BILD 3.15 Eclipse
 
@@ -107,7 +107,7 @@ Quasi-Standard in der Szene gemausert hat. Ein besonderes Highlight für
 Joomla-Entwickler ist dabei die integrierte Unterstützung für die
 Joomla-API, die in dieser Form einzigartig im IDE-Bereich ist.
 
-image:book/03-einrichten/media/31.png[book/03-einrichten/media/31,width=548,height=312]
+image:media/03/02-16.png[media/03/02-16,width=548,height=312]
 
 BILD 3.16 PhpStorm
 

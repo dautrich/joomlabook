@@ -114,7 +114,7 @@ Cookies, Cache und Server Workers
 anschließend einen ausführlichen Optimierungsbericht zurück
 * {blank}
 
-image:book/03-einrichten/media/33.png[book/03-einrichten/media/33,width=548,height=344]
+image:media/03/03-17.png[media/03/03-17,width=548,height=344]
 
 BILD 3.17 Chrome-Entwicklertools mit den verschiedenen, hier
 hervorgehobenen Funktionen
@@ -132,7 +132,7 @@ Auswählen eines bestimmten, im Fenster sichtbaren Objekts, die über das
 Cursor-Symbol in der oberen linken Ecke der Entwicklertools aufgerufen
 wird.
 
-image:book/03-einrichten/media/34.png[book/03-einrichten/media/34,width=548,height=289]
+image:media/03/03-18.png[media/03/03-18,width=548,height=289]
 
 BILD 3.18 Auswahl eines Seitenelements mit der _Select an
 Element_-Funktion
@@ -154,7 +154,7 @@ erst aufwendig per FTP verändert werden müsste. Die entsprechenden
 Änderungen sind dabei im Browser sofort sichtbar, werden aber beim
 Reload der Seite wieder zurückgesetzt.
 
-image:book/03-einrichten/media/36.png[book/03-einrichten/media/36,width=548,height=391]
+image:media/03/03-19.png[media/03/03-19,width=548,height=391]
 
 BILD 3.19 Editierung des HTML-Codes mit den _Entwicklertools_
 
@@ -168,7 +168,7 @@ HTML-Codes, mittels Doppelklick temporär editieren oder über die
 Checkbox am rechten Rand der Zeile ganz deaktivieren, wobei auch hier
 jede Änderung sofort im Browser angezeigt wird.
 
-image:book/03-einrichten/media/39.png[book/03-einrichten/media/39,width=548,height=313]
+image:media/03/03-20.png[media/03/03-20,width=548,height=313]
 
 BILD 3.20 Auflistung und Änderung des CSS-Markups
 
@@ -185,7 +185,7 @@ sogenannter FTP-Client benötigt. Für die drei bekanntesten
 Betriebssysteme Windows, Linux und OS X ist dafür der freie FTP-Client
 _Filezilla_ verfügbar, der diese Aufgabe mit Bravour meistert.
 
-image:book/03-einrichten/media/40.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild1079.PNG,width=502,height=394]
+image:media/03/03-21.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++Bild1079.PNG,width=502,height=394]
 
 BILD 3.21 Filezilla
 
