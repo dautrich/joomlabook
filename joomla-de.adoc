@@ -10,6 +10,8 @@ German Joomla Community
 
 include::book/contributors.adoc[]
 
+include::book/license.asc[]
+
 include::book/01-einleitung/01-einleitung.adoc[]
 
 include::book/02-ueber-joomla/02-ueber-joomla.adoc[]
