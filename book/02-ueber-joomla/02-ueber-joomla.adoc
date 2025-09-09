@@ -1,11 +1,9 @@
-[[02-ueber-joomla]]
-
 == Über Joomla!
 
-include::abschnitte/01-cms.adoc
+include::abschnitte/01-cms.adoc[]
 
-include::abschnitte/02-geschichte.adoc
+include::abschnitte/02-geschichte.adoc[]
 
-include::abschnitte/03-organisation.adoc
+include::abschnitte/03-organisation.adoc[]
 
-include::abschnitte/04-releasestrategie.adoc
+include::abschnitte/04-releasestrategie.adoc[]

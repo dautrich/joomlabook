@@ -53,5 +53,3 @@ include::book/20-performace-optimierungen/20-performace-optimierungen.adoc[]
 include::book/21-security/21-security.adoc[]
 
 include::book/22-updates-migration/22-updates-migration.adoc[]
-
-ifdef::backend-pdf[include::index.adoc[]]
