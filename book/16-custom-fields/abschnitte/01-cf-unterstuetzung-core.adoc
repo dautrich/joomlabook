@@ -1,0 +1,49 @@
+=== Diese Joomla!-Komponenten unterstützen „Eigene Felder“
+
+==== Benutzer (com++_++user)
+
+Bei der Benutzerregistrierung gibt es standardmäßig die Felder: Name,
+Benutzername, Passwort und E-Mail. Wollte man bisher weitere Nutzerdaten
+abfragen, war dies mit dem Plug-in „Benutzer-Profil“ möglich, welches
+zudem kopiert und für eigene Zwecke angepasst werden konnte. Auch wenn
+es dieses Plug-in noch gibt, wird es mit „Eigene Felder” im Grunde
+überflüssig, denn Sie können künftig jedes Feld für die
+Benutzeranmeldung individuell festlegen.
+
+==== Beiträge (com++_++content)
+
+Joomla!-Beiträge bieten die Möglichkeit, neben dem Titel und dem
+Beitragstext Schlagwörter, ein Einleitungsbild, ein Beitragsbild, Links
+(A, B und C), einen alternativen Weiterlesen-Text, einen Browsertitel
+und Meta-Informationen zu definieren. Legt man Wert darauf, alle Inhalte
+strukturiert einzugeben, bieten diese Eingabefelder begrenzte
+Möglichkeiten.
+
+Mit „Eigene Felder” können Sie Beitragsformularen beliebig viele weitere
+Felder hinzufügen und im Inhalt ausgeben. Die Möglichkeiten für die
+Darstellung von Inhalten erreicht damit neue Sphären.
+
+==== Kontakte (com++_++contact)
+
+Die Kontaktkomponente bietet eine Vielzahl an vordefinierten Feldern,
+deren Aufzählung ich Ihnen hier erspare. Doch auch wenn man versucht,
+systemseitig alle möglichen Felder zur Verfügung zu stellen, das Feld
+das Sie für Ihren möglichen Einzelfall brauchen, wird oftmals fehlen.
+Mit „Eigene Felder” können Sie nun die Joomla!-Kontaktkomponente durch
+beliebige Felder erweitern und ermöglichen somit eine individuelle
+Darstellung von Kontakten.
+
+Denkbar wären Google-Maps-Karten, spezielle Eingabefelder für
+Social-Media-Profile, Galerien und vieles mehr. Ihre Kreativität ist
+gefragt.
+
+==== Kontaktformular (com++_++contact)
+
+Für ein einfaches Kontaktformular war das Joomla!-Kontaktformular immer
+gut genug. Doch kaum brauchte man nur ein einziges weiteres Eingabefeld
+zur Kontaktaufnahme, griff man schnell zu Formularkomponenten, obwohl es
+ein Plug-in wohl auch getan hätte.
+
+Mit „Eigene Felder” können Sie nun dem Joomla!-Kontaktformular weitere
+Felder hinzufügen und somit vermeiden, wegen kleinen Zusatzfunktionen
+wartungsaufwändige Dritterweiterungen zu installieren.

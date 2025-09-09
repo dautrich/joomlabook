@@ -1,5 +1,22 @@
-[[16-custom-fields]]
-
 == Custom Fields
 
-Source Missing
+Seit Joomla! 1.6 war es Entwicklern dank _JForm_ (siehe auch Kapitel
+17.3.11) bereits möglich, Joomla!-Eingabeformulare mittels Plug-ins um
+Felder zu erweitern.
+
+Die nun in Joomla! 3.7 eingeführte Eigene-Felder-Funktionalität (Custom
+Fields[.indexref]####) ermöglicht es Ihnen, benutzerdefinierte Felder
+ohne Programmieraufwand auf intuitive Art und Weise zu Formularen
+hinzuzufügen.
+
+Diese Felder ersetzen zwar noch kein _Content Construction
+Kit_[.indexref]## (CCK[.indexref]####), aber geschickt eingesetzt bieten
+Eigene Felder viele Möglichkeiten, um die Pflege von Inhalten für
+Endnutzer zu vereinfachen und vielleicht auch verrückte neue Sachen
+damit anzustellen.
+
+„Eigene Felder” sind momentan für _Benutzer_, _Beiträge_,
+_Beitragskategorien_, _Kontakte_, _Kontaktkategorien_ und das
+_Kontaktformular_ verfügbar. Zusätzlich können Entwickler diese bei
+Bedarf in eigene Komponenten integrieren.
+

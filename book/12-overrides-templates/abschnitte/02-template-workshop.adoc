@@ -1,0 +1,3932 @@
+=== Joomla!-Template-Workshop
+
+In diesem Kapitel werden Sie erfahren, wie Sie aus einer HTML-Vorlage
+ein fertiges Joomla!-Template[.indexref]#### erstellen.
+Grundvoraussetzung sind eine existierende Joomla!-Installation in der
+Mindestversion 3.7.x, die Kenntnisse aus dem Abschnitt 12.1 über
+Overrides sowie Kenntnisse in HTML und CSS. Es schadet auch nicht, PHP
+zu erkennen, verstehen und ein bisschen anwenden zu können.
+
+Idealerweise haben Sie sich Ihre Arbeitsumgebung wie im Kapitel 3
+beschrieben bereits eingerichtet.
+
+Für unser Übungstemplate werden wir eine _Bootstrap-3_-Vorlage von
+http://startbootstrap.com/[[.underline]#http://startbootstrap.com/#]
+nehmen und Schritt für Schritt zu einem funktionierenden
+Joomla!-Template umbauen.
+
+Die Template-Vorlage vereinfacht den Einstieg, da uns eine gemeinsame
+Ausgangsbasis mit einem fertigen Layout-Paket vorliegt.
+
+_Bootstrap 3_[.indexref]## ist ein frei verfügbares CSS-Framework,
+welches bereits vollständig für responsive Ansichten optimiert ist. Es
+gibt zahlreiche CSS-Frameworks auf dem Markt und die Umsetzung eines
+Template für Joomla! setzt nicht voraus, dass Sie ein Framework nutzen.
+Sie können ihr CSS auch komplett selbst verfassen. Weitere Informationen
+zu Bootstrap finden Sie unter
+http://getbootstrap.com/[[.underline]#http://getbootstrap.com/#]
+
+Weitere allgemeine Informationen zu CSS-Frameworks finden Sie unter
+Abschnitt 12.6, „CSS-Frameworks“.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Die Ausgabe des Joomla!-Core basiert in der Version 3.7 noch auf
+Bootstrap 2[.indexref]####. Das heistrap 2" r Version 3.7 noch auf
+Bootstrap 2T e, $par**Bootstrap-2**-Layout ausgegeben werden. Das
+betrifft zum Beispiel unter anderem das Blog-Layout, die
+Kontaktkomponente, Formulare etc. Dank des sogenannten MVC Patterns
+(Model-View-Controller Pattern) sind Sie jedoch nicht an die
+Standardausgabe gebunden und können die Core-Layouts mit sogenannten
+„Overrides“ überschreiben. Die Overrides, die ich bereits im
+Abschnitts12.1 umfassend beschrieben habe, werden wir in unserem
+folgenden Template-Workshop gemeinsam umsetzen.
+
+|===
+
+Bereit? Dann kann es losgehen!
+
+==== Download der Beispieldateien
+
+Laden Sie das Paket unter
+https://startbootstrap.com/template-overviews/creative/ herunter. Sie
+finden das fertig umgesetzte Projekt auf GitHub unter
+https://github.com/coolcat-creations/paula-joomla-template/tree/1.0.
+
+Sehen wir uns das Template zunächst in der Vorschau unter
+https://blackrockdigital.github.io/startbootstrap-creative/[[.underline]#https://blackrockdigital.github.io/startbootstrap-creative/#]
+an oder öffnen Sie die _index.html_-Datei aus dem gerade
+heruntergeladenen Templatepaket in Ihrem Browser.
+
+image:media/image25.jpg[media/image25,width=232,height=443]
+
+Bild . Vorschau der Templatevorlage
+
+Das Template ist in folgende Bereiche aufgebaut:
+
+[arabic]
+. Branding/Logo
+
+[arabic, start=8]
+. Hauptnavigation
+. Headerbereich mit vollflächigem Hintergrundbild
+. Teaser
+. Service Bereich mit Icons
+. Portfolio
+. Call-to-Action
+. Kontaktinformationen
+
+image:media/image26.jpg[media/image26,width=289,height=527]
+
+Bild . Struktur der Template-Vorlage
+
+Der Ordner, den Sie unter
+https://startbootstrap.com/template-overviews/creative/ heruntergeladen
+haben, hat folgenden Inhalt:
+
+image:media/image27.jpg[media/image27,width=195,height=234]
+
+Bild . Ordnerstruktur der Templatevorlage
+
+Wenn Sie Templatevorlagen nutzen, ist es wichtig immer die
+Lizenzbedingungen zu beachten. Für diese Vorlage finden Sie den
+Lizenzhinweis in der _Readme.md_-Datei. Passenderweise ist diese
+++[++MIT++]++ und wir dürfen die Vorlage laut folgender Erklärung
+nutzen:
+
+_Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software
+und der zugehörigen Dokumentationen (die "Software") erhält, die
+Erlaubnis erteilt, sie uneingeschränkt zu nutzen, inklusive und ohne
+Ausnahme mit dem Recht, sie zu verwenden, zu kopieren, zu verändern,
+zusammenzufügen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren
+und/oder zu verkaufen, und Personen, denen diese Software überlassen
+wird, diese Rechte zu verschaffen, unter den folgenden Bedingungen:_
+
+_Der obige Urheberrechtsvermerk und dieser Erlaubnisvermerk sind in
+allen Kopien oder Teilkopien der Software beizulegen._
+
+_DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIE
+BEREITGESTELLT, EINSCHLIESSLICH DER GARANTIE ZUR BENUTZUNG FÜR DEN
+VORGESEHENEN ODER EINEM BESTIMMTEN ZWECK SOWIE JEGLICHER
+RECHTSVERLETZUNG, JEDOCH NICHT DARAUF BESCHRÄNKT. IN KEINEM FALL SIND
+DIE AUTOREN ODER COPYRIGHTINHABER FÜR JEGLICHEN SCHADEN ODER SONSTIGE
+ANSPRÜCHE HAFTBAR ZU MACHEN, OB INFOLGE DER ERFÜLLUNG EINES VERTRAGES,
+EINES DELIKTES ODER ANDERS IM ZUSAMMENHANG MIT DER SOFTWARE ODER
+SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN._
+
+_(Deutsche Übersetzung der MIT Lizenz, Quelle:_
+https://de.wikipedia.org/wiki/mit-lizenz[[.underline]#https://de.wikipedia.org/wiki/MIT-Lizenz#]_)_
+
+https://github.com/BlackrockDigital/startbootstrap-creative/blob/gh-pages/LICENSE[[.underline]#https://github.com/BlackrockDigital/startbootstrap-creative/blob/gh-pages/LICENSE#]
+
+==== Aufbau eines Joomla!-Templates
+
+Zunächst machen wir uns mit dem Grundaufbau eines Templates vertraut.
+Haben Sie schon mal in die Dateistruktur von Joomla! geschaut? Falls
+nicht, wäre jetzt ein guter Zeitpunkt. Sie werden einen Ordner namens
+_templates_ entdecken. Das ist für dieses Kapitel unser Zuhause. Im
+Template-Ordner befinden sich alle in Joomla! verfügbaren Templates für
+das _Frontend_. Die Templates für das _Backend_ finden Sie unter
+_administrator/templates_.
+
+Unser Template braucht erstmal einen Namen. In unserem Beispiel nennen
+wir es „*paula*“.
+
+Legen Sie sich auf Ihrem Computer einen komplett leeren Ordner „_paula_“
+an. Dieser Ordner wird später alle Unterordner und Dateien enthalten,
+die unser Template braucht, um mit Joomla! zu funktionieren.
+
+Kopieren Sie nun aus der *html-Vorlage*, die Sie heruntergeladen haben,
+folgende Ordner samt aller Unterverzeichnisse in den Template-Ordner
+„_paula_“:
+
+* css
+* img
+* js
+* less
+* vendor
+
+Kopieren Sie außerdem die _index.html_-Datei in den Ordner „_paula_“ und
+benennen Sie diese in _index.php_ um.
+
+Benennen Sie den Ordner _img_ in _images_ um, damit man diesen Ordner
+später auch für Media-Overrides nutzen kann.
+
+Gemäß den Lizenzbestimmungen dieser _html-Vorlage_ muss auch die
+Lizenzdatei _LICENSE_ mit im Template-Ordner abgelegt werden.
+
+Das Joomla!-Template ist eine Fusion aus dem, was Sie darstellen möchten
+(entspricht den Dateien, die wir gerade in den Template-Ordner kopiert
+haben) und dem, was Joomla! braucht, um ein Template darstellen zu
+können. In der nachfolgenden Übersicht sehen Sie, welche Dateien Sie
+schon übernommen haben und welche Dateien für das Template noch fehlen.
+
+image:media/image28.jpg[media/image28,width=297,height=299]
+
+Bild . Ordnerstruktur des Joomla!-Templates
+
+Wie Sie im Bild 12.28 sehen, sind noch nicht alle Dateien mit einem
+Häkchen versehen. Denn es sind noch weitere Dateien für das Template
+wichtig.
+
+Gehen wir nun die fehlenden Bestandteile durch und legen alle
+notwendigen Dateien an:
+
+======= templateDetails.xml
+
+Diese Datei ist dafür verantwortlich, dass das Template über den
+Joomla!-Erweiterungs-Manager installiert werden kann. Außerdem wird die
+Datei dazu benötigt, um Informationen zum Template, zu den verfügbaren
+Modulpositionen, zu den Sprachdateien und eventuellen
+Konfigurationsparametern zu hinterlegen.
+
+* Erstellen Sie zunächst eine leere Datei mit dem Namen
+_templateDetails.xml_[.indexref]## in Ihrem Template-Ordner „_paula_“.
+
+======= index.php
+
+Die Index-Datei ist die Hauptdatei des Templates, in der das
+HTML-Grundgerüst eingebunden ist. Joomla! verfügt über Platzhalter-Tags
+die dann in diesem Grundgerüst verwendet werden, um dynamische Inhalte
+abzurufen. Des Weiteren können wir unser Template per PHP noch flexibler
+machen.
+
+* Sie haben bereits die _index.html_-Datei aus dem Beispielprojekt in
+Ihren Ordner „_paula_“ kopiert. Falls noch nicht geschehen, benennen Sie
+diese in _index.php_[.indexref]## um.
+
+======= Sprachdateien
+
+Unabhängig davon, ob Sie ein Template einsprachig oder mehrsprachig
+aufbauen wollen, sollte man Sprachdateien[.indexref]#### für das
+Template anlegen. Die Datei mit der Endung _.ini_ ist für die
+Übersetzungen im Frontend, für die Benennung im Template-Manager und für
+die Übersetzung von Parametern verantwortlich. Die Datei mit der Endung
+_.sys.ini_ ist unter anderem für die Übersetzungen während und nach dem
+Installationsvorgang und für die Benennung der Modulpositionen
+zuständig.
+
+* Erstellen Sie, wie Sie im Bild 12.29 sehen, einen Ordner „_language_“
+in Ihrem Template Ordner „_paula_“. Für die englischen Sprachdateien,
+legen Sie in diesem „_language_“-Ordner einen Ordner „_en-GB_“ an und
+erstellen darin zwei leere Dateien: _en-GB.tpl++_++paula.ini_ und
+_en-GB.tpl++_++paula.sys.ini_.
+* Für die deutschen Sprachdateien, legen Sie im „_language_“-Ordner
+einen Ordner „_de-DE_“ an und erstellen darin zwei leere Dateien:
+_de-DE.tpl++_++paula.ini_ und _de-DE.tpl++_++paula.sys.ini_.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Die Kürzel en-GB und de-DE stehen für die gewählte Sprache. Dabei steht
+das „_de_“ zum Beispiel für „_deutsch_“ und das große „_DE_“ für
+„_Deutschland_“. Deutsch wird ja zum Beispiel auch in Österreich
+gesprochen. Mit dem Kürzel de-AT würden wir dann die Sprachdatei für
+Österreich festlegen.
+
+Um die Übersetzungen im Frontend und Backend sichtbar zu machen, müssen
+die Sprachen wie im Abschnitt 14.1.2 beschrieben, aktiviert werden. Wenn
+Sie sich nicht sicher sind, welchen Sprachtag Sie nutzen müssen, dann
+können Sie dort nachsehen, welcher Tag für die entsprechende Sprache
+genutzt werden muss.
+
+|===
+
+image:media/image29.jpg[media/image29,width=320,height=180]
+
+Bild . Ordnerstruktur der Sprachdateien
+
+======= Stylesheet-Dateien
+
+Zum Template gehört auch ein Stylesheet-Ordner (z. B. css, less) mit
+darin enthaltenen Stylesheet[.indexref]####-Dateien (z. B. .css, .less
+oder .scss/.sass)
+
+Das Aussehen wird in einer Stylesheet-Datei definiert, oft heißt die
+Datei template.css, jedoch ist die Benennung irrelevant. .less, .sass
+und .scss sind dynamische Style-Sheet-Sprachen, die client- und/oder
+serverseitig in .css-Dateien kompiliert werden können.
+
+* Den css- und den less-Ordner haben Sie bereits aus der Vorlage in
+Ihren Ordner „_paula_“ kopiert.
+
+======= Template-Thumbnail und -Preview
+
+Das _Template-Thumbnail_[.indexref]## erscheint nach der Installation
+des Template im Joomla!-Template-Manager links vom Template-Eintrag. Das
+Bild kann entweder Ihr Logo oder eine Miniaturansicht des Template
+enthalten. Sie können auch erst ein Platzhalterbild anlegen und dieses
+Bild später austauschen.
+
+image:media/image30.jpg[media/image30,width=548,height=281]
+
+Bild . Ansicht des Template im Template-Manager
+
+* Legen Sie dazu ein Bild im Format _206 px_ _×_ _150 px_ im .png-Format
+an, benennen Sie es _template++_++thumbnail.png_ und legen Sie es in
+unserem Template-Ordner ab. Sie können auch zunächst ein weißes Bild
+anlegen und später austauschen, wenn Sie möchten.
+
+Das _Template-Preview_[.indexref]##-Bild erscheint, wenn Sie auf das
+Thumbnail klicken.
+
+* Legen Sie dazu ein Bild im Format _640 px_ _×_ _388 px_ im
+_.png_-Format an, benennen Sie es _template++_++preview.png_ und legen
+Sie es im _Template-Ordner_ ab.
+
+======= Skripte
+
+Oftmals verfügt ein Template auch über einen Skript-Ordner (z. B. js)
+mit darin enthaltenen Skriptdateien[.indexref]#### (z. B. ++*++.js).
+
+* Den _js_-Ordner haben Sie bereits aus der Vorlage in Ihren Ordner
+„_paula_“ kopiert.
+
+======= Bilder
+
+Einen Bilder-Ordner (z. B. img) mit darin enthaltenen Bilddateien für
+das Template (z. B. ++*++.jpg, ++*++.png, ++*++.gif).
+
+* Den _img_-Ordner haben Sie bereits aus der Vorlage in Ihren Ordner
+„_paula_“ kopiert. Falls noch nicht geschehen, benennen Sie ihn bitte in
+_images_ um, damit man ihn auch für Media-Overrides nutzen kann.
+
+======= html-Ordner für Overrides
+
+Für Overrides von Komponenten, Modulen, Plug-ins und Layouts erstellt
+man in einem Joomla!-Template einen html-Ordner.
+
+Das Thema Overrides wurde bereits umfassend im Abschnitt 12.1
+beschrieben. Dieses Kapitel bildet eine Grundlage für unseren
+Templateabschnitt.
+
+* Legen Sie einen leeren Ordner „_html_“ in Ihrem Template-Ordner
+„_paula_“ an.
+
+======= Weitere Template-Ordner und Dateien
+
+Hat ihr Template noch weitere Ordner/Dateien, die für die richtige
+Darstellung verantwortlich sind? Dann legen Sie auch diese im Paket bei.
+Aus unserem Quellprojekt haben wir einen vendor-Ordner kopiert. Es
+könnte aber auch ein Schriftenordner oder ein anderer wichtiger
+Bestandteil für Ihr Template sein.
+
+* Den _vendor_-Ordner haben Sie bereits aus der Vorlage in Ihren Ordner
+„_paula_“ kopiert.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:*
+
+Normalerweise könnten Sie den _vendor_-Ordner auflösen und dessen Inhalt
+auf die Ordner css, js, images und einen neuen Ordner fonts verteilen.
+Ich möchte Ihnen das Kapitel zum einen so einfach wie möglich machen und
+zum anderen würden solche Änderungen den Rahmen sprengen, denn alle
+Pfadangaben sind in dieser Vorlage auf diese Struktur ausgelegt. Wenn
+Sie möchten, können Sie das im Nachgang selbst vornehmen.
+
+|===
+
+======= favicon.ico
+
+Das Favicon[.indexref]#### ist eine 16 × 16 px Bilddatei, die für die
+Darstellung des Symbols in Ihrer Browserzeile und in den Lesezeichen
+verantwortlich ist. Mittlerweile gibt es neben dem ursprünglichen
+Favicon eine Fülle an weiteren Icondateien für iOS, Android und
+Windows-Tiles. Dafür benutze ich gerne den realfavicon Generator unter
+http://realfavicongenerator.net[realfavicongenerator.net], der nicht nur
+die verschiedenen Icons generiert, sondern auch den Quelltext
+vorbereitet.
+
+* Erstellen Sie eine _favicon.ico_-Datei mit einem Grafikprogramm oder
+einem Online-Generator und legen Sie diese in den Template-Ordner ab.
+
+==== Bearbeitung der templateDetails.xml
+
+Der Aufbau der XML-Datei ist recht einfach und immer in die gleichen
+Bereiche aufgeteilt. Hier lohnt es sich, einmalig eine funktionsfähige
+Vorlage zu erstellen und als Grundlage für Ihre nächsten Templates
+wieder zu verwenden. Oder nutzen Sie einfach die aus diesem Buch.
+
+Öffnen Sie die von Ihnen angelegte _templateDetails.xml_-Datei und
+editieren Sie diese, wie im Listing 12.8 dargestellt.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Bei der _templateDetails.xml_-Datei handelt es sich um eine XML-Datei.
+Sie benötigen keine Kenntnisse im Umgang mit XML-Dateien, sofern Sie die
+Informationen aus diesem Kapitel beherzigen. Weitere Informationen zu
+XML finden Sie unter: https://www.w3schools.com/xml/
+
+|===
+
+Listing . Erster Teil der templateDetails.xml-Datei
+
+++<++?xml version="1.0" encoding="utf-8"?++>++ +
+++<++extension version="3.7" type="template" client="site"++>++ +
+++<++name++>++paula++<++/name++>++ +
+++<++creationDate++>++2017++<++/creationDate++>++ +
+++<++author++>++Elisa Foltyn++<++/author++>++ +
+++<++authorEmail++>++book@coolcat-creations.com++<++/authorEmail++>++ +
+++<++authorUrl++>++http://www.coolcat-creations.com++<++/authorUrl++>++ +
+++<++copyright++>++Copyright 2013-2016 Blackrock Digital
+LLC++<++/copyright++>++ +
+++<++license++>++Code released under the ++[++MIT++]++ +
+(https://github.com/blackrockdigital/startbootstrap-creative/blob/gh-pages/license[https://github.com/BlackrockDigital/startbootstrap-creative/blob/gh-pages/LICENSE])
+license. +
+++<++/license++>++ +
+++<++version++>++1.0++<++/version++>++ +
+++<++description++>++TPL++_++PAULA++_++DESC++<++/description++>++
+
+Die XML Datei beginnt mit dem ++<++extension++>++-Tag und sagt dem
+System, dass die darin enthaltenen Daten für eine Erweiterung verwendet
+werden sollen. In dieser Anweisung legen wir fest, für welche
+Joomla!-Version das Template mindestens geeignet ist. Durch die
+Attribute type="template" und client="site" wird festgelegt, dass es
+sich bei dieser Erweiterung um ein _Template_ handelt, das im _Frontend_
+(site) angezeigt werden soll. Am *Dateiende* befindet sich dann das
+schließende ++<++/extension++>++-Tag.
+
+======= Grundinformationen
+
+Nach dem öffnenden ++<++extension++>++-Tag folgen nun grundsätzliche
+Informationen zum Template. Dazu zählt der Name, die Template-Version,
+das Erstellungsdatum, Kontaktinformationen zum Entwickler, Angaben zum
+Copyright und eine Kurzbeschreibung. Diese Informationen werden im
+Template-Manager im Backend angezeigt.
+
+++<++name++>++paula++<++/name++>++
+
+Unser Template haben wir _paula_ getauft und so legen wir das auch in
+der xml-Datei fest. Da Joomla! diese Angabe nutzt, um das
+Templateverzeichnis zu erstellen, sollten Sie hier mit webkompatiblen
+Namen arbeiten (Kleinbuchstaben, keine Sonderzeichen).
+
+++<++version++>++1.0++<++/version++>++
+
+Da es sich um die erste Version des Templates handelt, vergeben wir hier
+die Nummer 1.0.
+
+++<++creationDate++>++2017++<++/creationDate++>++
+
+Unter creationDate können wir das Datum angeben, an welchem wir das
+Template erstellt haben. Hier ist kein offizielles Format einzuhalten.
+
+++<++author++>++Elisa Sophia Foltyn++<++/author++>++
+
+Unter Autor tragen wir unseren Namen ein. Dieser erscheint dann in der
+Template-Übersicht neben dem Template-Namen.
+
+++<++authorEmail++>++book@coolcat-creations.com++<++/authorEmail++>++
+
+++<++authorUrl++>++http://book.coolcat-creations.com++<++/authorUrl++>++
+
+Falls jemand Rückfragen zum Template hat, geben wir hier unsere
+Mailadresse und die Adresse unserer Homepage ein.
+
+++<++copyright++>++Copyright 2013-2016 Blackrock Digital
+LLC++<++/copyright++>++
+
+Unter Copyright geben wir an, wer die Urheberrechte am Template besitzt.
+In diesem Fall nutzen wir eine HTML-Vorlage von Blackrock Digital LLC
+und geben das auch so im Template an.
+
+++<++description++>++TPL++_++PAULA++_++DESC++<++/description++>++
+
+In der Beschreibung können wir kurz erklären, für welchen Zweck das
+Template entwickelt wurde oder auch grundsätzliche Informationen zum
+Aufbau oder zur Nutzung hinterlegen.
+
+Ich habe hier gleich einen übersetzbaren Sprachstring hinterlegt. _TPL_
+steht hierbei für Template, _PAULA_ ist der Name unseres Template und
+dahinter kommt dann eine beliebige Bezeichnung für diesen Bereich. In
+der dafür zuständigen Sprachdatei _en-GB.tpl++_++paula.sys.ini_ und
+_de-DE.tpl++_++paula.sys.ini_ als auch _en-GB.tpl++_++paula.ini_ und
+_de-DE.tpl++_++paula.ini_ können Sie pro Zeile je eine Sprachkonstante
+eintragen und übersetzen.
+
+Beispiel für die englischen Sprach-Dateien:
+
+TPL++_++PAULA++_++DESC="My first Joomla! template"
+
+Beispiel für die deutschen Sprach-Dateien:
+
+TPL++_++PAULA++_++DESC="Mein erstes Joomla! Template"
+
+======= Datei- und Ordnerstruktur
+
+Listing . Datei- und Ordnerstrukturauflistung in der
+templateDetails.xml-Datei
+
+++<++files++>++ +
+++<++filename++>++index.php++<++/filename++>++ +
+++<++filename++>++templateDetails.xml++<++/filename++>++ +
+++<++filename++>++template++_++preview.png++<++/filename++>++ +
+++<++filename++>++template++_++thumbnail.png++<++/filename++>++ +
+++<++filename++>++favicon.ico++<++/filename++>++ +
+++<++filename++>++LICENSE++<++/filename++>++ +
+++<++folder++>++css++<++/folder++>++ +
+++<++folder++>++html++<++/folder++>++ +
+++<++folder++>++images++<++/folder++>++ +
+++<++folder++>++js++<++/folder++>++ +
+++<++folder++>++language++<++/folder++>++ +
+++<++folder++>++less++<++/folder++>++ +
+++<++folder++>++vendor++<++/folder++>++ +
+++<++/files++>++
+
+Die _templateDetails.xml_-Datei ist dafür zuständig, dass das Template
+installiert werden kann. Woher weiß Joomla!, welche Dateien es bei der
+Installation kopieren soll? Ganz einfach, wir listen alle für unser
+Template relevanten Dateien und Ordner unter ++<++files++>++ auf.
+
+Innerhalb des ++<++files++>++-Tags ist es möglich,
+mittels ++<++folder++>++ ganze Ordner bzw. mittels ++<++filename++>++
+nur einzelne Dateien anzugeben, die dem Template angehören und daher zu
+kopieren sind. Dazu geben Sie den Pfad des Ordners und der Dateien aus
+der ersten Ebene des Templates an. Achten Sie darauf, dass diese Angaben
+auch tatsächlich den Dateien und Ordnern entsprechen, die Sie zur
+Verfügung stellen, da die Installation des Templates andernfalls
+scheitern wird.
+
+======= Modulpositionen
+
+In der _index.php_-Datei wird definiert, auf welchen Positionen Module
+angezeigt werden können. Damit diese in einer Auswahlliste im Backend
+angezeigt werden, müssen Sie unter ++<++positions++>++ alle
+existierenden Modulpositionen definieren.
+
+Listing . Auflistung der Modulpositionen in der
+templateDetails.xml-Datei
+
+++<++positions++>++ +
+++<++position++>++mainnav++<++/position++>++ +
+++<++position++>++header++<++/position++>++ +
+++<++position++>++teaser++<++/position++>++ +
+++<++position++>++top++<++/position++>++ +
+++<++position++>++breadcrumbs++<++/position++>++ +
+++<++position++>++right++<++/position++>++ +
+++<++position++>++portfolio++<++/position++>++ +
+++<++position++>++action++<++/position++>++ +
+++<++position++>++contact++<++/position++>++ +
+++<++/positions++>++
+
+Erinnern Sie sich noch an die einzelnen Darstellungsabschnitte unseres
+Template? Hier definieren wir, wie die Position heißt, an der wir unser
+Branding/Logo, Hauptnavigation, Headerbereich, Teaser, Servicebereich
+mit Icons, Portfolio, Call-to-action und Kontaktinformationen ausgeben.
+Zusätzlich zu den Positionen, die sich aus dem Beispieltemplate ergeben,
+legen wir hier noch eine Seitenleiste „right“ und eine Position für den
+Navigationspfad „breadcrumbs“ fest.
+
+======= Modulposition-Übersetzungen in die Sprachdateien einbinden
+
+Modulpositionen lassen sich auch über die Template-Sprachdateien
+übersetzen. Dazu tragen Sie in der _de-DE.tpl++_++paula.sys.ini_-Datei
+die Übersetzung wie folgt für alle Sprachen ein:
+
+Listing . Übersetzung Modulpositionen in der
+_de-DE.tpl++_++paula.sys.ini_-Datei
+
+TPL++_++PAULA++_++POSITION++_++MAINNAV="Hauptnavigation" +
+TPL++_++PAULA++_++POSITION++_++HEADER="Headerbereich" +
+TPL++_++PAULA++_++POSITION++_++TEASER="Teaserbereich" +
+TPL++_++PAULA++_++POSITION++_++TOP="Oben" +
+TPL++_++PAULA++_++POSITION++_++BREADCRUMBS="Navigationspfad" +
+TPL++_++PAULA++_++POSITION++_++RIGHT="Rechts" +
+TPL++_++PAULA++_++POSITION++_++PORTFOLIO="Referenzen" +
+TPL++_++PAULA++_++POSITION++_++ACTION="Call to Action" +
+TPL++_++PAULA++_++POSITION++_++CONTACT="Kontakt"
+
+======= Template-Parameter und -Optionen
+
+Schön wäre es, wenn das Template an verschiedenen Bereichen
+konfigurierbar wäre. So wäre es denkbar, dass das Logo austauschbar oder
+Farben angepasst werden können. Hierzu kann man in Joomla! verschiedene
+Konfigurationsvariablen definieren.
+
+Listing . Auflistung der Template-Parameter in der
+templateDetails.xml-Datei
+
+++<++config++>++ +
+++<++fields name="params"++>++ +
+++<++fieldset name="advanced"++>++ +
++
+++<++field name="templatecolor" type="list" default="orange" +
+label="TPL++_++PAULA++_++FIELD++_++THEME"
+description="TPL++_++PAULA++_++FIELD++_++THEME++_++DESC" +
+filter="word"++>++ +
+++<++option
+value="orange"++>++TPL++_++PAULA++_++FIELD++_++THEME++_++ORANGE++<++/option++>++ +
+++<++option
+value="blue"++>++TPL++_++PAULA++_++FIELD++_++THEME++_++BLUE++<++/option++>++ +
+++<++/field++>++ +
++
+++<++field name="logotype" type="list" default="0"
+label="TPL++_++PAULA++_++FIELD++_++LOGOTYPE" +
+description="TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++DESC"
+filter="word"++>++ +
+++<++option
+value="text"++>++TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++TEXT++<++/option++>++ +
+++<++option
+value="image"++>++TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++IMG++<++/option++>++ +
+++<++/field++>++ +
++
+++<++field name="logotext" type="text" default="MEIN LOGOTEXT" +
+label="TPL++_++PAULA++_++FIELD++_++LOGOTEXT"
+description="TPL++_++PAULA++_++FIELD++_++LOGOTEXT++_++DESC" +
+showon="logotype:text" /++>++ +
++
+++<++field name="logoimg" type="media"
+default="templates/paula/images/logo.jpg" +
+label="TPL++_++PAULA++_++FIELD++_++LOGOIMG"
+description="TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++DESC" +
+showon="logotype:image" /++>++ +
++
+++<++field name="logoimgalt" type="text" default="" +
+label="TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++ALT" +
+description="TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++ALT++_++DESC" +
+showon="logotype:image" /++>++ +
++
+++<++/fieldset++>++ +
+++<++/fields++>++ +
+++<++/config++>++
+
+Im Abschnitt 9.6 haben Sie bereits gesehen, welche Parameter Sie im
+BeezTemplate ändern können. Durch Template-Parameter können Sie Ihre
+Webseitenvorlage über Stile individualisierbar machen. Zur Übung fügen
+wir für unserem Template ein paar Felder hinzu. Diese Felder, die dann
+in den Template-Parametern gespeichert werden, dienen im Backend dazu,
+auf nutzerfreundliche Art und Weise Einstellungen vornehmen zu können,
+die sich dann im Frontend auf die Anzeige auswirken. Für unser Beispiel
+geben wir dem Templatenutzer die Möglichkeit zwischen zwei
+Templatefarben zu wählen und einen Logotext oder ein Logobild
+auszuwählen.
+
+Die Konfiguration wird mit dem Tag ++<++config++>++ eingeleitet.
+Anschließend definieren wir die Felder mit dem Tag ++<++fields++>++. Das
+Attribut name="params" weist Joomla! an, die nun folgenden Felder als
+Template-Parameter zu behandeln.
+
+Über die Angabe von ++<++fieldset++>++ könnten wir die
+Template-Parameter noch gruppieren und in verschiedene Bereiche (Layout,
+Typografie, Farben) aufteilen.
+
+Anschließend definieren wir über ++<++field++>++ verschiedene
+Eingabefelder. Welche Feldtypen möglich sind, ist im Abschnitt 
+17.3.10.1, „Verfügbare Feldtypen“, aufgelistet.
+
+Mit dem seit Joomla! 3.6 eingeführten _showon_-Parameter kann man sogar
+Feldeinblendungen voneinander abhängig machen. Beispiel: Wenn die
+Logoart „Bild“ ausgewählt ist, soll der Bildupload eingeblendet werden.
+Sehen Sie sich dazu das abgebildete Code-Beispiel im Listing 12.12 an.
+Die Kenntnisse zu Joomla!-Feldern bzw. JForm können Sie im Abschnitt 
+17.3.10 festigen.
+
+======= Parameter Übersetzungen in die Sprachdateien einbinden
+
+Machen Sie die Parameter-Benennungen lesbar, indem Sie die Konstanten in
+den Dateien _de-DE.tpl++_++paula.ini_ und _en-EN.tpl++_++paula.ini_
+eintragen.
+
+Listing . Übersetzung der Template-Parameter in der
+_de-DE.tpl++_++paula.ini_-Datei
+
+TPL++_++PAULA++_++FIELD++_++THEME="Templatefarbe" +
+TPL++_++PAULA++_++FIELD++_++THEME++_++DESC="Wählen Sie hier die
+Templatefarbe aus" +
+TPL++_++PAULA++_++FIELD++_++THEME++_++ORANGE="Orange" +
+TPL++_++PAULA++_++FIELD++_++THEME++_++BLUE="Blau" +
+TPL++_++PAULA++_++FIELD++_++LOGOTYPE="Logoart" +
+TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++DESC="Wählen Sie hier aus ob
+Sie das Logo als Text oder Bild darstellen wollen" +
+TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++TEXT="Textlogo" +
+TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++IMG="Bildlogo" +
+TPL++_++PAULA++_++FIELD++_++LOGOTEXT="Logotext" +
+TPL++_++PAULA++_++FIELD++_++LOGOTEXT++_++DESC="Tragen Sie hier den Text
+ein, der als Logo erscheinen soll" +
+TPL++_++PAULA++_++FIELD++_++LOGOIMG="Bild hochladen" +
+TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++DESC="Laden Sie hier ein Bild im
+Format 200 x 20px hoch" +
+TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++ALT="Logo Alt Text" +
+TPL++_++PAULA++_++FIELD++_++IMGUPLOAD++_++ALT++_++DESC="Tragen Sie hier
+den Alt-tag für das Logobild ein"
+
+======= Sprachdateien
+
+Listing . Auflistung der Sprachdateien in der
+_templateDetails.xml_-Datei
+
+++<++languages folder="language"++>++ +
+++<++language
+tag="en-GB"++>++en-GB/en-GB.tpl++_++paula.ini++<++/language++>++ +
+++<++language
+tag="en-GB"++>++en-GB/en-GB.tpl++_++paula.sys.ini++<++/language++>++ +
+++<++language
+tag="de-DE"++>++de-DE/de-DE.tpl++_++paula.ini++<++/language++>++ +
+++<++language
+tag="de-DE"++>++de-DE/de-DE.tpl++_++paula.sys.ini++<++/language++>++ +
+++<++/languages++>++
+
+Unter dem ++<++language++>++-Tag werden die Sprachdateien gelistet, die
+Sie bereits zwischendurch bearbeitet haben. Diese Angabe kopiert die
+Template-Sprachdateien in den globalen Joomla!-Sprachordner
+(_languages_). Wenn Sie die Sprachdateien ausschließlich im Template
+haben wollen, reicht es, den Sprachordner in der Ordnerstruktur
+(++<++files++>++) unter ++<++folder++>++ anzugeben.
+
+Mit dem Attribut folder="language" im
+umschließenden ++<++language++>++-Tag geben wir an, dass die nachfolgend
+gelisteten Dateien sich in Ordner language befinden.
+
+++<++/extension++>++
+
+Mit dem schließenden ++<++/extension++>++-Tag wird die xml-Datei wie zu
+Beginn erwähnt abgeschlossen.
+
+Listing . Vollständige _templateDetails.xml_ für unser Template.
+
+++<++?xml version="1.0" encoding="utf-8"?++>++ +
+++<++extension version="3.7" type="template" client="site"++>++ +
+++<++name++>++paula++<++/name++>++ +
+++<++creationDate++>++2017++<++/creationDate++>++ +
+++<++author++>++Elisa Foltyn++<++/author++>++ +
+++<++authorEmail++>++book@coolcat-creations.com++<++/authorEmail++>++ +
+++<++authorUrl++>++http://www.coolcat-creations.com++<++/authorUrl++>++ +
+++<++copyright++>++Copyright 2013-2016 Blackrock Digital
+LLC++<++/copyright++>++ +
+++<++license++>++Code released under the ++[++MIT++]++ +
+(https://github.com/blackrockdigital/startbootstrap-creative/blob/gh-pages/license[https://github.com/BlackrockDigital/startbootstrap-creative/blob/gh-pages/LICENSE])
+license. +
+++<++/license++>++ +
+++<++version++>++1.0++<++/version++>++ +
+++<++description++>++TPL++_++PAULA++_++DESC++<++/description++>++ +
+++<++files++>++ +
+++<++filename++>++index.php++<++/filename++>++ +
+++<++filename++>++templateDetails.xml++<++/filename++>++ +
+++<++filename++>++template++_++preview.png++<++/filename++>++ +
+++<++filename++>++template++_++thumbnail.png++<++/filename++>++ +
+++<++filename++>++favicon.ico++<++/filename++>++ +
+++<++filename++>++LICENSE++<++/filename++>++ +
+++<++folder++>++css++<++/folder++>++ +
+++<++folder++>++html++<++/folder++>++ +
+++<++folder++>++images++<++/folder++>++ +
+++<++folder++>++js++<++/folder++>++ +
+++<++folder++>++language++<++/folder++>++ +
+++<++folder++>++less++<++/folder++>++ +
+++<++folder++>++vendor++<++/folder++>++ +
+++<++/files++>++ +
++
+++<++positions++>++ +
+++<++position++>++mainnav++<++/position++>++ +
+++<++position++>++header++<++/position++>++ +
+++<++position++>++teaser++<++/position++>++ +
+++<++position++>++top++<++/position++>++ +
+++<++position++>++breadcrumbs++<++/position++>++ +
+++<++position++>++right++<++/position++>++ +
+++<++position++>++portfolio++<++/position++>++ +
+++<++position++>++action++<++/position++>++ +
+++<++position++>++contact++<++/position++>++ +
+++<++/positions++>++ +
++
+++<++config++>++ +
+++<++fields name="params"++>++ +
+++<++fieldset name="advanced"++>++ +
++
+++<++field name="templatecolor" type="list" default="orange" +
+label="TPL++_++PAULA++_++FIELD++_++THEME"
+description="TPL++_++PAULA++_++FIELD++_++THEME++_++DESC" +
+filter="word"++>++ +
+++<++option
+value="orange"++>++TPL++_++PAULA++_++FIELD++_++THEME++_++ORANGE++<++/option++>++ +
+++<++option
+value="blue"++>++TPL++_++PAULA++_++FIELD++_++THEME++_++BLUE++<++/option++>++ +
+++<++/field++>++ +
++
+++<++field name="logotype" type="list" default="0"
+label="TPL++_++PAULA++_++FIELD++_++LOGOTYPE" +
+description="TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++DESC"
+filter="word"++>++ +
+++<++option
+value="text"++>++TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++TEXT++<++/option++>++ +
+++<++option
+value="image"++>++TPL++_++PAULA++_++FIELD++_++LOGOTYPE++_++IMG++<++/option++>++ +
+++<++/field++>++ +
++
+++<++field name="logotext" type="text" default="MEIN LOGOTEXT" +
+label="TPL++_++PAULA++_++FIELD++_++LOGOTEXT"
+description="TPL++_++PAULA++_++FIELD++_++LOGOTEXT++_++DESC" +
+showon="logotype:text" /++>++ +
++
+++<++field name="logoimg" type="media"
+default="templates/paula/images/logo.jpg" +
+label="TPL++_++PAULA++_++FIELD++_++LOGOIMG"
+description="TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++DESC" +
+showon="logotype:image" /++>++ +
++
+++<++field name="logoimgalt" type="text" default="" +
+label="TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++ALT" +
+description="TPL++_++PAULA++_++FIELD++_++LOGOIMG++_++ALT++_++DESC" +
+showon="logotype:image" /++>++ +
++
+++<++/fieldset++>++ +
+++<++/fields++>++ +
+++<++/config++>++
+
+++<++languages folder="language"++>++ +
+++<++language
+tag="en-GB"++>++en-GB/en-GB.tpl++_++paula.ini++<++/language++>++ +
+++<++language
+tag="en-GB"++>++en-GB/en-GB.tpl++_++paula.sys.ini++<++/language++>++ +
+++<++language
+tag="de-DE"++>++de-DE/de-DE.tpl++_++paula.ini++<++/language++>++ +
+++<++language
+tag="de-DE"++>++de-DE/de-DE.tpl++_++paula.sys.ini++<++/language++>++ +
+++<++/languages++>++ +
++
+++<++/extension++>++
+
+======= Template installieren[.indexref]####
+
+Wir haben jetzt den Pflichtteil absolviert, um das Template bereits in
+unserer Joomla!-Umgebung installieren zu können. Nach der Installation
+werden wir live am Template arbeiten und nach jedem Arbeitsschritt
+Zwischenergebnisse sehen.
+
+Für die Installation stehen Ihnen zwei Möglichkeiten zur Verfügung:
+
+[arabic]
+. Komprimieren Sie den Templateordner „_paula_“ zu einem _.zip_-Archiv.
+Fall Sie unter Mac OS bzw. OS X arbeiten, denken Sie dran, ein Programm
+zu verwenden, das die unsichtbaren Systemdateien (.DS++_++STORE) nicht
+mit in das .zip ablegt (z. B. CleanArchiver). Installieren Sie das
+Template anschließend wie eine übliche Erweiterung über den
+Joomla!-Erweiterungsmanager unter Erweiterungen » Verwalten.
+
+image:media/image31.jpg[media/image31,width=548,height=281]
+
+Bild . Ansicht des Erweiterungsmanagers
+
+[arabic, start=15]
+. Als alternative Möglichkeit kopieren Sie den Ordner _paula_ über FTP
+oder lokal in den _template_-Ordner im Joomla!-Rootverzeichnis.
+Überprüfen Sie nochmal final, ob alle Dateien, die Sie in der
+_templateDetails.xml_-Datei versprechen, auch in Ihrem Paket vorhanden
+sind, da Sie sonst einen Fehler bei der Installation haben werden. Jetzt
+lassen wir Joomla! nach unserem Template suchen. Dazu klicken Sie auf
+Erweiterungen » Verwalten » Überprüfen. Sie finden hier unser Template
+_paula_ vor. Klicken Sie in die Checkbox vor dem Template-Namen und
+anschließend oben links auf den Installieren-Button.
+
+image:media/image32.jpg[media/image32,width=548,height=281]
+
+Bild . Ansicht des Bereiches „Erweiterungen überprüfen“
+
+Sollte die Installation fehlschlagen, haben Sie eventuell einen
+Schreibfehler in der templateDetails.xml oder eine Datei vergessen.
+Überprüfen Sie sorgfältig die bisher angelegten Daten.
+
+Wenn Sie nun auf Erweiterungen » Templates klicken, dann erscheint unser
+_paula_-Template jetzt auch in der Übersicht der Templatestile. Vergeben
+Sie dem Template ein Sternchen um es als Standard zu setzen.
+
+image:media/image33.jpg[media/image33,width=548,height=218]
+
+Bild . Ansicht des Templatestils
+
+Wie sieht nun das, was wir bisher erstellt haben, im Frontend, also aus
+Besuchersicht, aus? Klicken Sie im Backend auf den Vorschaulink oben
+rechts, um ein neues Fenster mit der Frontend-Ansicht zu öffnen.
+
+Sie sehen, die Vorlagendatei wird zwar irgendwie geladen, wird jedoch
+völlig falsch dargestellt, sämtliche Verknüpfungen zu den Stylesheet-
+und den Skriptdateien sind durch die Integration in Joomla! ungültig
+geworden. Die Skripte befinden sich ja im Template-Ordner, das CMS sucht
+aber ab dem Stammverzeichnis nach den Dateien. Das werden wir aber
+gleich korrigieren.
+
+Der ursprüngliche statische HTML-Code wird nun Schritt für Schritt in
+unser dynamisches Template umgewandelt.
+
+==== Basisangaben in der index.php
+
+Entgegen anderer Content-Management-Systeme können Sie in Joomla! sehr
+einfach mit reinem HTML und einer Handvoll PHP-Befehle ein komplettes
+Template bauen. Es sind keinerlei eigene Skriptsprachen notwendig.
+
+In diesem Abschnitt erkläre ich Ihnen grundsätzliche _PHP_- und
+Joomla!-Anweisungen, sogenannte _Jdoc-Anweisungen_, die unsere
+_index.php_ zu einem dynamischen Template für Joomla! machen.
+
+===== Joomla!-spezifische PHP-Anweisungen
+
+Wo auch immer nun ihr Template liegt – gehen Sie über FTP, über den
+Joomla!-Template-Manager oder lokal in Ihren Template-Ordner und öffnen
+Sie die _index.php_-Datei zur Bearbeitung. Beginnen wir mit ein paar
+wichtigen PHP-Codes und arbeiten uns dann zu den Jdoc-Anweisungen vor.
+
+======= Einleitung der Datei
+
+Mit ++<++?php defined('++_++JEXEC') or die; ?++>++ werden Dateien in
+Joomla! eingeleitet. Diese Zeile ist eine Konstante und prüft ob diese
+Datei über Joomla! ausgeführt wird. Falls nicht, wird der Zugriff auf
+diese Datei gesperrt. Setzen Sie diesen Befehl in die erste Zeile des
+Templates, um den direkten Zugriff auf die Datei zu unterbinden.
+
+======= Pfadangaben
+
+Mit der Anweisung ++<++?php echo $this-++>++baseurl; ?++>++ geben wir
+den Basispfad aus und stellen sicher, dass unsere Dateien gefunden
+werden. Die Variable $this-++>++baseurl entspricht dabei dem relativen
+Pfad zur jeweiligen Joomla!-Installation, so dass wir durch die
+Verwendung dieses Codes stets eine korrekte Pfadangabe erhalten.
+
+Mit ++<++?php echo $this-++>++template; ?++>++ wird der Templatename
+ausgegeben. Kombiniert mit der *baseurl*-Ausgabe können wir nun unserem
+Template sagen, wo unsere Bilder liegen.
+
+Da wir den Code
+
+++<++?php echo $this-++>++baseurl ?++>++/templates/++<++?php echo
+$this-++>++template ?++>++
+
+im Template häufiger nutzen werden, können wir diesen Wert einer
+kürzeren Variable zuweisen, um Fehler zu vermeiden und Zeichen zu
+sparen.
+
+* Definieren Sie eine Variable:
+
+$tplpath = $this-++>++baseurl . '/templates/' . $this-++>++template;
+
+Fügen Sie den Pfad ++<++?php echo $tplpath; ?++>++ vor allen statischen
+Bildangaben (.img) im Template ein. Dieses Vorgehen ist nur für unsere
+Übung gut, denn später ersetzen wir alle statischen Inhalte durch
+dynamische Inhalte aus dem CMS. Warum also der Spaß? Sobald wir alle
+Pfade korrigiert haben, erhalten Sie im Frontend ein Abbild der
+html-Vorlage so wie Sie auf
+https://blackrockdigital.github.io/startbootstrap-creative/ angezeigt
+wird. Ein Motivationsfaktor und eine gute Kontrolle dafür, dass wir auf
+dem richtigen Weg sind!
+
+Aus unter anderem
+
+++<++img src="img/portfolio/thumbnails/1.jpg" class="img-responsive"
+alt=""++>++
+
+wird also
+
+++<++img src="*++<++?php echo $tplpath;
+?++>++/images*/portfolio/thumbnails/1.jpg" class="img-responsive"
+alt=""++>++
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Wir haben den _img_-Ordner im Abschnitt 12.2.2 in _images_ umbenannt.
+Beachten Sie das auch bei der Korrektur der Pfadangaben.
+
+|===
+
+===== Stylesheet-Dateien einbinden
+
+Nun werden wir die Pfadangaben zu den Stylesheet-Dateien korrigieren.
+
+Mit dem Befehl ++<++?php $this-++>++addStyleSheet($this-++>++baseurl .
+'/templates/' . $this-++>++template . '/css/creative.css'); ?++>++ geben
+wir an, wo unser Stylesheet liegt. Wir kürzen dies ebenso mit unserer
+Variable ab:
+
+++<++?php $this-++>++addStyleSheet($tplpath . '/css/creative.css');
+?++>++
+
+Wenden Sie dies auf alle Stylesheets an, die in Ihrer _index.php_-Datei
+angegeben sind und tragen Sie diese unter die Variable für $tplpath ein.
+
+Listing . Style-Angaben in der index.php-Datei
+
+// Laden der Bootstrap CSS +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/bootstrap/css/bootstrap.min.css'); +
++
+// Schriften laden +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/font-awesome/css/font-awesome.min.css'); +
+$this-++>++addStyleSheet('https://fonts.googleapis.com/css?family=open[https://fonts.googleapis.com/css?family=Open]{plus}Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'); +
+$this-++>++addStyleSheet('https://fonts.googleapis.com/css?family=merriweather:400,300,300italic,400italic,700,700italic,900,900italic[https://fonts.googleapis.com/css?family=Merriweather:400&#44;300&#44;300italic&#44;400italic&#44;700&#44;700italic&#44;900&#44;900italic]'); +
++
+// CSS Datei für die Portfolio Popups laden +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/magnific-popup/magnific-popup.css'); +
++
+// CSS Dateien für das Template laden +
+$this-++>++addStyleSheet($tplpath . '/css/creative.css');
+
+===== Skript-Dateien einbinden
+
+======= HTML5 Support aktivieren
+
+Joomla! bietet verschiedene automatische Optimierungen, wenn wir das
+Template ausdrücklich als html5 deklarieren. Um den HTML5 Support zu
+aktivieren, setzen wir die folgende Codezeile in unser Template:
+
+$this-++>++setHtml5(true);
+
+======= JQuery-Datei laden
+
+Beginnen wir mit den Ausnahmen: Die jQuery-Datei der Vorlage müssen und
+sollten Sie nicht einbinden, da Joomla! bereits eine eigene jQuery-Datei
+zur Verfügung stellt. Berufen Sie sich auf die zentrale Methode, ein
+Skript aufzurufen, um keine doppelten Dateien zu laden.
+
+Die Joomla!-jQuery-Datei laden Sie mit
+
+JHtml::++_++('jquery.framework');
+
+======= Bootstrap-Skript laden/Media Override
+
+Eine weitere Besonderheit: Eingangs habe ich bereits erklärt, das
+Joomla! für die Frontend-Ausgabe Bootstrap 2 nutzt. So wird auch
+standardmäßig die _Bootstrap-2_-Javascript-Datei aus dem Order
+_media/jui/js_ geladen. Wir benötigen für unser Template aber die
+_Bootstrap-3_-Javascript-Datei aus der Vorlage. *Trick 17*: Verschieben
+Sie die /vendor/bootstrap/js/bootstrap.min.js in Ihren Template-Ordner
+unter templates/paula/js/jui. Joomla! erkennt, dass Sie eine eigene
+Datei haben, und ruft stattdessen diese auf. Sehen Sie sich dazu auch
+das Thema Media Overrides im Abschnitt 12.1.11 an.
+
+Das Skript laden Sie mithilfe des Befehls:
+
+JHtml::++_++('bootstrap.framework');
+
+======= Weitere Skripte einbinden
+
+Mit dem Code
+
+$this-++>++addScript($tplpath . '/js/creative.min.js',
+'text/javascript', array('defer'=++>++'defer'));
+
+geben wir an, wo unsere Skripte liegen. Um diese, wie in diesem Template
+erforderlich, erst zu laden, wenn das Dokument fertig geladen ist, geben
+wir mit _defer_ an, dass das Attribut defer="defer" ist. Dank der
+Deklarierung als HTML5 Template, wandelt Joomla! dieses Attribut in ein
+einfaches _defer_ um. Das gleiche kann, falls benötigt, für das Attribut
+_async_ umgesetzt werden.
+
+* Wenden Sie diese Codes auf die _.js_-Pfade in der Vorlage an und
+platzieren Sie diese nach den Stylesheet-Angaben.
+
+So sieht dann der nachfolgende Teil in der _index.php_ aus:
+
+Listing . Skript-Angaben in der index.php Datei
+
+*// Skripte laden* +
++
+*// HTML5 Unterstützung aktivieren* +
+$this-++>++setHtml5(true); +
++
+*// jQuery Skript von Joomla! laden* +
+JHtml::++_++('jquery.framework'); +
++
+*// Bootstrap von Joomla! einbinden +
+// (Die Bootstrap Datei muss nicht extra geladen werden, nur in den
+richtigen Ordner verschoben werden)* +
+JHtml::++_++('bootstrap.framework'); +
++
+*// Laden der Skriptdateien für Easing, Scrolling und Popups* +
+$this-++>++addScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
+'text/javascript', array('defer'=++>++'defer')); +
+$this-++>++addScript($tplpath.
+'/vendor/scrollreveal/scrollreveal.min.js', 'text/javascript',
+array('defer'=++>++'defer')); +
+$this-++>++addScript($tplpath.
+'/vendor/magnific-popup/jquery.magnific-popup.min.js',
+'text/javascript', array('defer'=++>++'defer')); +
++
+*// Laden der Skriptdateien für das Template* +
+$this-++>++addScript($tplpath . '/js/creative.min.js',
+'text/javascript', array('defer'=++>++'defer'));
+
+======= CustomTags einbinden
+
+Für manche Einsatzwecke reicht der _addScript_- oder
+_addStylesheet_-Befehl nicht aus. In unserem Beispiel sind Sie bestimmt
+gerade über den Teil mit dem konditionellen Kommentar für den Internet
+Explorer 9 gestolpert. Dafür können Sie _CustomTags_ nutzen. Dazu fügen
+Sie _customTags_ mittels $this-++>++addCustomTag($variable); hinzu.
+
+======= Meta Angaben einbinden
+
+Für die Meta Angabe zum Viewport, können Sie über den Befehl
+$this-++>++setMetaData('viewport', 'width=device-width,
+initial-scale=1');  die Angabe hinzufügen. Auf diese Art und Weise
+lassen sich auch weitere Meta Angaben im Template definieren.
+
+Listing . CustomTag und Meta-Angaben in der index.php-Datei
+
+*// nur für den IE 9 nutzen wir hier customTags* +
+*// Custom Tags für den IE9 definieren* +
+$stylelink = '++<++!--++[++if lte IE 9++]>++' . "++\++n"; +
+$stylelink .= '++<++script
+src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"++><++/script++>++'
+. "++\++n"; +
+$stylelink .= '++<++script
+src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"++><++/script++>++'
+. "++\++n"; +
+$stylelink .= '++<++!++[++endif++]++--++>++' . "++\++n"; +
++
+*// Custom Tags für den IE9 hinzufügen* +
+$this-++>++addCustomTag($stylelink); +
++
+*// MetaTag für den Viewport definieren* +
+$this-++>++setMetaData('viewport', 'width=device-width,
+initial-scale=1');
+
+* Fügen Sie diesen Codeblock unter die Stil- und Skriptangaben ein.
+
+Ihre _index.php_-Datei sollte nun im oberen Bereich so aussehen:
+
+Listing . Einleitung der index.php-Datei
+
+++<++?php defined('++_++JEXEC') or die('Restricted access'); +
++
+*// Hier definieren wir eine kurze Variable für den aktuellen
+Templatepfad* +
+$tplpath = $this-++>++baseurl . '/templates/' . $this-++>++template; +
++
+*// Laden der Joomla! System CSS* +
+$this-++>++addStyleSheet($this-++>++baseurl .
+'/templates/system/css/system.css'); +
++
+*// Laden der Bootstrap Core CSS* +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/bootstrap/css/bootstrap.min.css'); +
++
+*// Schriften laden* +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/font-awesome/css/font-awesome.min.css'); +
+$this-++>++addStyleSheet('https://fonts.googleapis.com/css?family=open[https://fonts.googleapis.com/css?family=Open]{plus}Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'); +
+$this-++>++addStyleSheet('https://fonts.googleapis.com/css?family=merriweather:400,300,300italic,400italic,700,700italic,900,900italic[https://fonts.googleapis.com/css?family=Merriweather:400&#44;300&#44;300italic&#44;400italic&#44;700&#44;700italic&#44;900&#44;900italic]'); +
++
+*// CSS Datei für die Portfolio Popups laden* +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/magnific-popup/magnific-popup.css'); +
++
+*// CSS Datei für das Template laden* +
+$this-++>++addStyleSheet ($this-++>++baseurl . '/templates/' .
+$this-++>++template . '/css/creative.css'); +
++
+*// Skripte laden* +
++
+*// jQuery Skript von Joomla! laden* +
+JHtml::++_++('jquery.framework'); +
++
+*// Bootstrap von Joomla! einbinden* +
+*// (Die Bootstrap Datei muss nicht extra geladen werden, nur in den
+richtigen Ordner verschoben werden)* +
+JHtml::++_++('bootstrap.framework'); +
++
+*// Laden der Skriptdateien für Easing, Scrolling und Popups* +
+$this-++>++addScript('http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
+'text/javascript', true, false); +
+$this-++>++addScript($tplpath.
+'/vendor/scrollreveal/scrollreveal.min.js', 'text/javascript', true,
+false); +
+$this-++>++addScript($tplpath .
+'/vendor/magnific-popup/jquery.magnific-popup.min.js',
+'text/javascript', true, false); +
++
+*// Laden der Skriptdateien für das Template* +
+$this-++>++addScript($tplpath . '/js/creative.min.js',
+'text/javascript', true, false); +
++
+*// Dokument Objekt laden //* +
+$doc = JFactory::getDocument(); +
++
+*// nur für den IE 9 nutzen wir hier customTags* +
+*// Custom Tags für den IE9 definieren* +
+$stylelink = '++<++!--++[++if lte IE 9++]>++' . "++\++n"; +
+$stylelink .= '++<++script
+src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"++><++/script++>++'
+. "++\++n"; +
+$stylelink .= '++<++script
+src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"++><++/script++>++'
+. "++\++n"; +
+$stylelink .= '++<++!++[++endif++]++--++>++' . "++\++n"; +
++
+*// Custom Tags für den IE9 hinzufügen* +
+$this-++>++addCustomTag($stylelink); +
++
+*// MetaTag für den Viewport definieren* +
+$this-++>++setMetaData('viewport', 'width=device-width,
+initial-scale=1');
+
+*?++>++*
+
+===== Head laden – Jdoc-Anweisung
+
+Nachfolgend lernen wir die erste _Jdoc_-Anweisung[.indexref]#### kennen.
+Jdoc-Anweisungen sind dafür verantwortlich, in unserem html-Gerüst
+_dynamische Inhalte aus Joomla!_ abzurufen. Wir ersetzen dabei einfach
+komplette Inhaltsblöcke aus unserer HTML-Datei mit einer einzigen Zeile
+Joomla!-eigenen Codes.
+
+++<++jdoc:include type="head"/++>++ wird einmalig zwischen
+unseren _++<++head++><++/head++>++_ eingefügt und holt sich entsprechend
+die Joomla!-eigenen Headerangaben zu System und
+Erweiterungs-Stylesheets, Skripten und Metadaten.
+
+Löschen Sie den Bereich
+
+++<++meta charset="utf-8"++>++ +
+++<++meta http-equiv="X-UA-Compatible" content="IE=edge"++>++ +
+++<++meta name="viewport" content="width=device-width,
+initial-scale=1"++>++ +
+++<++meta name="description" content=""++>++ +
+++<++meta name="author" content=""++>++ +
+++<++title++>++Creative - Start Bootstrap Theme++<++/title++>++
+
+und ersetzen Sie Ihn mit:
+
+++<++jdoc:include type="head" /++>++
+
+Wenn Sie sich die Seite im Browser ansehen und den dazugehörigen
+Quelltext aufrufen, sehen Sie, dass neben den bereits durch Sie
+hinzugefügten Angaben _addStylesheet_, _addscript_, _customtag_ durch
+das jdoc-Statement für den Header nun auch die Metainformationen von
+Joomla! als auch zusätzliche Skripte eingebunden werden.
+
+Passen Sie im Zuge dessen auch den html-Tag an, der sich in der Vorlage
+vor dem head befindet. In der Ursprungsdatei wird das Template
+mit ++<++html lang="en"++>++ eingeleitet. Um an dieser Stelle die
+richtige Sprache im lang-Attribut auszugeben, wird der html Tag
+durch ++<++html xml:lang="++<++?php echo $this-++>++language; ?++>++"
+lang="++<++?php echo $this-++>++language; ?++>++"++>++ ersetzt. Der
+Befehl $this-++>++language zieht dabei die im System festgelegte
+Inhaltsprache.
+
+Wenn Sie alles richtig gemacht haben, sollte die Ansicht (wieder) der
+Live-Vorschau der HTML-Vorlage entsprechen. Falls nicht, kontrollieren
+Sie nochmal Ihre Schritte oder vergleichen Sie Ihren Code mit der
+Vorlage unter
+https://github.com/coolcat-creations/paula-joomla-template/tree/1.0.
+
+Nun beginnen wir, das Template mit Joomla! zu verkuppeln. Denn bisher
+haben wir nur Dateiverweise korrigiert. Alles was Sie jetzt sehen, sind
+noch immer statische Inhalte.
+
+Falls die Ansicht nicht passt, nutzen Sie die Entwicklertools Ihres
+Browsers (z. B. Firebug, Überprüfen, Prüfen), um Fehler zu
+identifizieren.
+
+image:media/image34.jpg[media/image34,width=548,height=218]
+
+Bild . Fehler in der Console in den Chrome-Entwicklertools
+
+In Bild 12.34 sehen Sie zum einen, dass der Verzeichnistrenner zwischen
+_paula_ und _css_ fehlt und somit die Datei nicht gefunden werden kann.
+Darunter werden Bilder vermisst, die eigentlich in dem Verzeichnis
+liegen sollten. Die Entwicklertools der verschiedenen Browser (siehe
+auch Abschnitt 3.3.1) sind bei der Template-Entwicklung eines der
+wichtigsten Werkzeuge.
+
+===== Template-Parameter
+
+Erinnern Sie sich noch an die in der _templateDetails.xml_ angelegten
+Felder zur Eingabe von Parametern? Innerhalb der _index.php_-Datei
+unseres Templates, können wir auf diese Einstellungen mit
+$this-++>++params-++>++get('PARAMETERNAME') zugreifen.[.indexref]##
+
+In Kombination mit PHP-if-Abfragen steuern wird dann im Template die
+Ausgabe. In diesem Template wollen wir zwei Merkmale abändern. Zum einen
+die Hauptfarbe des Templates von Orange zu Blau wechseln und zum anderen
+das eingeblendete Logo ändern.
+
+Für die Änderung des Stylesheets kopiere ich in meiner
+Entwicklungsumgebung die _variables.less_ und lege eine
+_variables-blue.less_ an, in der ich die primäre Farbe @theme-primary
+auf ein beliebiges Blau ändere. Weiterhin kopiere ich auch die
+_creative.less_ und lege eine _creative-blue.less_ an, hier ändere ich
+noch den Import der Variablen von @import "variables.less"; auf @import
+"variables-blue.less"; entsprechend ab.
+
+Für nur einen abgeänderten Farbwert gleich zwei verschiedene Dateien zu
+erstellen, ist natürlich völlig übertrieben. Dieses Vorgehen soll Ihnen
+nur ein Beispiel vermitteln, wie man mittels Parametern auch
+.css-Stylesheets zuweisen kann.
+
+Ihnen wird aufgefallen sein, dass im Template-Ordner auch eine
+_creative.min.css_ liegt. Das ist eine komprimierte Version der
+CSS-Datei. Sie können komprimierte Dateien jedoch nicht direkt in
+Joomla! erstellen. Dazu würden sich unter anderem Taskrunner eignen,
+Informationen dazu finden Sie im Abschnitt 12.7 dieses Buchs. Für die
+Übung brauchen Sie diese komprimierte Datei nicht und können diese daher
+löschen.
+
+======= Exkurs zu LESS
+
+LESS[.indexref]#### ist eine Auszeichnungssprache, die man zu einer
+_.css_-Datei kompilieren kann. LESS erleichtert uns Template-Entwicklern
+die Arbeit, indem man unter anderem mit Variablen arbeiten kann. Es ist
+auch möglich, Anweisungen ineinander zu verschachteln. Sobald man in
+einer .less-Datei Änderungen durchgeführt hat, _kompiliert_ man diese zu
+einer _.css_-Datei.
+
+In Joomla! 3.x wurde ein LESS-Kompilierer im Template-Manager
+eingeführt. Kompilieren Sie also eine _.less_-Datei im
+_/less_-Verzeichnis, wird eine gleichnamige, kompilierte _.css_-Datei im
+_/css_-Verzeichnis erstellt.
+
+Über Klick auf den Button LESS kompilieren im Joomla! Template Manager
+kompilieren Sie die _.less_-Datei automatisch.
+
+Falls Sie bisher noch nicht mit _.less_-Dateien gearbeitet haben, sind
+jegliche Berührungsängste unbegründet. Sie können sich mit kleinen
+Schritten an dieses Thema heranwagen. Im Grunde kann man eine
+_.css_-Datei in _.less_ umbenennen und damit starten.
+
+Folgende Hauptvorteile von _LESS_ können Sie sich merken:
+
+*1) Nutzung von Variablen*
+
+Definieren Sie zum Beispiel Ihre Firmenfarbe in einer Variable. Der
+Compiler setzt dann diesen Wert an den entsprechenden Stellen ein. Der
+Vorteil: Falls Ihnen die Farbe nun doch zu dunkel ist, oder Sie
+grundsätzlich die Farbe ändern wollen, dann müssen Sie das nur noch an
+einer Stelle machen.
+
+@firmenfarbe: #152b44;
+
+Im Anschluss können Sie dann die Variable in Ihren Stilbeschreibungen
+verwenden und sogar mit zusätzlichen Anweisungen
+heller/dunkler/sättigender usw. machen.
+
+h1 ++{++color:@firmenfarbe;} +
+.container ++{++background:lighten(@firmenfarbe,10%);}
+
+*2) Verschachteln von Selektoren*
+
+Statt folgenden Anweisungen
+
+header ++{++ } +
+header h1 ++{++} +
+header hr ++{++} +
+header p ++{++} +
+header p a ++{++}
+
+kann man den Code folgendermaßen strukturieren:
+
+header ++{++ +
+h1 ++{++} +
+hr ++{++} +
+p ++{++ +
+a ++{++} +
+} +
+}
+
+*3) Wiederverwendung von Code*
+
+.wiederverwenden ++{++ +
+color:@firmenfarbe +
+font-weight:bold; +
+}
+
+Sie können Auszeichnungen auf diese Weise wiederverwenden:
+
+.neueselement ++{++ +
+.wiederverwenden; +
+}
+
+Das war nur eine kurze Einführung. Möchten Sie mehr zu LESS erfahren,
+dann machen Sie sich am besten mit der Dokumentation auf
+http://lesscss.org/[[.underline]#http://lesscss.org/#] vertraut.
+Informationen zur ähnlichen Sprache Sass/Scss finden Sie unter
+http://sass-lang.com/
+
+======= LESS-Datei im Template kompilieren[.indexref]####
+
+Kompilieren Sie die erstellte _creative-blue.less_-Datei. Wählen Sie
+dazu unter Erweiterungen » Templates » Templates *„*_paula_*“* aus und
+öffnen Sie die _creative-blue.less_-Datei. In der Symbolleiste oben
+finden Sie den Button LESS kompilieren. Wenn Sie auf diesen klicken,
+erscheint eine _creative-blue.css_ im _css_-Ordner.
+
+image:media/image35.jpg[media/image35,width=548,height=218]
+
+Bild . Button LESS Kompilieren im Template-Manager
+
+======= CSS abhängig von der Parametereinstellung aufrufen
+
+Sie haben bereits das Stylesheet mit folgender Zeile im Template
+eingebunden:
+
+$this-++>++addStyleSheet ($tplpath . '/css/creative.css');
+
+Um unseren Farbwechsel im Template-Stil funktionsfähig zu machen,
+ersetzen wir diese Zeile mit neuem Code. Zunächst fragen wir mit PHP den
+Wert des Parameters ab. Ist die Einstellung _orange_, können wir
+weiterhin den Standardstil verwenden. Ist der Parameter auf _blau_
+eingestellt, wollen wir stattdessen die _creative-blue.css_-Datei laden.
+
+Wir ersetzen nun unseren bisherigen Aufruf der CSS-Datei mit folgendem
+Codeblock:
+
+Listing . Dynamischer Abruf des Template-Stils in der index.php-Datei
+
+**// Falls im Stil „orange“ als Farbe ausgewählt ist, lade
+creative.css +
+**if ($this-++>++params-++>++get('templatecolor', 'orange') == 'orange'
+) +
+++{++ +
+$this-++>++addStyleSheet ('$tplpath . '/css/creative.css'); +
+}
+
+*// Andernfalls ist die blaue CSS-Datei zu laden* +
+else +
+++{++ +
+$this-++>++addStyleSheet ($tplpath . '/css/creative-blue.css'); +
+}
+
+Hier wird in der PHP-Abfrage die Parametereinstellung des Template-Stils
+gezogen. Den Parameternamen _templatecolor_ haben wir im
+Abschnitt 12.2.3 bei unseren Templateparametern in der
+_templateDetails.xml_ festgelegt.
+
+Der Code legt fest: Falls _orange_ ausgewählt ist, wird die Standard
+creative.css-Datei eingebunden, falls etwas anderes ausgewählt ist, die
+creative-blue.css.
+
+Auf diese Art und Weise können Sie auch zwei völlig unterschiedliche
+Stylesheets mit anderen Farben, Schriften, Abständen, usw. laden.
+
+Gehen Sie ins Backend unter Erweiterungen » Templates » Stile und
+klicken Sie den Stil _paula_ an.
+
+image:media/image36.jpg[media/image36,width=548,height=218]
+
+Bild . Parametereinstellungen im Template-Stil
+
+Im Reiter „Erweitert“ sehen wir nun unsere zwei Parameter, die wir in
+der _templateDetails.xml_ festgelegt haben.
+
+Wählen Sie in den Optionen unter _Templatefarbe_ den Wert Blau aus und
+überprüfen Sie das Template im Frontend.
+
+image:media/image37.jpg[media/image37,width=548,height=277]
+
+Bild . Geänderte Hauptfarbe im Frontend
+
+Sehen Sie, Sie können nun über den Template-Stil die Hauptfarbe des
+Templates dynamisch steuern.
+
+Als nächstes machen wir das gleiche mit unserem anderen Parameter, dem
+Logo. In dem uns vorliegenden Template haben wir kein Bild, sondern ein
+Textlogo. Dennoch möchten wir gerne die Wahl zwischen beiden
+Möglichkeiten haben. Die folgende PHP-if-Abfrage prüft zunächst den
+hinterlegten Wert im Parameter _logotype_, wenn dieser Wert _image_
+entspricht, dann geben wir den Wert aus dem Parameter _logoimg_ aus.
+Ansonsten versuchen wir auf den _Logotext_ zuzugreifen, der im Parameter
+_logotext_ hinterlegt ist.
+
+Ersetzen Sie daher in Ihrer _index.php_-Datei den Text _„Start
+Bootstrap“_ in der Navigationsleiste mit unserer Parameterabfrage.
+
+Listing . Dynamischer Abruf der Template-Parameter für das Logo in der
+index.php
+
+++<++a class="navbar-brand page-scroll" href="#page-top" +
++
+*++<++?php if ($this-++>++params-++>++get('logotype', 'text') ==
+'image') +
+++{++ ?++>++ +
+* *++<++img src="++<++?php echo $this-++>++params-++>++get('logoimg',
+''); ?++>++" alt="++<++?php echo
+$this-++>++params-++>++get('logoimgalt', ''); ?++>++" width="200px"
+height="20px" /++>++ +
+++<++?php } +
+else +
+++{++ ?++>++ +
+* **++<++?php echo $this-++>++params-++>++get('logotext', ''); ?++>++ +
+++<++?php } ?++>++ +
++
+**++<++/a++>++
+
+Probieren Sie im Templatestil die Einstellungen für das Logo aus. Laden
+Sie ein Bild in passender Größe (200 × 20 px) hoch oder ändern Sie den
+Text.
+
+==== Module in der index.php laden
+
+===== Jdoc-Anweisung
+
+======= Einzelne Module laden
+
+++<++jdoc:include type="module" name="mod++_++breadcrumbs"
+title="navpath" /++>++ +
+++<++jdoc:include type="module" name="mod++_++menu"
+title="mainnav"/++>++
+
+Durch diese Anweisung wird ein _einzelnes Modul_ geladen, wobei der Name
+mit dem Modultyp und der Titel mit dem gewünschten Modul übereinstimmt.
+Dieses Modul muss im Backend entsprechend veröffentlicht und
+konfiguriert sein, um angezeigt zu werden. Durch zusätzliche Attribute
+kann man das Layout des Moduls beeinflussen.
+
+Diese Methode ist nicht besonders geeignet für mehrsprachige Seiten.
+Nutzen Sie statt dessen die folgende Methode.
+
+======= Modulpositionen laden
+
+++<++jdoc:include type="modules" name="links"/++>++ +
+++<++jdoc:include type="modules" name="rechts" style="xhtml" /++>++
+
+Mit dieser Anweisung rufen wir Modulpositionen in unserem Template auf.
+Unter type definieren wir mit „modules“, dass es sich um eine
+Modulposition handelt. Diese Module nehmen komplette Bereiche des
+Templates ein und werden in der templateDetails.xml-Datei namentlich
+festgelegt. Über das Attribut name="" legen wir fest, wie die Position
+heißt, unter der das Modul geladen wird. Die Bezeichnung der
+Modul-Positionen aus der index.php und der templateDetails.xml müssen
+übereinstimmen.
+
+Mit dem Attribut style="" können wir sowohl bei der Einzelvariante, als
+auch bei den Modulpositionen noch den Standard-_Chrome-Stil_ (siehe
+Abschnitt 12.1.6) für diese Modulposition definieren.
+
+===== Menü
+
+Wir beginnen mit der Einbindung des Menüs. Das Menü sieht in der
+Templatevorlage folgendermaßen aus:
+
+Listing . Code aus der Template-Vorlage für die Navigation
+
+++<++nav id="mainNav" class="navbar navbar-default
+navbar-fixed-top"++>++ +
+++<++div class="container-fluid"++>++ +
+++<++!-- Brand and toggle get grouped for better mobile++>++ +
+++<++div class="navbar-header"++>++ +
+++<++button type="button" class="navbar-toggle collapsed"
+data-toggle="collapse" +
+data-target="#bs-example-navbar-collapse-1"++>++ +
+++<++span class="sr-only"++>++Toggle navigation++<++/span++>++ Menu +
+++<++i class="fa fa-bars"++><++/i++>++ +
+++<++/button++>++ +
++
+++<++a class="navbar-brand page-scroll" href="*++<++?php echo
+$this-++>++baseurl ?++>++"++>++* +
++
+*++<++?php if ($this-++>++params-++>++get('logotype', 'text') ==
+'image') +
+++{++ ?++>++ +
+++<++img src="++<++?php echo $this-++>++params-++>++get('logoimg', '');
+?++>++" +
+* *alt="++<++?php echo $this-++>++params-++>++get('logoimgalt', '');
+?++>++" width="200px" height="20px" /++>++ +
+++<++?php } +
+else +
+++{++ ?++>++ +
+++<++?php echo $this-++>++params-++>++get('logotext', ''); ?++>++ +
+++<++?php } ?++>++ +
++
+* ++<++/a++>++ +
+++<++/div++>++ +
+++<++!-- Collect the nav links, forms, and other content for toggling
+--++>++ +
+++<++div class="collapse navbar-collapse"
+id="bs-example-navbar-collapse-1"++>++ +
+++<++ul class="nav navbar-nav navbar-right"++>++ +
+++<++li++>++ +
+++<++a class="page-scroll" href="#about"++>++About++<++/a++>++ +
+++<++/li++>++ +
+++<++li++>++ +
+++<++a class="page-scroll" href="#services"++>++Services++<++/a++>++ +
+++<++/li++>++ +
+++<++li++>++ +
+++<++a class="page-scroll" href="#portfolio"++>++Portfolio++<++/a++>++ +
+++<++/li++>++ +
+++<++li++>++ +
+++<++a class="page-scroll" href="#contact"++>++Contact++<++/a++>++ +
+++<++/li++>++ +
+++<++/ul++>++ +
+div++>++ +
+++<++!-- /.navbar-collapse --++>++ +
+++<++/div++>++ +
+++<++!-- /.container-fluid --++>++ +
+++<++/nav++>++
+
+Bisher ruft das Template die statischen Links aus der Templatevorlage
+auf. Um die Navigation dynamisch zu machen, müssen wir stattdessen ein
+Joomla!-Modul laden.
+
+Unser Schlachtplan sieht nun folgendermaßen aus:
+
+[arabic]
+. Wir werden zuerst ein Modul Chrome in
+_templates/paula/html/modules.php_ anlegen.
+
+[arabic, start=16]
+. Als nächstes rufen wir das Navigationsmodul mit einem Jdoc-Statement
+in der _templates/paula/index.php_ auf.
+. Wir legen drei Menüpunkte an, um die Ausgabe zu überprüfen
+. Wir richten das Menümodul ein und passen die Einstellungen an.
+
+======= Modul Chrome für das Menü anlegen
+
+In der Datei _templates/paula/html/modules.php_ legen wir für das Menü
+ein neues Chrome an, wie es im Abschnitt 12.1.6.3 beschrieben wird.
+
+Den Chrome erstellen wir für den Bereich von ++<++div class="collapse
+navbar-collapse" id="bs-example-navbar-collapse-1"++>++ bis
+einschließlich dem dazu schließenden ++<++/div++>++.
+
+Listing 12.23 Modul Chrome für die Navigation in der modules.php-Datei
+
+function modChrome++_++navigation($module, &$params, &$attribs) +
+++{++ +
+*$moduleTag = $params-++>++get('module++_++tag', div); +
+$moduleclass++_++sfx =
+htmlspecialchars($params-++>++get('moduleclass++_++sfx'),
+ENT++_++COMPAT, 'UTF-8'); +
+* +
+if (!empty ($module-++>++content)) : ?++>++ +
++
+++<++**++<++?php echo $moduleTag; ?++>++** class="collapse
+navbar-collapse +
+*++<++?php echo $moduleclass++_++sfx; ?++>++*"
+id="bs-example-navbar-collapse-1"++>++ +
+*++<++?php echo $module-++>++content; ?++>++* +
+*++<++/++<++?php echo $moduleTag; ?++>>++* +
++
+++<++?php endif; +
+}
+
+Im oberen Bereich des Chrome _navigation_ weisen wir zwei Parametern
+kürzere Variablen zu. $moduleTag gibt den gewählten Modul-Tag-Parameter
+aus. Falls nichts definiert sein sollte, wird als Standard „_div_“
+ausgegeben. $moduleclass++_++sfx ruft ab, welcher _Modul-Klassen-Suffix_
+im Modul eingetragen wurde. Sonderzeichen werden dabei herausgefiltert
+und alles in UTF-8 dargestellt.
+
+So nun haben wir einige Variablen festgelegt. Jetzt fügen wir den
+HTML-Code ein, der den Navigationsbereich darstellt, und kopieren diese
+Variablen an die entsprechenden Stellen. Die unsortierte Liste, also der
+Codeblock von ++<++ul++>++ bis einschließlich ++<++/ul++>++ wird durch
+das Navigationsmodul bereitgestellt und wird im Chrome mit ++<++?php
+echo $module-++>++content; ?++>++ aufgerufen.
+
+======= Aufruf des Modules im Template
+
+Nun ersetzen wir in der index.php-Datei den Bereich von ++<++div
+class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"++>++
+bis einschließlich dem dazu schließenden ++<++/div++>++ mit einem
+jdoc-Statement.
+
+++<++jdoc:include type="modules" name="*mainnav*" style="*navigation*"
+/++>++
+
+Dieser Code ruft nun die Position *mainnav* auf und bestimmt den Chrome
+Stil _navigation_ als Standardstil.
+
+Durch die Einbindung der Jdoc-Anweisungen haben wir alle statisch
+vorhandenen Links entfernt und sie mit unserem Menümodul ersetzt. Der
+Codeblock in der _index.php_-Datei sieht nun folgendermaßen aus:
+
+Listing 12.24 Navigation in der index.php-Datei
+
+++<++nav id="mainNav" class="navbar navbar-default
+navbar-fixed-top"++>++ +
+++<++div class="container-fluid"++>++ +
+++<++!-- Brand and toggle get grouped for better mobile display
+--++>++ +
+++<++div class="navbar-header"++>++ +
+++<++button type="button" class="navbar-toggle collapsed"
+data-toggle="collapse" +
+data-target="#bs-example-navbar-collapse-1"++>++ +
+++<++span class="sr-only"++>++Toggle navigation++<++/span++>++ Menu
+++<++i class="fa fa-bars"++><++/i++>++ +
+++<++/button++>++ +
+++<++a class="navbar-brand page-scroll" href="++<++?php echo
+$this-++>++baseurl ?++>++"++>++ +
++
+++<++!-- Abfrage der Parameter für das Logo --++>++ +
+++<++?php if ($this-++>++params-++>++get('logotype', 'text') == 'image')
+++{++ ?++>++ +
+++<++!-- Ausgabe des Logo-Bildes --++>++ +
+++<++img src="++<++?php echo $this-++>++params-++>++get('logoimg', '');
+?++>++" +
+alt="++<++?php echo $this-++>++params-++>++get('logoimgalt', '');
+?++>++" width="200px" +
+height="20px" /++>++ +
+++<++?php } +
+else ++{++ ?++>++ +
+++<++!-- Ausgabe des Logo-Textes --++>++ +
+++<++?php echo $this-++>++params-++>++get('logotext', ''); ?++>++ +
+++<++?php } ?++>++ +
++
+++<++/a++>++ +
+++<++/div++>++ +
++
+*++<++!-- Hier laden wir nun die Position mainnav mit dem Stil
+navigation --++>++ +
+* *++<++jdoc:include type="modules" name="mainnav"
+style="navigation"/++>++* +
++
+++<++/div++>++ ++<++!-- /.container-fluid --++>++ +
+++<++/nav++>++
+
+======= Inhalte für das Modul erstellen
+
+Legen Sie nun in der Hauptnavigation drei Menüpunkte wie im
+Abschnitt 8.2 beschrieben an.
+
+======= Modul einrichten
+
+Richten Sie nun Ihr Modul ein. Gehen Sie dazu im Backend auf
+Erweiterungen » Module und klicken Sie auf den grünen Button Neu. Als
+Modultyp wählen Sie „Navigation - Menü“ aus.
+
+Im ersten Reiter „Modul“ wählen Sie unter Menü auswählen das
+entsprechende Menü, in dem Sie die Menüpunkte angelegt haben.
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „Hauptmenü“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie _Titel anzeigen_ auf „*Verbergen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*mainnav*“ aus.
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ „Auf allen Seiten“ zu.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: div
+
+**Menü**klassensuffix: nav navbar-nav navbar-right
+
+_Den Chromstil müssen wir nicht auswählen, da wir den
+Standard-Chrome-Stil bereits im Modulaufruf festgelegt haben._
+
+*Speichern Sie das Modul und werfen Sie einen Blick ins Frontend.*
+
+image:media/image38.jpg[media/image38,width=548,height=277]
+
+Bild . Dynamisch generierte Menüpunkte im Frontend
+
+===== Seitenheader
+
+Machen wir uns nun an den Headerbereich der Seite. Hier ersetzen wir
+ebenso den kompletten Codeblock mit einem Jdoc-Statement für Module.
+Doch alles der Reihe nach!
+
+Folgender Code stellt in der Vorlage den Header dar:
+
+Listing . Code für den header-Bereich in der Template-Vorlage
+
+++<++header++>++ +
+++<++div class="header-content"++>++ +
+++<++div class="header-content-inner"++>++ +
+++<++h1 id="homeHeading"++>++ +
+Your Favorite Source of Free Bootstrap Themes +
+++<++/h1++>++ +
+++<++hr++>++ +
+++<++p++>++Start Bootstrap can help you build better websites +
+using the Bootstrap CSS framework! Just download your +
+template and start going, no strings attached!++<++/p++>++ +
+++<++a href="#about" class="btn btn-primary btn-xl page-scroll"++>++ +
+Find Out More +
+++<++/a++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/header++>++
+
+Nun geht es folgendermaßen weiter**:**
+
+[arabic]
+. Wir legen wieder ein Modul Chrome in
+_templates/paula/html/modules.php_ an.
+
+[arabic, start=19]
+. Wir erstellen ein Override für das mod++_++custom-Modul (Eigenes
+Modul) unter _templates/paula/html/mod++_++custom/_.
+. Wir rufen das Modul per Jdoc-Statement in der
+_templates/paula/index.php_-Datei auf.
+. Wir legen das Modul im Modulmanager unter Erweiterungen » Module an
+und stellen es richtig ein.
+
+======= Modul Chrome für den Header anlegen
+
+Wir legen einen Modul Chrome für den Header an. Dieser Chrome wird
+einige Modulparameter verwenden. Um den Code im Aufbau selbst lesbarer
+zu machen, legen wir im oberen Bereich der Funktion wie für das
+navigation-Chrome ein paar kurze Variablen an und weisen ihnen die
+Parameter zu, die wir im Chrome wiederverwenden.
+
+Listing . Teil 1 des Modul Chrome für den Header in der
+_modules.php_-Datei mit Variablen
+
+function modChrome++_++*header*($module, &$params, &$attribs) +
+++{++
+
+$moduleTag = $params-++>++get('module++_++tag', 'header'); +
+$moduleId = $module-++>++position . '-' . $module-++>++id; +
+$moduleclass++_++sfx =
+htmlspecialchars($params-++>++get('moduleclass++_++sfx'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerTag = htmlspecialchars($params-++>++get('header++_++tag', 'h1'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerClass = htmlspecialchars($params-++>++get('header++_++class',
+''), ENT++_++COMPAT, 'UTF-8'); +
+$bgimage = 'style="background-image:url('.
+$params-++>++get('backgroundimage') .');"';
+
+if ($module-++>++content) +
+++{++
+
+?++>++
+
+Die Variablen $moduleTag und $moduleclass++_++sfx kennen Sie schon,
+diese haben wir auch für die Navigation im Abschnitt 12.2.5.2 angelegt.
+Die Variable $moduleId ist eine Eigenkreation und gibt eine eindeutige
+ID aus. Wir werden sie später dazu verwenden, um mittels Anker-Links
+zwischen Modulen zu scrollen. $headerTag gibt den gewählten
+Header-Tag-Parameter, also den Überschriften-Tag aus. Falls nichts
+definiert sein sollte, wird als Überschrift hier eine „h1“-Überschrift
+ausgegeben. $headerClass gibt die eingetragene Überschriftenklasse aus
+und falls ein Hintergrundbild im Modul hinterlegt ist, dann gibt
+$bgimage dies als Style-Angabe aus.
+
+Nachdem wir einige Variablen festgelegt haben, kopieren wir den
+HTML-Code, der den Headerbereich darstellt, und tragen diese Variablen
+an die entsprechenden Stellen ein.
+
+Aus ++<++header++>++ wird zum Beispiel ++<<++?php echo $moduleTag;
+?++>>++. Außerdem nehmen wir in den Modul-Tag noch die Modul-ID, den
+Modulklassen-Suffix und das Hintergrundbild auf.
+
+Sie werden sich jetzt denken: „Aber das ist doch gar nicht im
+Ursprungscode enthalten?“ Aber ich will Ihnen erklären, warum wir das
+tun:
+
+_Ids_ werden innerhalb dieses Templates dazu verwendet, um Anker zu
+setzen. Sie können in einem anderen Modul einen Link einfügen, der zu
+diesem Anker verweist. Klickt man auf den Link, scrollt man zu dem Modul
+mit der ID die dem Link entspricht. Füge ich hier eine Modul-ID ein,
+kann ich jederzeit zu diesem Modul einen Link einfügen.
+
+Der _Modulklassen-Suffix_ ist die Einstellung, die Sie im Modul in den
+Parametern eintragen können. Sie wird als Klasse im Modul ausgegeben.
+Auch wenn wir in diesem Beispiel keine Klasse brauchen, ist es doch
+sinnvoll, den Parameter einzubinden. Wenn Sie jemals eine Klasse
+hinzufügen möchten, werden Sie sich sonst wundern, warum nichts
+ausgegeben wird.
+
+Das Hintergrundbild wird im Originaltemplate über die Less- bzw.
+CSS-Datei gesteuert. In der _creative.less_-Datei wird in der _Zeile
+168_ definiert, dass das Bild _header.jpg_ aus dem _img_-Ordner als
+Hintergrund verwendet wird. Da wir selbst über das Bild bestimmen
+wollen, ohne im Quellcode arbeiten zu müssen, nehmen wir diese Zeile aus
+der _.less_-Datei und kompilieren die Datei neu, indem wir im
+Template-Manager auf den Button „Less kompilieren“ klicken, so wie wir
+es bereits im Abschnitt 12.2.4.4 gemacht haben.
+
+Über die Variable $bgimage rufen wir ab, welches Hintergrundbild im
+Modul eingestellt wurde und binden es als inline-Style ein.
+
+Aus diesen Gründen wird aus ++<++header++>++ nicht nur ++<<++?php echo
+$moduleTag; ?++>>++ sondern:
+
+Listing . Teil 2 des Modul Chrome für den Header in der _modules.php_
+
+++<<++?php echo $moduleTag; ?++>++ id="++<++?php echo $moduleId; ?++>++"
+class="++<++?php echo $moduleclass++_++sfx; ?++>++" ++<++?php echo
+$bgimage; ?++>>++
+
+Als Nächstes übernehmen Sie die folgenden zwei Zeilen aus der
+Quelldatei.
+
+Listing . Teil 3 des Modul Chrome für den Header in der _modules.php_
+
+++<++div class="header-content"++>++ +
+++<++div class="header-content-inner"++>++
+
+Danach tauchen in der Vorlage folgende Zeilen auf, welche die
+Überschrift ausgeben:
+
+++<++h1 id="homeHeading"++>++ +
+Your Favorite Source of Free Bootstrap Themes +
+++<++/h1++>++
+
+Ersetzen Sie den Header-Tag sowohl im öffnenden Tag, als auch im
+schließenden Tag mit unserer Variablen. Entfernen Sie die id-Angabe, wir
+haben diese bereits als Variable in den umliegenden Container eingebaut.
+Setzen Sie außerdem die header-Klasse ein. Das sieht dann folgendermaßen
+aus:
+
+*++<<++?php echo $headerTag . ' class=" ' . $headerClass . '"';
+?++>>++* +
+Your Favorite Source of Free Bootstrap Themes +
+*++<++/++<++?php echo $headerTag; ?++>>++*
+
+Nun wollen wir noch abfragen, ob überhaupt im Modul ausgewählt wurde,
+dass der Titel angezeigt werden soll, und wenn ja, wie der Titel lautet.
+Wir legen also eine if-Abfrage um diesen Bereich, die feststellt, ob
+showtitle einen anderen Wert als 0 hat. Die Zeile „_Your Favorite Source
+of Free Bootstrap Themes_“ wird durch die Ausgabe der Variable
+$module-++>++title ersetzt.
+
+Listing . Teil 4 des Modul-Chrome für den Header in der _modules.php_
+
+*++<++?php if $module-++>++showtitle) : ?++>++* +
+++<<++?php echo $headerTag . ' class=" ' . $headerClass . '"'; ?++>>++ +
+*++<++?php echo $module-++>++title; ?++>++* +
+++<++/++<++?php echo $headerTag; ?++>>++ +
+*++<++?php endif; ?++>++*
+
+Der untere Teil des Headers lautet folgendermaßen:
+
+*++<++hr++>++ +
+++<++p++>++Start Bootstrap can help you build better websites using the
+Bootstrap CSS +
+framework! Just download your template and start going, no strings
+attached!++<++/p++>++ +
+++<++a href="#about" class="btn btn-primary btn-xl page-scroll"++>++ +
+Find Out More +
+++<++/a++>++ +
+* ++<++/div++>++ +
+++<++/div++>++ +
+++<++/header++>++
+
+Ersetzen Sie den Textinhalt durch ++<++?php echo
+$module-++>++content;?++>++. Hierdurch wird das Modul mitsamt seinem
+Layout geladen. Nun folgen zwei schließende div-Container, welche die
+oberen divs mit den Klassen header-content und header-content-inner
+schließen und das schließende $moduleTag. Am Codeblock-Ende schließen
+Sie sowohl die if-Abfrage if ($module-++>++content), welche die Ausgabe
+umfasst, als auch die Funktion mit geschweiften Klammern.
+
+Listing . Teil 5 des Modul-Chrome für den Header in der _modules.php_
+
+++<++?php echo $module-++>++content; ?++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/++<++?php echo $moduleTag; ?++>>++ +
+++<++?php +
+} +
+}
+
+Listing . Fertiggestelltes Modul-Chrome für den Header in der
+_modules.php_
+
+*/++*++ Chrome für das Headermodul ++*++/* +
+function modChrome++_++header($module, &$params, &$attribs)++{++ +
+$moduleTag = $params-++>++get('module++_++tag', 'header'); +
+$moduleId = $module-++>++position . '-' . $module-++>++id; +
+$moduleclass++_++sfx =
+htmlspecialchars($params-++>++get('moduleclass++_++sfx'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerTag = htmlspecialchars($params-++>++get('header++_++tag', 'h1'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerClass = htmlspecialchars($params-++>++get('header++_++class',
+''), ENT++_++COMPAT, 'UTF-8'); +
+$bgimage = 'style="background-image:url('.
+$params-++>++get('backgroundimage') .');"'; +
++
+if ($module-++>++content) ++{++ +
+?++>++ +
++
+++<<++?php echo $moduleTag; ?++>++ id="++<++?php echo $moduleId; ?++>++"
+class="++<++?php echo $moduleclass++_++sfx; ?++>++" ++<++?php echo
+$bgimage; ?++>>++ +
+++<++div class="header-content"++>++ +
+++<++div class="header-content-inner"++>++ +
++
+++<++?php if ($module-++>++showtitle) : ?++>++ +
++
+++<<++?php echo $headerTag . ' class=" ' . $headerClass . '"'; ?++>>++ +
+++<++?php echo $module-++>++title; ?++>++ +
+++<++/++<++?php echo $headerTag; ?++>>++ +
++
+++<++?php endif; ?++>++ +
++
+*++<++?php echo $module-++>++content; ?++>++* +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/++<++?php echo $moduleTag; ?++>>++ +
+++<++?php +
+} +
+}
+
+======= Alternatives Layout anlegen
+
+Für unseren Header bietet sich das Modul „Eigenes Modul“
+(_mod++_++custom_) an. Wird auf dieser Modulposition in Verbindung mit
+unserem Modul Chrome _header_ ein _mod++_++custom_ geladen, wird laut
+der Datei _modules/mod++_++custom/tmpl/default.php_ des Modultyps der
+Code aus dem Listing 12.32 aufgerufen.
+
+Listing 12.32 Ausgabe der
+_modules/mod++_++custom/tmpl/default.php_-Datei
+
+++<++?php defined('++_++JEXEC') or die; ?++>++ +
+++<++div class="custom++<++?php echo $moduleclass++_++sfx ?++>++" +
+++<++?php if ($params-++>++get('backgroundimage')) : ?++>++
+style="background-image:url(++<++?php
+echoparams-++>++get('backgroundimage');?++>++)"++<++?php endif;?++>>++ +
+++<++?php echo $module-++>++content;?++>++ +
+++<++/div++>++
+
+Wenn Sie diesen Codeabschnitt mit der Vorlage vergleichen, sehen sie,
+dass wir nun im Header Code aufrufen, den wir an dieser Stelle gar nicht
+haben wollen. Zum einen ist der Div-Container überflüssig, zum anderen
+wird hier das Hintergrundbild geladen, welches wir schon im Chrome
+eingebunden haben.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:*
+
+Verwenden Sie für den Code, der um Module herum dargestellt werden soll,
+ein Chrome, um so mehr, wenn der Code für mehrere Modultypen
+wiederverwendet wird. Erstellen Sie Overrides bzw. Alternative Layouts
+für spezifische Module, deren Ausgabe Sie ändern möchten.
+
+Viele Wege führen nach Rom. Statt einem Chrome, hätten Sie in diesem
+Fall auch die kompletten Stilanpassungen im Alternativen Layout für das
+Modul anlegen können und dafür den Chrome auf „none“ setzen müssen, um
+die Ausgabe sämtlicher Elemente um das Modul herum zu entfernen.
+
+|===
+
+Wir beginnen mit einem sehr einfachen _Alternativen Layout_, da wir
+einfach sämtlichen Code aus dem _mod++_++custom_-Modul entfernen, den
+wir nicht brauchen. Kopieren Sie, wie im Abschnitt 12.1.5 beschrieben,
+die Datei _default.php_ aus dem Verzeichnis
+_modules/mod++_++custom/tmpl/_ in Ihr Templateverzeichnis unter
+_templates/paula/html/mod++_++custom_ und benennen Sie die Datei um,
+damit wir nicht alle Ausgaben von _eigenen Modulen (mod++_++custom)_
+überschreiben. Nennen wir die Datei stattdessen _clean.php_ und
+entfernen alle unnötigen Elemente, sodass das eigene Modul nur noch den
+Inhalt wiedergibt.
+
+Listing 12.33 Code der Datei
+_templates/paula/html/mod++_++custom/clean.php_
+
+++<++?php defined('++_++JEXEC') or die; ?++>++ +
+++<++?php echo $module-++>++content;?++>++
+
+======= Aufruf des Modules im Template
+
+Ersetzen Sie den kompletten ++<++header++>++-Block in Ihrer
+index.php-Datei durch:
+
+++<++jdoc:include type="modules" name="*header*" style="*header*" /++>++
+
+Sie rufen damit die Modulposition *header* mit dem Modul-Chrome *header*
+auf.
+
+======= Modul einrichten
+
+Richten Sie nun Ihr Modul ein. Gehen Sie dazu im Backend auf
+Erweiterungen » Module und klicken Sie auf den grünen Button Neu. Als
+Modultyp wählen Sie „EIGENES Modul“ aus.
+
+Im ersten Reiter „Modul“ können Sie folgenden HTML-Code in den Editor
+eintragen:
+
+++<++hr++>++ +
+++<++p++>++Willkommen auf meiner Webseite ++<++/p++>++ +
+++<++p++><++a href="#" class="btn btn-primary btn-xl
+page-scroll"++>++Mehr über mich++<++/a++><++/p++>++
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:*
+
+Um HTML-Code einzufügen, klicken Sie im TinyMCE auf „Editor ein/aus“
+oder im JCE Editor auf „Toggle Editor“ sowie auf das Codesymbol. Sollte
+Ihr html-Code nach dem Speichern verworfen werden, überprüfen Sie die
+Plug-in-Einstellungen des Editors, als auch die Textfilter-Einstellungen
+in der globalen Konfiguration.
+
+|===
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „_Mein erstes
+Template_“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Anzeigen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*header*“ aus.
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ allen Seiten zu
+
+Wählen Sie im Reiter „Optionen“ ein Hintergrundbild Ihrer Wahl aus.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: header
+
+Modulklassensuffix: leer
+
+Header-Tag: h1
+
+Header-Klasse: leer
+
+Wir bleiben in diesem Reiter und wählen unser Alternatives Layout aus.
+
+Alternatives Layout: clean
+
+_Den Chromestil müssen wir nicht auswählen, da wir den
+Standard-Chromestil bereits im Modulaufruf festgelegt haben._
+
+*Speichern Sie das Modul und werfen Sie einen Blick ins Frontend.*
+
+image:media/image39.jpg[media/image39,width=548,height=278]
+
+Bild . Dynamisch generierter Header im Frontend
+
+===== Teaser
+
+Als nächstes nehmen wir uns das Teaser-Modul vor, das ist der Balken
+direkt unter dem Header mit der vollflächigen primären Templatefarbe
+(orange oder blau, je nachdem, was Sie im Template in den Parametern
+ausgesucht haben).
+
+In der Vorlage selbst, also im aktuellen Stand unserer _index.php_,
+handelt es sich um diesen Codeabschnitt:
+
+Listing . Code des Teaser-Bereichs in der Template-Vorlage
+
+++<++section class="bg-primary" id="about"++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+++<++div class="col-lg-8 col-lg-offset-2 text-center"++>++ +
+++<++h2 class="section-heading"++>++We've got what you
+need!++<++/h2++>++ +
+++<++hr class="light"++>++ +
+++<++p class="text-faded"++>++Start Bootstrap has everything you need to
+get your new website up and running inno time! All of the templates and
+themes on Start Bootstrap are open source, free to download, and easy to
+use. No strings attached!++<++/p++>++ +
+++<++a href="#services" class="page-scroll btn btn-default btn-xl
+sr-button"++>++Get Started!++<++/a++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/section++>++
+
+Dazu erledigen wir folgende Schritte:
+
+[arabic]
+. Ein Modul Chrome in _templates/paula/html/modules.php_ anlegen.
+
+[arabic, start=22]
+. Das Modul mit einem Jdoc-Statement in der Datei
+_templates/paula/index.php_ aufrufen.
+. Das Modul im Modulmanager unter _Erweiterungen » Module_ anlegen und
+einrichten.
+
+======= Modul Chrome anlegen
+
+Wiederholen wir nun die Schritte, die wir im Abschnitt 12.2.5.3 für den
+Header angewandt haben. Kopieren Sie sich einfach die Function header
+und setzen Sie statt dem Namen „header“ den Namen „primary“ als Funktion
+ein:
+
+Listing . Erster Teil des Modul Chrome für den Teaser-Bereich in der
+Datei _modules.php_
+
+function modChrome++_++*primary*($module, &$params, &$attribs) +
+++{++ +
+$moduleTag = $params-++>++get('module++_++tag', 'header'); +
+$moduleId = $module-++>++position . '-' . $module-++>++id; +
+$moduleclass++_++sfx =
+htmlspecialchars($params-++>++get('moduleclass++_++sfx'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerTag = htmlspecialchars($params-++>++get('header++_++tag', 'h1'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerClass = htmlspecialchars($params-++>++get('header++_++class',
+''), ENT++_++COMPAT, 'UTF-8'); +
+$bgimage = 'style="background-image:url('.
+$params-++>++get('backgroundimage') .');"'; +
++
+if ($module-++>++content) ++{++ +
+?++>++
+
+Kopieren Sie anschließend den Code aus der Vorlage in die Ausgabe des
+Modulstils und ersetzen Sie die statischen Tags durch die Variablen.
+
+Listing . Zweiter Teil des Modul Chrome für den Teaser-Bereich in der
+Datei _modules.php_
+
+*++<<++?php echo $moduleTag; ?++>++* class="bg-primary" id**="++<++?php
+echo $moduleId; ?++>++**" **++<++?php echo $bgimage; ?++>++**++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+++<++div class="*++<++?php echo $moduleclass++_++sfx ?++>++"++>++* +
++
+++<++?php if ($module-++>++showtitle) : ?++>++ +
++
+++<<++?php echo $headerTag . ' class=" ' . $headerClass . '"'; ?++>>++ +
+++<++?php echo $module-++>++title; ?++>++ +
+++<++/++<++?php echo $headerTag; ?++>>++ +
++
+++<++?php endif; ?++>++ +
++
+++<++?php echo $module-++>++content; ?++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/++<++?php echo $moduleTag; ?++>>++ +
++
+++<++?php +
+} +
+}
+
+Der Teaser hat die Klasse bg-primary, diese Klasse legt fest, dass
+dieses Modul die Hauptfarbe des Templates als Hintergrund nutzt. Die
+statische ID-Angabe wurde entfernt und durch unsere selbst konstruierte
+Variable ersetzt, so wie wir es im Header gemacht haben und die
+Style-Angabe für das Hintergrundbild wird auch eingebunden, falls wir
+uns jemals dazu entscheiden, ein Hintergrundbild nutzen zu wollen. In
+dem div-Container nach dem ++<++div class="row"++>++ setzen wir als
+Klasse den _Modulklassen-Suffix_ ein. Dieser wird in den
+Moduleinstellungen dazu verwendet, die Textausrichtung und die Breite
+des Moduls mit den Angaben "col-lg-8 col-lg-offset-2 text-center" zu
+steuern. Es folgt die Ausgabe des Titels, auf die gleiche Art und Weise
+wie wir es im header-Chrome umgesetzt haben und anschließend der
+Content. Zum Schluss werden alle Anweisungen geschlossen.
+
+======= Modulaufruf im Template
+
+Ersetzen Sie nun den kompletten Block, der den Teaser im Template
+abbildet, in Ihrer _index.php_-Datei durch
+
+++<++jdoc:include type="modules" name="*teaser*" style="*primary*"
+/++>++
+
+Sie rufen damit die Modulposition _teaser_ mit dem Modul-Chrome
+_primary_ auf.
+
+======= Modul einrichten
+
+Richten Sie nun Ihr Modul ein. Gehen Sie dazu im Backend auf
+Erweiterungen » Module und klicken Sie auf den grünen Button Neu. Als
+Modultyp wählen Sie wieder „EIGENES Modul“ aus.
+
+Im ersten Reiter „Modul“ können Sie folgenden HTML-Code in den Editor
+eintragen:
+
+++<++hr class="light"++>++
+
+++<++p class="text-faded"++>++So bauen Sie das Teasermodul
+ein++<++/p++>++
+
+++<++a href="#" class="page-scroll btn btn-default btn-xl
+sr-button"++>++Los geht´s!++<++/a++>++
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „_Über uns_“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Anzeigen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*teaser*“ aus.
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ der Startseite zu.
+
+Im Reiter "Erweitert" können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: section
+
+Modulklassensuffix: col-lg-8 col-lg-offset-2 text-center
+
+Header-Tag: h2
+
+Header-Klasse: leer
+
+Wir bleiben in diesem Reiter und wählen unser Alternatives Layout aus.
+
+Alternatives Layout: clean
+
+_Den Chromestil primary müssen wir nicht auswählen, da wir den
+Standard-Chromestil bereits im Modulaufruf festgelegt haben._
+
+*Speichern Sie das Modul und werfen Sie einen Blick ins Frontend.*
+
+image:media/image40.jpg[media/image40,width=548,height=278]
+
+Bild . Dynamisch generierter Teaser im Frontend
+
+===== Icon-Modul
+
+Für das Modul, das die verschiedenen Servicebereiche in der Vorlage
+anzeigt, legen wir nur lediglich ein Alternatives Layout für
+_mod++_++articles++_++news_ an, ohne einen Chrome-Stil anzulegen. Das
+Joomla!-Core-Modul _„Beiträge – Newsflash“_ ruft für Sie Artikel von
+bestimmten Kategorien ab und stellt diese in einem Modul dar.
+
+Nachfolgend arbeiten wir an diesen Schritten:
+
+[arabic]
+. Ein Alternatives Layout in
+_templates/paula/html/mod++_++articles++_++news/_(Beiträge - Newsflash)
+anlegen.
+
+[arabic, start=24]
+. Das Modul per Jdoc-Statement in der _templates/paula/index.php_
+aufrufen.
+. Vier Artikel anlegen, die in diesem Modul angezeigt werden sollen.
+. Das Modul im Modulmanager unter Erweiterungen » Module anlegen und
+einrichten.
+
+======= Alternatives Layout anlegen
+
+Wir werden für diesen Aufruf den Chrome „_none_“ aus dem System-Template
+verwenden und die gesamte Ausgabe im Layout des Moduls einbinden.
+
+Kopieren Sie sich aus _modules/mod++_++articles++_++news/_ die Datei
+_default.php_ und legen Sie diese im Ordner
+_templates/paula/html/mod++_++articles++_++news_ ab.
+
+Benennen Sie nun zunächst die _default.php_ in _iconmodule.php_ um und
+öffnen Sie diese zur Bearbeitung.
+
+Wir können nun in unserem _Alternativen Layout_ die gleichen Variablen
+nutzen, die wir schon in unseren ersten zwei Chromes verwendet haben.
+
+Listing . Einsetzen der Variablen in das Alternative Layout für den
+Iconmodul-Bereich in der Datei
+_templates/paula/html/mod++_++articles++_++news/iconmodule.php_
+
+++<++?php defined('++_++JEXEC') or die; +
+$moduleTag = $params-++>++get('module++_++tag', 'section'); +
+$moduleId = $module-++>++position . '-' . $module-++>++id; +
+$headerTag = htmlspecialchars($params-++>++get('header++_++tag', 'h3'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerClass = $params-++>++get('header++_++class'); +
+$headerClass = !empty($headerClass) ? ' class="section-heading ' .
+htmlspecialchars($headerClass, ENT++_++COMPAT, 'UTF-8') . '"' : ''; +
++
+$item++_++heading = $params-++>++get('item++_++heading', 'h4'); +
+$iconitems = count($list); +
+$lgclass = floor(12 / $iconitems); +
+?++>++ +
++
+*++<++div class="newsflash++<++?php echo $moduleclass++_++sfx;
+?++>++"++>++* +
+++<++?php foreach ($list as $item) : ?++>++ +
+*++<++?php require
+JModuleHelper::getLayoutPath('mod++_++articles++_++news', '++_++item');
+?++>++* +
+++<++?php endforeach; ?++>++ +
+*++<++/div++>++*
+
+Den ersten Abschnitt der Variablen kennen Sie schon aus dem Modul Chrome
+für den Header. Sie können die gleichen Parameter im Layout abrufen. Nun
+kommen noch ein paar Variablen hinzu, die spezifisch für dieses Modul
+verwendet werden:
+
+Über $item++_++heading legen wir den Überschriften-Tag für die
+dargestellten Artikel fest.
+
+Was hat es mit $iconitems auf sich? Im Modul werden wir später
+einstellen, dass dieser Bereich maximal sechs Artikel aufruft. Dennoch
+müssen wir feststellen, wie breit unsere Spalten genau sein sollen,
+damit diese gleichmäßig verteilt sind. Die CSS-Klasse dafür erzeugen wir
+dynamisch. Dazu zählen Sie zunächst die Anzahl der aufgerufenen Artikel
+mit count($list). Bei der Variable $lgclass runden wir dann das Ergebnis
+der Spaltenrechnung.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Bootstrap verfügt standardmäßig über 12 Spalten, in der Variable gehen
+wir davon aus, dass weniger als 12 Artikel aufgerufen werden. Man kann
+die Variable durchaus noch komplexer konstruieren und feststellen, was
+passiert, wenn beispielsweise 18 Artikel aufgerufen werden. Das würde
+für dieses Kapitel aber eindeutig zu weit gehen.
+
+|===
+
+Wir haben alle notwendigen Variablen angelegt. Nun ersetzen wir die fett
+abgedruckten Codezeilen durch den Code, den unsere Vorlage vorgibt.
+
+Sehen wir uns dazu nochmal kurz den kompletten Code an, der ausgegeben
+werden soll:
+
+Listing . Iconmodul-Bereich in der Template-Vorlage
+
+++<++section id="services"++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+++<++div class="col-lg-12 text-center"++>++ +
+++<++h2 class="section-heading"++>++At Your Service++<++/h2++>++ +
+++<++hr class="primary"++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+*++<++div class="col-lg-3 col-md-6 text-center"++>++ +
+++<++div class="service-box"++>++ +
+++<++i class="fa fa-4x fa-diamond text-primary sr-icons"++><++/i++>++ +
+++<++h3++>++Sturdy Templates++<++/h3++>++ +
+++<++p class="text-muted"++>++Our templates are updated regularly so
+they don't break.++<++/p++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++div class="col-lg-3 col-md-6 text-center"++>++ +
+++<++div class="service-box"++>++ +
+++<++i class="fa fa-4x fa-paper-plane text-primary
+sr-icons"++><++/i++>++ +
+++<++h3++>++Ready to Ship++<++/h3++>++ +
+++<++p class="text-muted"++>++You can use this theme as is, or you can
+make changes!++<++/p++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++div class="col-lg-3 col-md-6 text-center"++>++ +
+++<++div class="service-box"++>++ +
+++<++i class="fa fa-4x fa-newspaper-o text-primary
+sr-icons"++><++/i++>++ +
+++<++h3++>++Up to Date++<++/h3++>++ +
+++<++p class="text-muted"++>++We update dependencies to keep things
+fresh.++<++/p++>++ +
+++<++/div++>++ +
+++<++/div++>++* +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/section++>++
+
+Wenn wir den Code aus der Vorlage inspizieren, sehen wir, dass sich die
+Bereiche, die mit ++<++div class="col-lg-3 col-md-6 text-center"++>++
+beginnen, immerwährend wiederholen. Dieser Bereich muss folglich
+innerhalb einer foreach-Schleife aufgerufen werden und alle nicht fett
+abgedruckten Bereiche werden außerhalb der Schleife aufgerufen.
+
+Gehen Sie beim Alternativen Layout für das Modul genauso vor, wie Sie in
+einem Modul Chrome arbeiten würden.
+
+Listing . Fertiggestelltes, Alternatives Layout für den
+Iconmodul-Bereich in der Datei
+_templates/paula/html/mod++_++articles++_++news/iconmodule.php_
+
+++<++?php defined('++_++JEXEC') or die; +
+$moduleTag = $params-++>++get('module++_++tag', 'section'); +
+$moduleId = $module-++>++position . '-' . $module-++>++id; +
+$headerTag = htmlspecialchars($params-++>++get('header++_++tag', 'h2'),
+ENT++_++COMPAT, 'UTF-8'); +
+$headerClass = $params-++>++get('header++_++class'); +
+$headerClass = !empty($headerClass) ? ' class="section-heading ' .
+htmlspecialchars($headerClass, ENT++_++COMPAT, 'UTF-8') . '"' : ''; +
++
+$item++_++heading = $params-++>++get('item++_++heading', 'h4'); +
+$iconitems = count($list); +
+$lgclass = floor(12 / $iconitems); +
+?++>++
+
+++<<++?php echo $moduleTag; ?++>++ class="++<++?php echo
+$moduleclass++_++sfx; ?++>++" id="++<++?php echo $moduleId;
+?++>++"++>++ +
++
+**++<++!-- Abfrage ob der Modultitel dargestellt werden soll --++>++ +
+**++<++?php if ($module-++>++showtitle) : ?++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+++<++div class="col-lg-12 text-center"++>++ +
+++<<++?php echo $headerTag . ' class=" ' . $headerClass . '"'; ?++>>++ +
+++<++?php echo $module-++>++title; ?++>++ +
+++<++/++<++?php echo $headerTag; ?++>>++ +
+++<++hr class="primary"++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++?php endif; ?++>++ +
++
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+*++<++!-- Foreach Schleife - ruft die Artikel aus der gewählten
+Kategorie in einer Schleife auf --++>++ +
+* ++<++?php foreach ($list as $item) : ?++>++ +
+++<++div class="col-lg-++<++?php echo $lgclass; ?++>++ text-center
+"++>++ +
+++<++div class="service-box"++>++ +
+*++<++!-- Abfrage ob der Titel eingeblendet werden soll --++>++ +
+* ++<++?php if ($params-++>++get('item++_++title')) : ?++>++ +
++
+*++<++!-- Ausgabe des Überschriften-Tags mit Modulklassen-Suffix
+--++>++* +
+++<<++?php echo $item++_++heading; ?++>++
+class="newsflash-title++<++?php echo
+$params-++>++get('moduleclass++_++sfx'); ?++>++"++>++ +
++
+*++<++!-- Abfrage ob der Titel mit Link ausgegeben werden soll
+--++>++* +
+++<++?php if ($params-++>++get('link++_++titles') && $item-++>++link !=
+'') : ?++>++ +
+++<++a href="++<++?php echo $item-++>++link; ?++>++"++>++ +
+++<++?php echo $item-++>++title; ?++>++ +
+++<++/a++>++ +
++
+++<++?php else : ?++>++ +
+*++<++!-- Ansonsten Titel ohne Link ausgeben --++>++ +
+* ++<++?php echo $item-++>++title; ?++>++ +
+++<++?php endif; ?++>++ +
++
+++<++/++<++?php echo $item++_++heading; ?++>>++ +
++
+++<++?php endif; ?++>++ +
++
+++<++?php if (!$params-++>++get('intro++_++only')) : ?++>++ +
+++<++?php echo $item-++>++afterDisplayTitle; ?++>++ +
+++<++?php endif; ?++>++ +
++
+++<++?php echo $item-++>++beforeDisplayContent; ?++>++ +
++
+++<++?php if ($params-++>++get('show++_++introtext', '1')) : ?++>++ +
+++<++?php echo $item-++>++introtext; ?++>++ +
+++<++?php endif; ?++>++ +
++
+++<++?php echo $item-++>++afterDisplayContent; ?++>++ +
++
+++<++?php if (isset($item-++>++link) && $item-++>++readmore != 0 &&
+$params-++>++get('readmore')) : ?++>++ +
+++<++?php echo '++<++a class="readmore" href="' . $item-++>++link .
+'"++>++' . $item-++>++linkText . '++<++/a++>++'; ?++>++ +
+++<++?php endif; ?++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++?php endforeach; ?++>++ *++<++!-- Ende der foreach Schleife
+--++>++ +
+* ++<++/div++>++ **++<++!--Row Ende--++>++ +
+**++<++/div++>++ *++<++!-- Container Ende --++>++* +
+++<++/++<++?php echo $moduleTag; ?++>>++
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:*
+
+Es empfiehlt sich bei Alternativen Layouts, immer die Originallayouts
+der jeweiligen Erweiterung zu inspizieren und zu verstehen. Dadurch
+können Sie den Code wie im Listing 12.39 gesehen sehr einfach ableiten.
+Der Bereich in der Foreach-Schleife ist eine Mischung aus dem Code der
+Template-Vorlage und den Möglichkeiten, die das Modul
+_mod++_++articles++_++news_ bietet. Den Teil der zwischen der
+foreach-Schleife wiedergegeben wird, finden Sie im Original in der Datei
+_item.php_ unter _modules/mod++_++articles++_++news/tmpl_
+
+|===
+
+======= Modul im Template aufrufen
+
+Ersetzen Sie jetzt den kompletten Service-Block in Ihrer
+_index.php_-Datei durch:
+
+++<++jdoc:include type="modules" name="*top*" style="*none*" /++>++
+
+Sie rufen damit die Modulposition _top_ mit dem Modul-Chrome _none_ (=
+kein Markup) auf.
+
+======= Inhalte für das Modul erstellen
+
+Legen Sie eine neue Kategorie, z. B. „*Iconmodul*“, an und erstellen Sie
+mindestens vier Artikel in dieser Kategorie. Die folgenden Inhalte habe
+ich aus der html-Vorlage übernommen:
+
+[arabic]
+. Artikel
+
+++<++i class="fa fa-4x fa-diamond text-primary sr-icons"++><++/i++>++ +
+++<++h3++>++Sturdy Templates++<++/h3++>++ +
+++<++p class="text-muted"++>++Our templates are updated regularly so
+they don't break.++<++/p++>++
+
+[arabic, start=27]
+. Artikel
+
+++<++i class="fa fa-4x fa-paper-plane text-primary
+sr-icons"++><++/i++>++ +
+++<++h3++>++Ready to Ship++<++/h3++>++ +
+++<++p class="text-muted"++>++You can use this theme as is, or you can
+make changes!++<++/p++>++
+
+[arabic, start=28]
+. Artikel
+
+++<++i class="fa fa-4x fa-newspaper-o text-primary
+sr-icons"++><++/i++>++ +
+++<++h3++>++Up to Date++<++/h3++>++ +
+++<++p class="text-muted"++>++We update dependencies to keep things
+fresh.++<++/p++>++
+
+[arabic, start=29]
+. Artikel
+
+++<++i class="fa fa-4x fa-heart text-primary sr-icons"++><++/i++>++ +
+++<++h3++>++Made with Love++<++/h3++>++ +
+++<++p class="text-muted"++>++You have to make your websites with love
+these days!++<++/p++>++
+
+======= Modul einrichten
+
+Richten Sie nun Ihr Modul ein. Gehen Sie dazu im Backend auf
+Erweiterungen » Module und klicken Sie auf den grünen Button Neu. Als
+Modultyp wählen Sie „BEITRÄGE - NEWSFLASH“ aus.
+
+Im ersten Reiter „Modul“ finden Sie nun ein paar
+Einstellungsmöglichkeiten für die Anzeige der Artikel.
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „Iconmodule“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Anzeigen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*top*“ aus.
+
+Weiterhin sind hier einige Parameter, die wir festlegen müssen:
+
+Kategorie: Iconmodul
+
+Plugin-Ereignisse ausführen: Nein
+
+Einleitungstext: Anzeigen
+
+Anzahl von Beiträgen: 6 _(Sie können dann max. 6 Artikel anzeigen)_
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ der Startseite zu.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: section
+
+Header-Tag: h3
+
+Wir bleiben in diesem Reiter und wählen unser Alternatives Layout aus.
+
+Alternatives Layout: Iconmodule
+
+_Den Chromestil none müssen wir nicht auswählen, da wir den
+Standard-Chromestil bereits im Modulaufruf festgelegt haben._
+
+*Speichern Sie das Modul und werfen Sie einen Blick ins Frontend.*
+
+image:media/image41.jpg[media/image41,width=548,height=278]
+
+Bild . Dynamisch generierter Iconbereich im Frontend
+
+==== Portfolio-Modul
+
+Weiter geht es mit dem nächsten Abschnitt unserer Webseite, es handelt
+sich um den schicken Portfolio-Bereich. Wenn wir mit der Maus über die
+Bilder fahren, färbt sich der Hintergrund und wir sehen die Kategorie
+und einen Titel.
+
+Um dieses Aussehen zu erreichen, nehmen wir wieder das Modul
+_mod++_++articles++_++news_ zur Hilfe, um die folgenden Schritte
+abzuarbeiten:
+
+[arabic]
+. Ein weiteres Alternatives Layout in
+_templates/paula/html/mod++_++articles++_++news/_ (Beiträge - Newsflash)
+anlegen.
+
+[arabic, start=30]
+. Das Modul über ein Jdoc-Statement der Datei
+_templates/paula/index.php_ aufrufen.
+. Mindestens drei Artikel anlegen, die in diesem Modul angezeigt werden
+sollen.
+. Das Modul im Modulmanager unter Erweiterungen » Module anlegen und
+einrichten.
+
+======= Alternatives Layout anlegen
+
+So sieht der Code für das Portfolio in unserer Vorlage aus:
+
+Listing . Portfolio-Bereich in der Template-Vorlage
+
+++<++section class="no-padding" id="portfolio"++>++ +
+++<++div class="container-fluid"++>++ +
+++<++div class="row no-gutter popup-gallery"++>++ +
++
+*++<++div class="col-lg-4 col-sm-6"++>++ +
+++<++a href="img/portfolio/fullsize/1.jpg" class="portfolio-box"++>++ +
+++<++img src="img/portfolio/thumbnails/1.jpg" class="img-responsive"
+alt=""++>++ +
+++<++div class="portfolio-box-caption"++>++ +
+++<++div class="portfolio-box-caption-content"++>++ +
+++<++div class="project-category text-faded"++>++ +
+Category +
+++<++/div++>++ +
+++<++div class="project-name"++>++ +
+Project Name +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/a++>++ +
+++<++/div++>++* +
++
+*++<++div class="col-lg-4 col-sm-6"++>++ +
+++<++a href="img/portfolio/fullsize/2.jpg" class="portfolio-box"++>++ +
+++<++img src="img/portfolio/thumbnails/2.jpg" class="img-responsive"
+alt=""++>++ +
+++<++div class="portfolio-box-caption"++>++ +
+++<++div class="portfolio-box-caption-content"++>++ +
+++<++div class="project-category text-faded"++>++ +
+Category +
+++<++/div++>++ +
+++<++div class="project-name"++>++ +
+Project Name +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/a++>++ +
+++<++/div++>++* +
++
+*++<++div class="col-lg-4 col-sm-6"++>++ +
+++<++a href="img/portfolio/fullsize/3.jpg" class="portfolio-box"++>++ +
+++<++img src="img/portfolio/thumbnails/3.jpg" class="img-responsive"
+alt=""++>++ +
+++<++div class="portfolio-box-caption"++>++ +
+++<++div class="portfolio-box-caption-content"++>++ +
+++<++div class="project-category text-faded"++>++ +
+Category +
+++<++/div++>++ +
+++<++div class="project-name"++>++ +
+Project Name +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/a++>++ +
+++<++/div++>++* +
++
+*++<++div class="col-lg-4 col-sm-6"++>++ +
+++<++a href="img/portfolio/fullsize/4.jpg" class="portfolio-box"++>++ +
+++<++img src="img/portfolio/thumbnails/4.jpg" class="img-responsive"
+alt=""++>++ +
+++<++div class="portfolio-box-caption"++>++ +
+++<++div class="portfolio-box-caption-content"++>++ +
+++<++div class="project-category text-faded"++>++ +
+Category +
+++<++/div++>++ +
+++<++div class="project-name"++>++ +
+Project Name +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/a++>++ +
+++<++/div++>++* +
++
+*++<++div class="col-lg-4 col-sm-6"++>++ +
+++<++a href="img/portfolio/fullsize/5.jpg" class="portfolio-box"++>++ +
+++<++img src="img/portfolio/thumbnails/5.jpg" class="img-responsive"
+alt=""++>++ +
+++<++div class="portfolio-box-caption"++>++ +
+++<++div class="portfolio-box-caption-content"++>++ +
+++<++div class="project-category text-faded"++>++ +
+Category +
+++<++/div++>++ +
+++<++div class="project-name"++>++ +
+Project Name +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/a++>++ +
+++<++/div++>++* +
++
+*++<++div class="col-lg-4 col-sm-6"++>++ +
+++<++a href="img/portfolio/fullsize/6.jpg" class="portfolio-box"++>++ +
+++<++img src="img/portfolio/thumbnails/6.jpg" class="img-responsive"
+alt=""++>++ +
+++<++div class="portfolio-box-caption"++>++ +
+++<++div class="portfolio-box-caption-content"++>++ +
+++<++div class="project-category text-faded"++>++ +
+Category +
+++<++/div++>++ +
+++<++div class="project-name"++>++ +
+Project Name +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/a++>++ +
+++<++/div++>++ +
+* +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/section++>++
+
+Sie sehen auch hier, dass sich im Portfolio-Modul die Bereiche innerhalb
+des ++<++div class="row no-gutter popup-gallery"++>++-Tags wiederholen.
+
+Wir legen ein neues Alternatives Layout im Ordner
+_templates/paula/html/mod++_++articles++_++news_ mit dem Namen
+_portfolio.php_ an. Ähnlich wie beim _iconmodul_ leiten wir die Datei
+mit ein paar Variablen ein:
+
+Listing . Ausschnitt aus der Variablen-Definition in der Datei
+_templates/paula/html/mod++_++articles++_++news/portfolio.php_.
+
+++<++?php defined('++_++JEXEC') or die; +
+$moduleTag = $params-++>++get('module++_++tag', 'section'); +
+$moduleId = $module-++>++position . '-' . $module-++>++id; +
+?++>++
+
+Im Gegensatz zum Iconmodul lassen wir hier Parameter weg und behalten
+einige statischen Angaben im Code bei. In diesem Fall müssen wir uns
+darauf verlassen, dass die dargestellte Artikelmenge immer durch 3
+teilbar ist. Wenn Sie möchten, können Sie das im Nachgang
+perfektionieren.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Merken Sie sich, dass die im Modul getätigten Parametereinstellungen nur
+Einfluss haben, wenn sie auch im Override bzw. Alternativen Layout
+abgefragt und ausgegeben werden.
+
+|===
+
+Ersetzen Sie den Container um die foreach-Schleife durch den im
+Listing 12.42 angezeigten Codeabschnitt.
+
+Listing . Bereich um die Foreach-Schleife in der Datei
+_templates/paula/html/mod++_++articles++_++news/portfolio.php_
+
+++<++**++<++?php echo $moduleTag; ?++>++** class="no-padding"
+id="*++<++?php echo $moduleId; ?++>++"++>++* +
+++<++div class="container-fluid"++>++ +
+++<++div class="row no-gutter popup-gallery *++<++?php echo
+$moduleclass++_++sfx; ?++>++*"++>++ +
+++<++?php foreach ($list as $item) : ?++>++ +
+*++<++!—- Hier werden im nächsten Schritt die Artikel geladen --++>++* +
+++<++/div++><++!-- Row Ende --++>++ +
+++<++/div++><++!--Container Ende --++>++ +
+++<++/++<++?php echo $moduleTag; ?++>>++
+
+Kopieren Sie einen der sich wiederholenden Codeblöcke aus Ihrer
+Template-Vorlage in die foreach-Schleife und ergänzen Sie fehlende
+Variablen. Sehen Sie sich dazu den kompletten Code im Listing 12.43 an.
+
+Listing 12.43 Fertiggestelltes Alternatives Layout für
+_mod++_++articles++_++news_ in der Datei
+_templates/paula/html/mod++_++articles++_++news/portfolio.php_
+
+++<++?php defined('++_++JEXEC') or die; +
+$moduleTag = $params-++>++get('module++_++tag', 'section'); +
+$moduleId = $module-++>++position . '-' . $module-++>++id; +
+?++>++ +
++
+++<<++?php echo $moduleTag; ?++>++ class="no-padding" id="++<++?php echo
+$moduleId; ?++>++"++>++ +
+++<++div class="container-fluid"++>++ +
+++<++div class="row no-gutter popup-gallery ++<++?php echo
+$moduleclass++_++sfx; ?++>++"++>++ +
++
+*++<++!-- Foreach Schleife - ruft die Artikel aus der gewählten
+Kategorie in einer Schleife auf --++>++* +
+++<++?php foreach ($list as $item) : ?++>++ +
+*++<++!-- Zuweisung der Variablen für das Einleitungsbild und das Bild,
+welches im Popup aufgeht --++>++* +
++
+++<++?php +
+$images = json++_++decode($item-++>++images); +
+$introimg = $images-++>++image++_++intro; +
+$introimgalt = $images-++>++image++_++intro++_++alt; +
+$fullimg = $images-++>++image++_++fulltext; +
+?++>++ +
+*++<++!-- Ausgabe der Bildkacheln --++>++* +
+++<++div class="col-lg-4 col-sm-6"++>++ +
+++<++a href="++<++?php echo $fullimg; ?++>++"
+class="portfolio-box"++>++ +
+++<++img src="++<++?php echo $introimg; ?++>++" class="img-responsive"
+alt="++<++?php echo $introimgalt; ?++>++"++>++ +
++
+++<++div class="portfolio-box-caption"++>++ +
+++<++div class="portfolio-box-caption-content"++>++ +
+++<++div class="project-category text-faded"++>++ +
+*++<++!-- Ausgabe des Kategorietitels --++>++* +
+++<++?php echo $item-++>++category++_++title; ?++>++ +
+++<++/div++>++ +
+++<++div class="project-name"++>++ +
+*++<++!-- Ausgabe des Artikeltitels --++>++* +
+++<++?php echo $item-++>++title; ?++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/a++>++ +
+++<++/div++>++ +
+++<++?php endforeach; ?++>++ +
+++<++/div++>++**++<++!-- Row Ende --++>++** +
+++<++/div++>++**++<++!-- Container Ende --++>++** +
+++<++/++<++?php echo $moduleTag; ?++>>++
+
+======= Modul im Template aufrufen
+
+Ersetzen Sie nun den kompletten Portfolio-Block in Ihrer
+_index.php_-Datei durch:
+
+++<++jdoc:include type="modules" name="*portfolio*" style="*none*"
+/++>++
+
+Sie rufen damit die Modulposition _portfolio_ mit dem Modul-Chrome
+_none_ auf.
+
+======= Inhalte für das Modul erstellen
+
+Legen Sie eine Kategorie „_Portfolio_“ an (Inhalt » Kategorien » Neue
+Kategorie)
+
+Erstellen Sie innerhalb dieser Kategorie ein paar Artikel für das
+Portfolio. Für den Anfang reichen drei Artikel. Weisen Sie dem Artikel
+im Reiter „Bilder und Links“ ein „_Einleitungsbild_“ (_Anzeige im
+Kästchen auf der Seite_) und ein „_Komplettes Beitragsbild_“ (_Anzeige
+nach Klick auf das Kästchen_) zu.
+
+image:media/image42.png[media/image42,width=548,height=281]
+
+Bild . – Bearbeitung der Portfolio-Beiträge
+
+======= Modul einrichten
+
+Richten Sie nun Ihr Modul ein. Gehen Sie dazu im Backend auf
+Erweiterungen » Module und klicken Sie auf den grünen Button Neu. Als
+Modultyp wählen Sie „BEITRÄGE - NEWSFLASH“ aus.
+
+Im ersten Reiter „Modul“ finden Sie nun ein paar
+Einstellungsmöglichkeiten für die Anzeige der Artikel.
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „_Portfolio_“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Verbergen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*portfolio*“ aus.
+
+Weiterhin sind hier einige Parameter, die wir festlegen müssen:
+
+Kategorie: Portfolio
+
+Beitragsbilder anzeigen: Ja
+
+Beitragstitel anzeigen: Nein
+
+Plugin-Ereignisse ausführen: Ja
+
+Einleitungstext: Anzeigen
+
+Weiterlesen-Link: Verbergen
+
+Anzahl von Beiträgen: 3
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ der Startseite zu.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: section
+
+Header-Tag: h3
+
+Wir bleiben in diesem Reiter und wählen unser Alternatives Layout aus.
+
+Alternatives Layout: Portfolio
+
+_Den Chromestil none müssen wir nicht auswählen, da wir den
+Standard-Chromestil bereits im Modulaufruf festgelegt haben._
+
+*Speichern Sie das Modul und werfen Sie einen Blick ins Frontend.*
+
+image:media/image43.jpg[media/image43,width=548,height=278]
+
+Bild . Dynamisch generierter Portfolio-Bereich im Frontend
+
+==== Call-to-Action-Bereich
+
+Für den Call-to-action-Bereich haben wir die Position _action_ in der
+_templateDetails.xml_ vorgesehen.
+
+Wir werden folgende Schritte abarbeiten:
+
+[arabic]
+. Den Modul Chrome _primary_ kopieren und geringfügig anpassen.
+
+[arabic, start=33]
+. Das Modul per Jdoc-Statement in der Datei _templates/paula/index.php_
+aufrufen.
+. Das Modul im Modulmanager unter Erweiterungen » Module anlegen und
+einrichten.
+
+======= Modul Chrome anlegen
+
+Der Code für den Call-to-Action-Bereich sieht in unserer Vorlage so aus:
+
+Listing 12.44 Call-to-Action-Bereich in der Template-Vorlage
+
+++<++aside class="bg-dark"++>++ +
+++<++div class="container text-center"++>++ +
+++<++div class="call-to-action"++>++ +
+++<++h2++>++Free Download at Start Bootstrap!++<++/h2++>++ +
+++<++a href="http://startbootstrap.com/template-overviews/creative/"
+class="btn btn-default btn-xl sr-button"++>++Download Now! +
+++<++/a++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/aside++>++
+
+Sie sehen, dass sich dieser Bereich nur geringfügig von dem
+_primary_-Chrome unterscheidet, den wir schon angelegt haben.
+
+Kopieren Sie den bereits angelegten _primary_-Chrome und benennen ihn in
+_dark_ um. Ersetzen Sie noch die CSS-Klasse bg-primary für den
+umliegenden Tag und benennen Sie diese bg-dark.
+
+Alles andere können Sie so lassen wie gehabt.
+
+======= Modul im Template aufrufen
+
+Ersetzen Sie nun den kompletten Call-to-Action-Block in Ihrer
+index.php-Datei durch:
+
+++<++jdoc:include type="modules" name="*action*" style="*dark*" /++>++
+
+Sie rufen damit die Modulposition *action* mit dem Modul-Chrome *dark*
+auf.
+
+======= Modul einrichten
+
+Richten Sie nun Ihr Modul ein. Gehen Sie dazu im Backend auf
+Erweiterungen » Module und klicken Sie auf den grünen Button Neu. Als
+Modultyp wählen Sie „EigENES Modul“ aus.
+
+Im ersten Reiter „Modul“ können Sie für die Übung einfach den Inhalt aus
+der Vorlage eintragen:
+
+++<++a href="http://startbootstrap.com/template-overviews/creative/"
+class="btn btn-default btn-xl sr-button"++>++Download Now!++<++/a++>++
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „_Call to
+Action“_
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Anzeigen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*action*“ aus.
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ der Startseite zu.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: aside
+
+Modulklassensuffix: call-to-action text-center
+
+Header-Tag: h3
+
+Wir bleiben in diesem Reiter und wählen unser Alternatives Layout aus.
+
+Alternatives Layout: clean
+
+_Den Chromestil dark müssen wir nicht auswählen, da wir den
+Standard-Chromestil bereits im Modulaufruf festgelegt haben._
+
+*Speichern Sie das Modul und werfen Sie einen Blick ins Frontend.*
+
+image:media/image44.jpg[media/image44,width=548,height=278]
+
+Bild . Dynamisch generierter Call-to-Action-Bereich im Frontend
+
+==== Kontaktbereich im Footer
+
+Nun haben Sie eigene Chromes und eigene Overrides angelegt. Für den
+Kontaktbereich im Footer erstellen wir lediglich ein paar einfache
+PHP-if-Abfragen, um keinen leeren Container auf der Seite zu haben,
+falls dieser Bereich nicht genutzt wird.
+
+In der _TemplateDetails.xml_ haben wir für den Fußbereich die Position
+_contact_ vorgesehen.
+
+Der Code aus der Vorlage sieht folgendermaßen aus:
+
+Listing . Kontaktbereich in der Template-Vorlage
+
+++<++section id="contact"++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+*++<++div class="col-lg-8 col-lg-offset-2 text-center"++>++ +
+++<++h2 class="section-heading"++>++Let's Get In Touch!++<++/h2++>++ +
+++<++hr class="primary"++>++ +
+++<++p++>++Ready to start your next project with us? That's great! Give
+us a call or +
+send us an email and we will get back to you as soon as
+possible!++<++/p++>++ +
+++<++/div++>++ +
+++<++div class="col-lg-4 col-lg-offset-2 text-center"++>++ +
+++<++i class="fa fa-phone fa-3x sr-contact"++><++/i++>++ +
+++<++p++>++123-456-6789++<++/p++>++ +
+++<++/div++>++ +
+++<++div class="col-lg-4 text-center"++>++ +
+++<++i class="fa fa-envelope-o fa-3x sr-contact"++><++/i++>++ +
+++<++p++>++ +
+++<++a href="mailto:your-email@your-domain.com"++>++ +
+*mailto:feedback@startbootstrap.com[[.underline]#feedback@startbootstrap.com#]* +
+++<++/a++>++ +
+++<++/p++>++ +
+++<++/div++>++ +
+* ++<++/div++>++ +
+++<++/div++>++ +
+++<++/section++>++
+
+======= Modul im Template aufrufen
+
+Mit dem Befehl ++<++?php if (*$this-++>++countModules*('contact')) :
+?++>++ können wir feststellen, ob für diesen Abschnitt überhaupt ein
+Modul im Backend eingerichtet wurde und ob wir folglich diesen Abschnitt
+überhaupt im Template ausgeben wollen. Das Template gibt den
+innenliegenden Code nur dann aus, falls ein Modul auf der Position
+_contact_ veröffentlicht wurde. Die in Listing 12.45 fett abgedruckten
+Zeilen mit den statischen Inhalten für den Kontaktbereich können wir
+komplett entfernen und setzen statt dessen ++<++jdoc:include
+type="modules" name="*contact*" style="*none*" /++>++ ein.
+
+Der Code für die index.php sieht dann folgendermaßen aus:
+
+Listing . Aufruf des Kontaktbereichs in der _index.php_-Datei
+
+**++<++?php if ($this-++>++countModules('contact')) : ?++>++ +
+**++<++section id="contact"++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+*++<++jdoc:include type="modules" name="contact" style="none" /++>++* +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/section++>++ +
+*++<++?php endif; ?++>++*
+
+======= Module einrichten
+
+Richten Sie nun drei Module ein.
+
+Gehen Sie dazu im Joomla!-Backend auf Erweiterungen » Module und klicken
+Sie auf den grünen Button Neu. Als Modultyp wählen Sie „EIGENES Modul“
+aus.
+
+Im ersten Reiter „Modul“ können Sie für unsere Übung in der Codeansicht
+des Editors einfach folgenden Quellcode eintragen:
+
+++<++h3++>++Kontaktieren Sie uns!++<++/h3++>++ +
+++<++p++>++Wir freuen uns auf Ihren Anruf oder Ihre Email! ++<++/p++>++
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „_Kontaktieren
+Sie uns_“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Verbergen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*contact*“ aus.
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ „Auf allen Seiten“ zu.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: div
+
+Modulklassensuffix: col-lg-8 col-lg-offset-2 text-center
+
+Header-Tag: h2
+
+Header-Klasse: section-Heading
+
+Wir wählen hier kein Alternatives Layout aus.
+
+Speichern Sie das erste Modul und legen Sie ein zweites vom gleichen Typ
+an:
+
+Im ersten Reiter „Modul“ können Sie für die Übung einfach den Inhalt aus
+der Vorlage eintragen:
+
+++<++span class="fa fa-phone fa-3x
+sr-contact"++><++/span++><++p++>++123-456-6789++<++/p++>++
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „_Telefon_“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Verbergen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*contact*“ aus.
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ „Auf allen Seiten“ zu.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: div
+
+Modulklassensuffix: col-lg-4 col-lg-offset-2 text-center
+
+Header-Tag: h3
+
+Header-Klasse: section-heading
+
+Wir wählen hier wieder kein Alternatives Layout aus.
+
+Nun legen wir das letzte Kontakt-Modul an, erstellen Sie wieder ein
+neues Modul vom Typ „Eigenes Modul“.
+
+Im ersten Reiter „Modul“ können Sie für die Übung einfach den Inhalt aus
+der Vorlage eintragen:
+
+++<++span class="fa fa-envelope-o fa-3x sr-contact"++><++/span++>++ +
+++<++p++><++a
+href="mailto:your-email@your-domain.com"++>++feedback@startbootstrap.com++<++/a++><++/p++>++
+
+Als Titel tragen Sie etwas Beliebiges ein, zum Beispiel „_E-Mail_“.
+
+Auf der rechten Seite finden Sie Einstellungen zum Ein- und Ausblenden
+dieses Titels. Stellen Sie Titel anzeigen auf „*Verbergen*“. Darunter
+finden Sie die Einstellungen zur Position. Wählen Sie hier die Position
+„*contact*“ aus.
+
+Weisen Sie das Modul im Reiter „Menüzuweisung“ „Auf allen Seiten“ zu.
+
+Im Reiter „Erweitert“ können wir alle weiteren Parameter einstellen, die
+in unserem Chrome aufgerufen werden und wie folgt lauten:
+
+Modul-Tag: div
+
+Modulklassensuffix: col-lg-4 text-center
+
+Header-Tag: h3
+
+Header-Klasse: section-heading
+
+Wir wählen hier wieder kein Alternatives Layout aus.
+
+Gehen Sie nun im Backend unter Erweiterungen » Module und klicken Sie
+auf die Reihenfolge-Pfeile in der Spaltenüberschrift, um die Sortierung
+zu aktivieren. Stellen Sie sicher, dass das „Kontaktieren Sie uns“-Modul
+bei den contact-Modulen ganz oben steht.
+
+image:media/image45.jpg[media/image45,width=548,height=279]
+
+Bild . Sortierung der Module im Modulmanager
+
+==== Verweise korrigieren
+
+Wir haben in den verschiedenen Modul Chromes eine individuelle Modul-ID
+in den Modulcontainer eingebunden. Diese ermöglicht uns, zwischen den
+Containern zu scrollen, so wie man es in der Template-Vorlage sehen
+kann. Sie können die bisher eingebundenen leeren href-Verweise (#) in
+den Modulen um den Ankerlink ergänzen, zu dem Sie springen wollen. Wie
+Sie im Listing 12.26 sehen wird die Modul-ID aus der Modulposition und
+der Modul-ID konstruiert.
+
+Beispiel: Das Headermodul hat folgenden HTML-Inhalt:
+
+++<++hr /++>++
+
+++<++p++>++Willkommen auf meiner Webseite ++<++/p++>++ +
+++<++a href="#" class="btn btn-primary btn-xl page-scroll"++>++Mehr über
+mich++<++/a++>++
+
+Wenn wir nun zum ersten Modul auf der Position _teaser_ scrollen wollen,
+bedienen wir uns entweder den Entwicklertools unseres Browsers, um die
+id des Teaser-Moduls zu ermitteln oder wir werfen einen Blick ins
+Backend in den Modul-Manager. Hier sind alle Module mit ihren
+entsprechenden IDs aufgelistet. Hat der Teaser die _ID 23_, nutzen wir
+statt der Raute im href-Attribut href="#teaser-23".
+
+Führen Sie das bei allen Modulen durch, die Sie zu einer anderen
+Position verlinken wollen.
+
+Wir haben im vorhergehenden Kapitel das letzte Modul ersetzt und sind
+somit fast fertig. Wenn Sie nun das Ergebnis im Frontend ansehen, haben
+Sie die ganze Vorlage erfolgreich in ein Joomla!-Template umgewandelt.
+
+Dennoch fehlt bisher ein sehr wichtiger Bereich für ein
+Joomla!-Template, wenn nicht sogar der wichtigste!
+
+Wir sollten noch den sogenannten Komponenten-Bereich ergänzen, das ist
+der Bereich in dem die Inhalte von Artikeln und Komponenten geladen
+werden.
+
+Im „Onepage“-Konzept der Vorlage ist dieser Bereich nicht vorgesehen.
+Das hält uns aber nicht zurück, das Template gemeinsam zu erweitern.
+
+==== Weitere Jdoc-Anweisungen
+
+Folgende Jdoc-Anweisungen fehlen noch in unserem Dokument:
+
+======= Systemmeldungen ausgeben
+
+++<++jdoc:include type="message" /++>++
+
+Über dieses Element definiert man die Position, an der die
+Systemmeldungen von Joomla! und von Joomla!-Komponenten ausgegeben
+werden. Das kann zum Beispiel eine Meldung sein, dass der Login nicht
+erfolgreich war, da das Passwort und der Benutzername nicht
+übereinstimmen oder eine Nachricht, dass das Kontaktformular erfolgreich
+abgesandt wurde.
+
+======= Navigationspfad ausgeben
+
+++<++jdoc:include type="modules" name="breadcrumbs" style="none" /++>++
+
+Der Navigationspfad, auch Breadcrumbs genannt, gibt wieder, auf welcher
+Seite man sich gerade befindet und bietet dem Besucher somit
+Orientierung. Im Grunde ist das nichts anderes als der bereits gelernte
+Modulpositionen-Aufruf.
+
+==== Inhaltsbereich/Komponente
+
+======= Artikel bzw. Komponente ausgeben (Hauptcontent)
+
+++<++jdoc:include type="component" /++>++
+
+Mit dieser Anweisung legen Sie fest, an welcher Stelle der Hauptinhalt
+(Artikel und Komponenten) ausgeben wird.
+
+Den Bereich für die Komponente setzen wir zwischen den Aufruf der
+Postion _top_ und _portfolio_. Außerdem fügen wir noch den Aufruf für
+das _Joomla! Breadcrumbs Modul_ ein, welches automatisch den
+Navigationspfad ausgibt. Um auch rechts vom Content eine Möglichkeit zu
+haben, Module darzustellen, zum Beispiel für eine Unternavigation, fügen
+wir rechts vom _Inhaltsbereich_ noch die Modulposition _right_ hinzu.
+
+======= Spaltenbreiten definieren
+
+Zunächst behelfen wir uns mit ein paar if-Abfragen, um die richtigen
+Spaltenbreiten zu ermitteln. Den Befehl _countModules_ haben Sie bereits
+im Abschnitt 12.2.8 kennengelernt. Dieser Befehl eignet sich auch prima
+dazu, Spaltenbreiten zu definieren.
+
+Der Plan: Unser Inhaltsbereich nimmt acht von zwölf Spalten ein und wird
+mittig dargestellt, also um zwei Spalten nach innen verschoben. Wenn
+eine rechte Spalte eingeblendet wird, dann bleibt der Inhaltsbereich
+achtspaltig, beginnt aber schon in der ersten Spalte.
+
+*Die Bootstrap-CSS-Klassen dafür sehen wie folgt aus:*
+
+Rechte Spalte eingeblendet:
+
+Klasse für den Inhalt: col-lg-8, Rechte Spalte: col-lg-4
+
+Rechte Spalte ausgeblendet:
+
+Klasse für den Inhalt: col-lg-8 col-lg-offset-2, Rechte Spalte: entfällt
+
+Diesen Plan setzen wir nun in PHP um. Wir müssen jeweils nur wissen, ob
+die rechte Spalte da ist oder nicht. Fügen Sie also zwischen dem Aufruf
+der _top_- und der _portfolio_-Position folgenden Code ein.
+
+Listing . Aufruf des Komponentenbereichs in der _index.php_-Datei
+
+++<++main class="container" id="maincontent"++>++ +
+++<++div class="row"++>++
+
+++<++?php
+
+*/++*++ Variable für Spaltenprüfung ++*++/* +
+$rechtespalte = ($this-++>++countModules('right')); +
++
+*/++*++ Wenn die rechte Spalte existiert, dann wird der Inhalt nicht
+verschoben ++*++/* +
+if($rechtespalte == '1'): +
+$inhaltsklasse = 'class="col-lg-8"'; +
++
+*/++*++ Wenn die rechte Spalte nicht existiert, dann wird der Inhalt um
+2 Spalten verschoben ++*++/* +
+else : +
+$inhaltsklasse = 'class="col-lg-8 col-lg-offset-2"'; +
++
+endif;
+
+?++>++
+
+++<++div **++<++?php echo $inhaltsklasse;?++>++**++>++ +
+++<++!— Hier wird die Systemnachricht ausgegeben —++>++ +
+*++<++jdoc:include type="message"/++>++ +
+* ++<++!— Navigationspfad—++>++ +
+*++<++jdoc:include type="module" name="breadcrumbs"
+title="Navigationspfad"/++>++* +
+++<++!— Bereich für die Komponentenausgabe —++>++ +
+*++<++jdoc:include type="component"/++>++* +
+++<++/div++>++ +
++
+*++<++?php if ($rechtespalte) : ?++>++* +
+++<++div class="col-lg-4"++>++ +
+*++<++jdoc:include type="modules" name="right" style="xhtml"/++>++* +
+++<++/div++>++ +
+*++<++?php endif; ?++>++*
+
+++<++/div++>++
+
+++<++/main++>++
+
+======= Ausgabe des Komponentenbereichs per Parameter steuern
+
+Sinnigerweise sollten wir diesen Bereich nur ausgeben, wenn er gewünscht
+ist. Daher ist es ratsam, einen Parameter im Templatestil anzulegen, der
+festlegt ob der „Komponentenbereich“ eingeblendet werden soll oder
+nicht.
+
+Dazu fügen wir in die existierende _templateDetails.xml_ ein weiteres
+Parameter-Feld hinzu:
+
+Listing . Ergänzung der Template-Parameter in der
+_templateDetails.xml_-Datei
+
+++<++field name="mainoutput" type="radio" default="yes" +
+label="TPL++_++PAULA++_++FIELD++_++MAINOUTPUT" +
+description="TPL++_++PAULA++_++FIELD++_++MAINOUTPUT++_++DESC"++>++ +
+++<++option value="yes"++>++JSHOW++<++/option++>++ +
+++<++option value="no"++>++JHIDE++<++/option++>++ +
+++<++/field++>++
+
+Vergessen Sie nicht, die Strings
+_TPL++_++PAULA++_++FIELD++_++MAINOUTPUT_ und
+_TPL++_++PAULA++_++FIELD++_++MAINOUTPUT++_++DESC_ in der _.ini_-Datei zu
+übersetzen. _JSHOW_ und _JHIDE_ sind globale Sprachstrings, die überall
+in Joomla! wiederverwendet werden und nicht neu angelegt werden müssen.
+
+Listing . Ergänzung der Template-Parameterübersetzungen in der
+_de-De.tpl++_++paula.xml_-Datei
+
+TPL++_++PAULA++_++FIELD++_++MAINOUTPUT="Komponentenbereich ausgeben" +
+TPL++_++PAULA++_++FIELD++_++MAINOUTPUT++_++DESC="Wählen Sie aus ob die
+Komponente und die rechte Seitenleiste angezeigt werden sollen."
+
+Jetzt legen wir um den Code aus dem Listing 12.47 eine PHP-Abfrage und
+schreiben dazu vor den Codeblock:
+
+++<++?php if ($this-++>++params-++>++get('mainoutput', 'yes') == 'yes')
+: ?++>++
+
+Und nach dem Codeblock:
+
+++<++?php endif; ?++>++
+
+*Jetzt ist unser Template komplett! Glückwunsch zum abgeschlossenen
+Workshop.*
+
+So sieht die fertige _index.php_-Datei aus, den Code können Sie sich
+unter GitHub unter
+https://github.com/coolcat-creations/paula-joomla-template/tree/1.0
+herunterladen. Eine weiterentwickelte Version finden Sie unter
+https://github.com/coolcat-creations/paula-joomla-template.
+
+Listing . Fertiggestellte _index.php_-Datei
+
+++<++?php defined('++_++JEXEC') or die('Restricted access'); +
++
+*// Hier definieren wir eine kurze Variable für den aktuellen
+Templatepfad* +
+$tplpath = $this-++>++baseurl . '/templates/' . $this-++>++template; +
++
+*// Laden der Bootstrap CSS* +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/bootstrap/css/bootstrap.min.css'); +
++
+*// Schriften laden* +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/font-awesome/css/font-awesome.min.css'); +
+$this-++>++addStyleSheet('https://fonts.googleapis.com/css?family=Open{plus}Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'); +
+$this-++>++addStyleSheet('https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'); +
++
+*// CSS Datei für die Portfolio Popups laden* +
+$this-++>++addStyleSheet($tplpath .
+'/vendor/magnific-popup/magnific-popup.css'); +
++
+*// CSS Dateien für das Template laden und hinterlegten Parameter
+prüfen. +
+// Bevor die CSS Dateien per Parameter eingebunden wurden, wurden die
+CSS folgendermaßen geladen:* +
+*// $this-++>++addStyleSheet($tplpath . '/css/creative.css');* +
++
+if ($this-++>++params-++>++get('templatecolor', 'orange') == 'orange') +
+++{++ +
+$this-++>++addStyleSheet($tplpath . '/css/creative.css'); +
+} +
+else +
+++{++ +
+$this-++>++addStyleSheet($tplpath . '/css/creative-blue.css'); +
+} +
++
+*// Skripte laden* +
++
+*// HTML5 Unterstützung aktivieren* +
+$this-++>++setHtml5(true); +
++
+*// jQuery Skript von Joomla! laden* +
+JHtml::++_++('jquery.framework'); +
++
+*// Bootstrap von Joomla! einbinden +
+// (Die Bootstrap Datei muss nicht extra geladen werden, nur in den
+richtigen Ordner verschoben werden)* +
+JHtml::++_++('bootstrap.framework'); +
++
+*// Laden der Skriptdateien für Easing, Scrolling und Popups* +
+$this-++>++addScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
+'text/javascript', array('defer'=++>++'defer')); +
+$this-++>++addScript($tplpath.
+'/vendor/scrollreveal/scrollreveal.min.js', 'text/javascript',
+array('defer'=++>++'defer')); +
+$this-++>++addScript($tplpath.
+'/vendor/magnific-popup/jquery.magnific-popup.min.js',
+'text/javascript', array('defer'=++>++'defer')); +
++
+*// Laden der Skriptdateien für das Template* +
+$this-++>++addScript($tplpath . '/js/creative.min.js',
+'text/javascript', array('defer'=++>++'defer')); +
++
+*// Custom Tags für den IE9 definieren* +
+$stylelink = '++<++!--++[++if lte IE 9++]>++' . "++\++n"; +
+$stylelink .= '++<++script
+src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"++><++/script++>++'
+. "++\++n"; +
+$stylelink .= ' ++<++script
+src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"++><++/script++>++'
+. "++\++n"; +
+$stylelink .= '++<++!++[++endif++]++--++>++' . "++\++n"; +
++
+*// Custom Tags für den IE9 hinzufügen* +
+$this-++>++addCustomTag($stylelink); +
++
+*// MetaTag für den Viewport definieren* +
+$this-++>++setMetaData('viewport', 'width=device-width,
+initial-scale=1'); +
++
+?++>++ +
++
+++<++!DOCTYPE html++>++ +
++
+++<++html xml:lang="++<++?php echo $this-++>++language; ?++>++"
+lang="++<++?php echo $this-++>++language; ?++>++"++>++ +
++
+++<++head++>++ +
+*++<++!-- Hier werden die Joomla! Headerdaten geladen --++>++* +
+++<++jdoc:include type="head"/++>++ +
++
+++<++/head++>++ +
++
+++<++body id="page-top"++>++ +
++
+++<++nav id="mainNav" class="navbar navbar-default
+navbar-fixed-top"++>++ +
+++<++div class="container-fluid"++>++ +
+*++<++!-- Brand and toggle get grouped for better mobile display
+--++>++* +
+++<++div class="navbar-header"++>++ +
+++<++button type="button" class="navbar-toggle collapsed"
+data-toggle="collapse" +
+data-target="#bs-example-navbar-collapse-1"++>++ +
+++<++span class="sr-only"++>++Toggle navigation++<++/span++>++ Menu
+++<++i class="fa fa-bars"++><++/i++>++ +
+++<++/button++>++ +
+++<++a class="navbar-brand page-scroll" href="#page-top"++>++ +
++
+*++<++!-- Abfrage der Parameter für das Logo --++>++* +
+++<++?php if ($this-++>++params-++>++get('logotype', 'text') ==
+'image') +
+++{++ ?++>++ +
+++<++!-- Ausgabe des Logo-Bildes --++>++ +
+++<++img src="++<++?php echo $this-++>++params-++>++get('logoimg', '');
+?++>++" +
+alt="++<++?php echo $this-++>++params-++>++get('logoimgalt', '');
+?++>++" width="200px" height="20px"/++>++ +
+++<++?php } +
+else +
+++{++ ?++>++ +
+*++<++!-- Ausgabe des Logo-Textes --++>++* +
+++<++?php echo $this-++>++params-++>++get('logotext', ''); ?++>++ +
+++<++?php } ?++>++ +
++
+++<++/a++>++ +
+++<++/div++>++ +
++
+*++<++!-- Hier laden wir nun die Position mainnav mit dem Stil
+navigation --++>++* +
+++<++jdoc:include type="modules" name="mainnav"
+style="navigation"/++>++ +
++
+++<++/div++>++ +
+*++<++!-- /.container-fluid --++>++* +
+++<++/nav++>++ +
++
+*++<++!-- Hier laden wir die Position header mit dem Stil
+header--++>++* +
+++<++jdoc:include type="modules" name="header" style="header"/++>++ +
++
+*++<++!-- Hier laden wir die Position teaser mit dem Stil primary
+--++>++* +
+++<++jdoc:include type="modules" name="teaser" style="primary"/++>++ +
++
+*++<++!-- Hier laden wir die Position top mit dem Stil primary
+--++>++* +
+++<++jdoc:include type="modules" name="top" style="no"/++>++ +
++
+*++<++!-- Hier folgt der Inhaltsbereich --++>++* +
+++<++?php if ($this-++>++params-++>++get('mainoutput', 'yes') == 'yes')
+: ?++>++ +
+++<++main class="container" id="maincontent"++>++ +
+++<++div class="row"++>++ +
++
+++<++?php +
+*/++*++ Variable für Spaltenprüfung ++*++/* +
+$rechtespalte = ($this-++>++countModules('right')); +
++
+*/++*++ Wenn die rechte Spalte existiert, dann wird der Inhalt nicht
+verschoben ++*++/* +
+if ($rechtespalte == '1'): +
+$inhaltsklasse = 'class="col-lg-8"'; +
++
+*/++*++ Wenn die rechte Spalte nicht existiert, dann wird der Inhalt um
+2 Spalten verschoben ++*++/ +
+* else : +
+$inhaltsklasse = 'class="col-lg-8 col-lg-offset-2"'; +
++
+endif; +
++
+?++>++ +
++
+++<++div ++<++?php echo $inhaltsklasse; ?++>>++ +
+*++<++!— Hier wird die Systemnachricht ausgegeben —++>++ +
+* ++<++jdoc:include type="message"/++>++ +
+*++<++!— Navigationspfad—++>++ +
+* ++<++jdoc:include type="modules" name="breadcrumbs"
+style="none"/++>++ +
+*++<++!— Bereich für die Komponentenausgabe —++>++* +
+++<++jdoc:include type="component"/++>++ +
+++<++/div++>++ +
++
+++<++?php if ($rechtespalte) : ?++>++ +
+++<++div class="col-lg-4"++>++ +
+++<++jdoc:include type="modules" name="right" style="xhtml"/++>++ +
+++<++/div++>++ +
+++<++?php endif; ?++>++ +
++
+++<++/div++>++ +
+++<++/main++>++ +
+++<++?php endif; ?++>++ +
++
+*++<++!-- Hier laden wir die Position portfolio mit dem Stil none
+--++>++* +
+++<++jdoc:include type="modules" name="portfolio" style="none"/++>++ +
++
+*++<++!-- Hier laden wir die Position action mit dem Stil dark
+--++>++* +
+++<++jdoc:include type="modules" name="action" style="dark"/++>++ +
++
+*++<++!-- Hier prüfen wir ob ein Modul auf der Position contact
+veröffentlicht wurde --++>++* +
+++<++?php if ($this-++>++countModules('contact')) : ?++>++ +
+++<++section id="contact"++>++ +
+++<++div class="container"++>++ +
+++<++div class="row"++>++ +
+*++<++!-- Hier laden wir die Position contact mit dem Stil none
+--++>++* +
+++<++jdoc:include type="modules" name="contact" style="none"/++>++ +
+++<++/div++>++ +
+++<++/div++>++ +
+++<++/section++>++ +
+++<++?php endif; ?++>++ +
++
+++<++/body++>++ +
++
+++<++/html++>++
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:*
+
+Sie sehen, der komplette Bereich in dem die Skripte und Stile abgerufen
+werden, umfasst um die 60 Zeilen. Sie können diese Zeilen auch in eine
+Datei auslagern, um mehr Übersicht zu erreichen. Legen Sie zum Beispiel
+eine Datei mit dem Namen _header.php_ an und laden Sie diese in Ihrer
+_index.php_-Datei über folgenden Befehl:
+
+include++_++once JPATH++_++THEMES . '/' . $this-++>++template .
+'/header.php';
+
+Vergessen Sie nicht, dass sowohl die _index.php_ als auch die
+_header.php_ mit der Codezeile ++<++?php defined( '++_++JEXEC' ) or die;
+?++>++ eingeleitet werden *müssen*.
+
+|===
+
+=== Weitere Joomla!-Template-Dateien
+
+==== component.php
+
+Die Datei _component.php_[.indexref]## wird von Joomla! genutzt, um
+ausschließlich die Ausgabe einer einzelnen Komponente ohne das
+umliegende Template zu erhalten. Diese kann dann, z. B. in einem Popup,
+ohne das störende „Drumherum“ ausgegeben werden.
+
+Dazu kopieren Sie einfach Ihre _index.php_-Datei und entfernen dort
+jegliches Markup innerhalb des ++<++body++>++-Tags, bis auf die
+jdoc-Anweisung für message und die Komponente. Der
+Bereich ++<++body++>++ sieht dann so aus:
+
+Listing . Darstellung des Hauptinhalts einer vereinfachten
+_component.php_-Datei
+
+++<++body++>++ +
+++<++jdoc:include type="message" /++>++ +
+++<++jdoc:include type="component" /++>++ +
+++<++/body++>++
+
+Die _component.php_ ist eine vereinfachte Form des Templates. Sie können
+diese gestalten, wie Sie möchten.
+
+==== offline.php
+
+Die _offline.php_[.indexref]## Datei wird dazu verwendet, um den
+Wartungsscreen auf der Webseite anzuzeigen, wenn die Seite über System »
+Konfiguration _Seite offline_ auf „Ja“ gestellt wurde.
+
+Der einfachste Weg, um eine _offline.php_-Datei anzulegen ist es, sie
+aus dem Joomla!-Protostar-Template zu kopieren und für die eigenen
+Bedürfnisse anzupassen.
+
+image:media/image46.png[media/image46,width=548,height=278]
+
+Bild . Offline.php
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+In dieser Datei müssen Sie die Stile und Skripte per JHtml-Befehle
+einbinden. Für das Beispieltemplate habe ich eine _offline.php_-Datei
+angelegt, die Sie nach Ihren Wünschen anpassen können. Sie finden diese
+auf GitHub unter
+https://github.com/coolcat-creations/paula-joomla-template
+
+|===
+
+==== error.php
+
+Sie können die Standard-Fehlerseite, die unter
+_templates/system/error.php_ abgerufen wird, für Ihre eigenen
+Bedürfnisse individualisieren. Diese Fehlerseite erscheint dann, wenn
+eine Seite nicht gefunden wurde (z. B. 404 Not Found) oder ein
+Serverfehler auftritt u.s.w.[.indexref]##
+
+Kopieren Sie diese Datei und legen Sie diese in Ihrem
+Template-Stammverzeichnis ab. Joomla! erkennt dies und nutzt die Datei
+des Templates, sofern eine vorhanden ist. Die Datei können Sie dann
+entsprechend formatieren und eigene Stylesheets einbinden, sodass Sie zu
+dem Gesamterscheinungsbild Ihrer Webseite passt. Weiterhin können auch
+über if-Abfragen Fehlermeldungen benutzerdefiniert ausgeben.
+
+image:media/image47.jpg[media/image47,width=548,height=278]
+
+Bild . Error.php
+
+Beispiel für einen 404-Fehler:
+
+Listing . Codebeispiel für eine abhängige Fehlermeldung in der
+_error.php_-Datei
+
+++<++?php if ($this-++>++error-++>++getCode() == '404') ++{++ ?++>++ +
+++<++h1++>++Ups … ++<++/h1++>++ +
+++<++p++>++Die Seite die Sie aufgerufen haben, konnte nicht gefunden
+werden.++<++p++>++ +
+++<++?php } ?++>++
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Diese Datei ist im weitesten Sinne unabhängig und Sie können nicht die
+bekannten _addStyleSheet_-Befehle etc. nutzen, sondern müssen Ihre
+Styles und Skripte statisch einbinden. Für das Beispieltemplate habe ich
+eine _error.php_-Datei angelegt, die Sie nach Ihren Wünschen anpassen
+können. Sie finden diese auf GitHub unter
+https://github.com/coolcat-creations/paula-joomla-template
+
+|===
+
+==== pagination.php
+
+Wie im Abschnitt 12.1.10 erwähnt, wird die _pagination.php_ nicht mehr
+verwendet. Stattdessen sollte man das jLayout anpassen sowie Overrides
+für die Views von Komponenten anpassen, welche die Paginierung ausgeben.
+Die Anpassung aller Dateien würde für diesen Workshop den Rahmen
+sprengen, eine verfeinerte Version des Übungstemplates finden Sie unter
+https://github.com/coolcat-creations/paula-joomla-template/tree/master[[.underline]#https://github.com/coolcat-creations/paula-joomla-template/tree/master#]
+und sind auch herzlich dazu eingeladen „Issues“ und „Pull Requests“ zu
+erstellen.[.indexref]##
+
+=== Übersicht Joomla!-Befehle
+
+Um Ihnen die Arbeit mit Joomla! und Ihrem Template zu erleichtern,
+sollten Sie sich mit den Möglichkeiten des CMS auseinandersetzen. Das
+Template nutzt die Klasse _Jdocument,_ auf die Sie in der
+_index.php_-Datei über _$this_ zugreifen.[.indexref]##
+
+Tabelle . Übersicht von nützlichen Joomla!-Templatebefehlen
+
+[width="100%",cols="51%,5%,44%",options="header",]
+|===
+|*$this-++>++baseurl;* | |Gibt den Basispfad der Joomla!-Installation
+aus.
+|*$this-++>++params;* | |Gibt die Parametereinstellungen des Templates
+aus.
+
+|*$this-++>++language;* | |Ausgabe der aktuellen Sprache.
+
+|*$this-++>++template;* | |Ausgabe des Template-Namen.
+
+|*$this-++>++setHtml5(true);* | |Aktiviert den Joomla! html5 Support und
+fügt dafür notwendige Angaben hinzu.
+
+|*$this-++>++getTitle();* | |Gibt den Browsertitel der Seite aus.
+
+|*$this-++>++setTitle('Hier steht der Titel');* | |Setzt den
+Browsertitel.
+
+|*$this-++>++getDescription();* | |Gibt die Metabeschreibung der Seite
+aus.
+
+|*$this-++>++setDescription('Hier steht die Beschreibung');* | |Setzt
+die Metabeschreibung der Seite.
+
+|*$this-++>++getGenerator();* | |Gibt den Generator aus. +
+Standard ist: „Joomla! – Open Source Content Management“
+
+|*$this-++>++setGenerator();* | |Setzt den Generator.
+
+|*$this-++>++getMetaData(); * | |Ruft die gesetzten Metadaten ab.
+
+|*$this-++>++setMetaData(); * | |Fügt dem Dokument Meta Angaben hinzu.
+
+|*JFactory::getDocument()-++>++resetHeadData('scripts');* | |Entfernt
+alle vom Core geladenen Skripte aus dem Head.
+
+|*$this-++>++https://www.component-creator.com/joomladocs/joomla3/html/classes/JDocument/addScript.html[[.underline]#addScript#]();*
+| |Fügt dem Dokument ein Skript hinzu.
+
+a|
+*Beschreibung:* +
+addScript(string $url, array $options = array(), array $attribs =
+array()); +
+$url - URL zu dem Script
+
+$options - Ein Array mit Optionen: z.B. array('version' =++>++ 'auto',
+'conditional' =++>++ 'lt IE 9')
+
+$attribs = Ein Array mit Attributen. z.B. array('id' =++>++ 'scriptid',
+'async' =++>++ 'async', 'data-test' =++>++ 1)
+
+| |
+
+|*https://www.component-creator.com/joomladocs/joomla3/html/classes/JDocument/addScriptVersion.html[[.underline]#addScriptVersion#]();*
+| |Fügt dem Dokument ein Skript mit Versionierung hinzu.
+
+|*$this-++>++addScriptDeclaration();* | |Fügt dem Dokument ein internes
+Skript hinzu.
+
+|*$this-++>++addStyleSheet();* | |Fügt im Dokument ein Stylesheet hinzu.
+
+a|
+*Beschreibung:* +
+addStyleSheet(string $url, array $options = array(), array $attribs =
+array());
+
+$url - URL zum Stylesheet
+
+$options - Ein Array mit Optionen. Zum Beispiel: array('version' =++>++
+'auto', 'conditional' =++>++ 'lt IE 9')
+
+$attribs - Ein Array mit Attributen. Zum Beispiel: array('id' =++>++
+'stylesheet', 'data-test' =++>++ 1)
+
+| |
+
+|*$this-++>++addStyleSheetVersion();* | |Fügt im Dokument ein Stylesheet
+hinzu.
+
+|*$this-++>++https://www.component-creator.com/joomladocs/joomla3/html/classes/JDocument/addStyleDeclaration.html[[.underline]#addStyleDeclaration#]();*
+|Fügt dem Dokument ein internes Stylesheet hinzu. |
+
+|*$app = JFactory::getApplication();* |Laden des Applikation-Objekts. |
+
+|*$option = $app-++>++input-++>++getCmd('option', '');* |Weist der
+Variable _$option_ die aktuelle Erweiterung zu. Zum Beispiel:
+_com++_++content_ |
+
+|*$view = $app-++>++input-++>++getCmd('view', '');* |Weist der Variable
+_$view_ den aktuellen View zu. Zum Beispiel: article |
+
+|*$layout = $app-++>++input-++>++getCmd('layout', '');* |Weist der
+Variable _$layout_ das aktuelle Layout zu. Zum Beispiel: _edit_ |
+
+|*$task = $app-++>++input-++>++getCmd('task', '');* |Weist der Variable
+_$task_ den aktuellen Task zu. Zum Beispiel: _edit_ |
+
+|*$itemid = $app-++>++input-++>++getCmd('Itemid', '');* |Weist der
+Variable _$itemid_ die aktuelle Item-ID zu. |
+
+|*$sitename = $app-++>++get('sitename');* |Weist der Variable
+_$sitename_ den im Backend hinterlegten Seitennamen zu. |
+|===
+
+Eine komplette Einführung mit detaillierten Beschreibungen der Befehle
+der Joomla!-API können Sie unter
+https://api.joomla.org/cms-3/index.html[[.underline]#https://api.joomla.org/cms-3/index.html#]
+einsehen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 a|
+*Praxistipp:*
+
+Es lohnt sich, sich mit den Funktionen die das Joomla!-Framework zur
+Verfügung stellt, auseinander zu setzen. In der Praxis können Sie mit
+dem Befehl
+
+++<++pre++><++?php print++_++r($this); ?++><++/pre++>++
+
+alle zur Verfügung stehenden Parameter und Daten im Frontend ausgeben
+lassen. Schreiben Sie diesen Befehl während der Entwicklungsphase
+einfach temporär in die _index.php_-Datei Ihres Templates.
+
+|===

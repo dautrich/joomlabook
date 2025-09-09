@@ -1,0 +1,79 @@
+=== CSS-Frameworks
+
+In unserem Template-Workshop unter 12.3 haben wir ein Template auf Basis
+des CSS-Frameworks[.indexref]#### *Bootstrap 3* erstellt. Ein
+CSS-Framework ist im Grunde ein Katalog an vorgefertigten
+User-Interface-Designs, responsiven Werkzeugen sowie Stilen und
+Skripten, den man in der eigenen Webentwicklung nutzen kann. Wie bei
+Template-Frameworks gilt hier zwar auch, dass weitaus mehr Code
+produziert wird, als eigentlich notwendig ist. Dennoch ein eigenes
+responsives Gerüst aufzubauen, ist vom Aufwand her gesehen kaum in einem
+vernünftigen Kostenrahmen durchsetzbar.
+
+Nachfolgend liste ich Ihnen einige der derzeit beliebten CSS-Frameworks
+auf:
+
+======= Bootstrap
+
+Bootstrap ist eines der beliebtesten HTML-, CSS- und JS-Frameworks zur
+Entwicklung von responsiven Webprojekten. Aktuell wurde bereits der
+Support für Bootstrap 3 eingestellt, um den Weg für Bootstrap 4 zu
+ebnen. Bootstrap zeichnet sich durch ein verständliches Gridsystem aus
+und ist einfach in eigene Projekte einzubinden. Für die Erstellung von
+CSS nutzt Bootstrap 3 LESS oder SASS, Bootstrap 4 nutzt SASS.
+
+http://getbootstrap.com/
+
+======= Semantic UI
+
+Die Struktur von Semantic UI ist etwas komplizierter als die von
+Bootstrap. Das fängt bereits bei der Installation an. Während Bootstrap
+bereits mit einem Standardlayout ausgestattet ist, verfügt Semantic UI
+über mehr als 20 Vorlagen im Basispaket, wie auch CSS, JS und
+Schriftdaten. „Semantic UI“ wird idealerweise über „Gulp“ und „Composer“
+installiert. Siehe dazu auch Abschnitt 12.8. Für die Erstellung von CSS
+nutzt „Semantic UI“ LESS.
+
+https://semantic-ui.com/[[.underline]#https://semantic-ui.com/#]
+
+======= Materialize
+
+Materialize ist ein featurereiches responsives Framework und basiert auf
+Googles Material-Design. Es fokussiert sich sehr darauf, wie sich
+User-Interface-Elemente verhalten und visuell interagieren. Für die
+Erstellung von CSS nutzt Materialize SASS.
+
+http://materializecss.com/[[.underline]#http://materializecss.com/#]
+
+======= Foundation
+
+Foundation ist ein responsives Framework mit hohem Anspruch auf Semantik
+und Barrierefreiheit. Das Gridsystem von „Foundation“ ist etwas sauberer
+aufgebaut als zum Beispiel bei Bootstrap, da es auf „rows“ basiert und
+keine Container benötigt. Im Bereich der Seitennavigation bietet es
+tolle Features. Für die Erstellung von CSS nutzt Foundation SASS.
+
+http://foundation.zurb.com/
+
+======= UIkit
+
+UIKit von Yootheme ist hervorragend für Animationen und Effekte. Genauso
+wie die anderen gelisteten Frameworks ist es responsiv und bietet ein
+eigenes Gridsystem. Für die Erstellung von CSS nutzt „UIKit“ LESS.
+
+[.underline]#https://getuikit.com/#
+
+======= Milligram
+
+Milligram ist absolut minimalistisch. Gezippt ist es nur 2 kb groß und
+bietet eine solide Ausgangsbasis für Ihre Projekte. Für die Erstellung
+von CSS nutzt Milligram SASS.
+
+Sie sehen, es gibt eine Fülle an Frameworks, die Wahl fällt dann meist
+nicht leicht, daher empfehle ich Ihnen ein Framework zu nutzen, das
+häufig verwendet wird, sodass bei auftretenden Fragen auch eine
+Möglichkeit besteht, Antworten im Internet zu finden. Manchmal ergibt
+sich die Wahl des Frameworks bereits aus Briefingvorgaben des Kunden
+oder aus der Komplexität des zu erstellenden Layouts.
+
+https://milligram.github.io/

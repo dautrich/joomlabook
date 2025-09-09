@@ -1,0 +1,36 @@
+=== Backend-Template
+
+In diesem Kapitel haben Sie kennengelernt, wie man die Frontend-Ausgabe
+mit Overrides und Alternativen Layouts beeinflusst und wie man ein
+Frontend-Template erstellt.
+
+Grundsätzlich ist es möglich auch ein eigenes
+Backend-Template[.indexref]#### zu erstellen. Jedoch würde ich Ihnen
+davon abraten. Das Internet und zahlreiche Bücher verfügen über eine
+Menge an Ressourcen zum Thema Joomla!. Alle Trainings, Tutorials und
+Erklär-Screenshots werden mit dem Standard-Template erstellt. Nun ist es
+für manche schon eine Hürde von englisch-sprachigen Bildern auf das
+deutsche Backend zu schließen. Doch wenn Sie das Backend-Template
+komplett verändern, dann wird es für den Bediener schwierig, sich in die
+neue Struktur reinzudenken. Zum anderen ist das Backend-Template sehr
+komplex und bei Joomla!-Updates müssen häufig Anpassungen vorgenommen
+werden.
+
+Um das Backend-Template ein bisschen zu individualisieren, bietet das
+installierte Standardtemplate „isis“ einige Parameter, um die
+Templatefarben zu ändern.
+
+image:media/image48.jpg[media/image48,width=424,height=496]
+
+Bild . Parameter Einstellungen des Backend-Templates isis
+
+Sollten Sie dennoch ein eigenes Backend-Template erstellen wollen,
+finden Sie das Template-Verzeichnis für den _administrator_-Bereich
+unter _administrator/templates_.
+
+Folgende Besonderheiten sind beim Administrator-Template zu beachten:
+
+* In der Datei _templateDetails.xml_ für das Backend wird bei _client_
+statt _client="site"_ der _client="administrator"_ eingetragen
+* Die Datei _login.php_ ist für den Login-Screen zuständig.
+* Die Datei _cpanel.php_ ist für das Kontrollpanel verantwortlich.

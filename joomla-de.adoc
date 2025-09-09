@@ -34,7 +34,7 @@ include::book/10-erweiterungen/10-erweiterungen.adoc[]
 
 include::book/11-benutzer-rechtevewaltung/11-benutzer-rechtevewaltung.adoc[]
 
-include::book/12-template-overwrites/12-template-overwrites.adoc[]
+include::book/12-overrides-templates/12-overrides-templates.adoc[]
 
 include::book/13-seo/13-seo.adoc[]
 

@@ -1,0 +1,108 @@
+=== Felder anlegen – so geht es!
+
+Im Kapitel 16.1.2 haben Sie bereits alle Einstellungsmöglichkeiten und
+Feldtypen kennengelernt. Bevor Sie ein neues Feld anlegen, ist es
+sinnvoll zunächst eine Feldgruppe anzulegen, der das Feld zugeordnet
+wird. Es erscheint dann je nach Komponente, in der es eingebunden ist,
+bei der Bearbeitung von Inhalten in einem eigenen Reiter oder in einer
+Feldgruppe mit dem Feldgruppen-Titel als Überschrift.
+
+Felder, die keiner Feldgruppe zugeordnet wurden, werden in einem Reiter
+namens _Felder_ untergebracht.
+
+==== Anlegen einer Feldgruppe[.indexref]####
+
+Feldgruppen können Sie in der jeweiligen Komponente unter dem Menüpunkt
+_Feldgruppen_ erstellen. Klicken Sie dort auf den grünen Button NEU.
+Tragen Sie in den Feldgruppen-Einstellungen einen Titel ein. Wenn Sie
+möchten, können Sie auch eine Beschreibung hinzufügen, die dann über den
+eingeblendeten Feldern im entsprechenden Tab erscheint.
+
+===== Neue Feldgruppe im Benutzer-Manager
+
+Klicken Sie auf Benutzer » FeldGRUPPEN und dann auf den grünen Button
+NEU.
+
+===== Neue Feldgruppe für Beiträge und Kategorien
+
+Um eine neue Feldgruppe für Beiträge oder Kategorien anzulegen, klicken
+Sie auf Inhalt » FeldGRuPPEN. Links vom Suchfeld befindet sich eine
+sogenannte _Kontextauswahl_. Hier können Sie wählen, ob Sie die
+Feldgruppe für _Beiträge_ anlegen wollen oder für _Kategorien_.
+
+===== Neue Feldgruppe für Kontakte, Kontaktformular und Kontaktkategorien
+
+Feldgruppen für _Kontakte_, das _Kontaktformular (E-Mail)_ und
+_Kategorien_ können über Komponenten » Kontakte » Feldgruppen erstellt
+werden. Wählen Sie links vom Suchfeld aus, welchem Bereich die Gruppe
+zugeordnet werden soll.
+
+==== Neues Feld anlegen
+
+Neue Felder können Sie in der jeweiligen Komponente unter Felder
+erstellen. Klicken Sie auf den grünen Button NEU und bearbeiten Sie die
+Feldeinstellungen wie im Kapitel 16.1.2 beschrieben.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Denken Sie daran, die Berechtigungen für das Feld je
+nach Einsatzzweck entsprechend einzustellen. Aus Sicherheitsgründen ist
+das Bearbeiten der Felder für die Gruppe _Öffentlich_ standardmäßig
+nicht erlaubt.
+|===
+
+===== Neues Feld im Benutzer-Manager
+
+Wollen Sie bei der Benutzerregistrierung weitere Informationen vom
+Nutzer abfragen, dann klicken Sie im Backend auf Benutzer » Felder und
+dann auf den Button Neu.
+
+===== Neues Feld für Beiträge und Kategorien
+
+Um ein neues Feld für Beiträge oder Kategorien anzulegen, klicken Sie
+auf Inhalt » Felder. Links vom Suchfeld befindet sich die
+_Kontextauswahl_. Hier können Sie wählen, ob Sie das Feld für _Beiträge_
+anlegen wollen oder für _Kategorien_.
+
+===== Neues Feld für Kontakte, Kontaktformular und Kontaktkategorien
+
+Sie können neue Felder für _Kontakte_, das _Kontaktformular (E-Mail)_
+und _Kategorien_ über Komponenten » Kontakte » FeldER erstellen. Wählen
+Sie links vom Suchfeld aus, welchem Bereich das Feld zugeordnet werden
+soll.
+
+==== Feld-Reihenfolge ändern
+
+In der Übersicht unter FELDER können Sie die Reihenfolge der angezeigten
+Felder nachträglich beeinflussen. Klicken Sie dazu auf die Sortierpfeile
+im Tabellenkopf und sortieren Sie dann die Felder per _Drag & Drop_ an
+die gewünschte Position.
+
+image:media/image6.jpg[media/image6,width=548,height=281]
+
+Bild 16.6 – Reihenfolge der Feldanzeige ändern
+
+==== Mehrsprachigkeit
+
+Alle Feldbeschriftungen und Werte sind über Sprach-Overrides
+übersetzbar.
+
+Nehmen wir an, Sie möchten eine Auswahlliste mit der Feldbeschriftung
+_Anrede_ und den Werten _Herr_ und _Frau_ anlegen und für
+Mehrsprachigkeit verfügbar machen. Schreiben Sie statt Anrede in das
+Feld z.B. _COM++_++FIELDS++_++ANREDE_ und in die Werte
+_COM++_++FIELDS++_++HERR_ und _COM++_++FIELDS++_++FRAU_. Tragen Sie dann
+diese Werte in den Sprach-Overrides (siehe Kapitel 12.1.12) für den
+Administrator-Bereich und für das Frontend ein.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |*Praxistipp:* Es gibt einige bereits festgelegte
+Joomla!-Sprachparameter. Wenn Sie zum Beispiel *JYES* als Text einfügen,
+haben Sie gleich die multilinguale Version von „_Ja_“ (analog *JNO* für
+„_Nein_“). Die verfügbaren Sprachstrings die Joomla! bereits zur
+Verfügung stellt, finden Sie in der globalen Sprachdatei
+_/language/de-DE/de-DE.ini_.
+|===

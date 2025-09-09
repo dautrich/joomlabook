@@ -1,0 +1,64 @@
+=== Template-Frameworks und Template-Generatoren
+
+Wie wir festgestellt haben, sind viele kleine Handgriffe nötig, um ein
+statisches HTML-Design in ein Joomla!-Template umzuwandeln. Manchmal
+fragt man sich selbst, ob man alles mühevoll selbst aufbauen muss, wenn
+es Wege gibt, das abzukürzen. Template Frameworks helfen Ihnen, den Weg
+leichter und schneller zu meistern und dadurch viel Arbeit abzunehmen.
+Jedoch nicht unbedingt besser, da Template-Frameworks[.indexref]####
+oftmals mit zu vielen Funktionen überladen sind, die man unter Umständen
+gar nicht braucht. Die Menge an Code und Skripten spiegelt sich in einer
+längeren Ladezeit wieder, was sich nicht zuletzt auch auf die
+*Suchmaschinenoptimierung* negativ auswirkt.
+
+Ein Template-Framework ist gewissermaßen ein Grundgerüst für die
+Realisierung eigener Templates. Derzeit befindet sich eine ganze Reihe
+von Joomla!-kompatiblen Frameworks auf dem Markt, wobei nahezu alle
+Frameworks auf einen ähnlichen Funktionsumfang zurückgreifen können:
+
+* *GridSystem* +
+dient der schnellen und einfachen Realisierung von responsiven
+Mehrspalten-Layouts.
+* *BasisStylesheet* +
+gewährleistet einheitliche Formatierungen in den Browsern.
+* Einbindung zahlreicher Modulpositionen innerhalb des Grids
+* Komprimierungsfunktionen für JavaScript und CSS-Code
+* Einbindung eines JavaScript-Frameworks (i. d. R. jQuery)
+* Responsive
+
+Neben diesen Basisfunktionen liefern die einzelnen Frameworks oftmals
+noch Besonderheiten, wie eine eingebundene Social-Media-Unterstützung,
+Eingabefelder für Google Analytics, Auswahl von Google Webfonts, …
+
+Einige der bekanntesten Template-Frameworks sind derzeit:
+
+*Gantry*
+
+http://gantry.org/[[.underline]#http://gantry.org/#]
+
+*Helix*
+
+https://www.joomshaper.com/joomla-templates/helix3/
+
+*JA T3*
+
+http://www.t3-framework.org/
+
+*Vertex*
+
+http://www.shape5.com/joomla/framework/vertex_framework.html[[.underline]#http://www.shape5.com/joomla/framework/vertex++_++framework.html#]
+
+*Warp*
+
+https://yootheme.com/themes/warp-framework[[.underline]#https://yootheme.com/themes/warp-framework#]
+
+*Yootheme/Yootheme Pro*
+
+https://yootheme.com/pro/
+
+Wenn man regelmäßig Joomla!-Templates erstellt, lohnt es sich definitiv,
+einen genaueren Blick auf diese Frameworks zu werfen – jedoch sollte man
+sich auch über die Nachteile im Klaren sein, die ich anfangs erwähnt
+hatte. Wägen Sie daher gut ab, ob die Arbeitserleichterung die längeren
+Ladezeiten bei der Nutzung eines Frameworks in Ihrem Projekt
+rechtfertigt.

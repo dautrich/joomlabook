@@ -1,0 +1,295 @@
+=== Feldtypen
+
+Die Grundausstattung, die Sie gegenwärtig in Joomla! 3.7 mit „Eigene
+Felder” erhalten, ist eine kleine Auswahl von Eingabefeldern, die auf
+_JForm_ (siehe Kapitel 17.3.11.1) basieren. Sie können sowohl weitere
+_JForm_-Felder für „Eigene Felder” verfügbar machen, als auch eigene
+Custom-Fields-Plug-ins entwickeln.
+
+==== Gemeinsame Grundeinstellungen
+
+Die Eigenen Felder haben einige gemeinsame Einstellungen. Folgende
+Basiseinstellungen können im ersten Reiter „Allgemein“ vorgenommen
+werden.
+
+image:media/image1.jpg[media/image1,width=548,height=378]
+
+Bild 16.1 Grundeinstellungen der Felder
+
+===== Titel
+
+Im Titel geben Sie den Feldtitel ein. Dieser dient Ihnen zur
+Wiedererkennung in der Feldübersicht. Außerdem übernimmt das Label den
+Titel, falls kein Label festgelegt wurde.
+
+===== Typ
+
+In diesem Feld wählen Sie einen Feldtyp aus. Sobald Sie einen Typ
+festgelegt und das Feld gespeichert haben, wird dieser Typ festgesetzt
+und kann nicht mehr geändert werden. Die verschiedenen Joomla!-Core
+Feldtypen-werden im Kapitel 16.1.2.3 näher beschrieben.
+
+===== Name
+
+Der Name ist neben der Feld-ID ein eindeutiger Feldindikator. Sie können
+diesen automatisch aus dem Feldtitel generieren lassen. Wenn jedoch der
+Titel nicht eindeutig ist, müssen Sie den Namen manuell festlegen.
+
+===== Beschriftung
+
+Die Beschriftung, auch Label genannt, steht links vom Eingabefeld. Es
+soll dem Benutzer eine Orientierung bieten, welche Eingabe im Feld
+erwartet wird. Wenn Sie dieses Eingabefeld leer lassen, dann übernimmt
+die Feldbeschriftung den Inhalt aus dem Feldtitel.
+
+===== Beschreibung
+
+Der hier eingegebene Beschreibungstext erscheint im Formular in einem
+Tooltip, wenn man mit der Maus über die Feldbeschriftung fährt.
+
+===== Pflichtfeld
+
+Wenn Sie nicht möchten, dass vergessen wird, ein Feld auszufüllen,
+können Sie es als Pflichtfeld kennzeichnen. Das Formular wird erst
+gespeichert, wenn alle obligatorischen Felder ausgefüllt sind.
+
+===== Standardwert
+
+Der Standardwert definiert den Wert, mit dem das Feld vorausgefüllt ist,
+wenn das Formular geladen wird. Welche Werte möglich sind, hängt vom
+Feldtyp ab.
+
+===== Status
+
+Mit dem Status kann der Veröffentlichungsstatus (Veröffentlicht,
+Unveröffentlicht, Archiviert, Papierkorb) definiert werden.
+
+===== Feldgruppe
+
+Das Feld kann einer oder mehreren Feldgruppen zugewiesen werden.
+Feldgruppen erlauben es, Felder zu gruppieren und im Formular in
+verschiedenen Reitern (sogenannten Tabs) darzustellen. Der Titel der
+Feldgruppe ist dann der Bezeichner des Tabs beziehungsweise die
+Überschrift der Feldgruppe im Benutzerprofil und im Kontaktformular.
+
+===== Kategorie
+
+Wenn die Erweiterung, in der Sie „Eigene Felder” nutzen, Kategorien
+unterstützt, können Sie das Feld in der Kategorie-Auswahl an bestimmte
+Kategorien binden. So können Sie noch punktgenauer definieren, in
+welchem Formular spezielle Felder eingeblendet werden.
+
+===== Zugriffsebene
+
+Über die Einstellung zum Zugriff, legen Sie fest, welche Benutzergruppe
+das Feld sehen kann.
+
+===== Sprache
+
+Über die Sprache kann bei mehrsprachigen Seiten die Sprachzuweisung des
+Felds definiert werden.
+
+===== Notiz
+
+Wollen Sie sich merken, für welchen Zweck Sie ein bestimmtes Feld
+hinzugefügt haben? Über die Notiz können Sie interne Kommentare zum Feld
+hinterlegen.
+
+==== Gemeinsame Feldoptionen
+
+Im Reiter „Optionen“ können detaillierte Feldeinstellungen vorgenommen
+werden. Diese Einstellungen sind ebenso für alle Felder gleich.
+
+image:media/image2.jpg[media/image2,width=548,height=327]
+
+Bild 16.2 – Generelle Feldeinstellungen im Reiter „Optionen“
+
+===== Platzhalter
+
+Ein Platzhaltertext, der innerhalb des Felds als Eingabehilfe angezeigt
+wird. Diese Einstellung greift nur bei Feldern, die eine Texteingabe
+erwarten und nicht bei Mehrfach-Auswahlen oder Dropdown Feldern.
+
+===== Ausgabe Klasse
+
+Die Ausgabe-Klasse wird in den Container hinzugefügt, der um das Feld in
+der Ausgabe herumgelegt wird.
+
+===== Eingabefeld Klasse
+
+Die Eingabeklasse wird dem Container hinzugefügt, der um das Eingabefeld
+herum ausgegeben wird.
+
+===== Beschriftung anzeigen
+
+Legen Sie fest ob die Feldbeschriftung bzw. das Label in der Feldausgabe
+dargestellt oder ausgeblendet werden soll.
+
+===== Einsatzbereich
+
+Sie können das Feld nur im Frontend, also auf der Seite, im Backend oder
+in beiden Bereichen anzeigen. Wählen Sie an dieser Stelle Ihre
+gewünschte Option aus.
+
+===== Automatische Anzeige
+
+Die Felder können auf Wunsch bei verschiedenen Trigger Events
+automatisch angezeigt werden. Wählen Sie zwischen „Nach Inhalt (After
+Display)“, „vor Inhalt (Before Display)“, „nach Titel (After Title)“
+oder keiner automatischen Anzeige. Mehr zur automatischen Anzeige finden
+Sie auch im Kapitel 16.1.5.1
+
+==== Beschreibung der einzelnen Feldtypen
+
+Sehen wir uns nun die Feldtypen an, die Joomla! in der Version 3.7 für
+uns bereithält.
+
+===== Kalender (Date-Picker)
+
+Dieses Feld stellt ein JavaScript-Datum-Auswahlfeld zur Verfügung.
+Sobald man in das Feld klickt, öffnet sich ein Kalender-Popup zur
+Auswahl des Datums. Dieser Kalender wurde speziell für Joomla! 3.7 neu
+gestaltet. In den Feldeinstellungen kann man einen Standardwert, wie zum
+Beispiel „NOW“ eintragen und festlegen, ob die Zeit angezeigt werden
+soll oder nicht. Das Datumsformat wird seit Joomla! 3.7 über
+Sprachstrings gesteuert.
+
+image:media/image3.jpg[media/image3,width=393,height=328]
+
+Bild 16.3 – Das neue Joomla!-Kalenderfeld
+
+===== Kontrollkästchen
+
+Dieses Feld erlaubt die Erzeugung von Kontrollkästchen (auch Checkboxen
+genannt). In den Feldeinstellungen können Sie im Text definieren, wie
+die Kontrollkästchen heißen und welchen hinterlegten Wert sie haben. Bei
+Checkboxen ist es üblich, dass mehrere Werte ausgewählt werden können.
+Wenn Sie eine Auswahl mit _ODER_-Bedingung anbieten wollen, bietet sich
+ein Feld vom Typ „_Liste“_ oder ein _„Optionsfeld“_ an.
+
+===== Farbe
+
+Dieses Feld stellt einen Farbwähler dar und speichert die gewählte Farbe
+als Hex-Wert in der Datenbank. Wenn Sie wollen, können Sie im
+_Standard-Parameter (Default)_ einen Wert hinterlegen (zum Beispiel
+#ff0000).
+
+image:media/image4.jpg[media/image4,width=548,height=207]
+
+Bild - 16.4 – Der Farbwähler
+
+===== Editor (WYSIWYG)
+
+Dieses Feld stellt ein WYSIWYG-Eingabefenster dar. Dabei kann
+eingestellt werden, ob alle oder spezifische Editorbuttons ausgeblendet
+werden sollen und wie groß das Editorfenster eingebunden werden soll.
+
+===== Ganze Zahl (Dropdown und Mehrfachauswahl)
+
+Dieses Feld stellt ein numerisches Listen-Auswahlfeld zur Verfügung.
+Dabei kann man den Wert „Erster“, also das Minimum sowie den Wert
+„Letzter“, also das Maximum, sowie die Schritte definieren.
+
+===== Liste (Dropdown und Mehrfachauswahl)
+
+Über das Listenfeld können Sie eine Dropdownliste oder ein Feld für eine
+Mehrfachauswahl erstellen. Für die Werte, die im Feld zur Auswahl stehen
+sollen, definieren Sie den Text und den dazugehörigen Wert, der in der
+Datenbank gespeichert werden soll, in den Feldeinstellungen.
+
+===== Liste von Bildern (Dropdown und Mehrfachauswahl)
+
+Beim Imagefeld können Sie ein übergeordnetes Bild-Verzeichnis
+definieren. Darauf basierend stellt dann das Eingabefeld eine Liste der
+Bildnamen zur Auswahl, aus denen man wählen kann. Sie können auch eine
+Klasse definieren, die dann in der Ausgabe im img-Tag hinzugefügt wird.
+
+===== Media (Medienmanager)
+
+Das Mediafeld greift auf den Joomla!-Mediamanager zu. Sie können in den
+Feldoptionen ein Startverzeichnis aussuchen und festlegen, in welcher
+Art und Weise ein Vorschaubild im Formular dargestellt werden soll. Sie
+können auch die Klasse definieren, die bei der Ausgabe im
+++<++img++>++-Tag hinzugefügt werden soll. Im Formular öffnet sich bei
+Klick auf _auswählen_ das Popup-Fenster des Mediamanagers. Beachten Sie,
+dass der Benutzer über das Feld auf das komplette
+Joomla!-_image_-Verzeichnis zugreifen kann.
+
+===== Optionsfeld (Radio Buttons)
+
+Beim Optionsfeld (Radio Buttons) definieren Sie den Feldschlüssel und
+den dazugehörigen Wert, dazu ist es bei Radio Buttons üblich, dass nur
+eine Auswahl möglich ist. Ihre festgelegten Optionen werden dann in
+einem modernden „Switcher“-Design dargestellt.
+
+image:media/image5.jpg[media/image5,width=548,height=103]
+
+Bild 16.4 – Das Design des Optionsfelds
+
+===== SQL (Dropdown und Mehrfach-Auswahl)
+
+Mit dem SQL-Feld können Sie SQL-Abfragen durchführen und in einer
+Dropdown-Liste wiedergeben. Dabei müssen Sie darauf achten, die Werte in
+zwei Spalten auszugeben. Für den Textwert als _text_ und für den Wert
+als _value_. Möchten Sie zum Beispiel eine Beitragsliste darstellen,
+verwenden Sie:
+
+SELECT ++`++title++`++ AS ++`++text++`++, ++`++id++`++ AS
+++`++value++`++ FROM #++__++content
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |*Hinweis:* Dieses Feld darf nur von Super Usern erstellt
+werden, da die Nutzung durch nicht autorisierte Personen ansonsten eine
+potenzielle Sicherheitslücke darstellen würde.
+|===
+
+===== Text (Textinput)
+
+Das Textfeld ist ein Standard-Texteingabefeld. Als wohl eines der
+meistgenutzten Felder, die Sie brauchen werden, ist es bei der
+Erstellung eines neuen Felds vordefiniert. Sie können dem
+Texteingabefeld Joomla!-Textfiltermethoden hinzufügen und die maximale
+Zeichenlänge bestimmen.
+
+===== Textbereich
+
+Wenn Sie mehr als nur eine Zeile Text eingeben wollen, können Sie mit
+dem Feld „Textbereich“ eine mehrzeilige Texteingabe ohne WYSIWYG-Editor
+einbinden. Zu den Feldoptionen gehören die Angabe der Eingabe-Feldgröße
+in Zeilen und Spalten sowie eine maximale Zeichenlänge.
+
+===== URL (Texteingabe mit URL-Validierung)
+
+Das URL-Feld ist ein Texteingabefeld welches zusätzlich noch validiert,
+ob der eingegebene Wert einer URL entsprechen kann. Durch zusätzliche
+Parameter im Feld lässt sich festlegen, ob die Eingabe einem bestimmten
+Schema entsprechen soll. Dazu gehören _HTTP_, _HTTPS_, _FTP_, _FTPS_,
+_URL_, _FILE_ und _MAILTO_. In einem separaten Feld kann man die Eingabe
+von relativen Links erlauben. Die Eingabe wird beim Speichern in
+Punycode umgewandelt, um zu garantieren, dass die URL richtig
+verarbeitet wird.
+
+_„Punycode ist ein im https://tools.ietf.org/html/rfc3492[RFC 3492]
+standardisiertes
+https://de.wikipedia.org/wiki/Kodierung[Kodierungsverfahren] zum
+Umwandeln von
+https://de.wikipedia.org/wiki/Unicode[Unicode]-Zeichenketten in
+https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange[ASCII]-kompatible
+Zeichenketten“_ +
+Quelle: https://de.wikipedia.org/wiki/Punycode
+
+===== Benutzer (Dropdown)
+
+Auswahlfeld, um einen bereits registrierten Nutzer auszuwählen. Als
+Standardwert können Sie die Benutzer-ID des entsprechenden Benutzers
+eintragen.
+
+===== Benutzergruppen (Dropdown oder Mehrfach-Auswahl)
+
+Beim Benutzergruppen-Feld können Sie eine Dropdown-Liste mit verfügbaren
+Benutzergruppen erstellen. Wenn Sie die Mehrfachauswahl aktivieren,
+können hier mehrere Gruppen eingegeben werden. Als Standardwert kann die
+ID der Benutzergruppe eingegeben werden. Bei einer Mehrfach-Auswahl
+geben Sie diese Werte durch Komma getrennt ein.

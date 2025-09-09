@@ -1,0 +1,26 @@
+=== Zugriff und Berechtigungen für „Eigene Felder”
+
+Sie können für jedes Feld eigene Einstellungen für den Zugriff und die
+Berechtigungen vornehmen.
+
+Die Anzeige des Felds steuern Sie über den Parameter _Zugriffsebene_ im
+Reiter Allgemein. Hier ist sowohl die Anzeige des Eingabefelds als auch
+des Ausgabefelds gemeint.
+
+image:media/image10.jpg[media/image10,width=548,height=336]
+
+Bild 16.10 Zugriff für die Anzeige eines Felds und dessen Ausgabe
+
+In der Feldbearbeitung unter dem Reiter Berechtigungen finden Sie die
+Benutzergruppen-Einstellungen für das _Löschen_, _Bearbeiten_, _Status
+bearbeiten_ und _Bearbeiten eigener Felder_. Das Bearbeiten eines Felds
+für die Benutzergruppe _Public_ freizuschalten ist insbesondere beim
+Kontaktformular notwendig.
+
+Dennoch sollten Sie bei diesen Einstellungen sicher wissen, was Sie tun.
+Wenn Sie das Mediafeld für die Öffentlichkeit zur Verfügung stellen,
+kann jeder auf Ihren _image_-Ordner zugreifen.
+
+image:media/image11.jpg[media/image11,width=548,height=336]
+
+Bild 16.11 - Berechtigungen für das Editieren eines Felds

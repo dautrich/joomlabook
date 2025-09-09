@@ -1,0 +1,1238 @@
+=== Overrides und Alternative Layouts
+
+==== Einleitung
+
+Overrides[.indexref]#### und Alternative Layouts[.indexref]#### spielen
+für das Frontend in Joomla! eine große Rolle. Während sich das Frontend
+Template um die Grundstruktur und den Aufbau der Webseite kümmert,
+dienen Overrides dazu, systemeigene Ausgaben, sei es von Komponenten,
+Modulen oder Plug-ins, im Template zu überschreiben ohne die
+Aktualisierbarkeit von Joomla! zu gefährden.
+
+Durch Layout-Overrides erlangen wir die volle Kontrolle über die Ausgabe
+und können den Code optimal an unsere Bedürfnisse anpassen, womit
+Template-Overrides zu einem sehr mächtigen Werkzeug werden.
+
+Dieses Verfahren bietet z. B. unter anderem die Möglichkeit, die auf
+Bootstrap 2 basierende Ausgabe von den Joomla!-Core-Ausgaben im Frontend
+auf eigene Bedürfnisse anzupassen. Eventuell bevorzugen Sie Bootstrap 3
+oder 4 – oder ein völlig anderes CSS Framework. Mit Overrides ist das
+möglich, denn Sie können ein individuelles Layout für Ihre Inhalte
+bestimmen. Auch im Zusammenhang mit den neuen *Custom Fields (Eigene
+Felder)*, siehe Abschnitt 13.1, sind sie ein interessantes Mittel, um
+Inhalte auf Ihre gewünschte Art und Weise auszugeben.
+
+Grundsätzlich unterscheidet man zwischen zwei Möglichkeiten: Es gibt zum
+einen *Overrides*, das bedeutet, Sie legen eine Datei an, die den
+gleichen Namen trägt wie der View, den Sie überschreiben wollen, und
+erreichen somit, dass die Ausgabe generell mit Ihren Anpassungen
+überschrieben wird.
+
+*Alternative Layouts* sind hingegen Dateien, die einen von Ihnen
+gewählten Namen erhalten und zum Teil im Backend als Alternative
+ausgewählt werden können (Artikel, Kategorien, Newsfeeds, Kontakte,
+Kontaktkategorien und Module). Alle Alternativen Layouts, die nicht über
+Parameter im Backend ausgewählt werden können, können über einen eigenen
+Menütyp eingebunden werden.
+
+Oft werden beide Arten generell als Override bezeichnet.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Überschreiben Sie Joomla!-Core-Dateien unter keinen Umständen direkt,
+sondern legen Sie immer einen Override oder ein Alternatives Layout an.
+Wenn Sie Core-Dateien überschreiben, werden diese beim nächsten Update
+einfach überschrieben und Sie verlieren alle Änderungen.
+
+|===
+
+==== MVC
+
+Um Overrides zu verstehen, sollte man verstehen, was MVC[.indexref]####
+bedeutet: Der Begriff MVC, siehe auch Abschnitt 17.2, steht für
+Model-View-Controller und bietet für Entwickler die notwendige
+Flexibilität, um das Ausgabelayout benutzerdefiniert zu beeinflussen.
+
+Komponenten folgen häufig einem komplexen Aufbau. Werden diese
+MVC-konform entwickelt, ist die Programmierlogik weitgehend losgelöst
+von der tatsächlichen Ausgabe. Das hat den Vorteil, dass der Webdesigner
+sich nur noch um das richtige Layout kümmern muss, während die
+Funktionalität im Hintergrund abgehandelt wird.
+
+==== Ausgabe von Komponenten überschreiben
+
+===== Struktur
+
+Sehen wir uns zunächst die Ordnerstruktur einer Core-Komponente unter
+components/com++_++content an. Die Komponente *com++_++content* ist für
+die Ausgabe von *Beiträgen* zuständig. Zwischen all den verschiedenen
+Dateien die dafür zuständig sind, dass Joomla! ein Artikelsystem zur
+Verfügung stellt, ist das – was für unsere Overrides im Moment wichtig
+ist – das Verzeichnis views.
+
+image:media/image1.jpg[media/image1,width=350,height=407]
+
+Bild . Ordnerstruktur der com++_++content-Komponente
+
+Sie sehen, dass jeder *View* der Komponente ein eigenes Verzeichnis hat.
+Hier befinden sich die verschiedenen Ausgaben für die Artikel. Die
+Layoutdateien für diese Ausgaben befinden sich im _tmpl_-Ordner. Jede
+Datei im _tmpl_-Verzeichnis ist für eine Layoutausgabe verantwortlich.
+
+Das Standardlayout für die Artikelausgabe ist zum Beispiel
+_article/tmpl/default.php_.
+
+*Overrides* sind für jeden dieser Views möglich.
+
+*Alternative Layouts* sind derzeit für alle Views möglich, jedoch können
+im Beispiel von _com++_++content_ nur Artikel (article) und Kategorien
+(category) als Parameter im Backend ausgewählt werden. Für alle anderen
+Views müssen Sie einen eigenen Menütyp, siehe Abschnitt 12.1.4, anlegen.
+
+===== Override erstellen
+
+Wenn Sie den ursprünglichen Namen des Layouts beibehalten, z. B.
+_default.php_ wird die *Standardausgabe* des Views mittels Ihrer neuen
+Datei im Template überschrieben und *automatisch* aufgerufen – Sie haben
+ein *Override* erstellt.
+
+Die Datei, die Sie für einen Komponenten-Override benötigen, finden Sie
+in der Regel unter:
+
+/components/*com++_++komponenten++_++name*/views/*view++_++name*/tmpl/default.php
+
+Kopieren Sie diese Datei in Ihr Template unter:
+
+/templates/*ihrtemplate*/html/*com++_++komponenten++_++name*/*view++_++name*/default.php
+
+um einen Override anzulegen.
+
+Beispiel: Wollen Sie also das Layout der *Beitrags-Ausgabe*
+beeinflussen, müssen Sie die Datei
+
+/components/com++_++content/views/article/tmpl/default.php
+
+kopieren und in
+
+/templates/*ihrtemplate*/html/com++_++content/article/default.php
+
+ablegen.
+
+Beachten Sie, dass diese Datei nicht bei allen Erweiterungsherstellern
+_default.php_ heißt, sondernd auch zum Beispiel _edit.php_, _blog.php_
+oder anders heißen kann. Des Weiteren kann ein Layout aus mehreren
+Dateien bestehen. Das erkennen Sie daran, dass die inkludierten Dateien
+den Namen der Hauptdatei mit einem folgenden Unterstrich und einer
+genaueren Bezeichnung der Einbindung tragen. Zum Beispiel _blog.php_ und
+_blog++_++item.php._
+
+===== Alternatives Layout erstellen
+
+Während Sie bei *Overrides* die _default.php_-Datei mithilfe Ihres
+Templates überschreiben, haben sogenannte *Alternative Layouts* einen
+individuell gewählten Namen und überschreiben nicht die Standardausgabe.
+
+Die Datei, die Sie für das Alternative Layout benötigen, finden Sie in
+der Regel unter:
+
+/components/*com++_++komponenten++_++name*/views/*view++_++name*/tmpl/default.php
+
+Kopieren Sie diese Datei in Ihr Template unter:
+
+/templates/*ihrtemplate*/html/*com++_++komponenten++_++name*/*view++_++name*/*meinlayout*.php
+
+Indem Sie der Datei einen eigenen Namen geben, erhalten Sie ein
+_Alternatives Layout_.
+
+Beispiel: Wollen Sie also ein Alternatives Layout für die
+_Artikelausgabe_ anlegen, müssen Sie die Datei
+
+/components/com++_++content/views/article/tmpl/default.php
+
+kopieren und in Ihrem Template unter folgendem Pfad ablegen:
+
+/templates/*ihrtemplate*/html/com++_++content/article/*eigenername.php*
+
+Alternative Layouts werden nicht automatisch aufgerufen, sondern müssen
+entweder im Backend ausgewählt werden (siehe Abschnitt 12.3.5) oder über
+einen eigenen Menütyp verknüpft werden.
+
+======= Benennung
+
+Verwenden Sie für die Benennung der Dateien nur ganze Wörter als
+Dateinamen, damit diese später als Override erkannt werden. Sie können
+Unterstriche dazu verwenden, um Layouts miteinander zu verbinden bzw. zu
+verschachteln. Dabei trägt die Hauptdatei zum Beispiel den Namen
+_meinlayout.php_ und die eingebundene Unterdatei den Namen
+_meinlayout++_++item.php_.
+
+======= Übersetzung des Layoutnamen
+
+Der Dateiname des Layouts ist über das Joomla!-Sprachsystem übersetzbar.
+Nehmen wir an, Sie haben ein alternatives Layout mit dem Namen
+_example.php_ unter folgendem Pfad:
+
+*ihrtemplate*/html/com++_++content/article/example.php
+
+Dieses Layout wird im Backend in den jeweiligen Auswahllisten als
+*example* gelistet.
+
+In Ihrer Template-Sprachdatei – also zum Beispiel in der Datei
+languages/de-DE/de-DE/de-DE.tpl++_++protostar.sys.ini – oder in Ihren
+Sprach-Overrides (siehe Abschnitt 12.1.12) können Sie diesen Auswahltext
+folgendermaßen übersetzen:
+
+TPL++_++*PROTOSTAR*++_++*COM++_++CONTENT*++_++*ARTICLE*++_++LAYOUT++_++**EXAMPLE**="Beispiel"
+
+Beachten Sie dabei den logischen Aufbau:
+
+TPL++_++*TEMPLATENAME*++_++*KOMPONENTENNAME*++_++*VIEWNAME*++_++LAYOUT++_++*DATEINAME*
+
+======= Nutzbarkeit der Alternativen Layouts
+
+Alternative Layouts sind Template-Übergreifend. Wenn Sie Ihr Frontend
+Template wechseln, müssen Sie darauf achten, ob die bereits zugewiesenen
+Layouts in Kombination mit Ihrem neuen Template noch funktionieren oder
+ein neues Layout zuweisen. Auf der anderen Seite heißt das auch, dass
+Sie, obwohl Sie ein anderes Template nutzen, Alternative Layouts eines
+anderen, nicht zugewiesenen Frontend Templates nutzen können.
+
+===== Überblick über Joomla!-Komponenten
+
+Das soeben erklärte Prinzip gilt auch für weitere
+Joomla!-Core-Komponenten. Für die unterstrichenen Views können Sie ein
+alternatives Layout anlegen und über Parameter im Backend auswählen,
+ohne einen eigenen Menütypen dafür anlegen zu müssen.
+
+Tabelle . Übersicht über die Joomla!-Core-Komponenten
+
+[width="100%",cols="34%,33%,33%",options="header",]
+|===
+a|
+*com++_++config*
+
+config +
+modules +
+templates
+
+a|
+*com++_++contact*
+
+categories +
+_[.underline]#category#_ +
+_[.underline]#contact#_ +
+featured
+
+a|
+*com++_++content*
+
+archive +
+__[.underline]#article# +
+__categories +
+_[.underline]#category#_ +
+featured +
+form
+
+a|
+*com++_++finder*
+
+search
+
+a|
+*com++_++mailto*
+
+mailto +
+sent
+
+a|
+*com++_++newsfeeds*
+
+categories +
+category +
+_[.underline]#newsfeed#_
+
+a|
+*com++_++search*
+
+search
+
+a|
+*com++_++tags*
+
+tag +
+tags
+
+a|
+*com++_++users*
+
+login +
+profile +
+registration +
+remind +
+reset
+
+a|
+*com++_++wrapper*
+
+wrapper
+
+a|
+*com++_++weblinks (entkoppelte Joomla!-Komponente)*
+
+categories +
+category +
+form +
+weblink
+
+|
+|===
+
+Auch Drittanbieter-Erweiterungen können nach dem Override-Prinzip
+überschrieben werden. Alle? Zumindest alle, die sich an die Konventionen
+des Joomla!-Frameworks halten. Daher sollten Sie, wie in
+Abschnitt 10.2.1, „Checkliste für die Auswahl der passenden
+Erweiterung“, beschrieben, die verwendeten Erweiterungen sorgfältig
+prüfen.
+
+===== Auswahl der Alternativen Layouts im Backend
+
+Wie eingangs erwähnt, wird automatisch die Standardausgabe des
+jeweiligen Bereichs überschrieben, wenn man ein *Override* anlegt. Bei
+*Alternativen Layouts* wählt man über Parameter im Backend aus, welches
+Layout genutzt werden soll.
+
+======= Artikel und Kategorien
+
+Die globalen Optionen für die *com++_++content*-Komponente, die sich um
+die Standardausgabe von Artikeln und Kategorien kümmern, erreichen Sie
+im Joomla!-Backend über System » Konfiguration » Beiträge und unter
+Inhalt » Beiträge über den Button „Optionen“. Im Reiter Beiträge können
+Sie festlegen, welches Layout von Joomla! standardmäßig für die
+*Artikelausgabe* verwendet wird.
+
+image:media/image2.jpg[media/image2,width=548,height=365]
+
+Bild . Auswahl des Alternativen Layouts für Beiträge in der globalen
+Konfiguration
+
+Auf dem gleichen Weg geraten Sie zu den Einstellungen für die
+*Kategorien*. Joomla! bietet hier bereits von Haus aus die Möglichkeit
+zwischen einer Blogansicht und einer Listenansicht zu wählen. Sobald Sie
+ein eigenes Alternatives Layout anlegen, erscheint auch dieses in der
+Auswahlliste im Reiter „Kategorie“
+
+image:media/image3.jpg[media/image3,width=548,height=365]
+
+Bild . Auswahl des Alternativen Layouts für Kategorien in der globalen
+Konfiguration
+
+Während Sie in den *Globalen Optionen* seitenübergreifend ein Layout
+festlegen, können Sie per *Artikel* oder per *Kategorie* ein
+abweichendes Layout auswählen. Diese Auswahl überschreibt die global
+festgelegten Einstellungen.
+
+Sie finden diese Einstellungsmöglichkeit unter ARTIKEL BEARBEITEN »
+Optionen » Alternatives Layout.
+
+image:media/image4.jpg[media/image4,width=548,height=365]
+
+Bild . Auswahl des Alternativen Layouts für Beiträge in der
+Artikelbearbeitung
+
+Das gleiche Prinzip gilt für die Kategorie. Sie finden die Auswahl der
+Alternativen Layouts unter Kategorie BEARBEITEN » Optionen »
+Alternatives Layout.
+
+image:media/image5.jpg[media/image5,width=548,height=365]
+
+Bild . Auswahl des Alternativen Layouts für Kategorien in der
+Kategoriebearbeitung
+
+======= Für Kontakte und Kontaktkategorien
+
+Die globalen Optionen für die *com++_++contact*-Komponente, welche die
+Standardausgabe von Kontakten und Kontaktkategorien festlegen, erreichen
+Sie im Joomla!-Backend über System » Konfiguration » KONTAKTE und unter
+KOMPONENTEN » KONTAKTE über den Button „Optionen“. Im Reiter KONTAKT
+können Sie festlegen welches Layout von Joomla! standardmäßig für die
+*Kontaktausgabe* verwendet wird.
+
+image:media/image6.jpg[media/image6,width=548,height=365]
+
+Bild . Auswahl des Alternativen Layouts für Kontakte in der globalen
+Konfiguration
+
+Im Reiter Kategorie können Sie aus Alternativen Layouts für die
+*Kontaktkategorien* wählen.
+
+Wie bereits im ersten Abschnitt für Artikel und Kategorien beschrieben,
+können Alternative Layouts auch für *einzelne Kontakte* oder
+*Kontaktkategorien* verwendet werden.
+
+Die Einstellungen für den Kontakt finden Sie unter Komponenten »
+Kontakte » Kontakt bearbeiten im Reiter „Anzeige“.
+
+Die Einstellungen für die Kontaktkategorie finden Sie unter Komponenten
+» Kontakte » KATEGOrIEN » KATEGORIE bearbeiten im Reiter „Optionen“.
+
+======= Für Newsfeeds
+
+Die globalen Optionen für die *com++_++newsfeeds*-Komponente erreichen
+Sie im Joomla!-Backend über System » Konfiguration » NEWSFEEDS und unter
+KOMPONENTEN » NEWSFEEDS über den Button „Optionen“. Im Reiter NEWSFEED
+können Sie festlegen welches Layout von Joomla! standardmäßig für die
+*Newsfeed-Ausgabe* verwendet wird.
+
+Wie auch für die anderen Komponenten beschrieben, können Sie ein
+Alternatives Layout auch für einen einzelnen Newsfeed auswählen, indem
+Sie über Komponenten » NEWSFEEDS » NEWSFEED bearbeiten im Reiter
+„Anzeige“ das entsprechende Alternative Layout auswählen.
+
+==== Menütypen für Alternative Layouts anlegen
+
+Nun haben Sie gelernt, wie man Overrides und Alternative Layouts anlegt.
+Wie Sie gesehen haben, kann man nicht alle Alternativen Layouts über
+Parameter im Backend zuweisen. Dennoch ist es möglich, auch für andere
+Ansichten ein Alternatives Layout anzulegen und als
+*Menütyp*[.indexref]## zur Verfügung zu stellen.
+
+===== Struktur
+
+Sehen wir uns dazu nochmal an, wie man im Backend einen Menüpunkt
+erstellt. Wählen Sie dazu im Backend unter Menüs » Alle Menüeinträge den
+grünen Neu-Button. Klicken Sie anschließend neben der Option
+*Menüeintragstyp* auf den Button Auswählen.
+
+Es öffnet sich ein Popup-Fenster mit einem Überblick möglicher
+Menütyp-Kategorien. Die Einträge in der Liste entsprechen Komponenten,
+die *Views* zur Verfügung stellen. In Bild 12.7 sehen Sie einen
+Überblick der Menütypen, die für Beiträge (= com++_++content) ausgewählt
+werden können. Alle diese Einträge sind Layoutdateien aus einem
+tmpl-Verzeichnis mit dazugehöriger XML-Datei.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Da ein eigener Menütyp fest definiert, welches Layout gewählt werden
+soll, wird dieses Layout zwingend gesetzt, auch wenn im Artikel oder in
+den globalen Optionen eine andere Einstellung vorgenommen wurde.
+
+|===
+
+image:media/image7.jpg[media/image7,width=548,height=288]
+
+Bild . Auswahlfenster für Menütypen
+
+======= Menütyp anlegen
+
+Wenn Sie Ihren benutzerdefinierten Menütyp im Backend zur Auswahl
+stellen möchten, müssen Sie, genauso wie Sie es bei den systemeigenen
+Layouts sehen, zusätzlich zum Alternativen Layout auch die dazugehörige
+*.xml*-Datei anlegen.
+
+image:media/image8.jpg[media/image8,width=396,height=298]
+
+Bild . Ansicht der Ordnerstruktur innerhalb der tmpl-Order von Views
+
+======= XML-Datei kopieren
+
+Die erste Möglichkeit ist es, die bereits vorhandene .xml-Datei aus dem
+Joomla!-tmpl-Ordner zu kopieren und für die eigenen Zwecke anzupassen.
+
+Beispiel: Sie haben für eine Blogansicht ein Alternatives Layout
+angelegt. Ihr Layout heißt _portfolio.php_.
+
+/templates/*ihrtemplate*/html/com++_++content/category/*portfolio.php*
+
+Sie finden die originale XML-Datei für diesen Fall unter:
+
+/components/com++_++content/views/category/tmpl/blog.xml
+
+Kopieren Sie diese Datei und benennen Sie die Datei genauso wie Ihr
+neues Layout. In unserem Beispiel würde die xml-Datei also
+*portfolio.xml* heißen.
+
+/templates/*ihrtemplate*/html/com++_++content/category/*portfolio.xml*
+
+Im oberen Bereich der kopierten XML-Datei finden Sie die Angaben für den
+Titel, den Hilfstext und die Beschreibung. Denken Sie daran, die
+Sprachstrings auszutauschen und in Ihrer Template-Sprachdatei (im
+_language_-Ordner Ihres Stammverzeichnisses) zu übersetzen.
+
+Listing . Angaben in der Template-Sprachdatei
+/_de-DE.tpl++_++ihrtemplate.sys.ini_
+
+COM++_++CONTENT++_++CATEGORY++_++VIEW++_++PORTFOLIO++_++TITLE="Portfolio
+Ansicht" +
+COM++_++CONTENT++_++CATEGORY++_++VIEW++_++PORTFOLIO++_++OPTION="Portfolio" +
+COM++_++CONTENT++_++CATEGORY++_++VIEW++_++PORTFOLIO++_++DESC="Mit dieser
+Auswahl legen Sie ein Blog mit Portfolio Layout an"
+
+Sie haben den Vorteil, dass Sie durch das Kopieren alle Felder und
+Parameter aus der XML-Datei übernehmen und nicht alles komplett neu
+schreiben müssen.
+
+======= Eigene XML-Datei anlegen
+
+Die zweite Möglichkeit wäre, eine eigene .xml-Datei mit diesen
+Grundangaben anzulegen:
+
+Listing . Basisangaben in der portfolio.xml-Datei
+
+++<++?xml version="1.0" encoding="utf-8"?++>++ +
+++<++metadata++>++ +
+++<++layout
+title="*COM++_++CONTENT++_++CATEGORY++_++VIEW++_++PORTFOLIO++_++TITLE*"++>++ +
+++<++message++>++**COM++_++CONTENT++_++CATEGORY++_++VIEW++_++PORTFOLIO++_++DESC**++<++/message++>++ +
+++<++/layout++>++ +
+++<++/metadata++>++
+
+Mithilfe dieser XML-Datei können Sie dann nicht nur Ihr *Alternatives
+Layout* unter den *Menütypen* auswählbar machen, sondern auch eigene
+*Parameter* in der .xml-Datei hinzufügen oder entfernen. Damit ergeben
+sich für die Steuerung der Ausgabe sehr individuelle Möglichkeiten.
+
+==== Ausgabe von Modulen überschreiben
+
+===== Struktur
+
+Der Aufbau von Joomla!-Modulen ist normalerweise etwas einfacher als bei
+Komponenten, aber ähnlich wie bei unserem Beispiel im Abschnitt 12.1.3
+mit *com++_++content* finden Sie bei Joomla!-Modulen einen tmpl-Ordner
+mit Layout-Dateien.
+
+image:media/image9.jpg[media/image9,width=396,height=136]
+
+Bild . Ordnerstruktur des Moduls „Neueste Beiträge“
+(mod++_++articles++_++latest)
+
+===== Overrides anlegen
+
+Die Datei die Sie für den Override benötigen, finden Sie in der Regel
+unter:
+
+/module/*mod++_++modulname*/tmpl/default.php
+
+Kopieren Sie diese Datei in Ihr Templateverzeichnis unter:
+
+/templates/*ihrtemplate*/html/*mod++_++modulname*/default.php
+
+um ein *Override* zu erstellen.
+
+Wenn Sie den ursprünglichen Namen des Layouts beibehalten, z. B.
+_default.php_, wird die *Standardausgabe* des Views mittels Ihrer neuen
+Datei im Template überschrieben und *automatisch* aufgerufen – Sie haben
+ein *Override* erstellt.
+
+Beispiel: Wollen Sie also die Ausgabe von *mod++_++articles++_++latest*
+(Neueste Beiträge) überschreiben, kopieren Sie die Datei
+
+/module/mod++_++articles++_++latest/tmpl/default.php
+
+in Ihr Templateverzeichnis unter:
+
+/templates/*ihrtemplate*/html/mod++_++articles++_++latest/tmpl/default.php
+
+===== Alternative Layouts anlegen
+
+Bei Modul *Overrides* gilt das gleiche wie bei den Komponenten. Um die
+Ausgabe bei allen Vorkommen zu überschreiben, legen Sie wie soeben
+beschrieben eine zur Ursprungsdatei gleichnamige Datei in Ihrem
+html-Templateordner ab. Ansonsten benennen Sie die Datei um, um
+lediglich ein Alternatives Layout zu erhalten.
+
+Die Datei, die Sie für das *Alternative Layout* benötigen, finden Sie in
+der Regel unter:
+
+/module/*mod++_++modulname*/tmpl/default.php
+
+Kopieren Sie diese Datei in Ihr Templateverzeichnis unter:
+
+/templates/*ihrtemplate*/html/*mod++_++modulname*/*meineigeneslayout*.php
+
+Indem Sie der Datei einen eigenen Namen geben, erhalten Sie ein
+*Alternatives Layout*.
+
+Beispiel: Wollen Sie also für die Ausgabe von
+*mod++_++articles++_++latest* (Beiträge – Neueste) ein Alternatives
+Layout anlegen, kopieren Sie die Datei
+
+/module/mod++_++articles++_++latest/tmpl/default.php
+
+in Ihr Templateverzeichnis unter:
+
+/templates/*ihrtemplate*/html/mod++_++articles++_++latest/tmpl/*eigenername.php*
+
+und benennen Sie die Datei um.
+
+Alternative Layouts werden bei Modulen ebenfalls nicht automatisch
+aufgerufen, sondern müssen im Backend in den Modulparametern ausgewählt
+werden.
+
+======= Benennung
+
+Verwenden Sie für die Benennung der Dateien nur ganze Wörter als
+Dateinamen damit diese später als Override erkannt werden. Sie können
+Unterstriche dazu verwenden, um Layouts mit einer komplexen Struktur zu
+erstellen. Dabei trägt die Hauptdatei zum Beispiel den Namen
+_meinmodul.php_ und die Unterdatei den Namen _meinmodul++_++item.php_.
+
+======= Übersetzung der Layoutnamen
+
+Auch hier sind die Alternativen Layouts mit der Template-Sprachdatei (im
+_language_-Ordner Ihres Stammverzeichnisses) übersetzbar: Für das
+Alternative Layout _mymodulelayout.php_ können Sie zum Beispiel mit
+folgendem String in der _de-DE.tpl++_++protostar.sys.ini_ Datei den
+Auswahltext übersetzen:
+
+TPL++_++PROTOSTAR++_++MOD++_++CUSTOM++_++LAYOUT++_++**MYMODULELAYOUT**="Mein
+Modul-Layout"
+
+===== Auswahl im Backend
+
+Die Alternativen Layouts für Module können im jeweiligen Modul in den
+Parametern ausgewählt werden. Haben Sie zum Beispiel ein Alternatives
+Layout für das Modul *mod++_++articles++_++latest* (Beiträge – Neueste)
+angelegt, finden Sie die Auswahl für das Alternative Layout unter
+Erweiterungen » Module » Modul Beiträge - Neueste bearbeiten im Reiter
+„Erweitert“
+
+image:media/image10.jpg[media/image10,width=548,height=365]
+
+Bild . Auswahl eines Alternativen Layouts im Modul
+
+==== Modul Chrome
+
+===== Aufruf
+
+Modul Chrome[.indexref]#### sind keine Overrides im Sinne des
+MVC-Pattern. Vielmehr ist damit gemeint, welcher HTML/PHP-Code um das
+Modul herumgelegt wird.
+
+Sehen wir uns an, wie ein Modul in einem Template grundsätzlich
+aufgerufen wird. Dazu öffnen wir die _index.php_-Datei des
+Protostar-Templates.
+
+Sie finden diese Datei unter dem Dateipfad:
+
+templates/protostar/index.php
+
+Ungefähr in der Zeile 194 (Joomla! 3.7) finden Sie den Aufruf:
+
+++<++jdoc:include type="modules" name="position-7" *style="well"* /++>++
+
+Wer bereits Erfahrung mit Templates hat weiß, hier werden Module
+geladen, die auf der entsprechenden Unterseite auf position-7
+veröffentlicht wurden. Doch hinter der Position ist auch der
+Standard-Chrome-Stil definiert. In diesem Fall handelt es sich um den
+Stil „well“ des Templates-Protostar.
+
+Alle Module werden durch diesen Aufruf mit dem Stil „well“ geladen,
+außer man stellt in den Modul-Parametern im Reiter „Erweitert“ etwas
+Abweichendes ein. Fehlt diese Angabe im Modulaufruf, gilt automatisch
+der Stil „none“.
+
+===== Definition
+
+Die Chrome-Stile werden seitenübergreifend unter folgendem Dateipfad
+definiert:
+
+templates/system/html/modules.php
+
+Die darin enthaltenen Modulstile sind fest vorgegeben und man kann diese
+nicht überschreiben.
+
+[arabic]
+. rounded
+. none
+. table
+. horz
+. xhtml (deprecated)
+. html5
+. outline
+
+Der Stil „well“, den wir gerade im Auszug aus dem Protostar-Template
+gesehen haben, ist in der folgenden Datei definiert:
+
+templates/protostar/html/modules.php
+
+Wie Sie am Beispiel des Protostar-Templates sehen, können Sie für Ihr
+Template eine eigene _modules.php_-Datei anlegen und somit eigene
+Modulstile definieren.
+
+Wichtig: Sie dürfen keine Modulstil-Namen verwenden, die bereits vom
+Systemtemplate definiert wurden.
+
+image:media/image11.jpg[media/image11,width=548,height=171]
+
+Bild . Code-Ansicht der Datei _templates/protostar/html/modules.php_
+
+Ein Modul Chrome ist eine Funktion, in der das entsprechende Modul mit
+seinen Parametern und Attributen übergeben wird. Sehen wir uns die
+_modules.php_-Datei des Templates Protostar im Bild 12.11 mal an,
+entdecken wir im ersten Abschnitt der function modChrome++_++well
+zunächst einige Modulparameter. Dazu gehört zum Beispiel $moduleTag,
+hier wird der Modulparameter zum Modultag abgefragt. Die Parameter, auf
+die man aus dem Chrome zugreifen kann, stellen Sie im Backend in der
+Modulbearbeitung Reiter „Erweitert“ ein.
+
+image:media/image12.jpg[media/image12,width=548,height=365]
+
+Bild . Ansicht des Reiters „Erweitert“ zur Einstellung von
+Modulparametern
+
+Im nächsten Abschnitt wird der Modulinhalt mit den entsprechend
+gezogenen Parametern ausgegeben.
+
+Den Chrome-Stil „well“ macht im Grunde lediglich aus, dass die
+CSS-Klasse well in den umliegenden Container hinzugefügt wird. Diese
+nutzt man bei Bootstrap 2 für das Styling.
+
+Sehen Sie sich auch die anderen Chrome-Stile an um eine Idee zu
+bekommen, wie man sie nutzen kann. Im ersten Abschnitt der _modules.php_
+vom Template Protostar ist ein Stil „function modChrome++_++no“
+definiert. Wenn Sie sich diesen Abschnitt ansehen und mit „function
+modChrome++_++well“ vergleichen, sehen Sie, dass diese Funktion den
+reinen Modulinhalt ausgibt und keine Rücksicht auf Modultitel oder
+Parameter nimmt.
+
+===== Eigenen Chrome anlegen
+
+======= Datei
+
+Um einen eigenen Chrome-Stil anzulegen, erstellen Sie eine
+_modules.php_-Datei in Ihrem Template unter:
+
+templates/*ihrtemplate*/html/
+
+In der ersten Zeile der Datei steht das obligatorische
+
+++<++?php defined('++_++JEXEC') or die;
+
+Die einfachste Form der Ausgabe wäre nun:
+
+Listing . Einfache Modul-Chrome-Funktion in der modules.php-Datei
+
+function modChrome++_++*meinstil*($module, &$params, &$attribs)++{++ +
+if ($module-++>++content) +
+++{++ +
+echo $module-++>++content; +
+} +
+}
+
+Sie können mit Ihrem eigenen Chrome ebenso auf Modulparameter
+zurückgreifen und in Ihrem Modulstil verwenden. Sehen Sie sich dazu
+einfach die bereits vorhandenen Stile im Protostar oder im
+Systemtemplate an oder geben Sie alle vorhandenen Parameter im Frontend
+aus, indem Sie den PHP-Befehl print++_++r($params); in Ihrem Chrome
+nutzen.
+
+======= Auswahl im Modul
+
+Nun können Sie den neuen Modulstil in allen Modulen unter dem Reiter
+„Erweitert“ auswählen.
+
+image:media/image13.jpg[media/image13,width=548,height=365]
+
+Bild . Auswahl des Modul Chrome in den Moduleinstellungen
+
+======= Aufruf über das Template
+
+Sie können diesen Stil auch als Standard festlegen. Dazu tragen Sie im
+style-Attribut im Modulaufruf ihren gewünschten Stil ein.
+
+++<++jdoc:include type="modules" name="position-7" style="*meinstil*"
+/++>++
+
+===== Verwendung Modul Overrides vs. Chrome Stile
+
+Ein Alternatives Layout bzw. Override wird verwendet, wenn man einen
+speziellen Modultyp, wie zum Beispiel *mod++_++articles++_++news*
+anpassen möchte. Modulstile, auch Modul Chrome genannt, werden verwendet
+um modultypübergreifend den Code zu definieren, der um die Module herum
+dargestellt wird.
+
+==== Ausgabe von jLayouts überschreiben
+
+===== Struktur
+
+In Joomla! werden einige Elemente an mehreren Stellen wiederverwendet.
+Um die Menge der zu pflegenden Dateien zu verringern und doppelt
+gepflegten Code zu eliminieren, wurden diese Elemente in sogenannte
+jLayouts[.indexref]#### ausgelagert. Dazu gehört zum Beispiel die Art
+und Weise, wie der Autor im Artikel dargestellt wird, wie der
+Weiterlesen-Button aussieht, wie die Seitenüberschriften im Bloglayout
+ausgegeben werden u. v. m.
+
+Sehen Sie sich dazu das Layout von einem Blog-Artikel näher an:
+
+components/com++_++content/views/category/tmpl/blog++_++item.php
+
+Dieses Layout enthält zum Beispiel den folgenden Abschnitt, der das
+*jLayout* für den *Weiterlesen*-Button einbindet.
+
+++<++?php echo JLayoutHelper::render(*'joomla.content.readmore'*,
+array('item' =++>++ $this-++>++item, 'params' =++>++ $params, 'link'
+=++>++ $link)); ?++>++
+
+Im Bereich zwischen den Klammern ist definiert, wo wir das jLayout
+finden: 'joomla.content.readmore'. Ersetzt man die Punkte gedanklich
+durch Verzeichnistrenner „*/“* , findet man diese Datei im Layoutordner
+unter: _layouts/joomla/content/readmore.php_
+
+===== Override anlegen
+
+Möchten Sie ein Override für diese Datei erstellen, dann legen Sie eine
+Kopie der _readmore.php_-Datei in der gleichen Pfadstruktur im
+_html_-Ordner Ihres Templates ab und passen Sie diese Kopie entsprechend
+Ihren Wünschen an.
+
+templates/*ihrtemplate*/html/layouts/joomla/content/readmore.php
+
+===== Eigene jLayouts anlegen
+
+Alternative Layouts für jLayouts gibt es im eigentlichen Sinn nicht. Was
+machen wir nun, wenn wir nicht alle Weiterlesen-Buttons auf der Seite
+überschreiben wollen, sondern nur die einer speziellen Blogansicht?
+
+Das ist ganz einfach: Zunächst müssen Sie ein Alternatives Layout für
+die Ausgabe der Blogansicht erstellen und in Ihrem Template ablegen.
+Binden Sie anschließend Ihr individuelles jLayout in diesem Alternativen
+Layout ein, indem Sie der erklärten Logik folgen.
+
+Heißt Ihre individuelle jLayout-Datei zum Beispiel
+
+templates/*ihrtemplate*/html/layouts/*joomla*/*content*/*weiterlesenblog.php*
+
+rufen Sie die Datei auf diese Art und Weise in Ihrem Alternativen Layout
+oder Override auf:
+
+++<++?php echo JLayoutHelper::render('*joomla.content.weiterlesenblog'*,
+array('item' =++>++ $this-++>++item, 'params' =++>++ $params, 'link'
+=++>++ $link)); ?++>++
+
+==== Overrides über den Template-Manager erstellen
+
+Mir war es wichtig, Ihnen zunächst die Logik hinter den Overrides
+nahezubringen und zu erläutern, wo Sie die jeweiligen Dateien finden.
+Doch es gibt auch eine Abkürzung! Sie können Overrides auch über den
+Templatemanager mit nur einem Klick anlegen. Gehen Sie dazu ins Backend
+unter Erweiterungen » Templates » Templates und wählen Sie dort Ihr
+Template aus. Im Reiter „Overrides erstellen“ finden Sie eine Übersicht
+aller Joomla!-Module, -Komponenten und -jLayouts, die Sie mittels
+Overrides in Ihrem Template überschreiben können. Wenn Sie zum Beispiel
+auf „*mod++_++custom*“ klicken, wird automatisch ein Ordner
+mod++_++custom in Ihrem html-Ordner mit einer _default.php_-Datei
+erzeugt. Anschließend können Sie diese Datei nach Belieben anpassen. In
+der aktuellen Version Joomla! 3.7.x fehlt hier noch die Übersicht der
+Plug-ins, die überschrieben werden können, daher gehe ich im nächsten
+Abschnitt darauf ein.
+
+image:media/image14.jpg[media/image14,width=548,height=290]
+
+Bild . Override aus dem Template-Manager heraus erstellen.
+
+==== Ausgabe von Plug-ins überschreiben
+
+===== Struktur
+
+Auch Plug-ins können nach der bereits vorgestellten Methode
+überschrieben werden. Das einzige Core-Plug-in, das bisher überschrieben
+werden konnte, war das Plug-in
+http://localhost:8888/bootstrap/administrator/index.php?option=com_plugins&task=plugin.edit&extension_id=408[_[.underline]#Inhalt-Seitennavigation#_].
+Seit den in Joomla! 3.7 neu hinzugekommenen „Eigene Felder“, siehe
+Abschnitt 16.1, nimmt das Überschreiben von Plug-ins in Joomla! eine
+noch wichtigere Bedeutung ein. Sie erkennen ein überschreibbares Plug-in
+daran, dass es wie überschreibbare Module über einen _tmpl_-Order
+verfügt.
+
+===== Overrides anlegen
+
+Um die Datei unter folgendem Pfad zu überschreiben:
+
+plugins/content/pagenavigation/tmpl/default.php
+
+kopieren Sie die _default.php_-Datei in den html-Ordner Ihres Templates
+in folgende Struktur:
+
+templates/*ihrtemplate*/html/plg++_++content++_++pagenavigation/default.php
+
+Sie sehen, hier ist die Struktur etwas anders als bei den Komponenten
+und Modulen und zwar folgt diese dem Aufbau:
+
+templates/ihrtemplate/html/plg++_++*PLUGINGRUPPE*++_++*PLUGINNAME*/default.php
+
+Im Seitennavigations-Plug-in können Sie zum Beispiel die
+Font-Awesome-Klassen aus Bootstrap 2 für die Seitennavigation
+„icon-chevron-left“ und „icon-chevron-right“ durch die neuen
+Font-Awesome-Klassen aus Bootstrap 3 „fa fa-chevron-left“ und „fa
+fa-chevron-right“ ersetzen.
+
+======= Eigene Felder
+
+Die Plug-ins, die für die Ausgabe von „Eigene Felder“ zuständig sind,
+finden Sie im Plug-in-Verzeichnis im Verzeichnis fields.
+
+Die Plug-in-Dateien von „Eigene Felder“ finden Sie unter:
+
+plugins/fields/*feldname*/tmpl/*dateiname*.php
+
+Um ein Override eines Field-Plug-ins anzulegen, kopieren Sie die
+PHP-Datei innerhalb des _tmpl_-Ordners in den _html_-Ordner Ihres
+Templates in folgende Struktur:
+
+templates/*ihrtemplate*/html/*plg++_++fields++_++feldname*/*dateiname*.php
+
+Der Aufbau ist für alle Plug-ins gleich.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 a|
+*Hinweis:*
+
+Wägen Sie ab, ob es nicht sinnvoller ist, ein eigenes Plug-in zu
+erstellen statt ein Override anzulegen. Das hängt grundsätzlich davon
+ab, was und wie viel Sie ändern möchten.
+
+|===
+
+==== Ausgabe der Paginierung überschreiben
+
+*Die pagination.php ist (teilweise) zu jLayouts umgezogen.*
+
+Dieser Override ist für die Anzeige der Anzahl von Seiten und für die
+Seitennavigation[.indexref]#### zuständig, wie Sie im folgenden
+Screenshot sehen können.
+
+image:media/image15.jpg[media/image15,width=548,height=156]
+
+Bild . Ansicht der Seitennummerierung im Frontend
+
+Früher hat man dafür eine Datei verwendet, die genauso wie Module
+Chrome, sogenannte Pagination Chromes enthielt. Sie finden die
+_pagination.php_[.indexref]## unter:
+_templates/protostar/html/pagination.php_. Aus Gründen der
+Rückwärtskompatibilität funktioniert diese Datei noch in der
+Joomla!-3.x-Reihe. Stattdessen sollten Sie lieber auf die neue Methode
+der jLayout Overrides setzen. Die Dateien hierzu finden Sie unter:
+_layouts/joomla/pagination_. Jedoch ist das jLayout für die Paginierung
+in den Core-Ausgaben unterschiedlich eingebunden, so dass Sie daran
+denken müssen, auch die Layouts der Komponenten mit anzupassen. Dazu
+gehören die Ansichten für com++_++contact, com++_++content,
+com++_++finder, com++_++newsfeeds, com++_++search und com++_++tags. Wie
+jLayouts überschrieben werden können, habe ich im Abschnitt 12.1.7
+beschrieben.
+
+==== Media-Dateien überschreiben
+
+===== Der Media-Ordner
+
+Mit Media-Datei-Overrides können Sie Ausgaben von Dateien überschreiben,
+die von Joomla! und vereinzelten Erweiterungen standardmäßig im Frontend
+angezeigt werden.
+
+Das funktioniert jedoch nur bei Komponenten, Plug-ins und Modulen, die
+Skripte nach folgendem Standard in ihren Erweiterungen einbinden:
+
+JHtml::++_++('script', 'com++_++something/creative.min.js', false,
+true);
+
+Der zweite Parameter in diesem Aufruf (true) lässt die Joomla!-API nach
+einer Override-Datei in Ihrem Template-Ordner suchen.
+
+Welchen Media-Datei-Override man auch macht – um zu wissen, wo man die
+jeweilige Datei ablegen muss, kehrt man gedanklich die Ordnerfolge von
+*Bereich/Art* in *Art/Bereich* um, also zum Beispiel von _/system/js/_
+in _/js/system_.
+
+===== Skripte überschreiben
+
+Für das Überschreiben von Skripten, die Joomla! ausliefert, legen Sie
+einfach im _js_-Ordner Ihres Template eine gleichnamige Datei ab.
+Beachten Sie dabei, dass die Datei in einem Unterverzeichnis liegen
+muss, die den Bereich im media-Ordner identifiziert (z. B. _jui_ oder
+_system_).
+
+Die Dateien, die Sie unter _media/jui/js_ finden, können Sie in Ihrem
+Template folgendermaßen überschreiben:
+
+Listing . Überschreiben der Dateien aus dem media/jui/js/-Ordner
+
+templates/*ihrtemplate*/*js*/*jui*/bootstrap.min.js +
+templates/*ihrtemplate*/*js*/*jui*/html5.js +
+templates/*ihrtemplate*/*js*/*jui*/jQuery.min.js +
+templates/*ihrtemplate*/*js*/*jui*/jQuery-migrate.min.js +
+templates/*ihrtemplate*/*js*/*jui*/jQuery-noconflict.min.js
+
+Die Dateien aus dem Verzeichnis _media/system/js_ werden überschrieben,
+indem Sie Dateien unter folgendem Pfad anlegen.
+
+Listing . Überschreiben der Dateien aus dem media/system/js-Ordner
+
+templates/*ihrtemplate*/*js*/*system*/caption.js +
+templates/*ihrtemplate*/*js*/*system*/core.js +
+templates/*ihrtemplate*/*js*/*system*/html5fallback.js +
+templates/*ihrtemplate*/*js*/*system*/polyfill.event.js
+
+Wenn Sie unterdrücken wollen, dass ein einzelnes Skript geladen wird,
+dann verwenden Sie die _unset_[.indexref]##-Methode vor dem Aufruf des
+_head_.
+
+unset($this-++>_++scripts++[++$this-++>++baseurl.'/media/jui/js/bootstrap.min.js'++]++);
+
+Weiterhin ist es möglich, über den seit Joomla! 3.7 eingeführten Befehl
+
+JFactory::getDocument()-++>++resetHeadData('scripts');
+
+das automatische Laden von Joomla!-Skripten innerhalb Ihres Templates zu
+deaktivieren.
+
+Diese Methoden sollten Sie mit Bedacht verwenden und nur einsetzen, wenn
+Sie dringend an den Skripten etwas ändern müssen.
+
+===== Bilder überschreiben
+
+Bilder, die in Joomla! verwendet werden, finden sich ebenso im
+_media_-Verzeichnis wieder. Dazu gehören zum Beispiel die Trennpfeile
+bei den Breadcrumbs, die rating-Symbole, das RSS-Symbol und noch viele
+mehr.
+
+image:media/image16.jpg[media/image16,width=548,height=39]
+
+Bild . Navigationspfad im Frontend
+
+Den Trennpfeil, der im Bild 12.16 angezeigt wird, finden Sie in
+folgendem Verzeichnis:
+
+media/*system*/*images*/arrow.png
+
+Genauso wie bei den Skript-Overrides aus Abschnitt 12.1.11.2 können Sie
+die Bilder überschreiben, indem Sie Ihre eigene Version unter folgendem
+Pfad ablegen:
+
+templates/*ihrtemplate*/*images*/*system*/arrow.png
+
+image:media/image17.jpg[media/image17,width=548,height=39]
+
+Bild . Navigationspfad mit überschriebenem Trennbild im Frontend
+
+Nicht nur das System, sondern auch Module binden Bilder ein. Die
+Bildflaggen, die über das Modul _mod++_++languages_ ausgegeben werden,
+befinden sich ebenso im Mediaverzeichnis. Überschreiben Sie diese Bilder
+aus dem ursprünglichen Verzeichnis
+
+media/*mod++_++languages*/*images*/de.gif
+
+indem Sie Ihre eigene Version in Ihrem Template unter folgenden Pfad
+kopieren:
+
+templates/*ihrtemplate*/images/*mod++_++languages*/de.gif
+
+===== Stile überschreiben
+
+Neben Skripten und Bildern können auch *css*-Dateien angepasst werden.
+Dazu folgen Sie dem gleichen Muster und legen die Dateien im
+css-Verzeichnis Ihres Templates in einem entsprechenden Unterordner ab.
+
+Wollen Sie also die *css*-Datei anpassen, die das „Eigene Feld“ Kalender
+unter folgendem Pfad zur Verfügung stellt:
+
+media/*system*/css/*fields*/calendar.css
+
+so können Sie diese in Ihr Template unter folgendem Pfad ablegen:
+
+templates/*ihrtemplate*/css/*system/fields*/calendar.css
+
+===== Dateien außerhalb des Media-Ordners
+
+Manche Entwickler von Erweiterungen halten sich nicht an diese
+Ordnerstruktur und legen Skripte, Stile und Bilder in ihrem eigenen
+Komponentenordner ab.
+
+Dennoch sind einige dieser Erweiterungen so programmiert, dass man Stile
+und Skripte über das Template überschreiben kann. Hier hat sich leider
+kein Standard etabliert. Sie können nur erkennen ob diese Option möglich
+ist, indem Sie die Programmierlogik des Moduls oder der Komponente
+inspizieren und danach Ausschau halten, wie die Skripte und Stile
+eingebunden sind.
+
+Nachfolgend sehen Sie eine solche Codezeile, die darauf hindeutet, dass
+man ein Override im Template anlegen kann. Der Code legt fest, wo das
+Override liegen könnte, prüft ob diese Datei existiert, und wenn ja wird
+ihr angepasstes Stylesheet hinzugefügt.
+
+Listing . Beispielcode einer Dritterweiterung
+
+$css++_++path = JPATH++_++THEMES.
+'/'.$document-++>++template.'/css/'.$module++_++name; +
+if(file++_++exists($css++_++path.'/'.$style.'.css')) +
+++{++ +
+$document-++>++addStylesheet(JURI::base(true) . +
+'/templates/'.$document-++>++template.'/css/'. $module++_++name.'
+/'.$style.'.css'); +
+}
+
+Der Pfad, wie er auch für die Media-Overrides verwendet wird, wird
+häufig genutzt aber ist nicht die Regel:
+
+/templates/*ihrtemplate*/css/*mod++_++modulname*/stylename.css
+
+==== Ausgabe von Sprachdateien überschreiben
+
+Eine große Stärke von Joomla! ist die Mehrsprachigkeit. Ein Team von
+freiwilligen Übersetzern kümmert sich unter
+https://github.com/joomlagerman/joomla[[.underline]#https://github.com/joomlagerman/joomla#]
+darum, dass das System im Frontend und im Backend ins Deutsche übersetzt
+wird. Für die individuelle Anpassung der Ausgabe von Sprachstrings gibt
+es die Sprachen-Overrides[.indexref]####.
+
+======= Einstellungen im Backend
+
+Sie finden die Sprachen-Overrides im Backend unter Erweiterungen »
+Sprachen » Overrides.
+
+Im unteren linken Bereich finden Sie einen Filter, mit dem Sie den
+Bereich wählen können, für den Sie ein Sprach-Override anlegen wollen.
+Dieser Filter wird voraussichtlich in einer zukünftigen Joomla!-Version
+in den oberen Bereich zur Suche verschoben.
+
+image:media/image18.jpg[media/image18,width=548,height=235]
+
+Bild . Bereich Sprachen-Overrides im Backend
+
+======= Override anlegen
+
+Als Beispiel möchten wir nun den Text des „Weiterlesen“-Buttons aus dem
+Bild 12.19 verändern, wie er in verschiedenen Ansichten verwendet wird.
+
+image:media/image19.jpg[media/image19,width=526,height=297]
+
+Bild . Ansicht des Weiterlesen-Buttons im Frontend
+
+Wie Sie im Abschnitt 12.1.7 gelernt haben, wird dieser Button über
+jLayouts generiert.
+
+Der komplette Code, der sich hinter dem Button verbirgt, sieht
+folgendermaßen aus:
+
+Listing 12.7 Ansicht der Datei _layouts/joomla/content/readmore.php_
+
+++<++?php +
+/++**++ +
+++*++ @package Joomla.Site +
+++*++ @subpackage Layout +
+++*++ +
+++*++ @copyright Copyright (C) 2005 - 2017 Open Source Matters, Inc. All
+rights reserved. +
+++*++ @license GNU General Public License version 2 or later; see
+LICENSE.txt +
+++*++/ +
++
+defined('JPATH++_++BASE') or die; +
++
+$params = $displayData++[++'params'++]++; +
+$item = $displayData++[++'item'++]++; +
+?++>++ +
++
+++<++p class="readmore"++>++ +
+++<++a class="btn" href="++<++?php echo $displayData++[++'link'++]++;
+?++>++" itemprop="url"++>++ +
+++<++span class="icon-chevron-right"++><++/span++>++ +
+++<++?php if (!$params-++>++get('access-view')) : +
+echo
+JText::++_++('*COM++_++CONTENT++_++REGISTER++_++TO++_++READ++_++MORE'*); +
+elseif ($readmore = $item-++>++alternative++_++readmore) : +
+echo $readmore; +
+if ($params-++>++get('show++_++readmore++_++title', 0) != 0) : +
+echo JHtml::++_++('string.truncate', $item-++>++title,
+$params-++>++get('readmore++_++limit')); +
+endif; +
+elseif ($params-++>++get('show++_++readmore++_++title', 0) == 0) : +
+echo JText::sprintf('*COM++_++CONTENT++_++READ++_++MORE++_++TITLE'*); +
+else : +
+echo JText::++_++('*COM++_++CONTENT++_++READ++_++MORE'*); +
+echo JHtml::++_++('string.truncate', $item-++>++title,
+$params-++>++get('readmore++_++limit')); +
+endif; ?++>++ +
+++<++/a++>++ +
+++<++/p++>++
+
+Sie sehen anhand der *JText*-Ausgaben, dass an dieser Stelle ein
+Sprachstring eingebunden wird. Dieser kann in verschiedene Sprachen
+übersetzt und mittels Sprach-Override individualisiert werden.
+
+Um einen solchen Override anzulegen, wählen Sie im Backend zunächst auf
+der Seite Erweiterungen » Sprachen » Overrides aus dem Filter-Dropdown
+German (DE) – Site aus, um die Deutsche Sprachdatei im Frontend
+anzupassen und klicken Sie auf den grünen Neu-Button.
+
+image:media/image20.jpg[media/image20,width=548,height=228]
+
+Bild . Ansicht der Sprachen-Overrides-Bearbeitungsmaske
+
+Zur besseren Veranschaulichung liste ich Ihnen die Sprachstrings
+nachfolgend auf, die durch das jLayout ausgegeben werden:
+
+*COM++_++CONTENT++_++REGISTER++_++TO++_++READ++_++MORE*
+
+*COM++_++CONTENT++_++READ++_++MORE++_++TITLE*
+
+*COM++_++CONTENT++_++READ++_++MORE*
+
+Was aber, wenn wir zwar den Schlüssel kennen, aber keine Idee haben, ob
+es der richtige Sprachstring ist?
+
+Oder was ist, wenn wir den Sprachstring wissen, aber keine Ahnung haben,
+welche Komponente dafür zuständig ist?
+
+Beim Anlegen eines neuen Sprach-Overrides finden Sie auf der rechten
+Seite ein Hilfswerkzeug mit dem Sie sowohl den Sprachstring zu einem
+Schlüssel suchen können, als auch den passenden Schlüssel zu einem
+Sprachstring.
+
+Tragen Sie zum Beispiel rechts den Schlüssel
+COM++_++CONTENT++_++READ++_++MORE++_++TITLE ein und wählen Sie aus dem
+Dropdown „Suchen nach“ *Schlüssel*
+
+image:media/image21.jpg[media/image21,width=548,height=228]
+
+Bild . Ansicht der Sprachschlüssel- und Sprachinhalt-Suche in den
+Sprach-Overrides.
+
+Das System findet den Sprachschlüssel und gibt aus, welche Übersetzung
+dafür vorliegt. Wenn Sie auf die Box klicken, wird der Sprachschlüssel
+und Inhalt automatisch im linken Bereich übernommen.
+
+image:media/image22.jpg[media/image22,width=376,height=377]
+
+Bild . Ansicht der Sprachschlüssel- und Sprachinhalt-Bearbeitung in den
+Sprach-Overrides.
+
+Sie können nun den Text „*Weiterlesen …*“ einfach ändern und Ihren
+eigenen Text eintragen. Nach dem Speichern erscheint Ihr Sprach-Override
+in der Übersicht. Viele Erweiterungsentwickler benutzen gleiche
+JText-Strings für das Frontend und das Backend. Legen Sie daher die
+Overrides am besten für beide Bereiche an.
+
+image:media/image23.jpg[media/image23,width=548,height=119]
+
+Bild . Übersicht der Sprach-Overrides
+
+Wie Sie im Bild 12.24 sehen können, wurde der Sprachstring im Frontend
+erfolgreich ausgetauscht.
+
+image:media/image24.jpg[media/image24,width=432,height=243]
+
+Bild . Ansicht der geänderten Sprach-Overrides
+
+Der Vorteil von Sprach-Overrides deckt sich mit all den anderen
+vorgestellten Override-Möglichkeiten. Sie können Systemausgaben
+verändern, ohne diese beim nächsten Update zu überschreiben.
