@@ -1,0 +1,68 @@
+=== Optimierung der Auslieferung
+
+Nach der Optimierung der Generierungszeit und der Reduzierung der
+nötigen Aufrufe durch Anpassung des HTML-CSS-Codes können nun noch
+einige Schritte zur Erhöhung der Auslieferungsgeschwindigkeit ergriffen
+werden.
+
+==== Aktivierung der GZIP-Komprimierung
+
+Ein erster, sehr leicht durchzuführender Schritt ist die Aktivierung der
+GZIP-Komprimierung in der globalen Konfiguration. Durch diese
+Aktivierung wird der durch Joomla! ausgegebene HTML-Code mittels GZIP
+komprimiert und dadurch vor der Übertragung zum Browser in seiner Größe
+reduziert, was einer schnelleren Ladezeit zugutekommt.
+
+image:book/20-performace-optimierungen/media/22.png[book/20-performace-optimierungen/media/22,width=548,height=216]
+
+BILD 20.11 Aktivierung der GZIP-Komprimierung
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+a|
+[arabic]
+. CHV++_++BOX++_++ID++_++01
+
+|
+a|
+[arabic, start=2]
+. icn001
+
+a|
+[arabic, start=3]
+. *Praxistipp:* Achten Sie darauf, dass auf Ihrem Webserver das
+Apache-Modul _mod++_++deflate_ aktiviert ist, das weitere Inhalte, die
+unabhängig von Joomla! geladen werden, mit GZIP komprimiert.
+
+|===
+
+==== Content Delivery Networks
+
+Eine insbesondere für große Seiten gut geeignete Methode zur
+Verbesserung der Auslieferung und Reduzierung der Serverlast ist die
+Nutzung eines sog. _Content Delivery Networks_ (CDN). Bei einem CDN
+handelt es sich um eine Ansammlung von weltweit verteilten
+Serversystemen, welche die Auslieferung von statischen Dateien wie
+Bildern, Stylesheets, JavaScripts oder Videos übernehmen. Dadurch soll
+das Hauptsystem, das die Generierung der Seite übernimmt, entlastet und
+gleichzeitig durch die weltweite Verteilung und die dadurch entstehende
+geografische Nähe zum Seitenbesucher die Geschwindigkeit des
+Seitenaufrufs erhöht werden.
+
+Da es sich für einzelne Seitenbetreiber im Regelfall nicht lohnt, eine
+solche große, verteilte Infrastruktur aufzubauen, gibt es spezialisierte
+Anbieter wie _Akamai_, _easyCDN_ oder _Level 3_, die den Betrieb der
+Serverfarmen übernehmen und, selbstverständlich gegen Bezahlung, die
+Nutzung der Plattform erlauben.
+
+Prinzipiell lässt sich dieses Verfahren auch auf eine Joomla!-Seite
+anwenden, ohne dafür spezielle Erweiterungen zu verwenden. Dies ist
+jedoch sehr aufwendig, da die Verlinkungen von allen verwendeten,
+statischen Inhalten manuell angepasst werden müssten.
+
+In der Praxis empfiehlt sich daher die Nutzung eines Plug-ins wie der
+Erweiterung _CDN for
+Joomla_footnote:[[.underline]#https://www.regularlabs.com/extensions#]
+des niederländischen Entwicklers Peter van Westen. Die genaue
+Installation unterscheidet sich dabei leicht in Abhängigkeit vom
+verwendeten CDN-Provider, ist jedoch im Allgemeinen gut zu bewältigen.

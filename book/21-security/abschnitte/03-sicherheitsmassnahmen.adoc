@@ -1,0 +1,148 @@
+=== Sicherheitsmaßnahmen
+
+Bei den zahlreichen Bedrohungen, denen unsere Installation ausgesetzt
+ist, stellt sich schlussendlich die Frage, ob sich gewisse
+Vorsorgemaßnahmen treffen lassen, um einen Angriff schon von vornherein
+zu verhindern. Die Antwort wäre hier wohl ein „Jein“, denn mit absoluter
+Sicherheit lässt sich ein solcher erfolgreicher Angriff natürlich nie
+verhindern; aber es gibt einige Grundregeln, die erfolgreiche Angriffe
+zumindest deutlich erschweren.
+
+[width="100%",cols="30%,70%",]
+|===
+|Joomla!-kompatiblen Hoster nutzen |Durch die Auswahl des richtigen
+Hosters vermeiden Sie potenzielle Sicherheitslücken durch falsch
+gesetzte Verzeichnisrechte, suboptimale PHP-Einstellungen und schlechte
+Serverkonfigurationen. Außerdem verfügen spezialisierte Hoster über eine
+serverseitige Firewall, die Angriffe von außen filtert.
+
+|2-Faktor-Authentifizierung verwenden |Aktivieren Sie, wie in Kapitel
+18, Best Practices beschrieben, die 2-Faktor-Authentifzierung für Ihre
+Administratornutzer.
+
+|Sichere Passwörter |Die Verwendung eines sicheren Passworts für FTP,
+Datenbank und den Joomla!-Zugang ist eine der elementaren Maßnahmen zum
+Absichern der Installation. Ihr Passwort sollte mindestens zwölf Zeichen
+lang sein, aus Zahlen, Klein- und Großbuchstaben sowie Sonderzeichen
+(keine Umlaute!) bestehen.
+
+|Aktualisierungen einspielen |Aktualisieren Sie so schnell wie möglich
+den Joomla! Core sowie alle verwendeten Erweiterungen, falls eine neue
+Version erscheint. Oft werden dort sicherheitsrelevante Änderungen
+eingespielt. Angriffe auf diese neuen Lücken starten oft bereits 4-5
+Stunden nachdem das entsprechende Update veröffentlicht wurde – das ist
+somit der Zeitraum, der Ihnen für ein Update bleibt. Hierfür kann es
+hilfreich sein, den Joomla! Security
+Newsletterfootnote:[http://feeds.feedburner.com/JoomlaSecurityNews] und
+die Newsletter der Erweiterungsentwickler zu abonnieren sowie regelmäßig
+die Liste der bekannten, verwundbaren
+Joomla!-Erweiterungenfootnote:[http://vel.joomla.org] zu kontrollieren.
+
+|_.htaccess_-Schutz für den Administratorbereich |Legen Sie eine
+_.htaccess_-Datei mit Passwortschutz für den _/administrator_-Ordner an.
+
+| |
+
+|Löschen Sie ungenutzte Erweiterungen |Jede zusätzlich installierte
+Erweiterung bringt eigenen Code mit und erhöht damit die Angriffsfläche
+Ihrer Installation. Deinstallieren Sie daher Erweiterungen, die nicht
+mehr benötigt werden.
+
+|Prüfen Sie regelmäßig die Logdateien |Eine erfolgreich angegriffene
+Joomla!-Installation lässt sich häufig an Auffälligkeiten (sprunghafter
+Traffic-Zuwachs etc.) erkennen, weshalb Sie regelmäßig Ihre Logdateien
+und Statistiktools auswerten sollten.
+
+|Joomla! _.htaccess_ aktivieren |Aktivieren Sie die mitgelieferte
+_htaccess.txt_ durch Umbenennen in _.htaccess_, da dadurch einige
+Angriffe gefiltert werden.
+
+|Dateiuploads beschränken |Erlauben Sie nur vertrauenswürdigen Nutzern
+den Upload von Dateien auf Ihren Server und prüfen Sie sorgfältig,
+welche Dateitypen hochgeladen werden.
+|===
+
+Wer diese Regeln und Anweisungen beachtet, ist im Normalfall auf der
+sicheren Seite, sollte aber dennoch regelmäßig (mindestens einmal pro
+Woche) Sicherungen anlegen, um im Falle eines Falles die ursprüngliche
+Installation wiederherstellen zu können.
+
+==== Zwei-Faktor-Authenifzierung
+
+Eine weitere Sicherheitsmaßnahme ist die Aktivierung der sog.
+2-Faktor-Authentifzierung. Hinter diesem Begriff verbirgt sich die Idee,
+dass die Absicherung eines sensiblen Bereichs durch ein Passwort alleine
+nicht ausreichend ist, denn ein Passwort ist etwas dass man "nur" wissen
+muss - wird das Passwort einmal abgefangen oder mitgeschnitten, hat der
+Angreifer dieses Wissen kopiert und kann es beliebig weiterverwenden.
+
+Bei der 2-Faktor-Authentifzierung wird zum Faktor "Wissen" daher der
+Faktor "Haben" hinzugefügt, indem man den entsprechenden sensiblen
+Bereich an den physichen Besitz eines bestimmten Geräts bindet. Ohne
+dieses Gerät ist der Login dann nicht mehr möglich, selbst wenn man das
+Passwort weiß - und umgekehrt gilt natürlich auch, dass man sich nur mit
+dem Gerät nicht einloggen kann, da man das Passwort wissen muss.
+
+Joomla verfügt von Haus aus bereits über eine Unterstützung für diesen
+Authentifzierungs-Mechanismus, wobei zwei Typen von Geräten unterstützt
+werden:
+
+* Smartphones, auf denen die App _Authenticator_ von Google installiert
+ist
+* _YubiKeys_, eine Art USB-Stick des Herstellers Yubico
++
+Bei beiden Methoden werden auf dem jeweiligen Gerät, das je einem
+Benutzer zugewiesen ist, Einmal-Passwörter erzeugt, die an Joomla
+übergeben und durch Joomla beim jeweiligen Hersteller überprüft werden.
+Nach der Prüfung ist das jeweilige Passwort gewissermaßen entwertet,
+sodass ein Angreifer, selbst wenn er das Passwort z.B. über einen
+Trojaner abgreift, nicht nochmals zum Login verwenden kann.
++
+Um die Funktion in Joomla zu nutzen, muss im ersten Schritt in der
+Plugin-Übersicht das jeweilige 2-Faktor-Authentifzierungs für den
+Gerätetyp aktiviert werden. Anschließend kann im Profil des jeweiligen
+Benutzers der jeweilige Authentifzierungs-Typ aktiviert und die Kopplung
+mit dem Gerät vorgenommen werden. Dabei werden gleichzeitig auch
+Notfall-Passwörter generiert, die sicher verwahrt werden sollten und zum
+Login verwendet werden können, wenn das Gerät gestohlen oder defekt ist.
++
+image:book/21-security/media/10.png[book/21-security/media/10,width=548,height=297]
+
+Bild 21.8 Dialog zur Aktivierung der 2-Faktor-Authentifizierung
+
+Nach der Aktivierung fragt Joomla beim Login im Feld Sicherheitscode das
+jeweilige Authentifizierungs-Token ab, das vom Gerät generiert wird.
+
+image:book/21-security/media/11.png[book/21-security/media/11,width=548,height=196]
+
+Bild 21.9 Joomla-Login mit Dialog zur Abfrage des 2FA-Passworts
+
+=== Wie erkenne ich einen Hack?
+
+Woran erkenne ich nun, dass auf meiner Seite etwas schiefgelaufen und es
+einem Angreifer gelungen ist, eine erfolgreiche Attacke durchzuführen?
+Es ist aufgrund der Vielzahl von möglichen Angriffen schwer, hier
+allgemeine Aussagen zu treffen, ich möchte aber dennoch ein paar
+Beispiele für klassische Anzeichen eines Hacks benennen:
+
+* Ein sehr offensichtliches Anzeichen für einen Hack sind sog.
+Defacements (siehe Kapitel 21.1), bei denen die Seite durch das Logo des
+Hackers ersetzt wird.
+* Wenn solche Angriffe stümperhaft ausgeführt werden, kann es vorkommen,
+dass die Seite gar nicht mehr lädt und nur noch eine leere, weiße Seite
+erscheint.
+* Ein weiteres Anzeichen sind sprunghaft ansteigende Zugriffszahlen auf
+bestimmte Dateien oder Ordner sowie
+* ein Anstieg im Traffic-Verbrauch des Servers.
+* Bei Angriffen auf Nutzer-PCs z. B. über Lücken im Flash-Player warnen
+Virenscanner vor dem Besuch der eigenen Seite.
+* Google markiert Seiten, auf denen Schadcode gefunden wurde, in der
+Google Search Console
+footnote:[[.underline]#https://www.google.com/webmasters/tools/home?hl=de#].
+* Oft nutzen Angreifer einen iframe im Code der eigenen Seite zum
+Verteilen von Schadcode – der entsprechende Tag wird dabei zumeist in
+der _index.php_ von Joomla! oder vom verwendeten Template hinterlegt.
+
+Sollte einer dieser Punkte zutreffen, prüfen Sie dringend Ihre Seite
+und, falls der Verdacht sich bestätigt, machen Sie sich an die
+Beseitigung der Schäden, die ich im Folgenden beschreiben möchte.

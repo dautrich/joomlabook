@@ -1,3 +1,0 @@
-[[19-online-gehen]]
-
-include::book/19-online-gehen/cap19.adoc[]

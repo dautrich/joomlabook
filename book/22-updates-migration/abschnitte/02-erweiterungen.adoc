@@ -1,0 +1,8 @@
+=== Migration eigener Erweiterungen
+
+Sie haben eigene Erweiterungen für Joomla! 2.5 entwickelt und wollen
+diese nun auf 3.x migrieren? Wenn Sie sich an das MVC-Framework gehalten
+haben, reicht es, die in der Dokumentation beschriebenen Schritte
+durchzugehen, um die eigene Erweiterung an die API-Änderungen
+anzupassen:
+[.underline]#https://docs.joomla.org/Potential++_++backward++_++compatibility++_++issues++_++in++_++Joomla++_++3++_++and++_++Joomla++_++Platform++_++12.2#

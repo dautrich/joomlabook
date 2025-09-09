@@ -1,0 +1,84 @@
+=== Was tun nach dem Hack?
+
+Wenn die eigene Joomla!-Installation gehackt worden ist, ist es
+notwendig, bestimmte Schritte durchzuführen, um die Gefahr für die
+Seitennutzer zu beseitigen, die Lücke zu schließen und anschließend den
+ursprünglichen Zustand der Seite wiederherzustellen. Dabei ist es
+unabdingbar, dass Sie *alle* folgenden Schritte ohne Ausnahme ausführen.
+
+[width="100%",cols="20%,35%,45%",]
+|===
+|Schritt |Erklärung |Vorgehensweise
+
+|Website offline nehmen |Damit keine weiteren Schäden an der eigenen
+Seite bzw. bei Besuchern der Seite entstehen, ist es unabdingbar, die
+Seite sofort vom Netz zu nehmen. Oft werden solche gehackten Seiten zum
+Versand von Spam oder zum Hosten von Phishing-Seiten genutzt, weshalb
+hier eine schnelle Reaktion gefragt ist. a|
+Am leichtesten ist es, über das Control-Panel des Hosters einen
+Passwortschutz (.htaccess) zu setzen.
+
+Informieren Sie zusätzlich auch Ihren Hoster über den Vorfall, damit
+dieser das Serversystem auf Einbrüche untersuchen kann.
+
+|Sicherheitslücke finden |Um eine erneute Infizierung der Seite zu
+verhindern, ist es nötig, die ausgenutzte Sicherheitslücke zu
+lokalisieren. a|
+Durchsuchen Sie die Logdateien des Servers nach auffälligen Einträgen,
+die auf einen Einbruch hindeuten können. Dadurch ist es im Regelfall
+möglich, die Lücke sowie den Zeitpunkt des Einbruchs zu lokalisieren.
+Helfen kann Ihnen dabei entweder Ihr Hoster oder ein entsprechender
+Dienstleister.
+
+Außerdem empfiehlt es sich, die Rechner aller Administratoren auf
+Trojaner und Viren zu prüfen, da auch das Ausspähen der FTP-Zugangsdaten
+ein gern genutzter Weg ist, um Zugang zur Seite zu erlangen.
+
+|Joomla!-Installation löschen |Oftmals hinterlassen Angreifer
+verschiedene versteckte Skripte (sog. Backdoors) in diversen
+Verzeichnissen und Dateien, um, falls die ursprüngliche Lücke
+geschlossen wurde, trotzdem noch Zugriff auf die Seite erlangen zu
+können. Es ist schwierig, alle diese Backdoors zu finden, weshalb die
+komplette Joomla!-Installation inklusive Datenbank gelöscht werden
+sollte. |Die Datenbank kann mittels phpMyAdmin geleert werden, die Daten
+werden mittels FTP gelöscht.
+
+|Sicherung wiederherstellen |Eine saubere Sicherung der Seite, die auf
+jeden Fall vor dem Einbruchszeitpunkt erstellt wurde, muss eingespielt
+werden. |Die Komplettsicherung der Seite, die z. B. mittels Akeeba
+Backup erstellt wurde, kann nun zurückgespielt werden, wodurch wir auf
+jeden Fall in einer Umgebung arbeiten, in welcher der Angriff noch nicht
+stattgefunden hat. Sollte kein eigenes Backup vorhanden sein, so kann es
+sich lohnen, beim Hoster nach einer entsprechenden Sicherung zu fragen,
+denn oftmals verfügen diese über separate Sicherungssysteme.
+
+|Lücke schließen |Durch das Schließen der Sicherheitslücke wird ein
+erneuter erfolgreicher Hack vermieden. |Die hier auszuführenden Schritte
+hängen von den Erkenntnissen ab, die wir beim Finden der
+Sicherheitslücke bekommen haben. Oft reicht es, bestimmte verwundbare
+Erweiterungen zu updaten oder zu deinstallieren.
+
+|Passwörter ändern |Da der Angreifer eventuell Kenntnis über die
+verwendeten Passwörter hat, müssen diese geändert werden. |Die
+Passwörter für die Datenbankverbindung, die Joomla!-Benutzer, die
+­FTP-Zugänge und, falls vorhanden, die im Backend hinterlegte
+Mailverbindung müssen beim Hoster geändert und anschließend in der nun
+sauberen Joomla!-Installation eingetragen werden.
+
+|Seite wieder freigeben |Abschließend kann die fertige Seite wieder für
+die Besucher freigegeben werden. |
+|===
+
+Durch dieses Vorgehen lässt sich eine erneute Infektion der Seite sehr
+zuverlässig verhindern und eine Gefährdung der Nutzer nahezu
+ausschließen.
+
+Die manuelle Bereinigung einer gehackten Seite, von der kein Backup
+vorliegt, ist ein relativ komplexer Prozess, der viel Erfahrung und
+Wissen benötigt. Kernidee ist dabei, hinterlegte Backdoors über typische
+Pattern ausfindig zu machen und zu entfernen. Ein überaus hilfreiches
+Tool, dass speziell für diesen Fall entwickelt wurde, ist der Dienst
+myjoomla.com, der ähnlich wie ein Joomla-Virenscanner arbeitet.
+Nichtsdestotrotz sollten Sie über fundierte Programmier- und
+Joomla-Kentnisse verfügen, um Schad- von Nutzcode unterscheiden zu
+können.

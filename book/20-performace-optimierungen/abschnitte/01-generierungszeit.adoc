@@ -1,0 +1,220 @@
+=== Optimierung der Generierungszeit
+
+==== MySQL Query Caching
+
+Die Datenbanksoftware MySQL bietet bereits einen integrierten
+Mechanismus, der die Ergebnisse von Abfragen im Arbeitsspeicher ablegt
+und dadurch das zeitintensive Einlesen der Daten von der Festplatte
+umgeht. Ein wichtiger erster Schritt bei der Optimierung der
+Generierungszeit ist daher die Aktivierung des Caches durch Ihren
+Hoster, falls dies noch nicht geschehen ist. Anschließend sollte ein
+deutlicher Geschwindigkeitszuwachs bei der Seitengenerierung messbar
+sein. Er kommt natürlich nur dann zum Tragen, wenn eine Seite zum
+zweiten Mal binnen kurzer Zeit abgerufen wird, da die Daten beim ersten
+Abruf noch von der Festplatte gelesen werden müssen.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+a|
+[arabic]
+. CHV++_++BOX++_++ID++_++01
+
+|
+a|
+[arabic, start=2]
+. icn001
+
+a|
+[arabic, start=3]
+. *Praxistipp:* Auf extrem frequentierten Seiten kann es nützlich sein,
+die hit()-Methode in der Datei
+_/components/com++_++content/models/article.php_ dahingehend zu
+modifizieren, dass keine Zugriffe mehr geloggt werden. Grund dafür ist,
+dass der MySQL Query Cache einen Datensatz bei seiner Veränderung aus
+dem Cache löscht, weshalb normale Beiträge in Joomla! standardmäßig
+nicht durch MySQL zwischengespeichert werden können.
+
+|===
+
+==== Opcode-Caches für PHP
+
+Ein zweiter wichtiger, serverseitig durchzuführender Schritt ist die
+Installation eines sog. Opcode-Caches, der die Ausführung von PHP-Code
+beschleunigt. Um die Funktionsweise zu verstehen, ist dabei wichtig,
+sich in Erinnerung zu rufen, dass PHP eine sog. Interpreter-Sprache ist,
+die vor der Ausführung also erst noch zeitaufwendig in Maschinencode
+übersetzt werden muss. Opcode-Caches speichern die Ergebnisse dieses
+Übersetzungsprozesses zwischen, sodass dieser Schritt nicht bei jedem
+Seitenaufruf erneut ausgeführt werden muss. Die derzeit bekanntesten
+Opcode-Caches sind dabei der _Alternative PHP Cache (APC)_ und der
+_OPCache_.
+
+Die Nutzung einer der beiden Caches kann die Serverlast massiv
+reduzieren und zugleich den Seitenaufbau beschleunigen, weshalb sich der
+Einsatz sowohl auf kleineren als auch auf größeren Seiten lohnt. Die
+Installation kann leider nur durch den Hoster vorgenommen werden.
+
+image:book/20-performace-optimierungen/media/7.png[book/20-performace-optimierungen/media/7,width=548,height=345]
+
+BILD 20.4 Halbierung von Speicherverbrauch und Generierungszeit durch
+Einsatz von Opcache im Vergleich zu Bild 20.2
+
+==== Integriertes Joomla! Caching
+
+Eine der simpelsten und zugleich effektivsten Maßnahmen zur Reduzierung
+der Serverlast und Beschleunigung der Seitengenerierung ist die
+Verwendung des Joomla!-eigenen _Caching_-Mechanismus. Dieser speichert
+die Ausgabe von verschiedenen Teilen unserer Seite zwischen und
+vermeidet dadurch die performanceintensive Ausführung von
+Datenbankabfragen.
+
+Interessant ist dabei, *wie* die verschiedenen Ausgaben
+zwischengespeichert werden, da dies maßgeblich den Performancegewinn
+beeinflusst, den wir durch die Aktivierung des Caching-Systems erhalten.
+Joomla! unterstützt hier verschiedene _Cachespeicher_, die, abhängig von
+den installierten Systemerweiterungen, in der Konfiguration aktiviert
+werden können:
+
+* *Datei:* speichert im Cache-Verzeichnis, das in der globalen
+Konfiguration gesetzt wurde – langsamste Methode
+* *APC:* speichert über APC im Arbeitsspeicher des Servers
+* *Cachelite:* nutzt die PEAR-Erweiterung Cache++_++Lite, speichert in
+Dateien
+* *eAccelerator:* speichert über eAccelerator
+* *Memcache:* speichert in Memcache-Server, extrem schnell
+* *Redis:* speichert in der gleichnamigen Key-Value Datenbank
+* *Wincache:* speichert in Wincache, Opcode-Cache für den IIS-Webserver
+* *XCache:* speichert im Arbeitsspeicherbereich von XCache
+
+Die Methoden, die im Arbeitsspeicher und nicht im Dateisystem des
+Servers schreiben können, sind im Regelfall deutlich schneller als die
+Methoden _eAccelerator_ und _Datei_, die über diese Funktion nicht
+verfügen.
+
+Die Auswahl des infrage kommenden Cachespeichers erfolgt in der globalen
+Konfiguration der jeweiligen Joomla!-Seite, die im Backend, wie gewohnt,
+über den Klick auf SYSTEM ++>++ Konfiguration geöffnet werden kann.
+
+image:book/20-performace-optimierungen/media/10.png[book/20-performace-optimierungen/media/10,width=548,height=330]
+
+BILD 20.5 Auswahl des Cachespeichers aus den auf diesem Server
+verfügbaren Methoden
+
+Nach der Konfiguration des *Cachespeichers*, der *Cachedauer*, welche
+die Dauer der Zwischenspeicherung reguliert und der Funktion
+*Plattformspezifischer Cache*, die bei Aktivierung für jeden
+Browser-/Gerätetypen einen eigenen Cache anlegt, muss noch die Art des
+Cachings ausgewählt werden. Joomla! bietet hierbei gleich drei
+verschiedene Caching-Möglichkeiten.
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++02 |
+|icn002 |Das Joomla-eigene Debug-System deaktiviert große Teil des
+Caching-Systems, um jeweils korrekte Debug-Angaben für den aktuellen
+Seitenaufruf zu generieren, somit ist der Debug-Modus nur sehr bedingt
+dazu geeignet, den Performance-Gewinn des Cachings zu beurteilen.
+|===
+
+===== Seiten Caching
+
+Das Page Caching wird über ein System-Plug-in realisiert und speichert
+die Ausgabe einer kompletten Seite (inklusiver aller Module, Komponenten
+und des gesamten Templates) in einer Datei, wodurch nahezu keine
+Datenbankabfragen mehr ausgeführt werden müssen und die
+Seitenauslieferung extrem schnell wird. Dies funktioniert allerdings nur
+für nicht eingeloggte Benutzer, da für diese der Seiteninhalt
+individuell generiert werden muss, um z. B. den Namen des jeweiligen
+Benutzers im Login-Modul einzusetzen. Zudem kann das Page Caching bei
+einigen Modulen und Komponenten zu unerwartetem Verhalten führen,
+weshalb es standardmäßig nicht aktiviert ist und intensiv getestet
+werden sollte.
+
+Die Aktivierung des Page Cachings erfolgt im Administratorbereich unter
+Erweiterungen ++>++ Plugins durch die Aktivierung des Plug-ins _System –
+Seitencache_.
+
+image:book/20-performace-optimierungen/media/12.png[book/20-performace-optimierungen/media/12,width=548,height=336]
+
+BILD 20.6 Aktivierung des Page Cache-Plug-ins in der
+Erweiterungsverwaltung
+
+===== Modul- und Komponenten-Caching
+
+Das Modul- und Komponenten-Caching, bei Joomla! auch „Normales Caching“
+genannt, speichert die Ausgabe eines Moduls bzw. einer Komponente
+zwischen, wenn dieses Verhalten von der jeweiligen Erweiterung
+unterstützt wird. Die in Joomla! integrierten Erweiterungen erledigen
+dies bereits von Haus aus, die Unterstützung bei Drittentwicklern ist
+leider eher selten. Die Aktivierung erfolgt in der globalen
+Konfiguration des Administrationsbereichs.
+
+image:book/20-performace-optimierungen/media/14.png[book/20-performace-optimierungen/media/14,width=548,height=198]
+
+BILD 20.7 Aktivierung des normalen Modul- und Komponenten-Cachings
+
+===== Erweitertes Caching
+
+Das Erweiterte Caching, in der deutschen Übersetzung erweitertes Caching
+genannt, speichert die Ausgabe *aller* auf einer Seite vorhandenen
+Module in einem „Modulset“ zwischen und kann dadurch, im Vergleich zum
+normalen Caching, noch ein wenig mehr Generierungszeit einsparen.
+Allerdings ist es hier nun, im Gegensatz zum normalen Caching, nicht
+mehr möglich, ein bestimmtes Modul vom Caching auszuschließen, was es
+für bestimmte Anwendungszwecke ungeeignet macht. Die Aktivierung erfolgt
+erneut über die globale Konfiguration (siehe Bild 20.7).
+
+Sowohl durch den normalen als auch durch den progressive Cache lässt
+sich die Generierungszeit und die Zahl der ausgeführten Abfragen massiv
+verringern.
+
+TABELLE 20.1 Benchmarking einer lokalen Joomla! 3.7-Installation mit
+installierten Beispieldateien
+
+[width="100%",cols="35%,31%,34%",]
+|===
+| |Anzahl der Abfragen |Generierungszeit in Sek.
+|Ohne Caching |27 |0,247
+|Mit Caching (Datei) |3 |0,073
+|Mit Caching (APC) |3 |0,054
+|===
+
+===== Leeren des Caches
+
+Leider gibt es bei aktiviertem Cache immer wieder Probleme mit den im
+Backend vorgenommenen Änderungen, die im Frontend nicht sofort sichtbar
+werden. Im normalen Besucherbetrieb stören kleine Verzögerungen im
+Regelfall eher nicht, wenn man jedoch z. B. als Artikelautor die Ausgabe
+des gerade gespeicherten Artikels überprüfen möchte und aufgrund des
+aktivierten Caches 15 Minuten warten müsste, so würden Sie binnen
+kürzester Zeit vermutlich verzweifeln. Glücklicherweise bietet Joomla!
+uns hier im Administratorbereich zwei Möglichkeiten zum Leeren des
+Caches, wodurch die Änderungen sofort sichtbar werden:
+
+* *Cache leeren:* entfernt alle derzeit gecachten, aktiven Seiten
+* *Abgelaufenen Cache leeren:* entfernt alle bereits abgelaufenen, nicht
+mehr benötigten Cachedateien. Ist notwendig, da Joomla! einige der
+Dateien nicht korrekt von sich aus entfernt.
+
+image:book/20-performace-optimierungen/media/16.png[book/20-performace-optimierungen/media/16,width=548,height=298]
+
+BILD 20.8 Leeren des Caches im Administratorbereich
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+a|
+[arabic]
+. CHV++_++BOX++_++ID++_++01
+
+|
+a|
+[arabic, start=2]
+. icn001
+
+a|
+[arabic, start=3]
+. *Praxistipp:* Es gibt eine kleine, nützliche Erweiterung namens Cache
+Cleaner^1^, die mit nur einem Klick den aktiven und abgelaufenen Cache
+sowie weitere temporäre Dateien löscht.
+
+|===

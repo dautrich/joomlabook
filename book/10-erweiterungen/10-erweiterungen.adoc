@@ -22,4 +22,5 @@ um die Verwaltung der Erweiterung sowie der Installation von
 zusätzlichen Erweiterungen beschäftigen.
 
 include::abschnitte/01-integrierte-erweiterungen.adoc
+
 include::abschnitte/02-erweiterungen-verwalten.adoc

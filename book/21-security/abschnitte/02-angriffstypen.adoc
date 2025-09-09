@@ -1,0 +1,313 @@
+=== Angriffstypen und Gegenmaßnahmen
+
+Betrachten wir nun einmal die fünf gängigsten Angriffsarten, die im
+Umfeld der webbasierenden Anwendungen auftreten, um die Systematik zu
+verstehen und bei der Analyse von fremdem Code sowie dem Schreiben
+eigener Anwendungen solche Fehler vermeiden zu können.
+
+==== SQL Injections
+
+SQL Injections gehören zu den gefährlichsten Angriffsarten, da sie
+häufig auftreten und leicht auszunutzen sind. Ein typisches Beispiel für
+anfälligen Code in einer Joomla!-Erweiterung sähe dabei z. B. so aus:
+
+++<++?php
+
+//Datenbankobjekt laden
+
+$db = JFactory::getDBO();
+
+//SELECT Query, lade introtext und fulltext aus #++__++content
+
+$query = "SELECT title, alias FROM #++__++content WHERE id =
+
+".JRequest::getVar('contentid');
+
+$db-++>++setQuery($query);
+
+$contents = $db-++>++loadObjectList();
+
+foreach($contents as $content)
+
+++{++
+
+echo $content-++>++title.": ".$content-++>++alias;
+
+}
+
+?++>++
+
+Der hier vorliegende Code soll dazu dienen, den Inhalt der Spalten
+_title_ und _alias_ aus der Tabelle _#++__++content_ abzurufen, wenn die
+ID des jeweiligen Artikels dem Parameter contentid entspricht, der
+mittels URL (GET) oder POST-Request übergeben werden kann.
+
+image:book/21-security/media/2.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild467.PNG,width=547,height=215]
+
+BILD 21.2 Ausgabe der com++_++sqlinject
+
+Problematisch ist jedoch, dass an dieser Stelle nicht geprüft wird, ob
+es sich beim Inhalt der Variablen contentid tatsächlich auch nur um eine
+entsprechende natürliche Zahl handelt, wodurch sich über geschickte
+Manipulation der URL zusätzlicher SQL-Code einspielen lässt.
+
+index.php?option=com++_++sqlinject&contentid=12{plus}UNION{plus}SELECT{plus}username,{plus}password{plus}FROM{plus}%23++__++users
+
+Durch dieses „Injizieren“ einer SQL-Abfrage durch den Angreifer wird nun
+die folgende SQL-Query erzeugt und ausgeführt.
+
+SELECT title, alias FROM #++__++content WHERE id = 12 UNION SELECT
+username, password FROM #++__++users
+
+Wodurch uns, neben dem _title_ und _alias_ des gewählten Inhalts, auch
+noch der Benutzername sowie der Passwort-Hash aller Benutzer ausgegeben
+werden.
+
+image:book/21-security/media/3.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild476.PNG,width=547,height=222]
+
+BILD 21.3 Ausgabe des Skripts bei Ausnutzung der SQL-Injection-Lücke
+
+Im konkreten Fall von Joomla! lässt sich aus dem erbeuteten
+Passwort-Hash zwar nach dem aktuellen Stand der Technik kein
+Klartextpasswort mehr errechnen, nichtsdestotrotz ermöglicht die
+grundsätzliche Natur von SQL-Injection Attracken einem Angreifer oftmals
+den vollen Lese- und Schreibzugriff auf allen Datenbankinhalte.
+
+====== Gegenmaßnahmen
+
+SQL-Injection-Angriffe sind also enorm gefährlich und können dadurch,
+dass die Datenbankschemata von Joomla! bekannt sind, auch leicht
+ausgenutzt werden. Der einzige wirklich wirksame Schutz ist dabei die
+korrekte Validierung der Variablen vor Verwendung in der Query.
+
+//SELECT Query, lade introtext und fulltext aus #++__++content
+
+$query = "SELECT title, alias FROM #++__++content WHERE id =
+
+".**(int)**JFactory::getApplication()-++>++input-++>++get('contentid');
+
+$db-++>++setQuery($query);
+
+Durch Verwendung von (int) wird die Rückgabe von
+JFactory::getApplicationinput-++>++get() in einen ganzzahligen Wert
+umgewandelt, wodurch der injizierte SQL-Code ausgefiltert wird.
+
+Wenn sich die gültigen Eingabewerte nicht auf einen ganzzahligen Wert
+beschränken lassen, z. B. weil alle Beiträge ausgegeben werden sollen,
+die ein bestimmtes Wort im Text haben, so muss der entsprechende
+Eingabewert mittels JDatabase::quote() für die gefahrlose Verwendung in
+der Abfrage vorbereitet werden. Bei verwendeten externen Erweiterungen
+kann es daher, vor der Verwendung, durchaus ratsam sein, die
+entsprechenden Stellen im Code zu kontrollieren.
+
+==== Directory Traversal
+
+Bei Directory-Traversal-Angriffen wird ausgenutzt, dass es immer wieder
+Fälle bei der Programmierung gibt, bei denen man eine zu öffnende Datei
+per Parameter an ein Skript übergeben muss. Ein typisches Beispiel dafür
+wäre z. B. das Einlesen einer statischen HTML-Datei und die Ausgabe an
+einer bestimmten Stelle des Skripts.
+
+++<++html++>++
+
+++<++title++>++Meine schöne Website++<++/title++>++
+
+++<++/html++>++
+
+++<++body++>++
+
+++<++?php
+
+$seite = $++_++GET++[++'seite'++]++;
+
+echo file++_++get++_++contents("seiten/".$seite);
+
+?++>++
+
+++<++/body++>++
+
+Ein solches Vorgehen wird häufig angewendet, um zu vermeiden, dass man
+bestimmte Inhalte der Seite (Header, Footer etc.) auf jeder Inhaltsseite
+erneut definieren muss. Der jeweilige Inhalt würde nun nämlich durch den
+Aufruf von index.php?seite=impressum.html die Datei _impressum.html_ im
+Unterverzeichnis „seiten“ einlesen und ausgeben. Was aber passiert, wenn
+wir die URL in index.php?seite=gibtsnicht verändern? Richtig, PHP kann
+die Datei nicht finden und wird uns bei aktiviertem
+_error++_++reporting_ eine Fehlermeldung ausgeben, die den Pfad unseres
+Skripts auf dem Server preisgibt.
+
+image:book/21-security/media/4.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild484.PNG,width=547,height=147]
+
+Mit diesen Angaben wissen wir nun, wie wir uns in das Wurzelverzeichnis
+des Servers hangeln können, um dort an die Datei _/etc/passwd_ zu
+gelangen, die alle Benutzerinforma­tionen des Systems enthält.
+
+image:book/21-security/media/5.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild491.PNG,width=547,height=379]
+
+BILD 21.4 Ausgabe des Skripts nach der Pfadmanipulation
+
+Damit ein solcher Angriff auf Systemdateien erfolgreich ist, müssen bei
+der PHP-Konfiguration einige sicherheitsrelevante Optionen vergessen
+worden sein – so kann der Administrator durch Setzen des PHP-Parameters
+_open++_++basedir_footnote:[[.underline]#http://de3.php.net/manual/en/ini.core.php#]
+den Zugriff auf bestimmte Verzeichnisse beschränken (was im Übrigen auch
+bei einigen großen Hostern nicht der Fall ist). Jedoch könnte man in
+einem solchen Falle z. B. auch auf Datenbank-Konfigurationsdaten der
+jeweiligen Domain zugreifen und so Kontrolle über die Seite erlangen.
+
+Wie lässt sich also ein solcher Angriff abwehren?
+
+* Durch das Setzen des _open++_++basedir_ wird verhindert, dass bei der
+Attacke auch Systemdateien eingesehen werden können.
+* Durch das Erstellen einer Liste der tatsächlichen Dateien in dem
+jeweiligen Zielverzeichnis und den Abgleich mit dem übergebenen
+Parameter kann ein Ausbrechen aus dem Verzeichnis wirksam verhindert
+werden.
+
+==== Remote Code Execution
+
+Remote Code Executions zählen zu den GAU-Szenarien in der
+Sicherheitswelt. Bei diesem Angriffstyp wird es einem Angreifer
+ermöglicht, beliebigen eigenen Code auf der Website auszuführen, was
+gleichbedeutend mit der Übernahme der kompletten Kontrolle über den
+Webspace ist.
+
+Ein sehr gängiges Angriffszenario entsteht dabei durch die unzureichende
+Prüfung von Datei-Uploadfunktionen. Wird z.B. bei einer Funktion, die
+normalen Nutzern den Upload eines Profilbilds erlaubt, nicht darauf
+geachtet, dass wirklich nur Bilddateien hochgeladen werden können, kann
+ein Angreifer hier eine PHP Datei mit eigenem Schadcode hochladen, die
+er anschließend über seinen Browser aufrufen kann.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Neben dem Angriffsvektor "Uploadfunktion" gibt es noch viele weitere
+Methoden, um eigenen Code einzuschleusen und auszuführen. Zu den
+gängigen Fällen gehören dabei Object-Injection –Attacken, die im
+Zusammenhang mit der unserialize-Funktion von PHP auftreten (Faustregel:
+niemals Nutzereingaben an unserialize() weitergeben) oder in einer
+Abwandlung des oben genannten Directory-Traversal-Angriffs PHP-Code von
+externen Webseiten einbinden und ausführen. U .
+
+==== Cross-Site-Scripting
+
+Cross-Site-Scripting-Attacken, oder einfach nur kurz XSS, entstehen
+ebenfalls durch die unzureichende Validierung von Benutzereingaben. Ein
+Codebeispiel zu verwundbarem Code sähe zum Beispiel wie folgt aus.
+
+++<++?php
+
+$search = $++_++GET++[++'search'++]++;
+
+$db = JFactory::getDBO();
+
+$db-++>++setQuery("SELECT title FROM #++__++content WHERE title
+LIKE(%".$db-
+
+++>++quote($search)."%)");
+
+$results = $db-++>++loadObjectList();
+
+?++>++
+
+++<++p++>++Sie suchten nach ++<++?php echo $search ?++>++:++<++/p++>++
+
+++<++ul++>++
+
+++<++?php foreach ($results as $result): ?++>++
+
+++<++li++><++?php echo $result-++>++title ?++><++/li++>++
+
+++<++?php endforeach; ?++>++
+
+++<++/ul++>++
+
+Beim Aufruf mit einem entsprechenden Suchbegriff würde dabei eine Liste
+der Inhalte generiert werden, die den entsprechenden Begriff in der URL
+haben.
+
+image:book/21-security/media/6.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild781.PNG,width=547,height=239]
+
+BILD 21.5 Ausgabe der Suchergebnisse
+
+Was aber würde passieren, wenn wir ein wenig HTML bzw. JavaScript-Code
+in der URL hinterlegen und unseren Code in der für den Benutzer
+vertrauenswürdigen Umgebung der attackierten Seite ausführen lassen?
+
+Der übergebene Code wird auf der Seite ausgegeben und anschließend vom
+Browser ausgeführt, wodurch ein Popup erzeugt wird. Die gleiche
+Schwachstelle ließe sich aber auch ausnutzen, um z. B. einen
+++<++iframe++>++-Tag zu erzeugen, der von einer anderen Seite Schadcode
+für die Trojaner-Installation nachlädt, wodurch unsere Seite im
+Handumdrehen zur Virenschleuder wird.
+
+Nahezu alle Angriffe dieser Art lassen sich in Joomla! bereits durch
+Anwendung der korrekten Filter für JFilter vereiteln, wodurch bei
+konsequenter Nutzung der API XSS-Probleme die Ausnahme sein sollten.
+
+image:book/21-security/media/7.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild790.PNG,width=547,height=270]
+
+BILD 21.6 Erfolgreiche XSS-Attacke über einen URL-Parameter
+
+==== Cross-Site Request Forgery
+
+Eine Cross-Site Request Forgery, kurz CSRF, nutzt einen prinzipiell
+simplen Trick aus, um bestimmte Aktionen in der angegriffenen Software
+ausführen zu können. Dabei wird auf einer Seite, die der Administrator
+einer auf Joomla! basierenden Homepage besucht, Code hinterlegt, der ein
+Formular wie das folgende enthält.
+
+++<++form
+action="http://www.anzugreifendedomain.tld/administrator/index.php"
+method="post"++>++
+
+++<++input type="text" name="contactname" /++>++
+
+++<++input type="text" name="contactmail" /++>++
+
+++<++textarea name="contactmessage"++><++/textarea++>++
+
+++<++input type="hidden" name="option" value="com++_++users" /++>++
+
+++<++input type="hidden" name="username" value="voldemort" /++>++
+
+++<++input type="hidden" name="password" value="potter" /++>++
+
+++<++input type="hidden" name="email" value="attack@domain.tld" /++>++
+
+++<++input type="hidden" name="task" value="save" /++>++
+
+++<++input type="hidden" name="groups++[]++" value="8" /++>++
+
+++<++/form++>++
+
+Während der Administrator glaubt, er würde ein einfaches Kontaktformular
+ausfüllen und absenden, weist er in Wahrheit seinen Browser an, an die
+Joomla!-Installation, die unter _www.anzugreifendedomain.tld_ läuft, das
+Kommando zur Erstellung eines neuen Benutzers mit dem Namen „Voldemort“
+zu senden; dieser würde dann der Gruppe „Super-Administrator“ angehören.
+
+Voraussetzung wäre zwar, dass der Nutzer tatsächlich Administrator der
+entsprechenden Domain und beim Besuch des Kontaktformulars im Backend
+angemeldet ist, weshalb sich eine solche Attacke normalerweise nur für
+gezielte Angriffe eignet. Trotzdem geht eine reelle Gefahr von CSRFs
+aus, wie zahlreiche erfolgreiche Angriffe auf DSL-Router zeigen.
+
+Joomla! ist glücklicherweise von Haus aus gegen solche Angriffe
+geschützt. Bei der Generierung eines Formulars im Backend wird eine
+zufallsgenerierte Zeichenkette, das sog. Token, als verstecktes Feld im
+Formular hinterlegt und gleichzeitig in der Session des jeweiligen
+Benutzers gespeichert.
+
+image:book/21-security/media/9.png[book/21-security/media/9,width=548,height=374]
+
+BILD 21.7 Im Benutzerformular hinterlegtes Token
+
+Wird das Formular nun abgesendet, prüft Joomla!, ob das mitgesendete
+Token immer noch demjenigen entspricht, das in der Session hinterlegt
+ist – unterscheiden sich beide Tokens, so verweigert Joomla! den
+Zugriff. Da es für Angreifer nicht möglich ist, das aktuelle Token „im
+Voraus“ zu erraten, werden CSRF-Angriffe zuverlässig vereitelt.

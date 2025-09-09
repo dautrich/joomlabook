@@ -1,3 +1,0 @@
-[[21-security]]
-
-include::book/21-security/cap21.adoc[]

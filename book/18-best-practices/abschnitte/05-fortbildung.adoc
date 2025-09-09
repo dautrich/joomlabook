@@ -1,0 +1,54 @@
+=== Fortbildungsmöglichkeiten
+
+Last but not least gehört es natürlich auch zu den Best Practices, das
+eigene Wissen regelmäßig auf den aktuellen Stand zu bringen. Dafür gibt
+es neben unzähligen Online-Quellen, Büchern wie diesen, Video-Tutorials
+und anderen Medien für das Selbststudium auch die Möglichkeit, an
+Präsenz-Veranstaltungen teilzunehmen. Zwei Möglichkeiten möchte ich
+dabei besonders hervorheben.
+
+==== Joomla-Events
+
+Im Joomla-Projekt gibt es eine Vielzahl von Veranstaltungen rund um
+Joomla, wobei diese sich auf mehrere Ebenen aufteilen:
+
+* _Joomla Usergroups_ (kurz JUGs) gibt es in vielen größeren Städten im
+deutschsprachigen Raum. Diese Gruppen haben mehrmals pro Jahr (teils
+sogar monatlich) Treffen die in der Regel sowohl einen Vortrags- als
+auch eine Austausch-Teil haben. Die Treffen sind somit der erste
+Anlaufpunkt um mit der lokalen Community in Kontakt zu kommen und
+Gleichgesinnte kennenzulernen
+* _JoomlaDays_ sind die jeweiligen nationalen Veranstaltungen der
+Community und finden in der Regel ein mal pro Jahr in Form einer
+2-tägigen Konferenz statt. Die JoomlaDays bieten eine perfekte
+Möglichkeit um binnen kürzester Zeit sehr viel neues über Joomla zu
+lernen, mit Dienstleistern, Entwicklern und Community-Mitgliedern aus
+dem ganzen Land in Kontakt zu kommen und sich somit selbst ein
+entsprechendes Netzwerk aus Kollegen aufzubauen
+* _J&Beyond_ und die _Joomla World Conference_ sind die beiden
+internationalen Konferenzen des Joomla-Projekts und finden in der Regel
+im Mai bzw. November statt. Hier trifft sich die internationale
+Community zum Austausch.
++
+Wenn Sie sich ernsthaft mit Joomla auseinander setzen oder gar
+professionell als Dienstleister arbeiten wollen, kann ich Ihnen nur sehr
+nachdrücklich dazu raten, diese Veranstaltungen regelmäßig zu besuchen
+um sich über aktuelle Entwicklungen zu informieren, weiterzubilden und
+ein Netzwerk aufzubauen
+
+==== Zertifizierung
+
+Eine andere Möglichkeit der Fortbildung ist die Teilnahme am
+Joomla-Zertifizierungsprogrammfootnote:[certification.joomla.org]. Im
+Rahmen dieses Programms hat das Joomla-Projekt festgelegt, in welchen
+Bereichen ein Nutzer welches Wissen haben muss, um als zertifizierter
+Joomla-Nutzer auftreten zu dürfen. Dieses Wissen wird im Rahmen eines
+Tests abgefragt und dient somit für Außenstehende als Qualitäts- und
+Wissensnachweis.
+
+Derzeit gibt es eine Zertifizierung zum Joomla-Administrator, die in
+Zukunft durch eine Designer- und eine Entwickler-Zertifizierung ergänzt
+werden soll. Sogenannte
+Learning-Partnerfootnote:[http://resources.joomla.org/en/joomla-learning-partners]
+bieten in Kursen eine entsprechende Vorbereitung auf die Zertifizierung
+an und nehmen auch den eigentlichen Test ab.

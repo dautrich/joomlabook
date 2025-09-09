@@ -1,3 +1,0 @@
-[[15-spezielle-erweiterungen]]
-
-include::book/15-spezielle-erweiterungen/cap15.adoc[]

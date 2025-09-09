@@ -1,0 +1,431 @@
+=== Integrierte Mehrsprachigkeit
+
+==== Prinzip
+
+Seit Joomla! 1.6 existiert ein integriertes System zur Verwaltung
+mehrsprachiger Inhalte. Dabei ist wichtig zu verstehen, dass wir bei der
+Nutzung dieser Funktion nicht einen Eintrag (Menüeintrag, Beitrag,
+Modul, Kontakt etc.) anlegen, den wir dann über eine Oberfläche in die
+beiden Sprachen übersetzen, sondern stattdessen jeweils eine komplett
+separate Seitenversion für jede Sprache erzeugen. Dadurch ist es
+möglich, bestimmte Inhalte in einer Sprache ein- oder auszublenden und
+so nur die Inhalte anzuzeigen, die für die jeweilige Sprache auch
+wirklich interessant sind. Klingt das alles zu kompliziert und abstrakt?
+Keine Sorge, das System ist relativ leicht verständlich, wenn man die
+einzelnen Schritte betrachtet.
+
+==== Aktivierung der Sprachen
+
+Im ersten Schritt müssen wir auswählen, in welchen Sprachen wir unsere
+Website anbieten wollen. Dies tun wir im Backend über den Menüpunkt
+Erweiterungen ++>++ Sprachen ++>++ INhaltssprachen, wo wir die
+verfügbaren Sprachen aufgelistet finden.
+
+image:book/14-mehrsprachigkeit/media/1.png[book/14-mehrsprachigkeit/media/1,width=548,height=141]
+
+BILD 14.1 Installierte Inhaltssprachen
+
+Die verschiedenen _Sprachen_, die hier aufgelistet sind, entsprechen den
+installierten Sprachdateien für das Frontend, wobei wir zusätzliche
+Sprachen in der entsprechenden Kategorie im Joomla! Extensions Directory
+finden und über den Erweiterungsmanager nachinstallieren können.
+
+Wichtig ist nun, dass alle _Sprachen_, in denen wir unsere Website
+anbieten wollen, in der Übersichtsliste aktiviert sind (siehe Spalte
+_Status_), da diese andernfalls später nicht ausgewählt werden können.
+
+Ein Klick auf den _Titel_ der jeweiligen _Sprache_ bietet uns zudem die
+Möglichkeit, an die Sprache angepasste _Metadaten_ bzw. einen
+systemweiten _Seitennamen_ zu vergeben – denn was nützt uns eine
+englischsprachige Seitenversion mit deutschen _Metadaten_.
+
+image:book/14-mehrsprachigkeit/media/4.png[book/14-mehrsprachigkeit/media/4,width=548,height=170]
+
+BILD 14.2 Eingabemöglichkeit für sprachspezifische Meta-Daten
+
+==== Aktivierung des Plug-ins
+
+Nachdem dieser Schritt erledigt ist, müssen wir noch das eigentliche
+Plug-in zur Aktivierung der Mehrsprachigkeit einschalten, das wir in der
+Plug-in-Verwaltung unter Erweiterungen ++>++ Plugins finden.
+
+image:book/14-mehrsprachigkeit/media/6.png[book/14-mehrsprachigkeit/media/6,width=548,height=352]
+
+BILD 14.3 Plug-in _System – Sprachenfilter_ vor der Aktivierung in der
+Plug-in-Übersicht
+
+Dort aktivieren wir das Plug-in _System – Sprachenfilter_ durch einen
+Klick auf das entsprechende Icon und öffnen anschließend das
+Editierungsformular des Plug-ins durch einen Klick auf den Titel. Hier
+finden wir verschiedene Parameter, die ich in Tabelle 14.1 kurz
+erläutert habe.
+
+TABELLE 14.1 Beschreibung der Parameter des Sprachenfilter-Plug-ins
+
+[width="100%",cols="39%,61%",]
+|===
+|Parameter |Erläuterung
+
+|_Sprachauswahl für neue Benutzer_ |Falls der Parameter auf
+Browsereinstellungen gesetzt wird, versucht das System, die im Browser
+eingestellte _Sprache_ zu erkennen und als _Seitensprache_ zu verwenden.
+Ist dies nicht erfolgreich, wird die _Standardsprache_ der Seite
+verwendet.
+
+|_Automatischer Sprachwechsel_ |Wechselt die _Inhaltsprache_ der Seite,
+wenn ein Nutzer die _Seitensprache_ in seinem Profil verändert
+
+|_Verknüpfte Einträge_ |Erlaubt uns, bei der Editierung eines Objekts
+auszuwählen, welches Objekt die Übersetzung dieses Eintrags ist. Dadurch
+kann ein Nutzer beim Umschalten der _Sprache_ direkt zur Übersetzung
+dieses Eintrags weitergeleitet werden.
+
+|_„Alternate“-Meta-Tag_ _hinzufügen_ |Beeinflusst, ob Joomla einen
+Alternate Meta-Tag setzt, der Suchmaschinen über die anderen
+Sprachversionen einer bestimmten Seite informiert
+
+|_„X-Default“-Meta-Tag hinzufügen_ |Steuert, ob ein X-Default Meta-Tag
+gesetzt wird, der Suchmaschinen über die Standard-Sprache einer Seite
+informiert
+
+|_„X-Default“-Sprache_ |Stellt die Standardsprache ein, die
+Suchmaschinen mitgeteilt wird
+
+|_URL-Sprachkürzel_ _entfernen_ |Entfernt das entsprechende Sprachkürzel
+(z. B. _domain.tld/de/_ bzw. _domain.tld/en/_) aus der URL. Nicht
+empfehlenswert, da es dabei zu Problemen durch identische Aliasse kommen
+kann.
+
+|_Cookie-Lebensdauer_ |Stellt ein, ob das Cookie, das die jeweils
+gewählt Sprache speichert, bis zum Schließen des Browsers (_Sitzung_)
+oder für ein _Jahr_ gespeichert werden soll.
+|===
+
+image:book/14-mehrsprachigkeit/media/8.png[book/14-mehrsprachigkeit/media/8,width=548,height=323]
+
+BILD 14.4  Einstellungen des Plug-ins _System – Sprachenfilter_
+
+==== Aktivierung des Moduls
+
+Im letzten Konfigurationsschritt müssen wir nun noch ein Modul
+hinzufügen, das dem Benutzer erlaubt, selbstständig die Sprache der
+Seite zu bestimmen. Dafür wechseln wir in die Modulverwaltung
+(Erweiterungen ++>++ Module) und legen dort mit einem Klick auf den
+Toolbar-Button Neu ein neues Modul vom Typ Sprachauswahl an.
+
+image:book/14-mehrsprachigkeit/media/10.png[book/14-mehrsprachigkeit/media/10,width=548,height=221]
+
+BILD 14.5 Anlegen eines neuen Moduls für die Sprachauswahl
+
+Dieser _Modultyp_ bietet uns im nun erscheinenden Formular zahlreiche
+Einstellungsmöglichkeiten an, die in Tabelle 14.2 kurz erläutert sind.
+
+TABELLE 14.2 Parameter des Sprachauswahl-Moduls
+
+[width="100%",cols="24%,76%",]
+|===
+|Parameter |Erläuterung
+
+|_Text davor_ |Zeigt einen frei wählbaren Text vor bzw. über dem Feld
+zur _Sprachauswahl_ an
+
+|_Text danach_ |Zeigt einen frei wählbaren Text nach bzw. unter der
+_Sprachauswahl_ an
+
+|_Drop-Down benutzen_ |Nutzt ein Drop-down Feld zur Auswahl der
+_Sprache_. Andernfalls wird eine anklickbare Liste ausgegeben.
+
+|_Bildflaggen benutzen_ |Nutzt kleine Flaggensymbole statt des Namens
+der jeweiligen _Sprache_
+
+|_Horizontale Anzeige_ |Ordnet die Flaggen horizontal statt vertikal an
+
+|_Aktive Sprache_ |Fügt der aktiven _Sprache_ die CSS-Klasse
+_lang-active_ an
+
+| |
+|===
+
+Vergeben Sie einen Titel für das neue Modul und wählen Sie eine passende
+Modulposition. Anschließend verlassen Sie den Dialog mittels Klick auf
+Speichern & Schliessen.
+
+image:book/14-mehrsprachigkeit/media/12.png[book/14-mehrsprachigkeit/media/12,width=548,height=367]
+
+BILD 14.6 Dialog zum Anlegen des neuen Sprachauswahl-Moduls
+
+==== Sprachzuweisung der Beiträge
+
+Wechseln Sie nun zur Beitragsübersicht und wählen Sie dort unseren
+Beitrag _Willkommen_ aus der Beispielseite von Bauer Birnennase aus. Es
+öffnet sich das Formular zur Bearbeitung des Inhalts, wo Sie in der
+linken Spalte den Parameter _Sprache_ finden, den wir bisher stets
+ignoriert haben – das ändert sich nun! Wählen Sie als _Sprache_ für den
+Beitrag „German“ und speichern Sie die Änderung mittels Klick auf
+Speichern & Schliessen.
+
+image:book/14-mehrsprachigkeit/media/14.png[book/14-mehrsprachigkeit/media/14,width=548,height=343]
+
+BILD 14.7 Sprachzuordnung des Beitrags _Willkommen_
+
+Legen Sie nun einen neuen Beitrag mit dem _Titel_ „Welcome“ an und geben
+eine entsprechende englische Übersetzung des Willkommenstexts im Feld
+_Beitragsinhalt_ ein. Anschließend wählen Sie als Sprache für diesen
+neuen Beitrag „English“ und wechseln in den Tab _Verknüpfungen_. Dort
+können wir, falls gewünscht und vorhanden, für jede Sprache die
+entsprechende anderssprachige Version wählen, was wir in unserem
+Beispiel für _German_ natürlich mit dem Beitrag _Willkommen_ tun.
+Anschließend speichern wir diesen Beitrag durch einen Klick auf den
+entsprechenden Toolbar-Button. Daraufhin finden Sie in der
+Übersichtsliste die beiden gerade editierten Beiträge, die der
+jeweiligen Sprache (siehe gleichnamige Spalte) zugeordnet sind und bei
+denen das jeweilige Sprachkürzel in der Sprache _Verknüpfung_ anzeigt,
+dass es den Beitrag auch in einer anderen Sprache gibt.
+
+image:book/14-mehrsprachigkeit/media/16.png[book/14-mehrsprachigkeit/media/16,width=548,height=254]
+
+BILD 14.8 Beitragsübersicht mit den zugeordneten Willkommenstexten
+
+==== Sprachzuweisung der Menüeinträge
+
+Wechseln Sie nun durch einen Klick auf Menüs ++>++ Menüs hinzufügen im
+Backend zur Übersicht der angelegten _Menüs_ und legen Sie dort ein
+neues Menü an, das Sie z. B. „Dummy“ nennen.
+
+image:book/14-mehrsprachigkeit/media/18.png[book/14-mehrsprachigkeit/media/18,width=548,height=198]
+
+BILD 14.9 Neu angelegtes Menü „Dummy“
+
+Im nächsten Schritt wechseln Sie über das Backend-Menü mittels Menüs
+++>++ Dummy in die Übersicht der angelegten Menüpunkte des
+_Dummy_-Menüs. Legen Sie dort einen neuen Menüeintrag vom Typ
+_Hauptbeiträge_ an, vergeben Sie als Titel erneut unseren Platzhalter
+„Dummy“ und beenden Sie den Vorgang mittels Klick auf Speichern &
+Schliessen.
+
+image:book/14-mehrsprachigkeit/media/20.png[book/14-mehrsprachigkeit/media/20,width=548,height=265]
+
+BILD 14.10 Anlegen des Dummy-Menüeintrags
+
+Fragen Sie sich gerade, wozu dieser Schritt gut gewesen sein soll? Die
+in Joomla! integrierte Mehrsprachigkeitsfunktion hat eine Eigenheit,
+welche die Bedienung ohne vorherige Einführung erschwert. Kleine
+Demonstration gefällig? Dann wechseln Sie doch einmal in die Liste der
+_Menüeinträge_ für das _Main Menu_ und öffnen Sie das
+Editierungsformular des Eintrags _Willkommen_. Ändern Sie nun den
+Parameter _Sprache_ auf _German_ und klicken anschließend auf Speichern.
+Daraufhin begrüßt Joomla! Sie mit der Fehlermeldung: „Speichern
+fehlgeschlagen! Fehler: Der Parameter „Sprache“ für diese Menü muss auf
+„Alle“ stehen. Mindestens ein Standard-Menüpunkt muss auf „Alle“ stehen,
+auch wenn die Webseite mehrsprachig ist.“. Wieso erscheint diese
+Meldung?
+
+Stellen Sie sich vor, wir hätten unsere Seite auf die beiden _Sprachen_
+Englisch und Deutsch umgestellt, sodass jede der _Sprachen_ auch eine
+eigene _Startseite_ zugewiesen bekommen hätte. Wenn Sie nun aus einer
+Laune heraus die _Mehrsprachigkeit_ durch Deaktivierung des
+entsprechenden _Plug-ins_ wieder abschalten würden, könnte Joomla! keine
+_Startseite_ mehr ausliefern. Es wäre kein als _Startseite_ markierter
+_Menüeintrag_ mehr für _alle_ _Sprachen_ zuständig, wie wir es
+standardmäßig als Vorgabe finden. Folglich würde der Aufruf der Seite
+mit einer Fehlermeldung scheitern. Um dies zu verhindern, besteht
+Joomla! darauf, dass stets mindestens ein _Menüeintrag_ als _Startseite_
+markiert ist, dessen Parameter _Sprache_ auf „Alle“ steht.
+
+image:book/14-mehrsprachigkeit/media/22.png[book/14-mehrsprachigkeit/media/22,width=548,height=415]
+
+BILD 14.11 Fehlermeldung beim Ändern der Sprache des _Menüeintrags_
+„Willkommen“
+
+Aufgrund dieser Tatsache müssen wir uns jedoch einen kleinen Workaround
+über ein auf der Seite nicht sichtbares Hilfe-_Menü_ (Dummy) mit einem
+entsprechenden _Menüpunkt_ (Dummy) schaffen, den wir nun durch
+Editierung der Parameter des _Menüeintrags_ zur _Startseite_ machen.
+
+image:book/14-mehrsprachigkeit/media/24.png[book/14-mehrsprachigkeit/media/24,width=548,height=191]
+
+BILD 14.12 Menüpunkt _Dummy_ nach der Markierung als Startseite
+
+[width="99%",cols="14%,86%",options="header",]
+|===
+|CHV++_++BOX++_++ID++_++01 |
+|icn001 |Wenn Sie bereits bei der Installation wissen, dass eine Seite
+später einmal mehrsprachig wird, sollten Sie die Mehrsprachigkeit bereit
+am Ende des Installationsdialogs (siehe Kapitel 4.1.2, Mehrsprachige
+Installation) vornehmen, das erspart Ihnen das etwas unintuitive
+Arbeiten mit den Dummy-Menüs, da diese dann automatisch erzeugt werden.
+|===
+
+Jetzt können wir zurück zum _Menüeintrag_ „Willkommen“ wechseln und
+diesem erfolgreich die Sprache _German_ zuweisen. Nach dem Speichern der
+Änderung können wir den _Eintrag_ dann über einen Klick auf das
+entsprechende Toolbar-Icon zur _Startseite_ unserer deutschen
+Seitenversion machen, was durch ein entsprechendes Flaggensymbol
+angezeigt wird.
+
+image:book/14-mehrsprachigkeit/media/26.png[book/14-mehrsprachigkeit/media/26,width=548,height=256]
+
+BILD 14.13 Flaggensymbol nach erfolgreicher Markierung als Startseite
+der deutschen Sprachversion
+
+Nun können wir auch allen weiteren _Menüeinträgen_ unseres
+offensichtlich deutschsprachigen Menüs,z.B. durch Nutzung der
+_Stapelverarbeitungsfunktion_ in der Toolbar, die deutschsprachige
+Seitenversion zuweisen (siehe Bild 14.14).
+
+image:book/14-mehrsprachigkeit/media/28.png[book/14-mehrsprachigkeit/media/28,width=548,height=149]
+
+BILD 14.14 Zuweisen der restlichen Menüeinträge zur gewählten Sprache
+über die Stapelverarbeitung
+
+Wie bauen wir nun unsere englischsprachige Willkommensseite hier ein?
+Dafür legen wir wieder ein neues _Menü_ an, das wir zum Beispiel „Main
+Menu Englisch“ nennen, und wechseln über den entsprechenden Menüeintrag
+Menüs ++>++ Main Menu Englisch zur Übersicht der Menüpunkte. Dort legen
+wir einen neuen Menüeintrag für unsere englischsprachige Startseite an.
+
+Als Menütyp wählen wir logischerweise _Einzelner Beitrag_ und vergeben
+als Titel z. B. _Welcome_. Anschließend wählen wir über den
+entsprechenden Parameter den gleichnamigen _Beitrag_ und ordnen den
+neuen _Eintrag_ der Sprache „English“ zu. Anschließend markieren wie ihn
+als _Standardseite_ und beenden den Vorgang mittels Klick auf Speichern
+& Schliessen. Damit haben wir auch diesen Menüeintrag erfolgreich
+erzeugt.
+
+image:book/14-mehrsprachigkeit/media/30.png[book/14-mehrsprachigkeit/media/30,width=548,height=150]
+
+BILD 14.15 Englischer Startseiten-Menüpunkt
+
+==== Sprachzuweisung der Module
+
+Betrachten wir nun das _Frontend_ unserer Seite, so stellen wir zunächst
+erfreut fest, dass das _Modul_ für die Sprachwahl nun wie gewünscht zwei
+Flaggensymbole darstellt; tatsächlich werden wir per Klick auf das
+Symbol für die englische Sprachversion zur entsprechenden _Startseite_
+„Welcome“ weitergeleitet.
+
+image:book/14-mehrsprachigkeit/media/32.png[book/14-mehrsprachigkeit/media/32,width=548,height=363]
+
+BILD 14.16 Wahlmöglichkeit für die gewünschte Seitensprache nach
+Erstellung der beiden Startseiten
+
+Aber fällt Ihnen etwas auf? Ja, genau, das Menü fehlt! Um dieses Manko
+zu beheben, müssen wir erst ein _Modul_ zur Anzeige unseres
+englischsprachigen _Menüs_ erzeugen und dieses dann der entsprechenden
+_Sprache_ zuweisen. Wechseln Sie dafür wieder ins _Backend_, öffnen Sie
+die _Modulverwaltung_ via Erweiterungen ++>++ Module und legen Sie per
+Klick auf das Toolbar-Icon Neu ein neues _Modul_ vom Typ „Navigation -
+Menü“ an.
+
+Vergeben Sie einen _Titel_ wie „Main Menu Englisch“, und blenden Sie,
+falls gewünscht, den _Titel_ im Frontend über den entsprechenden
+Parameter aus. Danach wählen Sie als _Modulposition_ die bereits
+bekannte „position-7“, an der wir auch unser deutschsprachiges Menü
+finden, und weisen Sie das Modul der korrekten _Sprache_ zu.
+
+image:book/14-mehrsprachigkeit/media/34.png[book/14-mehrsprachigkeit/media/34,width=548,height=343]
+
+BILD 14.17 Anlegen des neuen Moduls zur Darstellung des
+englischsprachigen Menüs
+
+Nun schauen wir uns noch die anderen, bereits angelegten Module an und
+weisen diese über das Editierungsformular einer Sprache zu.
+
+[width="100%",cols="28%,12%,60%",]
+|===
+|Modul |Sprache |Begründung
+
+|Breadcrumbs |Alle |Ist in beiden Sprachversionen von Interesse und
+enthält keine Inhalte, die separat übersetzt werden müssen
+
+|Neuigkeiten des Bauernverbands |Deutsch |Ergibt nur auf der deutschen
+Seite Sinn, da englischsprachige Nutzer mit den deutschsprachigen
+Meldungen nichts anfangen können
+
+|Main Menu Englisch |Englisch |selbsterklärend
+
+|Main Menu Deutsch |Deutsch |selbsterklärend
+
+|Sprachauswahl |Alle |Ist in beiden Sprachversionen von Interesse und
+enthält, wenn der _Modultitel_ im _Frontend_ ausgeblendet ist, keine
+Inhalte, die separat übersetzt werden müssen
+|===
+
+Nun ist die Modulkonfiguration abgeschlossen, und wir können nach dem
+bekannten Muster auch die weiteren _Beiträge_, _Kategorien_ und
+_Kontakte_ in einer englischsprachigen Version ablegen und im
+englischsprachigen _Menü_ verlinken.
+
+==== Sprachverknüpfungen
+
+Somit ist unsere mehrsprachige Seite im Grunde genommen vollendet, es
+gibt jedoch noch ein Problem, um das wir uns kümmern müssen. Klicken Sie
+dazu im _Frontend_ der englischen Seitenversion auf den _Menüeintrag_
+„Imprint“ (Impressum) und wechseln Sie anschließend zur deutschen
+Seitenversion. Wir finden hier zwar nun wie gewünscht die deutsche
+Version des Texts, aber die URL weicht von der „normalen“ URL des
+Impressums ab. Dies ist der Fall, weil wir bisher zwar die
+_Sprachverknüpfung_ der einzelnen Beiträge vorgenommen haben, die für
+eine korrekte Zuordnung der Menüpunkt notwendige _Menüverknüpfung_
+zwischen den einzelnen Sprachen aber noch fehlt. Das wollen wir nun
+nachholen.
+
+Öffnen Sie dazu das Editierungsformular des _Menüeintrags_ „Imprint“ im
+_Backend_ der Seite und öffnen Sie den Tab _Verknüpfungen_. Dort können
+Sie, analog wie bei den Beiträgen, der Menüeintrag gewählt werden, der
+als Übersetzung des aktuellen Eintrags in der jeweiligen Sprache
+fungiert.
+
+Nach dem Speichern dieser Änderung ist die Verknüpfung zwischen den
+Seitensprachen (übrigens in beide Richtungen) erfolgreich hergestellt
+und die URL-Umschaltung funktioniert wie gewünscht.
+
+Die Sprachverknüpfungen steuern somit die korrekte Funktionsweise der
+Sprachumschaltung im Frontend und sollten, wenn es eine Ensprechung des
+jeweiligen Inhalts in der anderen Sprache gibt, somit konsequent auf
+alle Element angewendet werden, bei denen das entsprechende Feature
+verfügbar ist. Im Joomla-Core betrifft dies z.B. die Beiträge, die
+Kategorien, die Kontakte, die Newsfeeds sowie die Menüeinträge.
+
+Die disziplinierte Pflege der Verknüpfungen kommt uns dabei noch in
+einem anderen Bereich zugute, nämlich bei der Nutzung Komponente
+_Sprachverknüpfungen_ die uns ein spezielles Pflegeinterface für die
+Mehrsprachigkeit zur Verfügung stellt.
+
+[width="99%",cols="14%,86%",]
+|===
+| |
+|===
+
+Nach Aufruf der Komponente über den Menüeintrag Komponenten ++>++
+Sprachverknüpfungen ist der Typ des jeweiligen Inhalts und die sog.
+Referenzssprache über die entsprechenden Auswahllisten zu wählen (siehe
+Bild 14.18).
+
+image:book/14-mehrsprachigkeit/media/37.png[book/14-mehrsprachigkeit/media/37,width=548,height=324]
+
+Bild 14.18 Übersicht über die deutschen Beiträge in der
+Beispielinstallations
+
+Die jeweilige farbliche Hinterlegung des Sprachkürzels in der Spalte
+_Verknüpfungen_ gibt dabei an, ob der jeweilige Eintrag bereits mit
+einem entsprechenden Eintrag in der Sprache des Kürzels hinterlegt ist.
+Ist dies bereits der Fall, können beide Einträge in einer zweispaltigen
+Ansicht nebeneinander betrachtet, verändert und gespeichert werden,
+womit die Komponente eine sehr bequeme Möglichkeit ist, umfangreiche
+mehrsprachige Seite zu verwalten (siehe Bild 14.19).
+
+Wird das Kürzel eines Eintrags ohne Verknüpfung angeklickt, erhält man
+ebenfalls eine zweispaltige Ansicht und kann hier eine neue Übersetzung
+eingeben bzw. einen existierenden Eintrag als Übersetzung wählen. Die
+Verknüpfung erfolgt dann automatisch im Hintergrund.
+
+image:book/14-mehrsprachigkeit/media/38.png[book/14-mehrsprachigkeit/media/38,width=548,height=280]
+
+Bild 14.2 2-Spaltige Übersetzungsansicht in der
+Sprachverknüpfungs-Komponente
+
+Somit lassen sich in der Joomla-eigenen Mehrsprachigkeit sowohl
+voneinander losgelöste Seitenbäume mit sprachspezifischen Inhalten als
+auch 1 zu 1 Übersetzungen aller Inhalte auf angenehme Art und Weise
+verwalten.

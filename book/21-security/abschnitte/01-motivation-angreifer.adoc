@@ -1,0 +1,86 @@
+=== Motivation der Angreifer
+
+Das vermeidliche Joker-Argument von unerfahrenen Webmastern ist oft:
+„Meine Seite ist so unbedeutend, da hat sowieso niemand Interesse, sie
+zu hacken und mir damit zu schaden.“ Wenn man davon ausgeht, dass
+Angreifer nur große Portale attackieren, weil es sich „da wenigstens
+lohnt“, so man an dieser Argumentation auch durchaus etwas richtig sein
+– in der Realität gibt es jedoch im Regelfall nur drei Motivationen für
+einen Angriff.
+
+==== 1. Wirtschaftliche Interessen
+
+Eine gecrackte Joomla!-Installation lässt sich leicht dazu verwenden,
+weiteren Schadcode einzubinden, der dann über Sicherheitslücken in die
+Systeme der Seitenbesucher gelangt und dort genutzt wird, um diese mit
+Trojanern und Würmern zu infizieren. Diese betroffenen Rechner lassen
+sich nun wiederum zu großen Netzwerken (sog. Botnets) zusammenschließen
+und z. B. für den Spamversand missbrauchen, wofür der Betreiber von den
+Spam-Auftraggebern natürlich auch einen entsprechenden Betrag verlangt.
+
+Die Anzahl der mit Schadcode infizierten Seiten beeinflusst direkt die
+Anzahl der potenziell infizierten Rechner und damit auch den Umsatz, den
+der Botnet-Betreiber schlussendlich verbucht. Deshalb wird hier im
+Normalfall das „Masse-statt-Klasse“-Prinzip angewendet, d. h. die
+Angreifer wollen möglichst viele Seiten, unabhängig von deren Inhalt,
+infizieren.
+
+==== 2. Prestige durch Erfolge in „Wettbewerben“
+
+Ein fragwürdiges Hobby, das insbesondere zahlreiche Jugendliche
+anzuziehen scheint, ist das massenhafte Cracken von Webseiten, um den
+Inhalt dieser Seiten zu verändern und so das eigene „Erkennungszeichen“
+(oft Logo und Schriftzug) unterzubringen. Diese „Defacement“ genannten
+Angriffe werden von den Angreifern, in der IT oft als „Script Kiddies“
+bezeichnet, in einschlägigen Portalen gemeldet. Dort wird in einer Art
+Liga-System gezählt, welcher Teilnehmer wie viele Seiten unter seine
+Kontrolle bringen konnte.
+
+image:book/21-security/media/1.png[C:++\++Users++\++hwunder++\++Desktop++\++rtf++\++21++\++Bild460.PNG,width=430,height=305]
+
+BILD 21.1 Typische „verunstaltete“ Seite nach einem Angriff durch ein
+Script Kiddie
+
+Da auch in diesem Fall nur die Anzahl der attackierten Seiten für den
+Erfolg zählt, ist deren Inhalt hier zweitrangig, was auch unbekannte und
+inhaltlich veraltete Seiten attraktiv macht.
+
+==== 3. Gezielte Angriffe
+
+Die dritte mögliche Motivation wäre der gezielte Angriff auf eine
+Installation, der z. B. durch einen Mitbewerber in Auftrag gegeben oder
+durchgeführt wird. Die Erfahrung zeigt jedoch, dass nur ein
+verschwindend geringer Anteil der Angriffe auf solche gezielten Aktionen
+zurückzuführen ist.
+
+Interessant ist jedoch, dass sich bei den Motiven 1 und 2 im Gegensatz
+zum gezielten Angriff häufig die Vorgehensweise unterscheidet. So muss,
+um die nötige Anzahl der gecrackten Seiten zu erreichen, bei den beiden
+erstgenannten Motiven auf speziell dafür entwickelte, automatisierte
+Skripte zurückgegriffen werden, die eigens für eine bereits bekannte
+Lücke in einer Software (wie z. B. dem Joomla! Core oder einer
+Erweiterung) geschrieben wurden. Diese Skripte, die in einschlägigen
+Foren zum Herunterladen bereitstehen, durchsuchen über bestimmte
+Suchbegriffe (z. B. „inurl:'com++_++virtuemart'“) die Datenbanken der
+großen Suchmaschinen, um potenzielle Opfer für einen Hack zu finden, und
+führen anschließend automatisiert einen Angriffsversuch aus. Diese
+Methode führt dazu, dass man beispielsweise in den Logdateien seiner
+Joomla!-Installation Einträge wie diesen hier findet:
+
+66.249.xx.xx - - ++[++20/Nov/2011:06:27:54 {plus}0100++]++ "GET
+
+index.php?option=com++_++jp++_++jobs&view=detail&id=1{plus}AND{plus}1=2{plus}UNION{plus}SELECT{plus}++\++group++_++concat(0x503077337220743020743368206330777321,name,username,++\++password,email,usertype,0x503077337220743020743368206330777321)--"
+404 205619 "-" "libwww-perl"
+
+Hier wurde ein Angriff auf die Joomla!-Komponente _com++_++jp++_++jobs_
+ausgeführt, die jedoch auf dem betroffenen System gar nicht installiert
+war, weshalb der Webserver einen Fehler 404 zurückgeliefert hat.
+Vermutlich hat das Skript, das den Angriff ausführte, im
+Suchmaschinenindex nicht nach der entsprechenden Komponente selbst,
+sondern nach Joomla!-Seiten im Allgemeinen gesucht, wodurch diese
+willkürliche Attacke zustande kam.
+
+Folgende Erkenntnis steht also am Ende der Betrachtung der Motivationen:
+In erster Linie ist es die Feststellung, dass *jedes* Joomla! eine
+Zielscheibe für Angriffe ist, unabhängig von deren Bekanntheitsgrad oder
+Größe.

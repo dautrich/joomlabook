@@ -1,0 +1,75 @@
+
+
+=== Administrations-Menüs
+
+Eine weitere Möglichkeit zur Personalisierung ist die Erstellung
+angepasster _Administrations-Menüs_. Diese in Joomla 3.7 neu eingefügt
+Funktion erlaubt es dem Administrator sowohl global für die gesamte
+Seite als auch spezifisch für einzelne Benutzergruppen (bzw.
+Zugriffsebenen) Menüs zu erstellen, die nur über die Funktionen
+verfügen, die auf der jeweiligen Seite relevant sind.
+
+Um die Funktion zu nutzen müssen wir im ersten Schritt ein neues, leeres
+Menü anlegen, das wir anschließend mit den benötigten Einträgen
+befüllen. Den entsprechenden Dialog rufen wir über Menüs ++>++ Verwalten
+++>++ Neues Menü auf.
+
+In diesem Dialog vergeben wir einen Titel und Menütyp für das neue Menü
+und wählen als Seitenbereich die Administration aus (siehe Bild 18.25).
+
+image:book/18-best-practices/media/52.png[book/18-best-practices/media/52,width=548,height=151]
+
+Bild 18.25 Erstellen eines neuen Menüs für die Administration
+
+Im nächsten Schritt können wir über den bekannten Weg (siehe Kapitel 8,
+„Navigationsstruktur anlegen“) Einträge zum neu angelegten Menü
+hinzufügen. Der Prozess unterscheidet sich dabei nur in einigen wenigen
+Punkten vom bereits bekannten Weg für die Menüs des Frontends:
+
+* da das Backend nach dem Login stets auf das Kontrollzentrum leitet,
+gibt es keinen _Startseiteneintrag_
+* die _Menüeintragstypen_ sind spezifisch für die Funktionen des
+Backends
+* eine Vielzahl von Parametern, die nur für das Frontend relevant sind
+(z.B. die Meta-Daten oder die CSS-Klassen der jeweiligen Seiten) sind in
+Backend-Menüs nicht vorhanden
+* die einzelnen Menüeinträge können nicht zu Zugriffsebenen zugewiesen
+werden – das liegt daran, dass die Administration der Zugriffsrechte im
+Backend über die entsprechende ACL-Aktion _Administrationszugriff_
+erfolgt
++
+Sind die entsprechenden Menüeinträge angelegt, muss das entstandene Menü
+noch aktiviert werden.
++
+Dafür wechseln wir über Erweiterungen ++>++ Module in die
+Modulverwaltung und lassen uns durch Anpassung des entsprechenden
+Filters die Administrationsmodule anzeigen (siehe Bild 18.26).
++
+image:book/18-best-practices/media/53.png[book/18-best-practices/media/53,width=548,height=319]
+
+Bild 18.26 Übersicht der Backend-Module
+
+Per Klick auf den Eintrag _Admin Menu_ rufen wir die Parameter des
+Standard-Menü-Moduls auf und können dort im Tab _Erweitert_ das
+anzuzeigende Menü auswählen. Wählen wir hier das durch uns definierte
+Menü aus und speichern die veränderten Parameter, wird das normale
+Joomla-Menü durch unsere neuen Einträge ersetzt (siehe Bild 18.27).
+
+Joomla prüft dabei standardmäßig, ob einige, besonders wichtige
+Menüeinträge (konkret: Menü-Verwaltung, Modul-Verwaltung und
+Komponenten-Submenü) sichtbar sind und bietet, falls diese fehlen, einen
+Notfall-Modus an.
+
+image:book/18-best-practices/media/54.png[book/18-best-practices/media/54,width=548,height=258]
+
+Bild 18.27 Backend mit eigenem Administrationsmenü
+
+Natürlich kann man, anstatt das Standard-Menü für alle Backend-Nutzer zu
+ersetzen auch in Kombination mit der Rechteverwaltung und eigenen, neu
+angelegten Menümodulen spezielle Menüstrukturen für einzelne
+Benutzergruppen erzeugen. Wenn z.B. ein Endkunde nur auf die
+Beitragsverwaltung zugreifen können soll, kann man mit einer
+entsprechenden Benutzergruppe, einem Menü, einem zur Gruppe zugewiesenen
+Menümodul (bei dem der oben erwähnte Check auf wichtige Einträge
+deaktiviert ist) ein Menü mit nur einem Eintrag, nämlich der
+Beitragsverwaltung erzeugen.

@@ -36,22 +36,22 @@ include::book/12-template-overwrites/12-template-overwrites.adoc[]
 
 include::book/13-seo/13-seo.adoc[]
 
-include::14-mehrsprachigkeit.adoc[]
+include::book/14-mehrsprachigkeit/14-mehrsprachigkeit.adoc[]
 
-include::15-spezielle-erweiterungen.adoc[]
+include::book/15-spezielle-erweiterungen/15-spezielle-erweiterungen.adoc[]
 
-include::16-custom-fields.adoc[]
+include::book/16-custom-fields/16-custom-fields.adoc[]
 
-include::17-erweiterungen-erstellen.adoc[]
+include::book/17-erweiterungen-erstellen/17-erweiterungen-erstellen.adoc[]
 
-include::18-best-practices.adoc[]
+include::book/18-best-practices/18-best-practices.adoc[]
 
-include::19-online-gehen.adoc[]
+include::book/19-online-gehen/19-online-gehen.adoc[]
 
-include::20-performace-optimierungen.adoc[]
+include::book/20-performace-optimierungen/20-performace-optimierungen.adoc[]
 
-include::21-security.adoc[]
+include::book/21-security/21-security.adoc[]
 
-include::22-updates-migration.adoc[]
+include::book/22-updates-migration/22-updates-migration.adoc[]
 
 ifdef::backend-pdf[include::index.adoc[]]

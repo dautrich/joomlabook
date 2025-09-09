@@ -1,0 +1,51 @@
+=== Einstellungen
+
+Neben den genannten Erweiterungen und den, bereits in Kapitel 6
+gezeigten Einstellungen der globalen Konfiguration gibt es noch eine
+weitere nützliche Einstellung zum Verstecken von Erweiterungen.
+
+==== Erweiterungen verstecken
+
+Ich habe mittlerweile vermutlich weit über 100 verschiedene
+Joomla!-Installationen aufgesetzt und dabei kein einziges Mal die
+Banner-Erweiterung verwendet – bei Kundenschulungen trat jedoch
+regelmäßig die Frage auf, warum die Komponente denn überhaupt
+installiert ist, wenn man sie nicht nutzt. Die Antwort war dabei stets:
+Die Erweiterung ist in Joomla! integriert und verursacht, wenn man sie
+deinstallieren würde, Probleme.
+
+Durch einen Vortrag des bekannten Bloggers Brian Teeman bin ich
+schließlich auf eine Möglichkeit gestoßen, solchen Fragen vorzubeugen,
+indem ich nicht genutzte Core-Komponenten verstecke.
+
+image:book/18-best-practices/media/49.png[book/18-best-practices/media/49,width=548,height=330]
+
+BILD 18.23 Erweiterungsmanager – Deaktivierung ungenutzter Komponenten
+
+Durch die Deaktivierung der jeweiligen Komponente im Erweiterungsmanager
+können auch Core-Erweiterungen ausgeblendet werden, was Benutzerfragen
+vorbeugt, bei Aktualisierungen jedoch keine Probleme hervorruft.
+
+==== Administrations-Gestaltung
+
+Insbesondere wenn man eine Vielzahl an Projekten betreut und dann auch
+zu allem Überfluss an mehreren Seiten parallel arbeitet, passiert es hin
+und wieder, dass man versehentlich Änderungen an der falschen Seite
+ausführt, weil der Administrationsbereich aller Installationen identisch
+aussieht. Um solche Probleme zu verhindern, kann das Joomla-Backend mit
+einem eigenen Logo (z.B. das Logo des jeweiligen Kunden) und einer
+eigenen Farbe angepasst werden. Die entsprechenden Einstellungen finden
+sich in den _Parametern_ des _Template-Stils_ des Joomla-eigenen
+Backend-Templates Isis (siehe Bild 18.24). Im Tab _Erweitert_ kann dort
+z.B. eine Farbe für die Kopfzeile und ein Logo für die Administration
+selbst und den Administrationslogin gesetzt werden.
+
+image:book/18-best-practices/media/51.png[book/18-best-practices/media/51,width=548,height=314]
+
+Bild 18.24 Parameter des Isis Templates und deren Auswirkung in der
+Kopfzeile
+
+Ein angenehmer Nebeneffekt dieser Anpassung ist, dass der Kunde bzw.
+Nutzer stets durch das eigene Logo begrüßt wird, wenn der Login
+aufgerufen wird – eine kleine aber wirkvolle Maßnahme zur
+Personalisierung.

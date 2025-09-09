@@ -1,3 +1,0 @@
-[[22-updates-migration]]
-
-include::book/22-updates-migration/cap22.adoc[]
