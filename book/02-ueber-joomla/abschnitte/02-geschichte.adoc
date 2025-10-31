@@ -70,5 +70,4 @@ Nachdem Joomla! 3 sehr lange (für manche viel zu lange) aktuell war,
 wurde jetzt eine neue Release-Startegie eingeführt; doch dazu später 
 mehr.
 
-Entsprechend dieser neuen Strategie erschienen die neuen Hauptversionen 
-5.0 im Oktober 2023 und 6.0 im Oktober jeweils pünktlich.
+Entsprechend dieser neuen Strategie wurden die Hauptversionen 5.0 im Oktober 2023 und 6.0 im Oktober 2025 wie vorgesehen veröffentlicht.
