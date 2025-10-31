@@ -60,9 +60,7 @@ Felder (V3.7) und Datenschutzfunktionen (V3.9). Im August 2021
 erschien die Version 3.10 als Brücke zur gleichzeitig vorgestellten 
 neuen Hauptversion 4.
 
-Mit der Version 4.0 änderte sich sehr viel: Es gab ein fast komplettes 
-internes Redesing, erneut eine neue Administrationsoberfläche, höhere 
-Mindestanforderungen an die umgebende Software und eine neue Struktur 
+Mit Version 4.0 änderte sich vieles: Es gab ein nahezu vollständiges internes Redesign, eine erneut überarbeitete Administrationsoberfläche, höhere Mindestanforderungen an die Systemumgebung sowie eine neue Struktur
 für Erweiterungen. Das führte nicht nur zu erheblichem Migrationsaufwand 
 beim Update vieler Webseiten, sondern auch zu einigem Unmut bei 
 Webseitenbetreibern und Herstellern von Joomla!-Erweiterungen.
