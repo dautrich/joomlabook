@@ -60,12 +60,15 @@ Felder (V3.7) und Datenschutzfunktionen (V3.9). Im August 2021
 erschien die Version 3.10 als Brücke zur gleichzeitig vorgestellten 
 neuen Hauptversion 4.
 
-Mit Version 4.0 änderte sich vieles: Es gab ein nahezu vollständiges internes Redesign, eine erneut überarbeitete Administrationsoberfläche, höhere Mindestanforderungen an die Systemumgebung sowie eine neue Struktur
+Mit Version 4.0 änderte sich vieles: Es gab ein nahezu vollständiges 
+internes Redesign, eine erneut überarbeitete Administrationsoberfläche, 
+höhere Mindestanforderungen an die Systemumgebung sowie eine neue Struktur
 für Erweiterungen. Das führte nicht nur zu erheblichem Migrationsaufwand 
 beim Update vieler Webseiten, sondern auch zu einigem Unmut bei 
 Webseitenbetreibern und Herstellern von Joomla!-Erweiterungen.
 Nachdem Joomla! 3 sehr lange (für manche viel zu lange) aktuell war, 
-wurde jetzt eine neue Release-Startegie eingeführt; doch dazu später 
+wurde jetzt eine neue Release-Strategie eingeführt; doch dazu später 
 mehr.
 
-Entsprechend dieser neuen Strategie wurden die Hauptversionen 5.0 im Oktober 2023 und 6.0 im Oktober 2025 wie vorgesehen veröffentlicht.
+Entsprechend dieser neuen Strategie wurden die Hauptversionen 5.0 im 
+Oktober 2023 und 6.0 im Oktober 2025 wie vorgesehen veröffentlicht.
