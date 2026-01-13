@@ -3,7 +3,7 @@
 Mit der Veröffentlichung von Joomla! 4 im August 2021 hat das Joomla!-Projekt 
 eine neue Release-Strategie eingeführt. Diese steht auf zwei Grundsätzen:
 
-* Sematische Versionierung
+* Semantische Versionierung
 * Feste Release-Termine
 
 Doch bevor wir zu diesen beiden Teilen der Strategie kommen, noch ein paar 
@@ -12,7 +12,7 @@ allgemeine Bemerkungen.
 Joomla! benötigt einen Unterbau aus drei Komponenten:
 
 * einen Webserver (meist Apache),
-* einen Interpreter für die Skriptsprache PHP und
+* einen Webserver-Erweiterung für die Skriptsprache PHP und
 * eine Datenbank (MySQL, MariaDB oder PostgresQL).
 
 Diese Komponenten (alle genannten stehen ebenso wie Joomla! jeweils unter 
@@ -20,7 +20,7 @@ einer Open-Source-Lizenz) entwickeln sich ebenso weiter wie Joomla! Und
 natürlich müssen die eingesetzten Versionen miteinander harmonieren, was 
 durch die Releasestrategie von Joomla! sichergestellt werden muss.
 
-==== Sematische Versionierung
+==== Semantische Versionierung
 
 Der erste Grundsatz, die sogenannte Semantische Versionierung, gibt
 vor, welche Art von Änderung sich auf welche Stelle der Versionsnummer
@@ -97,7 +97,10 @@ erscheint gleichzeitig mit der neuen Majorversion (N+1) und bildet die
 Brückenversion von der alten auf die neue Hauptversion. Ein Update auf 
 die neue Majorversion (N+1) ist nur von der Minorversion (N).4 möglich. 
 Die Minorversion (N).4 erhält nur noch Fehlerkorrekturen und 
-Sicherheitsupdates, aber keine neuen Funktionen mehr.
+Sicherheitsupdates, aber keine neuen Funktionen mehr. 
+Mit dem Erscheinen der Minorversion (N).4 ist der Zeitpunkt gekommen, 
+an dem mit der Planung der Migration auf die neue Hauptversion begonnen 
+werden sollte.
 +
 Innerhalb einer Minorversion erscheint alle sechs Wochen eine neue 
 Patchversion. 
