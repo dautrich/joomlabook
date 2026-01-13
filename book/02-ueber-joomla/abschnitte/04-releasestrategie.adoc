@@ -24,22 +24,23 @@ durch die Releasestrategie von Joomla! sichergestellt werden muss.
 
 Der erste Grundsatz, die sogenannte Semantische Versionierung, gibt
 vor, welche Art von Änderung sich auf welche Stelle der Versionsnummer
-auswirkt. Eine dreistellige Versionsnummer, also X.Y.Z lässt sich dabei
+auswirkt. Eine dreistellige Versionsnummer, also X.Y.Z, lässt sich dabei
 in die folgenden Komponenten aufteilen:
 
 [arabic]
-. X ist die sog. Majorversion. Eine Änderung dieser Ziffer erfolgt, 
-wenn das Joomla! Projekt eine Änderung einbaut, die einen
-Bruch der Rückwärtskompatiblität zur Folge hat. Mit anderen Worten:
-ändert sich die erste Stelle der Versionsnummer, müssen Entwickler ihre
-Erweiterungen an die neue Version anpassen, da diese ansonsten nicht
-mehr lauffähig sind. Somit ist der Wechsel von der einen zur anderen
-Majorversion ein etwas komplexerer Prozess, der im Joomla!-Jargon als
-Migration bezeichnet wird und in Kapitel 22 genauer beschrieben ist.
+. X ist die sog. Majorversion. 
+Eine Änderung dieser Ziffer erfolgt, wenn das Joomla! Projekt eine 
+Änderung einbaut, die einen Bruch der Rückwärtskompatiblität zur Folge 
+hat. Mit anderen Worten: Ändert sich die erste Stelle der Versionsnummer, 
+müssen Entwickler ihre Erweiterungen an die neue Version anpassen, da 
+diese ansonsten nicht mehr lauffähig sind. Somit ist der Wechsel von 
+der einen zur anderen Majorversion ein etwas komplexerer Prozess, der 
+im Joomla!-Jargon als Migration bezeichnet wird und in Kapitel 22 genauer 
+beschrieben ist.
 Für jede Hauptversion legt das Joomla! Projekt die Mindestanforderungen 
 an den Webserver sowie an PHP und Datenbank fest. Diese Mindestanforderungen
 bleiben während der gesamten Lebenszeit der jeweiligen Hauptversion 
-unverändert.
+unverändert. 
 . Y ist die sog. Minorversion. Bei einer Änderung der Minorversion
 können neue Funktionen zu Joomla! hinzugefügt werden. Ein Update auf 
 eine neue Minorversionen ist relativ unkritisch und in der Regel mit 
@@ -82,7 +83,7 @@ Release-Zyklen mit folgenden Vorgaben:
 
 +
 Alle zwei Jahre erscheint eine neue Majorversion von Joomla. Beginnend 
-mit Joomla 5.0.0 ist der Releasetermin immer Mitte Oktober.
+mit Joomla 5.0.0 ist der Releasetermin immer an einem Dienstag Mitte Oktober.
 +
 Nach dem Release einer Hauptversion (N+1) wird die vorhergehende 
 Hauptversion (N) noch für zwei weitere Jahre unterstützt, also bis zum 
@@ -95,7 +96,8 @@ Innerhalb einer Majorversion (N) ist die Minorversion (N).4 die letzte. Sie
 erscheint gleichzeitig mit der neuen Majorversion (N+1) und bildet die 
 Brückenversion von der alten auf die neue Hauptversion. Ein Update auf 
 die neue Majorversion (N+1) ist nur von der Minorversion (N).4 möglich. 
-Die Minorversion (N).4 erhält nur noch Sicherheitsupdates.
+Die Minorversion (N).4 erhält nur noch Fehlerkorrekturen und 
+Sicherheitsupdates, aber keine neuen Funktionen mehr.
 +
 Innerhalb einer Minorversion erscheint alle sechs Wochen eine neue 
 Patchversion. 
@@ -107,3 +109,10 @@ Ab Joomla 5 gibt es für jede Majorversion (N) ein sogenanntes
 "Kompatibilitäts-Plugin". Ist dieses Plugin aktiviert, laufen alle 
 Erweiterungen (inkl. Templates), die in der Majorversion (N-1) lauffähig 
 waren, auch in der Majorversion (N).
++
+Speziell bezüglich PHP gilt, dass die mindestens geforderte PHP-Version 
+während der gesamten Lebenszeit der Joomla!-Hauptversion unterstützt wird.
++
+Bei der Migration von einer Version (N).4 auf eine neue Hauptversion (N+1) 
+wird dem Administrator ein "Pre-Update-Check" eingezeigt, der auf mögliche 
+Fehlerquellen beim Übergang auf die neue Hauptversion hinweist.
